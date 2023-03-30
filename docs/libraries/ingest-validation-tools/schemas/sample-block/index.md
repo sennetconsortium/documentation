@@ -24,7 +24,7 @@ Related files:
 - *Boolean* fields can be given as `TRUE`/`FALSE`, `True`/`False`, `true`/`false`, or `1`/`0`.
 
 
-<details markdown="1" open="true"><summary><b>Version 1 (current)</b></summary>
+<details markdown="1" open="true"><summary><b>Version 2.0 (current)</b></summary>
 
 <blockquote markdown="1">
 
