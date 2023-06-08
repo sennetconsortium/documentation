@@ -14,6 +14,7 @@
 
 
 ## Development
+Only need to set this up if there is a need to add new functionality, features, styles to the templates. To view `/docs` as they'd appear on GitHub pages, see [mimicking GitHub pages](#mimicking-github-pages-locally).
 ### Install 
 ```bash
 cd documentation
