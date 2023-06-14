@@ -2,7 +2,7 @@
  * sennetdocs - 
  * @version v0.1.0
  * @link https://docs.sennetconsortium.org/
- * @date Thu Mar 16 2023 10:28:11 GMT-0400 (Eastern Daylight Time)
+ * @date Wed Jun 14 2023 11:20:02 GMT-0400 (Eastern Daylight Time)
  */
 var _this10 = this;
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
@@ -9497,7 +9497,7 @@ var Header = /*#__PURE__*/function (_App4) {
       this.$.li.find('a').on('click', function (e) {
         e.preventDefault();
         var link = _this6.currentTarget(e).attr('href');
-        if (window.location.pathname !== '/') {
+        if (window.location.pathname !== '/' || link[0] !== '#') {
           window.location = '/' + link.slice(1);
         } else {
           if (link !== '/') {
