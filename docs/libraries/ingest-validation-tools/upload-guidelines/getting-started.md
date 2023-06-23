@@ -12,4 +12,5 @@ First, here are some key concepts and definitions:
 - **Sample**: An organ, tissue block, tissue section, or tissue suspension.
 - **Dataset**: Contains the data files for a particular run of an experimental modality (assay). Note that SenNet Curation will use "experimental modality" and "assay" interchangeably.
 - **Provenance**: The origin of a particular entity. Captured internally via a graph database in the CODCC. A typical flow of provenance in SenNet is `source -> organ -> block -> a further block, a section, or a suspension -> dataset`. Everything from organ down is registered to a direct ancestor (organ registered to source, tissue block to organ, section/suspension/block to first block, dataset to sample). A dataset is descended from the most granular sample against which the experimental modality was run.
-- 
+
+!(SenNet Data Submission Overview Registration.drawio.png)
