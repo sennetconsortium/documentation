@@ -25,7 +25,7 @@ A lecture recording on the above concepts as well as registering entities on the
 
 The draft of v0.2.1 of the SenNet Data Submission Guide can be found [here](https://docs.google.com/document/d/1UeUCZmjRTr7qIXnVLDKj6ix_XI9yxNFRn5w3R5Pzkf4/edit?usp=sharing).
 
-If you need further help with the data submission process, please schedule a 30-minute SenNet Data Submission Office Hours meeting with one of the curators via [this link](https://calendly.com/bhonick-psc/30min?) or reach out to the SenNet Help Desk via help@sennetconsortium.org.
+If you need further help with the data submission process, please schedule a 30-minute SenNet Data Submission Office Hours meeting with one of the curators via [this link](https://calendly.com/bhonick-psc/30min?) or reach out to the SenNet Help Desk via [help@sennetconsortium.org](mailto:help@sennetconsortium.org).
 
 
 By: Brendan J. Honick, MLIS, AHIP 2023-06-23
