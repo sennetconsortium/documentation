@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Getting Started with Data Submission
 
 Are you new to the data submission process in SenNet or looking for a refresher? Then this is the resource for you!
