@@ -17,4 +17,10 @@ An overview of a typical data submission process workflow can be found below:
 
 ![SenNet Data Submission Overview Registration drawio](https://github.com/sennetconsortium/documentation/assets/71984404/c3c254d3-d29e-498c-a2e9-c354e8a7558b)
 
+A lecture recording on the above concepts as well as registering entities on the Data Sharing Portal can be found via [this link](https://iu.mediaspace.kaltura.com/media/t/1_9acekkx1) (hosting courtesy of Indiana University via Kaltura).
 
+If you need further help with the data submission process, please schedule a 30-minute SenNet Data Submission Office Hours meeting with one of the curators via [this link](https://calendly.com/bhonick-psc/30min?) or reach out to the SenNet Help Desk via help@sennetconsortium.org.
+
+
+By: Brendan J. Honick, MLIS, AHIP 2023-06-23
+Last updated by: Brendan J. Honick, MLIS, AHIP 2023-06-23
