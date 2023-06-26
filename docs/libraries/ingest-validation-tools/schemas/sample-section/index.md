@@ -9,8 +9,8 @@ layout: default
 
 Related files:
 
-- [📝 Excel template](https://raw.githubusercontent.com/hubmapconsortium/ingest-validation-tools/main/docs/sample-section/sample-section.xlsx): For metadata entry.
-- [📝 TSV template](https://raw.githubusercontent.com/hubmapconsortium/ingest-validation-tools/main/docs/sample-section/sample-section.tsv): Alternative for metadata entry.
+- [📝 Excel template](https://raw.githubusercontent.com/sennetconsortium/documentation/main/docs/libraries/ingest-validation-tools/schemas/sample-section/sample-section.xlsx): For metadata entry.
+- [📝 TSV template](https://raw.githubusercontent.com/sennetconsortium/documentation/main/docs/libraries/ingest-validation-tools/schemas/sample-section/sample-section.tsv): Alternative for metadata entry.
 
 
 
