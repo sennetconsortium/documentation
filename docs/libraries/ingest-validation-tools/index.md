@@ -1,7 +1,6 @@
 ---
 layout: default
 ---
-
 # Ingest Validation Tools & Upload Guidelines
 
 Well-defined schemas ensure that SenNet data and metadata are reusable. 
@@ -15,7 +14,11 @@ Assay types and their schemas are linked below.
 - An Excel file listing all the schemas and their fields is available.
 - For more information, see the [ingest-validation-tools repo](https://github.com/sennetconsortium/ingest-validation-tools).
 
+## New to the Data Submission process?
+Visit this page to learn more: [Getting Started](/libraries/ingest-validation-tools/upload-guidelines/getting-started)
+
 ## Available schemas
 - [sample-block](/libraries/ingest-validation-tools/schemas/sample-block)
 - [sample-section](/libraries/ingest-validation-tools/schemas/sample-section)
 - [sample-suspension](/libraries/ingest-validation-tools/schemas/sample-suspension)
+- [source-murine](/libraries/ingest-validation-tools/schemas/source-murine)
