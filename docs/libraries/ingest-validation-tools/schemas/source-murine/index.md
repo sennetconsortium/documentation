@@ -9,8 +9,8 @@ layout: default
 
 Related files:
 
-- [📝 Excel template](https://raw.githubusercontent.com/sennetconsortium/documentation/main/docs/libraries/ingest-validation-tools/schemas/murine-source/murine-source.xlsx): For metadata entry.
-- [📝 TSV template](https://raw.githubusercontent.com/sennetconsortium/documentation/main/docs/libraries/ingest-validation-tools/schemas/murine-source/murine-source.tsv): Alternative for metadata entry.
+- [📝 Excel template](https://raw.githubusercontent.com/sennetconsortium/documentation/main/docs/libraries/ingest-validation-tools/schemas/source-murine/murine-source.xlsx): For metadata entry.
+- [📝 TSV template](https://raw.githubusercontent.com/sennetconsortium/documentation/main/docs/libraries/ingest-validation-tools/schemas/source-murine/murine-source.tsv): Alternative for metadata entry.
 
 
 
