@@ -13,7 +13,7 @@ C:\Users\<USER_NAME>\sennet-downloads
 ```
 
 ## Instructions
-1. Ensure GCP is running. You can check this by check if a "g" icons is located in the bottom right of the screen.
+1. Ensure GCP is running. You can determine this by checking if a "g" icons is located in the bottom right of the screen.
 2. Right-click on the "g" icon and choose the "Options..." button to open the GCP options.
-3. In the "General" tab, change the "Home Folder" to the user home directory. For example `C:\Users\<USER_NAME>`.
+3. In the "General" tab, change the "Home Folder" to the user home directory. For example, `C:\Users\<USER_NAME>`.
 4. In the "Access" tab, click the "+" button in the bottom right and add the user home directory from step 3. Make sure the "Writable" checkbox is checked next to the newly created entry.

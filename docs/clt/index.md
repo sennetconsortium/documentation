@@ -36,7 +36,7 @@ sennet-clt -h
 
 ### Login
 
-A one-time login is required for any download session. For non-public data, you must log in with your SenNet account. For publicly available data, you can log in with any account accepted by the login form (Google and OrCID). Log in can be initiated using the following command:
+A one-time login is required for any download session. For non-public data, you must log in with your SenNet account. For publicly available data, you can log in with any account accepted by the login form (Google and ORCID). Log in can be initiated using the following command:
 
 ``` 
 sennet-clt login
