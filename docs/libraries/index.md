@@ -14,3 +14,8 @@ Visualization tool for generating interactive provenance graphs.
 Tools that validate uploads adhere to schema guidelines.
 - [GitHub Repo](https://github.com/sennetconsortium/ingest-validation-tools)
 - [Docs](/libraries/ingest-validation-tools)
+
+### [Command-Line Transfer](/libraries/clt)
+Command-line interface tool for downloading files and directories.
+- [GitHub Repo](https://github.com/x-atlas-consortia/clt)
+- [Docs](/libraries/clt)
