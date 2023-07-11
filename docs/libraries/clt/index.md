@@ -27,6 +27,10 @@ SNT345.ABCD.456 /                   #download all files in the dataset SNT345.AB
 SNT378.HDGT.837 /extras             #download the extras directory from dataset SNT378.HDGT.837
 ```
 
+### Creating from Data Sharing Portal
+Manifest files can be created from the [Data Sharing Portal](https://data.sennetconsortium.org/search/files). Select the checkboxes next to the files of interest and click the "..." button at the top left of the table.<br>
+![Creating manifest](../../imgs/manifest-create.png){: .clt-img }
+
 ## Usage
 
 Usage documentation can also be found by running the following command:
