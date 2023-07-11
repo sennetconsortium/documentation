@@ -3,17 +3,17 @@ layout: default
 ---
 # SenNet Command-Line Transfer
 
-The SenNet Command-Line Transfer (CLT) tool streamlines the download of individual files and directories from multiple datasets and uploads. Files and directories are specified in a manifest file and given to the CLT.
+The [SenNet Command-Line Transfer (CLT)](https://pypi.org/project/atlas-consortia-clt/) tool streamlines the download of individual files and directories from multiple datasets and uploads. Files and directories are specified in a manifest file and given to the CLT.
 
 
 ## Installation
 
-The CLT uses the [Globus Connect Personal](https://www.globus.org/globus-connect-personal) (GCP) application to download the specified files and directories to your computer. GCP and the CLT require a SenNet account. This account is the same account used to log in to the SenNet Portal. Windows users should follow [additional instructions](gcp-windows) while settings up GCP.
+The CLT uses the [Globus Connect Personal](https://www.globus.org/globus-connect-personal) (GCP) application to download the specified files and directories to your computer. GCP and the CLT require a SenNet account. This account is the same account used to log in to the SenNet Data Sharing Portal. Windows users should follow [additional instructions](gcp-windows) to correctly setup GCP.
 
 The CLT requires Python 3.6 or above. The CLT can be installed through PyPI using the following command:
 
 ```
-pip install sennet-clt
+pip install atlas-consortia-clt
 ```
 
 ## Manifest File
@@ -26,6 +26,10 @@ SNT123.ABCD.456 /metadata.tsv       #download the metadata.tsv file for dataset 
 SNT345.ABCD.456 /                   #download all files in the dataset SNT345.ABCD.456
 SNT378.HDGT.837 /extras             #download the extras directory from dataset SNT378.HDGT.837
 ```
+
+### Creating from Data Sharing Portal
+Manifest files can be created from the [Search Files Page](https://data.sennetconsortium.org/search/files) of the Data Sharing Portal. Select the checkboxes next to the files of interest and click the "..." button at the top left of the table.<br>
+![Creating manifest](../../imgs/manifest-create.png){: .clt-img }
 
 ## Usage
 
