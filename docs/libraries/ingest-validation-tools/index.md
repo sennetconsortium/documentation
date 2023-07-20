@@ -17,8 +17,9 @@ Assay types and their schemas are linked below.
 ## New to the Data Submission process?
 Visit this page to learn more: [Getting Started](/libraries/ingest-validation-tools/upload-guidelines/getting-started)
 
-## Available schemas
-- [sample-block](/libraries/ingest-validation-tools/schemas/sample-block)
-- [sample-section](/libraries/ingest-validation-tools/schemas/sample-section)
-- [sample-suspension](/libraries/ingest-validation-tools/schemas/sample-suspension)
-- [source-murine](/libraries/ingest-validation-tools/schemas/source-murine)
+## Available metadata schemas
+- [Source - Human](/libraries/ingest-validation-tools/schemas/source-human)
+- [Source - Murine](/libraries/ingest-validation-tools/schemas/source-murine)
+- [Sample - Block](/libraries/ingest-validation-tools/schemas/sample-block)
+- [Sample - Section](/libraries/ingest-validation-tools/schemas/sample-section)
+- [Sample - Suspension](/libraries/ingest-validation-tools/schemas/sample-suspension)

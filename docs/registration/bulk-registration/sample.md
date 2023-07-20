@@ -1,0 +1,25 @@
+---
+layout: default
+---
+# Sample Bulk Registration
+
+To bulk register tissue samples log into the [Data Sharing Portal](https://data.sennetconsortium.org/edit/bulk/sample?action=register) and from the top, click "Register entity" and select "Samples".
+
+On the `sample` bulk registration page you'll be asked to upload a .tsv file containing one row for each tissue sample that will be registered.  An [example_sample.tsv](https://data.sennetconsortium.org/bulk/entities/example_sample.tsv) file is provided as a template. This .tsv file contains 6 columns (fields) that contain required information for each tissue to be registered.  Descriptions of these fields are below.  Once the .tsv file has been successfully uploaded and submitted the system will register the samples.
+
+Tissue samples of type `organ`, `block`, `section` or `suspension` can be registered.
+
+## Sample Bulk Registration TSV Fields
+
+| Field/Column         | Description                                                                                                                                                                                                                                                                                                                                                                                            |
+|----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ancestor_id          | `Required`: The SenNet ID (e.g. `SNT123.ABCD.567`) of the ancestor for this tissue sample.  For samples that represent a whole organ, this ancestor must be a `source`, for any other sample type the ancestor must be another sample (i.e., the sample that the newly registered sample was taken from).                                                                                                  |
+| sample_category      | `Required`: The top level type of sample that is being registered. Valid values are `organ`, `block`, `section` or `suspension`. If `organ` is specified then the organ_type field must be provided.                                                                                                                                                                                                     |
+| lab_id               | `Required`: An identifier used internally by the lab to identify the specimen. This can be useful for lab members to identify and look-up Samples.                                                                                                                                                                                                      |
+| lab_notes            | A description of the sample for purposes of generally describing the sample and finding for use to find it via keyword search in the Data Sharing Portal (Portal UI).                                                                                                                                                                                                                           |
+| organ_type           | This field is `required` only if the sample_category is specified as `organ`.  This is the SenNet defined code for the organ that this registration represents (example, `BR` for Brain or `LK` for Left Kidney) from the [organ_types.yaml file](https://github.com/hubmapconsortium/search-api/blob/main/src/search-schema/data/definitions/enums/organ_types.yaml).                                   |
+| preparation_protocol | `Required`: A DOI URL from the [protocols.io site](https://protocols.io) of a protocol describing the procedures used when creating/preparing the sample.                                                                                                                                                                                                                                                |
+
+
+## Sample Metadata Submission
+After samples have been registered you can bulk upload metadata by clicking "Upload metadata" and then selecting either `Block`, `Section`, or `Suspension`. Metadata for samples may only be bulk uploaded by a specific type at a time. For more information regarding metadata upload you can visit the [documentation page](../../libraries/ingest-validation-tools/schemas).
