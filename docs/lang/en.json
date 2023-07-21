@@ -9,12 +9,16 @@
       "class": "h2"
     },
     {
+      "name": "Entity Registration",
+      "href": "/registration"
+    },
+    {
       "name": "APIs",
-      "href": "#apis"
+      "href": "/apis"
     },
     {
       "name": "Libraries",
-      "href": "#libraries"
+      "href": "/libraries"
     }
   ]
 }

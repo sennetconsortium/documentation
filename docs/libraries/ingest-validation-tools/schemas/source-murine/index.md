@@ -1,6 +1,6 @@
 ---
-title: murine-source
-schema_name: murine-source
+title: source-murine
+schema_name: source-murine
 category: Other TSVs
 all_versions_deprecated: False
 exclude_from_index: False
