@@ -2,7 +2,7 @@
 layout: default
 ---
 
-## Libraries
+# Libraries
 Various libraries and tools available for usage are as follows:
 
 ### [Provenance UI](/libraries/provenance-ui)
