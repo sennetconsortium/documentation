@@ -89,9 +89,14 @@ class Sidebar extends App {
             html += `</ul>`
             this.$.list.html(html)
 
-            // Remove with the root.
+            // Remove root and replace. Root from recursion has no content.
             const $main = '<ul>' + this.$.list.find(`.${this.classNames.root} ul`).html() + '</ul>'
             this.$.list.html($main)
+
+            // Hide if root has no children
+            if (root.c.length === 1 && !root.c[0].c.length) {
+                this.$.main.addClass('hide')
+            }
         }
     }
 

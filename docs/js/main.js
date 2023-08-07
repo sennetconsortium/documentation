@@ -2,7 +2,7 @@
  * sennetdocs - 
  * @version v0.1.0
  * @link https://docs.sennetconsortium.org/
- * @date Wed Jun 14 2023 11:20:02 GMT-0400 (Eastern Daylight Time)
+ * @date Mon Aug 07 2023 15:59:41 GMT-0400 (Eastern Daylight Time)
  */
 var _this10 = this;
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
@@ -9829,9 +9829,12 @@ var Sidebar = /*#__PURE__*/function (_App5) {
         html += "</ul>";
         this.$.list.html(html);
 
-        // Remove with the root.
+        // Remove root and replace. Root from recursion has no content.
         var $main = '<ul>' + this.$.list.find(".".concat(this.classNames.root, " ul")).html() + '</ul>';
         this.$.list.html($main);
+        if (root.c.length === 1 && !root.c[0].c.length) {
+          this.$.main.addClass('hide');
+        }
       }
     }
   }, {
