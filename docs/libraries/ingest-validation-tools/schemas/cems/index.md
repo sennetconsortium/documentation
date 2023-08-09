@@ -26,8 +26,6 @@ Related files:
 
 
 
-In the portal: CE-MS not in Portal
-
 ## Metadata schema
 
 ### Field types

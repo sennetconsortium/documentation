@@ -48,10 +48,8 @@ Visit this page to learn more: [Getting Started](/libraries/ingest-validation-to
 - [3D Imaging Mass Cytometry](/libraries/ingest-validation-tools/schemas/imc3d)
 - [DESI](/libraries/ingest-validation-tools/schemas/desi)
 - [Imaging Mass Cytometry](/libraries/ingest-validation-tools/schemas/imc)
-- [MALDI](/libraries/ingest-validation-tools/schemas/maldi)
+- [Imaging Mass Spectrometry](/libraries/ingest-validation-tools/schemas/ims)
 - [Multiplex Ion Beam Imaging](/libraries/ingest-validation-tools/schemas/mibi)
-- [NanoDESI](/libraries/ingest-validation-tools/schemas/nano-desi)
-- [SIMS](/libraries/ingest-validation-tools/schemas/sims)
 
 ### Mass Spectrometry
 - [CE-MS](/libraries/ingest-validation-tools/schemas/cems)
