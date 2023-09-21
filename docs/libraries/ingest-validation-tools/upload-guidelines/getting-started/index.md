@@ -4,7 +4,7 @@ layout: default
 
 # Getting Started with Data Submission
 
-**PLEASE NOTE:** This page may be out of date to the current implementation of CEDAR schemas. Please reach out to [help@hubmapconsortium.org](mailto:help@hubmapconsortium.org) with any questions.
+**PLEASE NOTE:** This page may be out of date to the current implementation of CEDAR schemas. Please reach out to [help@sennetconsortium.org](mailto:help@sennetconsortium.org) with any questions.
 
 Are you new to the data submission process in SenNet or looking for a refresher? Then this is the resource for you!
 
