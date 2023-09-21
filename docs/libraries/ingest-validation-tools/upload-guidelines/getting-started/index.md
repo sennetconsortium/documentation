@@ -4,6 +4,8 @@ layout: default
 
 # Getting Started with Data Submission
 
+**PLEASE NOTE:** This page may be out of date to the current implementation of CEDAR schemas. Please reach out to [help@hubmapconsortium.org](mailto:help@hubmapconsortium.org) with any questions.
+
 Are you new to the data submission process in SenNet or looking for a refresher? Then this is the resource for you!
 
 First, here are some key concepts and definitions:
@@ -16,6 +18,7 @@ First, here are some key concepts and definitions:
 - **Sample**: An organ, tissue block, tissue section, or tissue suspension.
 - **Dataset**: Contains the data files for a particular run of an experimental modality (assay). Note that SenNet Curation will use "experimental modality" and "assay" interchangeably.
 - **Provenance**: The origin of a particular entity. Captured internally via a graph database in the CODCC. A typical flow of provenance in SenNet is `source -> organ -> block -> a further block, a section, or a suspension -> dataset`. Everything from organ down is registered to a direct ancestor (organ registered to source, tissue block to organ, section/suspension/block to first block, dataset to sample). A dataset is descended from the most granular sample against which the experimental modality was run.
+- **Registration User Interface (RUI)**: The tool allowing for the spatial coordinate registration of tissue blocks.
 
 An overview of a typical data submission process workflow can be found below:
 
@@ -30,4 +33,4 @@ If you need further help with the data submission process, please schedule a 30-
 
 By: Brendan J. Honick, MLIS, AHIP 2023-06-23
 
-Last updated by: Brendan J. Honick, MLIS, AHIP 2023-06-23
+Last updated by: Brendan J. Honick, MLIS, AHIP 2023-09-21
