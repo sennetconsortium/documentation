@@ -7,6 +7,8 @@ layout: default
 
 An exception to the above is the [murine source metadata schema](/libraries/ingest-validation-tools/schemas/source-murine), which is unique to SenNet and must be completed for registered murine sources.
 
+Please reach out to the [SenNet Help Desk](mailto:help@sennetconsortium.org) with any questions. 
+
 ## New to the Data Submission Process?
 Visit this page to learn more: [Getting Started](/libraries/ingest-validation-tools/upload-guidelines/getting-started)
 
