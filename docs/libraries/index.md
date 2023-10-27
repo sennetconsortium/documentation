@@ -7,7 +7,7 @@ Various libraries and tools available for usage are as follows:
 
 ### [Provenance UI](/libraries/provenance-ui)
 Visualization tool for generating interactive provenance graphs.
-- [GitHub Repo](https://github.com/sennetconsortium/provenance-ui/tree/main/src)
+- [GitHub Repo](https://github.com/sennetconsortium/provenance-ui)
 - [Docs](/libraries/provenance-ui)
 
 ### [Ingest Validation Tools](/libraries/ingest-validation-tools)
