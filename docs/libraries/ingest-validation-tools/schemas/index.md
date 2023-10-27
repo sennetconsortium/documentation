@@ -11,9 +11,9 @@ layout: default
 - [Organ](/libraries/ingest-validation-tools/schemas/organ)
 
 ### Sample
-- [Sample - Block](https://openview.metadatacenter.org/templates/https:%2F%2Frepo.metadatacenter.org%2Ftemplates%2F3e98cee6-d3fb-467b-8d4e-9ba7ee49eeff) [legacy](/libraries/ingest-validation-tools/schemas/sample-block)
-- [Sample - Section](https://openview.metadatacenter.org/templates/https:%2F%2Frepo.metadatacenter.org%2Ftemplates%2F01e9bc58-bdf2-49f4-9cf9-dd34f3cc62d7) [legacy](/libraries/ingest-validation-tools/schemas/sample-section)
-- [Sample - Suspension](https://openview.metadatacenter.org/templates/https:%2F%2Frepo.metadatacenter.org%2Ftemplates%2Fea4fb93c-508e-4ec4-8a4b-89492ba68088) [legacy](/libraries/ingest-validation-tools/schemas/sample-suspension)
+- [Sample - Block](https://openview.metadatacenter.org/templates/https:%2F%2Frepo.metadatacenter.org%2Ftemplates%2F3e98cee6-d3fb-467b-8d4e-9ba7ee49eeff) <smuted><a href='/libraries/ingest-validation-tools/schemas/sample-block'>(legacy)</a></smuted>
+- [Sample - Section](https://openview.metadatacenter.org/templates/https:%2F%2Frepo.metadatacenter.org%2Ftemplates%2F01e9bc58-bdf2-49f4-9cf9-dd34f3cc62d7) <smuted><a href='/libraries/ingest-validation-tools/schemas/sample-section'>(legacy)</a></smuted>
+- [Sample - Suspension](https://openview.metadatacenter.org/templates/https:%2F%2Frepo.metadatacenter.org%2Ftemplates%2Fea4fb93c-508e-4ec4-8a4b-89492ba68088) <smuted><a href='/libraries/ingest-validation-tools/schemas/sample-suspension'>(legacy)</a></smuted>
 
 ## Assays
 ### Clinical Imaging Modalities
