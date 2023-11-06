@@ -8,12 +8,12 @@ layout: default
 - [Source - Murine](/libraries/ingest-validation-tools/schemas/source-murine)
 
 ### Organ
-- [Organ](/libraries/ingest-validation-tools/schemas/organ)
+- <extlnk><a href='https://hubmapconsortium.github.io/ingest-validation-tools/organ/current/' target='_blank'>Organ</a></extlnk>
 
 ### Sample
-- [Sample - Block](/libraries/ingest-validation-tools/schemas/sample-block)
-- [Sample - Section](/libraries/ingest-validation-tools/schemas/sample-section)
-- [Sample - Suspension](/libraries/ingest-validation-tools/schemas/sample-suspension)
+- <extlnk><a href='https://hubmapconsortium.github.io/ingest-validation-tools/sample-block/current/' target='_blank'>Sample - Block</a></extlnk>  <smuted><a href='/libraries/ingest-validation-tools/schemas/sample-block'>(legacy)</a></smuted>
+- <extlnk><a href='https://hubmapconsortium.github.io/ingest-validation-tools/sample-section/current/' target='_blank'>Sample - Section</a></extlnk>  <smuted><a href='/libraries/ingest-validation-tools/schemas/sample-section'>(legacy)</a></smuted>
+- <extlnk><a href='https://hubmapconsortium.github.io/ingest-validation-tools/sample-suspension/current/' target='_blank'>Sample - Suspension</a></extlnk> <smuted><a href='/libraries/ingest-validation-tools/schemas/sample-suspension'>(legacy)</a></smuted>
 
 ## Assays
 ### Clinical Imaging Modalities
