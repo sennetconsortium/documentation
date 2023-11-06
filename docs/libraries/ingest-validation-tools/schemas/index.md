@@ -8,12 +8,12 @@ layout: default
 - [Source - Murine](/libraries/ingest-validation-tools/schemas/source-murine)
 
 ### Organ
-- [Organ](/libraries/ingest-validation-tools/schemas/organ)
+- <extlnk><a href='https://hubmapconsortium.github.io/ingest-validation-tools/organ/current/' target='_blank'>Organ</a></extlnk>
 
 ### Sample
-- <extlnk><a href='https://openview.metadatacenter.org/templates/https:%2F%2Frepo.metadatacenter.org%2Ftemplates%2F3e98cee6-d3fb-467b-8d4e-9ba7ee49eeff' target='_blank'>Sample - Block</a></extlnk>  <smuted><a href='/libraries/ingest-validation-tools/schemas/sample-block'>(legacy)</a></smuted>
-- <extlnk><a href='https://openview.metadatacenter.org/templates/https:%2F%2Frepo.metadatacenter.org%2Ftemplates%2F01e9bc58-bdf2-49f4-9cf9-dd34f3cc62d7' target='_blank'>Sample - Section</a></extlnk>  <smuted><a href='/libraries/ingest-validation-tools/schemas/sample-section'>(legacy)</a></smuted>
-- <extlnk><a href='https://openview.metadatacenter.org/templates/https:%2F%2Frepo.metadatacenter.org%2Ftemplates%2Fea4fb93c-508e-4ec4-8a4b-89492ba68088' target='_blank'>Sample - Suspension</a></extlnk> <smuted><a href='/libraries/ingest-validation-tools/schemas/sample-suspension'>(legacy)</a></smuted>
+- <extlnk><a href='https://hubmapconsortium.github.io/ingest-validation-tools/sample-block/current/' target='_blank'>Sample - Block</a></extlnk>  <smuted><a href='/libraries/ingest-validation-tools/schemas/sample-block'>(legacy)</a></smuted>
+- <extlnk><a href='https://hubmapconsortium.github.io/ingest-validation-tools/sample-section/current/' target='_blank'>Sample - Section</a></extlnk>  <smuted><a href='/libraries/ingest-validation-tools/schemas/sample-section'>(legacy)</a></smuted>
+- <extlnk><a href='https://hubmapconsortium.github.io/ingest-validation-tools/sample-suspension/current/' target='_blank'>Sample - Suspension</a></extlnk> <smuted><a href='/libraries/ingest-validation-tools/schemas/sample-suspension'>(legacy)</a></smuted>
 
 ## Assays
 ### Clinical Imaging Modalities
