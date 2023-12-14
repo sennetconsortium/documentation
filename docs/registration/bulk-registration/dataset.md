@@ -10,10 +10,10 @@ On the `dataset` bulk registration page you'll be asked to upload a .tsv file co
 
 ## Dataset Bulk Registration TSV Fields
 
-| Field/Column         | Description                                                                                                                                                                          |
-|----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| lab_id               | An identifier used internally by the lab to identify the Dataset. This can be useful for lab members to identify and look-up Datasets.                                               |
-| ancestor_id          | `Required`: The SenNet ID (e.g. `SNT123.ABCD.567`) of the ancestor for the dataset.                                                                                                  |
-| doi_abstract         | An abstract publicly available when the Dataset is published. This will be included with the DOI information of the published Dataset.                                               |
-| human_gene_sequences | `Required`: Does this data contain any human genetic sequences?                                                                                                                      |
-| data_types           | `Required`: The type of data contained in this Dataset. A list of available types can be found [here](https://ontology.api.hubmapconsortium.org/datasets?application_context=SENNET) |
+| Field/Column         | Description                                                                                                                                                                                                                               |
+|----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| lab_id               | An identifier used internally by the lab to identify the Dataset. This can be useful for lab members to identify and look-up Datasets.                                                                                                    |
+| ancestor_id          | `Required`: The SenNet ID (e.g. `SNT123.ABCD.567`) of the ancestor for the dataset.                                                                                                                                                       |
+| doi_abstract         | An abstract publicly available when the Dataset is published. This will be included with the DOI information of the published Dataset.                                                                                                    |
+| human_gene_sequences | `Required`: Does this data contain any human genetic sequences?                                                                                                                                                                           |
+| dataset_type         | `Required`: The type of data contained in this Dataset. A list of available types can be found [here](https://ontology-api.dev.hubmapconsortium.org/valueset?parent_sab=SENNET&parent_code=C003041&child_sabs=SENNET) in the `term` value |
