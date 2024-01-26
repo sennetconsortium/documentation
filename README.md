@@ -6,12 +6,22 @@
 - For convenience, within `docs/lang/en.json`, you are free to change the text:  
   - And links of the `menu` property without having to rebuild the html files. The `menu` property is an array of objects in format of `{name: "Link name", href: "/link-url"}`
   - Of the `breadcrumbRoot` property without having to rebuild the html files. The change here will appear on the `Breadcrumbs` component. If you remove this property, no root will be included.
+  - Of the `sidebars` property without having to rebuild the html files. These `sidebars` determine are for setting custom Table of Contents per document instead of the automatically generated one. Configure the `sidebars` property with a key that is the value of location.pathname or the base path of the .md within `docs`. Each pathname is an object with keys `items` (array of objects) and `isCascading` (boolean). Setting isCascading to true means that any subsequent docs within the pathname subdirectories will also have the same Table of Contents.
 
 ## Contents
 - `/src/`- Any source code used to generate the hosted documents (not directly published)
 - `/docs/` - Contains the markdown files that are hosted as html by GitHub Pages.
 - `/docker/` - The files to create a docker image which can be run locally to test the site. This image is built and available from DockerHub as `hubmap/github-pages-server`
 
+## Working with submodule
+
+This repository relies on the [data_submission_guide](https://github.com/x-atlas-consortia/data_submission_guide) as a submodule to function. The
+file `.gitmodules` contains the configuration for the URL and specific branch of the submodule that is to be used. Once
+you already have cloned this repository and switched to the target branch, to load the latest `data_submission_guide` submodule:
+
+```
+git submodule update --init --remote
+```
 
 ## Development
 Only need to set this up if there is a need to add new functionality, features, styles to the templates. To view `/docs` as they'd appear on GitHub pages, see [mimicking GitHub pages](#mimicking-github-pages-locally).
