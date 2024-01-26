@@ -2,7 +2,7 @@
  * sennetdocs - 
  * @version v0.1.0
  * @link https://docs.sennetconsortium.org/
- * @date Mon Aug 07 2023 15:59:41 GMT-0400 (Eastern Daylight Time)
+ * @date Wed Jan 24 2024 16:40:16 GMT-0500 (Eastern Standard Time)
  */
 var _this10 = this;
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
@@ -9738,14 +9738,38 @@ var Sidebar = /*#__PURE__*/function (_App5) {
       hs: $('.c-documentation').find('h1, h2, h3, h4, h5, h6')
     };
     _this7.sizeSideBar();
+    _this7.pathBase = '/';
     _this7.classNames.root = 'is-root';
     _this7.headerHeight = 90;
     _this7.events();
-    _this7.buildTableOfContents();
+    _this7.determineContentBuilder();
     _this7.sizeSideBarHeight();
     return _this7;
   }
   _createClass(Sidebar, [{
+    key: "determineContentBuilder",
+    value: function determineContentBuilder() {
+      var hasBuiltSidebar = false;
+      var path = window.location.pathname;
+      this.pathBase = path;
+      var sidebars = this.msgs.sidebars || {};
+      for (var sidebarKey in sidebars) {
+        var hasSidebar = sidebars[sidebarKey].isCascading ? path.includes(sidebarKey) : path === sidebarKey;
+        if (hasSidebar) {
+          this.pathBase = sidebarKey;
+          if (this.hasChildren(sidebars[sidebarKey])) {
+            var className = sidebars[sidebarKey].className;
+            sidebars[sidebarKey].className = this.classNames.root + " ".concat(className || '');
+            this.renderList(sidebars[sidebarKey]);
+            hasBuiltSidebar = true;
+          }
+        }
+      }
+      if (!hasBuiltSidebar) {
+        this.buildTableOfContents();
+      }
+    }
+  }, {
     key: "events",
     value: function events() {
       var _this8 = this;
@@ -9824,23 +9848,36 @@ var Sidebar = /*#__PURE__*/function (_App5) {
       });
       App.log('The generated Table of Contents:', root);
       if (root.c.length) {
-        var html = "<ul>";
-        html = this.getList(root, html);
-        html += "</ul>";
-        this.$.list.html(html);
+        this.renderList(root);
+      }
+    }
+  }, {
+    key: "getChildren",
+    value: function getChildren(root) {
+      return root.c || root.items;
+    }
+  }, {
+    key: "renderList",
+    value: function renderList(root) {
+      debugger;
+      var html = "<ul>";
+      html = this.getList(root, html);
+      html += "</ul>";
+      this.$.list.html(html);
 
-        // Remove root and replace. Root from recursion has no content.
-        var $main = '<ul>' + this.$.list.find(".".concat(this.classNames.root, " ul")).html() + '</ul>';
-        this.$.list.html($main);
-        if (root.c.length === 1 && !root.c[0].c.length) {
-          this.$.main.addClass('hide');
-        }
+      // Remove root and replace. Root from recursion has no content.
+      var $main = '<ul>' + this.$.list.find(".".concat(this.classNames.root, " ul")).html() + '</ul>';
+      this.$.list.html($main);
+
+      // Hide if root has no children
+      if (this.getChildren(root).length === 1 && !this.getChildren(this.getChildren(root)[0]).length) {
+        this.$.main.addClass('hide');
       }
     }
   }, {
     key: "hasChildren",
     value: function hasChildren(n) {
-      return n.c && n.c.length > 0;
+      return n.c && n.c.length > 0 || n.items && n.items.length > 0;
     }
   }, {
     key: "getList",
@@ -9850,10 +9887,12 @@ var Sidebar = /*#__PURE__*/function (_App5) {
       var levelClass = "c-sidebar__level--".concat(level);
       var classes = "".concat(levelClass, " ");
       classes += "".concat(this.hasChildren(n) ? 'has-children' : '', " ").concat(n.className || '');
-      html += "<li class=\"".concat(classes, "\" title=\"").concat(n.label, "\"><a href=\"#").concat(n.id, "\">").concat(n.label, "</a>");
+      var name = n.label || n.name;
+      var hrefDefault = n.id ? "#".concat(n.id) : "".concat(this.pathBase).concat(name);
+      html += "<li class=\"".concat(classes, "\" title=\"").concat(name, "\"><a href=\"").concat(n.href ? n.href : hrefDefault, "\">").concat(name, "</a>");
       if (this.hasChildren(n)) {
         html += "<ul class='".concat(levelClass, " has-parent'>");
-        var _iterator2 = _createForOfIteratorHelper(n.c),
+        var _iterator2 = _createForOfIteratorHelper(this.getChildren(n)),
           _step2;
         try {
           for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {

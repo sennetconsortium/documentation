@@ -9,11 +9,35 @@ class Sidebar extends App {
             hs: $('.c-documentation').find('h1, h2, h3, h4, h5, h6')
         }
         this.sizeSideBar()
+        this.pathBase = '/'
         this.classNames.root = 'is-root'
         this.headerHeight = 90
         this.events()
-        this.buildTableOfContents()
+        this.determineContentBuilder()
         this.sizeSideBarHeight()
+    }
+
+    determineContentBuilder() {
+        let hasBuiltSidebar = false
+        const path = window.location.pathname
+        this.pathBase = path
+        const sidebars = this.msgs.sidebars || {}
+        for (let sidebarKey in sidebars) {
+            const hasSidebar = sidebars[sidebarKey].isCascading ? path.includes(sidebarKey) : path === sidebarKey
+            if (hasSidebar) {
+                this.pathBase = sidebarKey
+                if (this.hasChildren(sidebars[sidebarKey])) {
+                    const className = sidebars[sidebarKey].className
+                    sidebars[sidebarKey].className = this.classNames.root + ` ${className || ''}`
+                    this.renderList(sidebars[sidebarKey])
+                    hasBuiltSidebar = true
+                }
+            }
+        }
+
+        if (!hasBuiltSidebar) {
+            this.buildTableOfContents()
+        }
     }
 
     events() {
@@ -84,24 +108,33 @@ class Sidebar extends App {
 
         App.log('The generated Table of Contents:', root)
         if (root.c.length) {
-            let html = `<ul>`
-            html = this.getList(root, html)
-            html += `</ul>`
-            this.$.list.html(html)
+            this.renderList(root)
+        }
+    }
 
-            // Remove root and replace. Root from recursion has no content.
-            const $main = '<ul>' + this.$.list.find(`.${this.classNames.root} ul`).html() + '</ul>'
-            this.$.list.html($main)
+    getChildren(root) {
+        return root.c || root.items
+    }
 
-            // Hide if root has no children
-            if (root.c.length === 1 && !root.c[0].c.length) {
-                this.$.main.addClass('hide')
-            }
+    renderList(root) {
+        debugger
+        let html = `<ul>`
+        html = this.getList(root, html)
+        html += `</ul>`
+        this.$.list.html(html)
+
+        // Remove root and replace. Root from recursion has no content.
+        const $main = '<ul>' + this.$.list.find(`.${this.classNames.root} ul`).html() + '</ul>'
+        this.$.list.html($main)
+
+        // Hide if root has no children
+        if (this.getChildren(root).length === 1 && !this.getChildren(this.getChildren(root)[0]).length) {
+            this.$.main.addClass('hide')
         }
     }
 
     hasChildren(n) {
-        return (n.c && n.c.length > 0)
+        return (n.c && n.c.length > 0) || (n.items && n.items.length > 0)
     }
 
     getList(root, html, level= 0) {
@@ -111,11 +144,14 @@ class Sidebar extends App {
         let classes = `${levelClass} `
         classes += `${this.hasChildren(n) ? 'has-children' : ''} ${n.className || ''}`
 
-        html += `<li class="${classes}" title="${n.label}"><a href="#${n.id}">${n.label}</a>`
+        const name = n.label || n.name
+        const hrefDefault = n.id ? `#${n.id}` : `${this.pathBase}${name}`
+        html += `<li class="${classes}" title="${name}"><a href="${n.href ? n.href : hrefDefault}">${name}</a>`
+
 
         if (this.hasChildren(n)) {
             html += `<ul class='${levelClass} has-parent'>`
-            for (let c of n.c) {
+            for (let c of this.getChildren(n)) {
                 html = this.getList(c, html, level + 1)
             }
             html += `</ul>`
