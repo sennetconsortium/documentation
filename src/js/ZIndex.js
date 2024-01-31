@@ -13,6 +13,8 @@ function ZIndex(source, args = null) {
     }
     window.apps[source] = args
 
+    App.applyTheme()
+
     let apps = {
         sidebar: Sidebar,
         breadcrumbs: Breadcrumbs,
@@ -40,7 +42,9 @@ window.addEventListener('load', (event) => {
     window.apps = window.apps || {}
     App.loadLanguageFile().then(
         ((m) => {
-            ZIndex('init')
+            App.loadThemeConfig().then(() => {
+                ZIndex('init')
+            })
         }).bind(this)
     )
 })

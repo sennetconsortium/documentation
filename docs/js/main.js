@@ -2,7 +2,7 @@
  * sennetdocs - 
  * @version v0.1.0
  * @link https://docs.sennetconsortium.org/
- * @date Wed Jan 24 2024 16:40:16 GMT-0500 (Eastern Standard Time)
+ * @date Wed Jan 31 2024 16:08:12 GMT-0500 (Eastern Standard Time)
  */
 var _this10 = this;
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
@@ -9306,6 +9306,63 @@ var App = /*#__PURE__*/function () {
       return loadLanguageFile;
     }()
   }, {
+    key: "loadThemeConfig",
+    value: function () {
+      var _loadThemeConfig = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+        var res;
+        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.prev = 0;
+                if (!window.apps.theme) {
+                  _context2.next = 3;
+                  break;
+                }
+                return _context2.abrupt("return", true);
+              case 3:
+                _context2.next = 5;
+                return Rest.get("/ui-config.json");
+              case 5:
+                res = _context2.sent;
+                _context2.next = 8;
+                return res.json();
+              case 8:
+                window.apps.theme = _context2.sent;
+                _context2.next = 14;
+                break;
+              case 11:
+                _context2.prev = 11;
+                _context2.t0 = _context2["catch"](0);
+                console.error(_context2.t0);
+              case 14:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, null, [[0, 11]]);
+      }));
+      function loadThemeConfig() {
+        return _loadThemeConfig.apply(this, arguments);
+      }
+      return loadThemeConfig;
+    }()
+  }, {
+    key: "applyTheme",
+    value: function applyTheme() {
+      var path = window.location.pathname;
+      this.pathBase = path;
+      for (var section in window.apps.theme) {
+        if (path.includes(section)) {
+          $('.c-documentation').addClass("c-documentation--".concat(window.apps.theme[section].cssModifier));
+        }
+      }
+      document.querySelectorAll('body details').forEach(function (el) {
+        var html = $(el).html();
+        $(el).html(markdown["default"](html));
+      });
+    }
+  }, {
     key: "log",
     value: function log(title, msg) {
       var ops = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
@@ -9377,23 +9434,23 @@ var FileMeta = /*#__PURE__*/function (_App2) {
   _createClass(FileMeta, [{
     key: "addDate",
     value: function () {
-      var _addDate = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+      var _addDate = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
         var lastMod, path, paths, _i, _paths, p, r, date, formattedDate, formattedTime;
-        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+        return _regeneratorRuntime().wrap(function _callee3$(_context3) {
           while (1) {
-            switch (_context2.prev = _context2.next) {
+            switch (_context3.prev = _context3.next) {
               case 0:
                 lastMod = null;
-                _context2.prev = 1;
+                _context3.prev = 1;
                 path = window.location.pathname;
                 if (path[path.length - 1] === '/') {
                   path += 'index';
                 }
                 if (path) {
-                  _context2.next = 6;
+                  _context3.next = 6;
                   break;
                 }
-                return _context2.abrupt("return");
+                return _context3.abrupt("return");
               case 6:
                 paths = [];
                 if (path.split('.').pop() === path) {
@@ -9402,20 +9459,20 @@ var FileMeta = /*#__PURE__*/function (_App2) {
                 _i = 0, _paths = paths;
               case 9:
                 if (!(_i < _paths.length)) {
-                  _context2.next = 20;
+                  _context3.next = 20;
                   break;
                 }
                 p = _paths[_i];
                 if (!(this.$.date.html() && this.$.date.html().length)) {
-                  _context2.next = 13;
+                  _context3.next = 13;
                   break;
                 }
-                return _context2.abrupt("return");
+                return _context3.abrupt("return");
               case 13:
-                _context2.next = 15;
+                _context3.next = 15;
                 return Rest.get(p, 'text/plain');
               case 15:
-                r = _context2.sent;
+                r = _context3.sent;
                 if (r.ok) {
                   lastMod = r.headers.get('last-modified');
                   date = new Date(lastMod);
@@ -9431,23 +9488,23 @@ var FileMeta = /*#__PURE__*/function (_App2) {
                 }
               case 17:
                 _i++;
-                _context2.next = 9;
+                _context3.next = 9;
                 break;
               case 20:
-                _context2.next = 25;
+                _context3.next = 25;
                 break;
               case 22:
-                _context2.prev = 22;
-                _context2.t0 = _context2["catch"](1);
-                App.log(this.app, _context2.t0, {
+                _context3.prev = 22;
+                _context3.t0 = _context3["catch"](1);
+                App.log(this.app, _context3.t0, {
                   error: true
                 });
               case 25:
               case "end":
-                return _context2.stop();
+                return _context3.stop();
             }
           }
-        }, _callee2, this, [[1, 22]]);
+        }, _callee3, this, [[1, 22]]);
       }));
       function addDate() {
         return _addDate.apply(this, arguments);
@@ -9511,17 +9568,17 @@ var Header = /*#__PURE__*/function (_App4) {
   }, {
     key: "syncHeader",
     value: function () {
-      var _syncHeader = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
+      var _syncHeader = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4() {
         var x, _iterator, _step, li, $li, $nLi;
-        return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+        return _regeneratorRuntime().wrap(function _callee4$(_context4) {
           while (1) {
-            switch (_context3.prev = _context3.next) {
+            switch (_context4.prev = _context4.next) {
               case 0:
                 if (!(!this.msgs.menu && _typeof(this.msgs.menu) !== 'object')) {
-                  _context3.next = 2;
+                  _context4.next = 2;
                   break;
                 }
-                return _context3.abrupt("return");
+                return _context4.abrupt("return");
               case 2:
                 x = 1;
                 try {
@@ -9560,10 +9617,10 @@ var Header = /*#__PURE__*/function (_App4) {
                 }
               case 4:
               case "end":
-                return _context3.stop();
+                return _context4.stop();
             }
           }
-        }, _callee3, this);
+        }, _callee4, this);
       }));
       function syncHeader() {
         return _syncHeader.apply(this, arguments);
@@ -9598,38 +9655,38 @@ var Rest = /*#__PURE__*/function () {
   _createClass(Rest, null, [{
     key: "fetchWithTimeout",
     value: function () {
-      var _fetchWithTimeout = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4(resource) {
+      var _fetchWithTimeout = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee5(resource) {
         var options,
           _options$timeout,
           timeout,
           abortController,
           id,
           response,
-          _args4 = arguments;
-        return _regeneratorRuntime().wrap(function _callee4$(_context4) {
+          _args5 = arguments;
+        return _regeneratorRuntime().wrap(function _callee5$(_context5) {
           while (1) {
-            switch (_context4.prev = _context4.next) {
+            switch (_context5.prev = _context5.next) {
               case 0:
-                options = _args4.length > 1 && _args4[1] !== undefined ? _args4[1] : {};
+                options = _args5.length > 1 && _args5[1] !== undefined ? _args5[1] : {};
                 _options$timeout = options.timeout, timeout = _options$timeout === void 0 ? 5000 : _options$timeout;
                 abortController = new AbortController();
                 id = setTimeout(function () {
                   return abortController.abort();
                 }, timeout);
-                _context4.next = 6;
+                _context5.next = 6;
                 return fetch(resource, _objectSpread(_objectSpread({}, options), {}, {
                   signal: abortController.signal
                 }));
               case 6:
-                response = _context4.sent;
+                response = _context5.sent;
                 clearTimeout(id);
-                return _context4.abrupt("return", response);
+                return _context5.abrupt("return", response);
               case 9:
               case "end":
-                return _context4.stop();
+                return _context5.stop();
             }
           }
-        }, _callee4);
+        }, _callee5);
       }));
       function fetchWithTimeout(_x) {
         return _fetchWithTimeout.apply(this, arguments);
@@ -9639,18 +9696,18 @@ var Rest = /*#__PURE__*/function () {
   }, {
     key: "send",
     value: function () {
-      var _send = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee5(url, method) {
+      var _send = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee6(url, method) {
         var data,
           type,
           options,
-          _args5 = arguments;
-        return _regeneratorRuntime().wrap(function _callee5$(_context5) {
+          _args6 = arguments;
+        return _regeneratorRuntime().wrap(function _callee6$(_context6) {
           while (1) {
-            switch (_context5.prev = _context5.next) {
+            switch (_context6.prev = _context6.next) {
               case 0:
-                data = _args5.length > 2 && _args5[2] !== undefined ? _args5[2] : {};
-                type = _args5.length > 3 && _args5[3] !== undefined ? _args5[3] : 'application/json';
-                _context5.prev = 2;
+                data = _args6.length > 2 && _args6[2] !== undefined ? _args6[2] : {};
+                type = _args6.length > 3 && _args6[3] !== undefined ? _args6[3] : 'application/json';
+                _context6.prev = 2;
                 options = {
                   timeout: 8000,
                   method: method,
@@ -9663,22 +9720,22 @@ var Rest = /*#__PURE__*/function () {
                     body: JSON.stringify(data)
                   });
                 }
-                _context5.next = 7;
+                _context6.next = 7;
                 return Rest.fetchWithTimeout(url, options);
               case 7:
-                return _context5.abrupt("return", _context5.sent);
+                return _context6.abrupt("return", _context6.sent);
               case 10:
-                _context5.prev = 10;
-                _context5.t0 = _context5["catch"](2);
-                console.log(_context5.t0);
+                _context6.prev = 10;
+                _context6.t0 = _context6["catch"](2);
+                console.log(_context6.t0);
               case 13:
-                return _context5.abrupt("return", null);
+                return _context6.abrupt("return", null);
               case 14:
               case "end":
-                return _context5.stop();
+                return _context6.stop();
             }
           }
-        }, _callee5, null, [[2, 10]]);
+        }, _callee6, null, [[2, 10]]);
       }));
       function send(_x2, _x3) {
         return _send.apply(this, arguments);
@@ -9688,18 +9745,18 @@ var Rest = /*#__PURE__*/function () {
   }, {
     key: "get",
     value: function () {
-      var _get = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee6(url, type) {
-        return _regeneratorRuntime().wrap(function _callee6$(_context6) {
+      var _get = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee7(url, type) {
+        return _regeneratorRuntime().wrap(function _callee7$(_context7) {
           while (1) {
-            switch (_context6.prev = _context6.next) {
+            switch (_context7.prev = _context7.next) {
               case 0:
-                return _context6.abrupt("return", Rest.send(url, 'GET', {}, type));
+                return _context7.abrupt("return", Rest.send(url, 'GET', {}, type));
               case 1:
               case "end":
-                return _context6.stop();
+                return _context7.stop();
             }
           }
-        }, _callee6);
+        }, _callee7);
       }));
       function get(_x4, _x5) {
         return _get.apply(this, arguments);
@@ -9859,7 +9916,6 @@ var Sidebar = /*#__PURE__*/function (_App5) {
   }, {
     key: "renderList",
     value: function renderList(root) {
-      debugger;
       var html = "<ul>";
       html = this.getList(root, html);
       html += "</ul>";
@@ -9925,6 +9981,7 @@ function ZIndex(source) {
     return;
   }
   window.apps[source] = args;
+  App.applyTheme();
   var apps = {
     sidebar: Sidebar,
     breadcrumbs: Breadcrumbs,
@@ -9954,6 +10011,8 @@ window.addEventListener('load', function (event) {
   });
   window.apps = window.apps || {};
   App.loadLanguageFile().then(function (m) {
-    ZIndex('init');
+    App.loadThemeConfig().then(function () {
+      ZIndex('init');
+    });
   }.bind(_this10));
 });

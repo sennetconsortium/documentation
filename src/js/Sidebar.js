@@ -117,7 +117,6 @@ class Sidebar extends App {
     }
 
     renderList(root) {
-        debugger
         let html = `<ul>`
         html = this.getList(root, html)
         html += `</ul>`
