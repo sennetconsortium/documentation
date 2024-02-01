@@ -113,10 +113,16 @@ class App {
                 $('.c-documentation').addClass(`c-documentation--${window.apps.theme[section].cssModifier}`)
             }
         }
-
-        document.querySelectorAll('body details').forEach((el) => {
+        const format = (el) => {
             let html = $(el).html()
             $(el).html(markdown.default(html))
+        }
+
+        document.querySelectorAll('body details').forEach((el) => {
+            format(el)
+        })
+        document.querySelectorAll('body mdit').forEach((el) => {
+            format(el)
         })
     }
 
