@@ -2,7 +2,7 @@
  * sennetdocs - 
  * @version v0.1.0
  * @link https://docs.sennetconsortium.org/
- * @date Wed Jan 31 2024 16:08:12 GMT-0500 (Eastern Standard Time)
+ * @date Thu Feb 01 2024 15:59:08 GMT-0500 (Eastern Standard Time)
  */
 var _this10 = this;
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
@@ -9357,9 +9357,15 @@ var App = /*#__PURE__*/function () {
           $('.c-documentation').addClass("c-documentation--".concat(window.apps.theme[section].cssModifier));
         }
       }
-      document.querySelectorAll('body details').forEach(function (el) {
+      var format = function format(el) {
         var html = $(el).html();
         $(el).html(markdown["default"](html));
+      };
+      document.querySelectorAll('body details').forEach(function (el) {
+        format(el);
+      });
+      document.querySelectorAll('body mdit').forEach(function (el) {
+        format(el);
       });
     }
   }, {
