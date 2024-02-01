@@ -95,6 +95,31 @@ class App {
         }
     }
 
+    static async loadThemeConfig() {
+        try {
+            if (window.apps.theme) return true
+            const res = await Rest.get(`/ui-config.json`)
+            window.apps.theme = await res.json()
+        } catch (e) {
+            console.error(e)
+        }
+    }
+
+    static applyTheme() {
+        const path = window.location.pathname
+        this.pathBase = path
+        for (let section in window.apps.theme) {
+            if (path.includes(section)) {
+                $('.c-documentation').addClass(`c-documentation--${window.apps.theme[section].cssModifier}`)
+            }
+        }
+
+        document.querySelectorAll('body details').forEach((el) => {
+            let html = $(el).html()
+            $(el).html(markdown.default(html))
+        })
+    }
+
     static log(title, msg, ops = {}) {
         const fn = ops.fn || (ops.error ? 'error' : 'log')
         const color = ops.color || (ops.error ? 'red' : '#bada55')
