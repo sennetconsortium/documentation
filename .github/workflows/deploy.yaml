@@ -1,4 +1,4 @@
-name: Deploy
+name: data-submission-guide-update
  
 on:
   repository_dispatch:
