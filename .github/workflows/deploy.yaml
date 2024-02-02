@@ -31,9 +31,10 @@ jobs:
           destination: ./_site
       - name: Build Node Assets
         run: |
+          mkdir -pv ./_site/assets/js ./_site/assets/css
           npm ci
-          gulp js && cp docs/js/main.js /github/workspace/_site/assets/js/main.js
-          gulp css && cp docs/css/main.css /github/workspace/_site/assets/css/main.css
+          gulp js && cp docs/js/main.js ./_site/assets/js/main.js
+          gulp css && cp docs/css/main.css ./_site/assets/css/main.css
           npm run html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
