@@ -32,7 +32,9 @@ jobs:
       - name: Build Node Assets
         run: |
           npm ci
-          npm run build
+          gulp js && cp docs/js/main.js /github/workspace/_site/assets/js/main.js
+          gulp css && cp docs/css/main.css /github/workspace/_site/assets/css/main.css
+          npm run html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
 
