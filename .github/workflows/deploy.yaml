@@ -2,7 +2,7 @@ name: data-submission-guide-update
  
 on:
   repository_dispatch:
-    types: [build_docs]
+    types: [data-submission-guide-update]
  
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
@@ -21,4 +21,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Trigger GitHub Pages build
-        run: 'curl -X POST -H "Accept: application/vnd.github.v3+json" -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" -H "X-GitHub-Api-Version: 2022-11-28" https://api.github.com/repos/sennetconsortium/documentation/pages/builds'
+        run: |
+          curl -X POST \
+          -H "Accept: application/vnd.github.v3+json" \
+          -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+          -H "X-GitHub-Api-Version: 2022-11-28" \
+          https://api.github.com/repos/sennetconsortium/documentation/pages/builds
