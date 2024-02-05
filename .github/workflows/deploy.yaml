@@ -25,7 +25,7 @@ jobs:
 
         # Uses the private access token from above link
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GH_SUBMODULE_SECRET }}
 
       # Initialize or update each one recursively
       - name: Pull & update submodules recursively
