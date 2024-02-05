@@ -41,7 +41,6 @@ jobs:
           git commit -am "Update submodules" || echo "No changes to commit"
           git push
 
-  build:
       - name: Trigger GitHub Pages build
         run: |
           curl -X POST \
