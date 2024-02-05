@@ -21,8 +21,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Git Submodule Update
-        run: | 
-          git submodule update --init --remote
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
       - name: Trigger GitHub Pages build
         run: |
           curl -X POST \
