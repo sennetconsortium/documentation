@@ -20,6 +20,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Git Submodule Update
+        run: | 
+          git submodule update --init --remote
       - name: Trigger GitHub Pages build
         run: |
           curl -X POST \
