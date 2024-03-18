@@ -6,6 +6,9 @@ layout: default
 
 SenNet offers several software and tool components for programmatic access to SenNet data and metadata.  This site contains information about this software and tools, more information is available at the [SenNet Consortium Site](https://sennetconsortium.org/) or the [SenNet Data Sharing Portal](https://data.sennetconsortium.org)
 
+## [Data Submission Guide](/data-submission)
+Instructions for TMCs, Assay teams, and others who need to upload data to the SenNet Data Sharing Portal.
+
 ## [Entity Registration](/registration)
 Schemas and instructions regarding how to register entities individually and in bulk.
 
