@@ -22,7 +22,7 @@ First, here are some key concepts and definitions:
 
 An overview of a typical data submission process workflow can be found below:
 
-![SenNet Data Submission Overview Registration drawio](docs/libraries/ingest-validation-tools/upload-guidelines/20240327 SenNet Data Submission Overview Registration.drawio (1).png)
+![SenNet Data Submission Overview Registration drawio](/20240327 SenNet Data Submission Overview Registration.drawio.png)
 
 A lecture recording on the above concepts as well as registering entities on the Data Sharing Portal can be found via [this link](https://iu.mediaspace.kaltura.com/media/t/1_9acekkx1) (hosting courtesy of Indiana University via Kaltura).
 
