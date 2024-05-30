@@ -2,15 +2,15 @@
  * sennetdocs - 
  * @version v0.1.0
  * @link https://docs.sennetconsortium.org/
- * @date Wed May 15 2024 14:08:29 GMT-0400 (Eastern Daylight Time)
+ * @date Tue May 28 2024 11:50:56 GMT-0400 (Eastern Daylight Time)
  */
-var _this10 = this;
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+var _this11 = this;
 function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
@@ -9538,28 +9538,64 @@ var Footer = /*#__PURE__*/function (_App3) {
   }]);
   return Footer;
 }(App);
-var Header = /*#__PURE__*/function (_App4) {
-  _inherits(Header, _App4);
-  var _super4 = _createSuper(Header);
-  function Header(el, args) {
+var GTM = /*#__PURE__*/function (_App4) {
+  _inherits(GTM, _App4);
+  var _super4 = _createSuper(GTM);
+  function GTM(el, args) {
     var _this5;
-    _classCallCheck(this, Header);
+    _classCallCheck(this, GTM);
     _this5 = _super4.call(this, el, args);
-    _this5.$ = {
-      li: _this5.el.find('.js-header__menu ul li'),
-      ul: _this5.el.find('.js-header__menu ul')
-    };
-    _this5.syncHeader();
-    _this5.events();
+    _this5.event = 'view';
+    _this5.pageView();
     return _this5;
+  }
+  _createClass(GTM, [{
+    key: "pageView",
+    value: function pageView() {
+      this.gtm();
+    }
+  }, {
+    key: "getPath",
+    value: function getPath() {
+      var path = window.location.pathname + window.location.search;
+      return path.length > 70 ? window.location.pathname : path;
+    }
+  }, {
+    key: "gtm",
+    value: function gtm() {
+      var args = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+      var data = _objectSpread({
+        event: this.event,
+        path: this.getPath()
+      }, args);
+      if (App.isLocal()) console.log(data);
+      dataLayer.push(data);
+    }
+  }]);
+  return GTM;
+}(App);
+var Header = /*#__PURE__*/function (_App5) {
+  _inherits(Header, _App5);
+  var _super5 = _createSuper(Header);
+  function Header(el, args) {
+    var _this6;
+    _classCallCheck(this, Header);
+    _this6 = _super5.call(this, el, args);
+    _this6.$ = {
+      li: _this6.el.find('.js-header__menu ul li'),
+      ul: _this6.el.find('.js-header__menu ul')
+    };
+    _this6.syncHeader();
+    _this6.events();
+    return _this6;
   }
   _createClass(Header, [{
     key: "events",
     value: function events() {
-      var _this6 = this;
+      var _this7 = this;
       this.$.li.find('a').on('click', function (e) {
         e.preventDefault();
-        var link = _this6.currentTarget(e).attr('href');
+        var link = _this7.currentTarget(e).attr('href');
         if (window.location.pathname !== '/' || link[0] !== '#') {
           window.location = '/' + link.slice(1);
         } else {
@@ -9787,29 +9823,29 @@ var Rest = /*#__PURE__*/function () {
   }]);
   return Rest;
 }();
-var Sidebar = /*#__PURE__*/function (_App5) {
-  _inherits(Sidebar, _App5);
-  var _super5 = _createSuper(Sidebar);
+var Sidebar = /*#__PURE__*/function (_App6) {
+  _inherits(Sidebar, _App6);
+  var _super6 = _createSuper(Sidebar);
   function Sidebar(el, args) {
-    var _this7;
+    var _this8;
     _classCallCheck(this, Sidebar);
-    _this7 = _super5.call(this, el, args);
-    _this7.$ = {
-      wrap: _this7.el.find('.js-sidebar__wrap'),
-      main: _this7.el.find('.js-sidebar__main'),
-      list: _this7.el.find('.js-sidebar__list'),
+    _this8 = _super6.call(this, el, args);
+    _this8.$ = {
+      wrap: _this8.el.find('.js-sidebar__wrap'),
+      main: _this8.el.find('.js-sidebar__main'),
+      list: _this8.el.find('.js-sidebar__list'),
       hs: $('.c-documentation').find('h1, h2, h3, h4, h5, h6')
     };
-    _this7.sizeSideBar();
-    _this7.pathBase = '/';
-    _this7.classNames.root = 'is-root';
-    _this7.classNames["static"] = 'is-static';
-    _this7.headerHeight = 90;
-    _this7.events();
-    _this7.determineContentBuilder();
-    _this7.sizeSideBarHeight();
-    _this7.togglePositioning();
-    return _this7;
+    _this8.sizeSideBar();
+    _this8.pathBase = '/';
+    _this8.classNames.root = 'is-root';
+    _this8.classNames["static"] = 'is-static';
+    _this8.headerHeight = 90;
+    _this8.events();
+    _this8.determineContentBuilder();
+    _this8.sizeSideBarHeight();
+    _this8.togglePositioning();
+    return _this8;
   }
   _createClass(Sidebar, [{
     key: "determineContentBuilder",
@@ -9837,18 +9873,18 @@ var Sidebar = /*#__PURE__*/function (_App5) {
   }, {
     key: "events",
     value: function events() {
-      var _this8 = this;
+      var _this9 = this;
       $(document).on('scroll', function (e) {
         var st = $(document).scrollTop();
-        if (st > _this8.headerHeight && !_this8.isMobile()) {
-          _this8.el.addClass(_this8.classNames.active);
+        if (st > _this9.headerHeight && !_this9.isMobile()) {
+          _this9.el.addClass(_this9.classNames.active);
         } else {
-          _this8.el.removeClass(_this8.classNames.active);
+          _this9.el.removeClass(_this9.classNames.active);
         }
       }.bind(this));
       $(window).on('resize', function (e) {
-        _this8.sizeSideBar();
-        _this8.togglePositioning();
+        _this9.sizeSideBar();
+        _this9.togglePositioning();
       }.bind(this));
     }
   }, {
@@ -9877,7 +9913,7 @@ var Sidebar = /*#__PURE__*/function (_App5) {
   }, {
     key: "buildTableOfContents",
     value: function buildTableOfContents() {
-      var _this9 = this;
+      var _this10 = this;
       var rootChildren = [];
       var root = {
         tag: 'h0',
@@ -9892,7 +9928,7 @@ var Sidebar = /*#__PURE__*/function (_App5) {
         var n1 = Number(node[1]);
         var n2 = Number(top.tag[1]);
         var label = $(el).text();
-        var id = $(el).attr('id') || _this9.toId(label);
+        var id = $(el).attr('id') || _this10.toId(label);
         var pack = {
           tag: node,
           id: id,
@@ -10005,7 +10041,8 @@ function ZIndex(source) {
     breadcrumbs: Breadcrumbs,
     footer: Footer,
     fileMeta: FileMeta,
-    header: Header
+    header: Header,
+    gtm: GTM
   };
   args = args || window.apps.init;
   try {
@@ -10032,5 +10069,5 @@ window.addEventListener('load', function (event) {
     App.loadThemeConfig().then(function () {
       ZIndex('init');
     });
-  }.bind(_this10));
+  }.bind(_this11));
 });

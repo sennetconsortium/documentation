@@ -2,5 +2,10 @@ include ../components/mixins/head
 doctype html
 html(lang="{{ site.lang | default: 'en-US' }}")
     +head(true)
-    body
+    body(data-js-gtm)
+        // Google Tag Manager (noscript)
+        noscript
+            | <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MD7FVBSS"
+            | height="0" width="0" style="display:none;visibility:hidden"></iframe>
+        // End Google Tag Manager (noscript)
         include ../components/layout/template/default
