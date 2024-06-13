@@ -11,4 +11,4 @@ layout: default
 - [Sample - Section](/libraries/ingest-validation-tools/schemas/sample-section/)
 - [Sample - Suspension](/libraries/ingest-validation-tools/schemas/sample-suspension/)
 
-**Read More:** [HuBMAP Schemas](https://software.docs.hubmapconsortium.org/metadata)
+**Read More:** [HuBMAP Schemas](https://docs.hubmapconsortium.org/metadata)
