@@ -10,7 +10,7 @@ The [SenNet Command-Line Transfer (CLT)](https://pypi.org/project/atlas-consorti
 
 The CLT uses the [Globus Connect Personal](https://www.globus.org/globus-connect-personal) (GCP) application to download the specified files and directories to your computer. GCP and the CLT require a SenNet account. This account is the same account used to log in to the SenNet Data Sharing Portal. Windows users should follow [additional instructions](gcp-windows) to correctly setup GCP.
 
-The CLT requires Python >= 3.9 or above. The CLT can be installed through PyPI using the following command:
+The CLT requires Python 3.9 or above. The CLT can be installed through PyPI using the following command:
 
 ```
 pip install atlas-consortia-clt
