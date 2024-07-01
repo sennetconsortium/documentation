@@ -15,4 +15,6 @@ organs and nodes, and clicking on nodes searches in PubMed, built in Javascript 
 D3.org) libraries reading directly from the Google Sheet containing the [supplemental
 data](https://docs.google.com/spreadsheets/d/1ScnrvcwUpwN_ikklZnd8HSqvgm4GRRTCVxbkyU_j2iw/edit#gid=0).
 
+The supplementary data available on this site underpins the research and findings in this [Nature](https://www.nature.com/articles/s41580-024-00738-8.epdf?sharing_token=IZBeeKH1dVVzWd2nTQMTBdRgN0jAjWel9jnR3ZoTv0O7l57xhKuof2pX18OQXvI9DP2uGh29t_Cr-CQdfzg56n4kMucAsYLMPM4LF4EvGnPyiB-8TBfLyDHASJ0Eje-AeLl63DfJGxG4mQmr0ZH93fqAmUO06ECkDSDIWSZIjEA%3D) publication.
+
 ![Legend](../imgs/legend.png)
