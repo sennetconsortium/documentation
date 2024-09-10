@@ -9,7 +9,7 @@ The combination of the [RESTful parameterized search](index.html) and the [SenNe
 ## Description
 Below is an example of how to use the [RESTful parameterized search endpoint](index.html) to query for datasets with specific attributes and produce a manifest of datasets to download and how to use the manifest to download all of the data for the referenced Datasets. The parameterized search feature shown in this example is a simple query mechanism that allows quick querying of data via a single RESTful URL call where queried attributes are constrained to exact string matches of a limited set of attributes, where the query is an "AND" filtered query with all attribute matches as terms in the "AND" clause, for example the query `/param-search/datasets?status=Published&dataset_type=CODEX` will return all datasets that are "Published AND a result of a CODEX assay".  If more complex queries are desired use the standard `/search` endpoint which is documented in the [SenNet Search API Endpoints](https://smart-api.info/ui/7aaf02b838022d564da776b03f357158).
 
-This example uses the command line tool `curl` to execute queries.  The [Example Data Query and Download Jupyter Notebook](https://github.com/hubmapconsortium/search-api/blob/main/examples/Parameter%20Search%20and%20Download%20Tutorial.ipynb) has this same example using Python.
+This example uses the command line tool `curl` to execute queries.  The [Example Data Query and Download Jupyter Notebook](https://github.com/sennetconsortium/documentation/blob/libpitt/67-assay-docs/docs/param-search/example-data-query-and-download-jupyter-notebook.ipynb) has this same example using Python.
 
 ### Example Query and Download
 
