@@ -220,10 +220,10 @@ The HIVE data processing pipeline documentation are to be determined as of 12/18
 QC for the Cell DIVE process as performed by GE Research is performed on the processed microscopy data (state 1).  
  
 Files submitted will be in OME format and can be checked in the following ways: 
-1.         There should be a region directory for each donor under the SenNet_OME directory
-2.         Each region should contain a number of OME TIFFS equal to the number of sections taken from the block of all donors, with each file identified by the corresponding slide ID.  The full list of all slide IDs (i.e. one section per slide) is found in the root directory in the file slide_list.txt
+1.         There should be a region directory for each source under the SenNet_OME directory
+2.         Each region should contain a number of OME TIFFS equal to the number of sections taken from the block of all sources, with each file identified by the corresponding slide ID.  The full list of all slide IDs (i.e. one section per slide) is found in the root directory in the file slide_list.txt
 3.        Each OME tiff file should contain a number of channels equal to the number of markers plus two (the two additional channels being the initial and the final dapi images).  The list of channels is contained in the file channel_list.txt in the data set root directory
-4.       There should be an OME TIFF file for each slide in the vHE (virtual H&E)  directory.  These vHE files consist of a whole slide image for each of the slides in the data set.  The whole slide image for each slide should contain a number of distinct sections that corresponds to the number of donors in the data set.
+4.       There should be an OME TIFF file for each slide in the vHE (virtual H&E)  directory.  These vHE files consist of a whole slide image for each of the slides in the data set.  The whole slide image for each slide should contain a number of distinct sections that corresponds to the number of sources in the data set.
  
 For a visual assessment, each OME-TIFF can be opened in a suitable viewer (for example QuPath).  Each channel can be inspected for focus, contrast and the presence of any foreign debris obstructing the image.  Tissue loss can be inferred by comparing the dapi_init channel to the dapi_final channel.  Stitching artifacts such as mis-aligned tiles and an apparent significant quilting pattern can be determined visually as well.
  
