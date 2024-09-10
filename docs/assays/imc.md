@@ -63,15 +63,15 @@ In addition, all SenNet IMC data will have an associated “acquisition_metadata
 ## SenNet IMC Raw File Structure
 1.  *SenNet IMC Raw File Structure*
     A schematic of the general structure of the stage 0 (raw) data produced by the fluidigm software is shown below:
-![](/assays/images/imc2.png)
+![](/assays/images/imc2.jpg)
 2) *SenNet IMC Processed Data File Description*
 
-| Processed Data Loaded | Descriptor (the name should contain the following) | Example |
-|---|---|---|
-|  QA/QC Pass/Fail Channel Report | `channelnames_report.csv`| /University of Florida TMC/256795b18af5b1d318e2326266053f7e/|
-|  CSV file containing all single cell measurements| `20191128_hubMAP__masterfile`| /U/University of Florida TMC/256795b18af5b1d318e2326266053f7e/SingleCellData/|
-|Classified cell types projected onto images for each measured region of each tissue type | `ClusterDisplay_*`| /University of Florida TMC/256795b18af5b1d318e2326266053f7e/Mapping/|
-|Plots of data: tSNE, heatmap of marker expression per cluster and density plots of marker intensity | `20191128_HubMAP__PhenoGraph_tsne_M.png 20191128_HubMAP__heatmap.pdf 20191128_HubMAP__histogram_sample.png`| /University of Florida TMC/256795b18af5b1d318e2326266053f7e/processed/|
+| Processed Data Loaded | Descriptor (the name should contain the following)                                                          | Example |
+|---|-------------------------------------------------------------------------------------------------------------|---|
+|  QA/QC Pass/Fail Channel Report | `channelnames_report.csv`                                                                                   | /University of Florida TMC/256795b18af5b1d318e2326266053f7e/|
+|  CSV file containing all single cell measurements| `20191128_senNet__masterfile`                                                                               | /U/University of Florida TMC/256795b18af5b1d318e2326266053f7e/SingleCellData/|
+|Classified cell types projected onto images for each measured region of each tissue type | `ClusterDisplay_*`                                                                                          | /University of Florida TMC/256795b18af5b1d318e2326266053f7e/Mapping/|
+|Plots of data: tSNE, heatmap of marker expression per cluster and density plots of marker intensity | `20191128_SenNet__PhenoGraph_tsne_M.png 20191128_SenNet__heatmap.pdf 20191128_SenNet__histogram_sample.png` | /University of Florida TMC/256795b18af5b1d318e2326266053f7e/processed/|
 
 ## SenNet QA/QC of raw (state0) data files
 1.  Raw data (level 0) QC
@@ -86,18 +86,11 @@ In addition, all SenNet IMC data will have an associated “acquisition_metadata
 
 ## IMC Data Processing by the Bodenmiller IMC Lab
 -   Data preprocessing performed according to the Bodenmiller IMC Segmentation Pipeline ([https://github.com/BodenmillerGroup/ImcSegmentationPipeline](https://github.com/BodenmillerGroup/ImcSegmentationPipeline)). The major steps are described below.
-    
-
 -   Generate *ome.tiff image stacks ([https://github.com/BodenmillerGroup/imctools](https://github.com/BodenmillerGroup/imctools)).
-    
 -   Create *.tiff image stacks with relevant channels required for cell segmentation ([https://github.com/BodenmillerGroup/imctools](https://github.com/BodenmillerGroup/imctools)).
-    
 -   Use the pixel classification software Ilastik ([https://www.ilastik.org/](https://www.ilastik.org/)) to generate probability maps (.tiff files) for nucleus, cytoplasm and background compartments.
-    
 -   Use these maps to generate cell masks (.tiff files) using CellProfiler ([https://cellprofiler.org/](https://cellprofiler.org/)).
-    
 -   Extract feature measurements per channel for each cell using CellProfiler (.csv file).
-    
 -   Single cell information can then be imported into R for downstream analysis, including dimensionality reduction (tSNE, UMAP), clustering (PhenoGraph) and cell type annotation.
 
 ## For Additional Help 
