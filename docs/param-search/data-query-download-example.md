@@ -4,40 +4,34 @@ layout: default
 # Example Data Query and Download
 
 ## Overview
-The combination of the [RESTful parameterized search](index.html) and the [SenNet Command Line Transfer Tool](../clt/index.html) provides for an easy way to programmatically query SenNet data and download the results of the query.
+The combination of the [RESTful parameterized search](index.html) and the [SenNet Command Line Transfer Tool](/libraries/clt/) provides for an easy way to programmatically query SenNet data and download the results of the query.
 
 ## Description
-Below is an example of how to use the [RESTful parameterized search endpoint](index.html) to query for datasets with specific attributes and produce a manifest of datasets to download and how to use the manifest to download all of the data for the referenced Datasets. The parameterized search feature shown in this example is a simple query mechanism that allows quick querying of data via a single RESTful URL call where queried attributes are constrained to exact string matches of a limited set of attributes, where the query is an "AND" filtered query with all attribute matches as terms in the "AND" clause, for example the query `/param-search/datasets?status=Published&dataset_type=CODEX` will return all datasets that are "Published AND a result of a CODEX assay".  If more complex queries are desired use the standard `/search` endpoint which is documented in the [SenNet Search API Endpoints](https://smart-api.info/ui/7aaf02b838022d564da776b03f357158).
+Below is an example of how to use the [RESTful parameterized search endpoint](index.html) to query for datasets with specific attributes and produce a manifest of datasets to download and how to use the manifest to download all of the data for the referenced Datasets. The parameterized search feature shown in this example is a simple query mechanism that allows quick querying of data via a single RESTful URL call where queried attributes are constrained to exact string matches of a limited set of attributes, where the query is an "AND" filtered query with all attribute matches as terms in the "AND" clause, for example the query `/param-search/datasets?status=Published&dataset_type=CODEX` will return all datasets that are "Published AND a result of a CODEX assay".  If more complex queries are desired use the standard `/search` endpoint which is documented in the [SenNet Search API Endpoints](https://smart-api.info/ui/10ed9b5eb8ff960d4431befc591ed842).
 
 This example uses the command line tool `curl` to execute queries.  The [Example Data Query and Download Jupyter Notebook](https://github.com/sennetconsortium/documentation/blob/libpitt/67-assay-docs/docs/param-search/example-data-query-and-download-jupyter-notebook.ipynb) has this same example using Python.
 
 ### Example Query and Download
 
-The following query will return all CODEX (`dataset_type=CODEX`) Datasets run on a Keyence BZ-X800 machine (`metadata.metadata.acquisition_instrument_model=BZ-X800`) where tissue from a spleen was used (`origin_samples.organ=SP`).  See the [RESTful parameterized search page](index.html) for further information on querying dataset, organ (`origin_samples.organ` represents the organ in the query and `SP` is the organ code (organ code list available [here](schema-sample.html#organ-attribute-values)) and dataset metadata fields.
+The following query will return all CODEX (`dataset_type=CODEX`) Datasets run on a Keyence BZ-X800 machine (`ingest_metadata.metadata=BZ-X800`) where tissue from a spleen was used (`origin_sample.organ=SP`).  See the [RESTful parameterized search page](index.html) for further information on querying dataset, organ (`origin_sample.organ` represents the organ in the query and `SP` is the organ code (organ code list available [here](schema-sample.html#organ-attribute-values)) and dataset metadata fields.
 
 ```
- GET https://search.api.sennetconsortium.org/v3/param-search/datasets?dataset_type=CODEX&metadata.metadata.acquisition_instrument_model=BZ-X800&origin_samples.organ=SP
+ GET https://search.api.sennetconsortium.org/param-search/datasets?dataset_type=Histology&ingest_metadata.metadata=BZ-X800&origin_sample.organ=SP
 ```
 
 As is, if this query is submitted via HTTP GET it will produce a json Response with an array of dataset objects which match the query.  Adding the `produce-clt-manifest=true` option to this query will instead produce a list of Dataset IDs pointing to the Datasets that match this query in a format that will be directly usable by the [SenNet Command Line Transfer Tool](../clt/index.html).
 
 To run this from the command line and save the results to a file run:
 ```
-curl "https://search.api.sennetconsortium.org/v3/param-search/datasets?dataset_type=CODEX&metadata.metadata.acquisition_instrument_model=BZ-X800&origin_samples.organ=SP&produce-clt-manifest=true" > dataset-manifest-for-download.out
+curl "https://search.api.sennetconsortium.org/param-search/datasets?dataset_type=Histology&ingest_metadata.metadata=BZ-X800&origin_sample.organ=SP&produce-clt-manifest=true" > dataset-manifest-for-download.out
 ```
 
 This results in a file that looks like:
 
 ```
-SNT548.TSMP.663 /
-SNT825.PBVN.284 /
-SNT558.SRZG.629 /
-SNT987.XGTH.368 /
-SNT647.MFQB.496 /
-SNT244.TJLK.223 /
-SNT633.CLVN.674 /
-SNT427.SMGB.866 /
-. . .
+SNT948.QRZW.946 /
+SNT976.WLTL.469 /
+...
 ```
 
 To use the SenNet CLT tool to download the data from these datasets:
