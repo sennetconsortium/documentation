@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 ---
 
 ## SenNet Data Provider Groups
