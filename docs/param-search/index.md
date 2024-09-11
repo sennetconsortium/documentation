@@ -6,10 +6,10 @@ layout: default
 ## Overview:
 The SenNet parameterized search endpoints provide an option for a simpler programmatic search mechanism vs using the full search-api `/search` endpoints. Both the `/param-search` and `/search` endpoints are backed by Elasticsearch indices, but the parameterized search facility follows a simple RESTful parameter scheme vs the complicated Elasticsearch json query syntax used by the full `/search` mechanism. The `/param-search` endpoint only allows for searching specific values of "allowable value" attributes "anded" together vs the full logic and attribute types available in the [Elasticsearch supported queries](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html) available in the full `/search` endpoint.
 
-This page documents the public usage of the `/param-search` endpoint and its variants vs the fully documented [SenNet Search API](https://smart-api.info/ui/7aaf02b838022d564da776b03f357158), which includes less detail of the `/param-search` endpoint, but also detail of the more capable, but more complicated `/search` endpoint.
+This page documents the public usage of the `/param-search` endpoint and its variants vs the fully documented [SenNet Search API](https://smart-api.info/ui/10ed9b5eb8ff960d4431befc591ed842), which includes less detail of the `/param-search` endpoint, but also detail of the more capable, but more complicated `/search` endpoint.
 
 ## Description: 
-The `/param-search/<entity-type>` endpoint of the [SenNet Search API service](https://smart-api.info/ui/7aaf02b838022d564da776b03f357158) is a RESTful search interface allowing simple attribute matching by providing attribute value pairs as query parameters at the end of the RESTful URL call.  Multiple query parameters can be provided, which will be "ANDed" together in the query logic, for example the URL `https://searchapi.service.endpoint/entity-type?param1=value1&param2=value2&param3=value3` will find all entities of type "entity-type" where entity.param1 equals "value1" and entity.param2 equals "value2" and entity.param3 equals "value3"
+The `/param-search/<entity-type>` endpoint of the [SenNet Search API service](https://smart-api.info/ui/10ed9b5eb8ff960d4431befc591ed842) is a RESTful search interface allowing simple attribute matching by providing attribute value pairs as query parameters at the end of the RESTful URL call.  Multiple query parameters can be provided, which will be "ANDed" together in the query logic, for example the URL `https://searchapi.service.endpoint/entity-type?param1=value1&param2=value2&param3=value3` will find all entities of type "entity-type" where entity.param1 equals "value1" and entity.param2 equals "value2" and entity.param3 equals "value3"
 
 For an example of how to use the `produce-clt-manifest` option (described below), see the [Example Query and Download page](data-query-download-example.html)
 
@@ -44,49 +44,29 @@ Each document in the `entities` indices contains information about one entity in
 ---
 To find all Datasets of type `RNAseq` where specific molecules are not targeted for detection use this query:
 ```
- GET https://search.api.sennetconsortium.org/v3/param-search/datasets?dataset_type=RNAseq&metadata.is_targeted=No
+ GET https://search.api.sennetconsortium.org/param-search/datasets?dataset_type=RNAseq&ingest_metadata.metadata.is_targeted=No
 ```
 
 A json array containing Dataset objects will be returned.
 
 ---
 
-To find all ATACseq datasets (`dataset_type=ATACseq`) that were run on tissue from a right lung (`origin_samples.organ=RL`):
+To find all Histology datasets (`dataset_type=Histology`) that were run on tissue from a right lung (`origin_samples.organ=RL`):
 ```
- GET https://search.api.sennetconsortium.org/v3/param-search/datasets?origin_samples.organ=RL&dataset_type=ATACseq
+ GET https://search.api.sennetconsortium.org/param-search/datasets?origin_sample.organ=RL&dataset_type=Histology
 ```
 A json array containing Dataset objects will be returned.
 
 ---
 
-To run the same query finding all ATACseq datasets, but produce a manifest file to download all of the data instead of producing the json of all dataset information, add the `produce-clt-manifest=true` option
+To run the same query finding all Histology datasets, but produce a manifest file to download all of the data instead of producing the json of all dataset information, add the `produce-clt-manifest=true` option
 ```
- GET https://search.api.sennetconsortium.org/v3/param-search/datasets?origin_samples.organ=RL&dataset_type=ATACseq&produce-clt-manifest=true
+ GET https://search.api.sennetconsortium.org/param-search/datasets?origin_sample.organ=RL&dataset_type=Histology&produce-clt-manifest=true
 ```
 
 This will produce a list of dataset ids in a format usable by the [SenNet Command Line Transfer Tool](/libraries/clt/) to download the data.  A Linux/MAC command line example of how to produce a manifest file:
 
 ```
-curl "https://search.api.sennetconsortium.org/v3/param-search/datasets?origin_samples.organ=RL&dataset_type=ATACseq&produce-clt-manifest=true" > manifest.out
+curl "https://search.api.sennetconsortium.org/param-search/datasets?origin_sample.organ=RL&dataset_type=Histology&produce-clt-manifest=true" > manifest.out
 ```
-
----
-
-## Common document elements:
-
-Stored documents are enhanced with the following attributes for convenient use within the JSON response.
-
-| Document Element      | Description                                                                                           |
-|-----------------------|-------------------------------------------------------------------------------------------------------|
-| ancestor_ids          | A Javascript array with identifiers for all ancestors of the entity                                   |
-| ancestors             | A Javascript array with a JSON object for each ancestor of the entity                                 |
-| descendant_ids        | A Javascript array with identifiers for all descendants of the entity                                 |
-| descendants           | A Javascript array with a JSON object for each descendant of the entity                               |
-| display_subtype       | A string with the name of the entity's type                                                           |
-| source                 | A JSON object with information for the Source associated with the entity                              |
-| immediate_ancestors   | A Javascript array with a JSON object for the subset of ancestors which are "a parent to" the entity  |
-| immediate_descendants | A Javascript array with a JSON object for the subset of descendants which are "a child of" the entity |
-| index_version         | A string indicating the version of the indexing software used to create the document in the index     |
-| origin_sample         | A JSON object with information for the ancestor Sample associated with the entity                     |
-| origin_samples        | A Javascript array with a JSON object for the ancestor Sample associated with the entity              |
 
