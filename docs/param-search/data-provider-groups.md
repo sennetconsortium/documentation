@@ -3,7 +3,7 @@ layout: page
 ---
 
 ## SenNet Data Provider Groups
-The following group names are the current (as of 8/25/2024) list of SenNet Data Provider groups as stored in the `group_name` attribues of Donors, Samples and Datasets:
+The following group names are the current (as of 8/25/2024) list of SenNet Data Provider groups as stored in the `group_name` attributes of Sources, Samples and Datasets:
   - Beth Israel Deaconess Medical Center TMC
   - Broad Institute RTI
   - California Institute of Technology TMC

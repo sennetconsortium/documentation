@@ -15,7 +15,7 @@ GET https://search.api.sennetconsortium.org/v3/param-search/samples?sample_categ
 ## Description: 
 A query string is built by combining schema elements documented below with matching values.  Each "term" of the query is combined using the & character, and the entire query is attached to the base URL after a ? character, per web standards.
 
-Query terms may be composed from attributes deeper in the schema type of an attribute.  For example, the Sample Schema attribute ```metadata``` is has a type of Sample Metadata Schema, and Sample Metadata Schema has an attribute ```organ_condition```. Querying Samples supports a term to search for samples from healthy organs, such as ```metadata.organ_condition=healthy```, and a query like:
+Query terms may be composited from attributes deeper in the schema type of an attribute.  For example, the Sample Schema attribute ```metadata``` is has a type of Sample Metadata Schema, and Sample Metadata Schema has an attribute ```organ_condition```. Querying Samples supports a term to search for samples from healthy organs, such as ```metadata.organ_condition=healthy```, and a query like:
 ```
 GET https://search.api.sennetconsortium.org/v3/param-search/samples?metadata.organ_condition=healthy&organ=LI
 ```

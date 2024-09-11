@@ -4,7 +4,7 @@ layout: default
 # Example Data Query and Download
 
 ## Overview
-The combination of the [RESTful parameterized search](index.html) and the [SenNet Command Line Transfer Tool](../clt/index.html) provides for an easy way to programatically query SenNet data and download the results of the query.
+The combination of the [RESTful parameterized search](index.html) and the [SenNet Command Line Transfer Tool](../clt/index.html) provides for an easy way to programmatically query SenNet data and download the results of the query.
 
 ## Description
 Below is an example of how to use the [RESTful parameterized search endpoint](index.html) to query for datasets with specific attributes and produce a manifest of datasets to download and how to use the manifest to download all of the data for the referenced Datasets. The parameterized search feature shown in this example is a simple query mechanism that allows quick querying of data via a single RESTful URL call where queried attributes are constrained to exact string matches of a limited set of attributes, where the query is an "AND" filtered query with all attribute matches as terms in the "AND" clause, for example the query `/param-search/datasets?status=Published&dataset_type=CODEX` will return all datasets that are "Published AND a result of a CODEX assay".  If more complex queries are desired use the standard `/search` endpoint which is documented in the [SenNet Search API Endpoints](https://smart-api.info/ui/7aaf02b838022d564da776b03f357158).
@@ -19,7 +19,7 @@ The following query will return all CODEX (`dataset_type=CODEX`) Datasets run on
  GET https://search.api.sennetconsortium.org/v3/param-search/datasets?dataset_type=CODEX&metadata.metadata.acquisition_instrument_model=BZ-X800&origin_samples.organ=SP
 ```
 
-As is, if this query is submitted via HTTP GET it will produce a json Response with an array of dataset objects which match the query.  Adding the `produce-clt-manifest=true` option to this query will instead prduce a list of Dataset IDs pointing to the Datasets that match this query in a format that will be directly usable by the [SenNet Command Line Transfer Tool](../clt/index.html).
+As is, if this query is submitted via HTTP GET it will produce a json Response with an array of dataset objects which match the query.  Adding the `produce-clt-manifest=true` option to this query will instead produce a list of Dataset IDs pointing to the Datasets that match this query in a format that will be directly usable by the [SenNet Command Line Transfer Tool](../clt/index.html).
 
 To run this from the command line and save the results to a file run:
 ```

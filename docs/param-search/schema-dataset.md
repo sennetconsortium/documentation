@@ -11,7 +11,7 @@ This page describes the Dataset attributes available for querying via the [SenNe
 ## Description: 
 A query string is built by combining schema elements documented below with matching values.  Each "term" of the query is combined using the & character, and the entire query is attached to the base URL after a ? character, per web standards.
 
-Query terms may be composed from attributes deeper in the schema type of an attribute. The parameter names can be top level attributes from any of the entities or they can be nested attributes, for example `/param-search/datasets?dataset_type=RNAseq` queries the top level Dataset attribute `dataset_type`, whereas `/param-search/datasets?metadata.metadata.is_targeted=Yes` queries the `is_targeted` attribute that is nested under metadata.metadata. (NOTE: The dual nesting of metadata.metadata will be updated to a single level, just metadata, soon).
+Query terms may be composited from attributes deeper in the schema type of an attribute. The parameter names can be top level attributes from any of the entities or they can be nested attributes, for example `/param-search/datasets?dataset_type=RNAseq` queries the top level Dataset attribute `dataset_type`, whereas `/param-search/datasets?metadata.metadata.is_targeted=Yes` queries the `is_targeted` attribute that is nested under metadata.metadata. (NOTE: The dual nesting of metadata.metadata will be updated to a single level, just metadata, soon).
 
 This example finds all Datasets of type `RNAseq` where specific molecules are not targeted for detection use this query:
 ```

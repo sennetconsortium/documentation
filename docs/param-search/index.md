@@ -20,13 +20,13 @@ For an example of how to use the `produce-clt-manifest` option (described below)
    - `datasets` See the [Dataset Schema](schema-dataset.html) for the list of queryable Dataset parameters.
  - attribute value pairs as query parameters i.e `attribute-name=value`, at least one pair is required with the upper limit based on maximum URL length.  An attribute name can only be included once in the attribute value pairs.
 Example call: `/param-search/datasets?dataset_type=CODEX&status=Published` will return all datasets of type CODEX that are published.
- - optional query parameter `produce-clt-manifest=true`, that will produce, instead of a list of matching entities, a list of unique datasets ids for each dataset matching the query in the format of a mainifest that is directly usable by the [SenNet Command Line Transfer Tool](/libraries/clt/] to download the full datasets via the SenNet Globus Endpoint.
+ - optional query parameter `produce-clt-manifest=true`, that will produce, instead of a list of matching entities, a list of unique datasets ids for each dataset matching the query in the format of a manifest that is directly usable by the [SenNet Command Line Transfer Tool](/libraries/clt/] to download the full datasets via the SenNet Globus Endpoint.
 
 The parameter names can be top level attributes from any of the entities or they can be nested attributes, for example `/param-search/datasets?dataset_type=CODEX` queries the top level Dataset attribute `dataset_type`, whereas `/param-search/datasets?metadata.is_targeted=Yes` queries the `is_targeted` attribute that is nested under metadata.
 
 ### Response
 Response Code: `200`:
-When at least one entity matches the query, a 200 HTTP response code and if query parameter `produce-clt-manifest=true` is NOT include a json array of all entities matching the <entity-type> and query parameters, with each item in the list containing a json object of <entity-type>, with the associated attributes for the entity type and values. Otherwise if the query parameter `produce-clt-manifest=true` is included, the list of ids of all matching datasets
+When at least one entity matches the query, a 200 HTTP response code and if query parameter `produce-clt-manifest=true` is NOT include a json array of all entities matching the <entity-type> and query parameters, with each item in the list containing a json object of <entity-type>, with the associated attributes for the entity type and values. Otherwise, if the query parameter `produce-clt-manifest=true` is included, the list of ids of all matching datasets
 
 Response Code: `303`:
 If the total response payload exceeds 10 MB, the response is returned via an S3 bucket.  A 303 HTTP response code will be returned with the redirect URL where the query can be retrieved.
@@ -64,7 +64,7 @@ To run the same query finding all ATACseq datasets, but produce a manifest file 
  GET https://search.api.sennetconsortium.org/v3/param-search/datasets?origin_samples.organ=RL&dataset_type=ATACseq&produce-clt-manifest=true
 ```
 
-This will produce a list of dataset ids in a format usable by the [SenNet Command Line Transfer Tool](/libraries/clt/) to download the data.  A Linix/MAC command line example of how to produce a manifest file:
+This will produce a list of dataset ids in a format usable by the [SenNet Command Line Transfer Tool](/libraries/clt/) to download the data.  A Linux/MAC command line example of how to produce a manifest file:
 
 ```
 curl "https://search.api.sennetconsortium.org/v3/param-search/datasets?origin_samples.organ=RL&dataset_type=ATACseq&produce-clt-manifest=true" > manifest.out
