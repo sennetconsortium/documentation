@@ -5,11 +5,11 @@ layout: default
 # SenNet Sample schema
 
 ## Overview:
-This page describes the Sample attributes available for querying via the [SenNet parameterized search endpoint](index.html). Full Sample schema information can be found at the [SenNet Search API documentation page](https://smart-api.info/ui/7aaf02b838022d564da776b03f357158) at the bottom of the page in the `Schemas` section under the Sample section.
+This page describes the Sample attributes available for querying via the [SenNet parameterized search endpoint](index.html). Full Sample schema information can be found at the [SenNet Search API documentation page](https://smart-api.info/ui/10ed9b5eb8ff960d4431befc591ed842) at the bottom of the page in the `Schemas` section under the Sample section.
 
 For example, this endpoint searches Samples for a specified sample category of `block`, all tissue registrations that are of type `block` will be returned:
 ```
-GET https://search.api.sennetconsortium.org/v3/param-search/samples?sample_category=block
+GET https://search.api.sennetconsortium.org/param-search/samples?sample_category=Block
 ```
 
 ## Description: 
