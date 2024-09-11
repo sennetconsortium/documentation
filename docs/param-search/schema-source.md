@@ -5,18 +5,18 @@ layout: default
 # SenNet Source schema
 
 ## Overview:
-This page describes the Source attributes available for querying via the [SenNet parameterized search endpoint]().  Full Source schema information can be found at the [SenNet Search API documentation page](https://smart-api.info/ui/7aaf02b838022d564da776b03f357158) at the bottom of the page in the `Schemas` section under the Source section.
+This page describes the Source attributes available for querying via the [SenNet parameterized search endpoint]().  Full Source schema information can be found at the [SenNet Search API documentation page](https://smart-api.info/ui/10ed9b5eb8ff960d4431befc591ed842) at the bottom of the page in the `Schemas` section under the Source section.
 This page describes the Source schema for SenNet data. Source data may be returned itself or a part of another entity.  For example, this endpoint searches Sources :
 ```
-GET https://search.api.sennetconsortium.org/v3/param-search/sources?group_name=Stanford%20TMC
+GET https://search.api.sennetconsortium.org/param-search/sources?group_name=TMC%20-%20Johns%20Hopkins%20University
 ```
 
 ## Description: 
 A query string is built by combining schema elements documented below with matching values.  Each "term" of the query is combined using the & character, and the entire query is attached to the base URL after a ? character, per web standards.
 
-Query terms may be composited from attributes deeper in the schema type of an attribute.  For example, the Source Schema attribute ```metadata.living_source_data``` is has a type of Source Metadata Schema, and Source Metadata Schema has an attribute ```preferred_term``` supporting UMLS concepts. Querying Sources supports a term to search for living sources who are male, such as ```metadata.living_source_data.preferred_term=Male```, and a query like:
+Query terms may be composited from attributes deeper in the schema type of an attribute.  For example, the Source Schema attribute ```metadata.living_source_data``` has a type of Source Metadata Schema, and Source Metadata Schema has an attribute ```preferred_term``` supporting UMLS concepts. Querying Sources supports a term to search for living sources who are male, such as ```metadata.living_source_data.preferred_term=Male```, and a query like:
 ```
-GET https://search.api.sennetconsortium.org/v3/param-search/sources?metadata.living_source_data.preferred_term=Male
+GET https://search.api.sennetconsortium.org/param-search/sources?metadata.living_donor_data.preferred_term=Male
 ```
 
 ### Dataset Attributes
@@ -33,7 +33,7 @@ GET https://search.api.sennetconsortium.org/v3/param-search/sources?metadata.liv
 | metadata.organ_source_data      | array of [`Source Metadata Schema`](#source-metadata-schema)                            | Information about the source who's organ(s) was/were used. The organ was obtained via an organ donation program from a deceaced source. Only living_source_data or organ_source_data, not both can be defined for a single source.                                                                                                       |
 
 ### Source Metadata Schema
-attributes as listed at [entity-api Source schema drop-down, metadata drop-down, SourceMetadata drop-down](https://smart-api.info/ui/0065e419668f3336a40d1f5ab89c6ba3):
+attributes as listed at [entity-api Source schema drop-down, metadata drop-down, SourceMetadata drop-down](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812):
 
 | Attribute                       | Type                                                                                 | Description                                                                                                                                                                                                                                                                                                        |
 |---------------------------------|--------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
