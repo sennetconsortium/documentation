@@ -55,7 +55,7 @@ The status attribute of the `Dataset Schema` is one of the values following enum
 - `Invalid`
 
 ### `dataset_type` allowable values
-The `dataset_type` attribute of the `Dataset Schema` is a value from the current, authoritative list of [dataset types](https://ontology.api.hubmapconsortium.org/dataset-types?application_context=HUBMAP). The valid dataset types, as of, 8/26/2024 are listed below.  Additionally, linked next to the dataset types are the metadata schema pages for each dataset type.  The metadata attributes listed for each dataset type are accessible below the Dataset.metadata.metadata attribute (e.g. Dataset.`metadata.metadata.preparation_instrument_model`.
+The `dataset_type` attribute of the `Dataset Schema` is a value from the current, authoritative list of [dataset types](https://ontology.api.hubmapconsortium.org/dataset-types?application_context=SENNET). The valid dataset types, as of, 8/26/2024 are listed below.  Additionally, linked next to the dataset types are the metadata schema pages for each dataset type.  The metadata attributes listed for each dataset type are accessible below the Dataset.metadata.metadata attribute (e.g. Dataset.`metadata.metadata.preparation_instrument_model`.
 
 - `10X Multiome`: [10X Multiome metadata](../assays/metadata/10XMultiome.html)
 - `2D Imaging Mass Cytometry`: [Imaging Mass Cytometry metadata](../assays/metadata/IMC.html)

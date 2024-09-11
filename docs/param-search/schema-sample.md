@@ -28,7 +28,7 @@ GET https://search.api.sennetconsortium.org/v3/param-search/samples?metadata.org
 | group_name                  | string                                                                                                | The name of the SenNet data provider group which registered the sample.  See the [SenNet Data Provider Groups](data-provider-groups.html) for a list of valid group names.                                                                                                |
 | data_access_level           | string from [`data_access_level` attribute values](#data_access_level-attribute-values)               | One of the values: public, consortium                                                                                                                                                                                                                                                              |
 | sample_category             | string from [`sample_category` attribute values](#sample_category-attribute-values)                   | A code representing the category of the specimen. Must be one of organ, block, section , suspension. This is a required field. If set to organ, the organ property must be provided as well.                                                                                                       |
-| organ                       | string from [`organ` attribute values](#organ-attribute-values)                                       | Organ code specifier, only set if sample_category == organ. Valid values found in the `rui_code` attribute in: [organ types](https://ontology.api.hubmapconsortium.org/organs?application_context=HUBMAP)                                                                     |
+| organ                       | string from [`organ` attribute values](#organ-attribute-values)                                       | Organ code specifier, only set if sample_category == organ. Valid values found in the `rui_code` attribute in: [organ types](https://ontology.api.hubmapconsortium.org/organs?application_context=SENNET)                                                                     |
 | metadata                    | array of [`Sample Metadata Schema`](#sample-metadata-schema)                                          | The sample specific metadata derived from the uploaded sample_metadata.tsv file. Returned as a json object.                                                                                                                                                                                        |
 
 ### Sample Metadata Schema
@@ -63,7 +63,7 @@ The sample_category of the `Sample Schema` is one of the values following enumer
 - `suspension`
 
 ### `organ` attribute values
-The organ of the `Sample Schema` is a value from the current, authoritative list of `rui_code` attributes in: [organ types](https://ontology.api.hubmapconsortium.org/organs?application_context=HUBMAP)
+The organ of the `Sample Schema` is a value from the current, authoritative list of `rui_code` attributes in: [organ types](https://ontology.api.hubmapconsortium.org/organs?application_context=SENNET)
 As of 8/25/2024, the list is:
 - `AO`: Aorta
 - `BL`: Bladder
