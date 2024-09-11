@@ -5,9 +5,9 @@ layout: default
 # SenNet Person schema
 
 ## Overview:
-This page describes the Person schema for SenNet data. Person data occurs in the Donor, Sample or Dataset schemas.
+This page describes the Person schema for SenNet data. Person data occurs in the Source, Sample or Dataset schemas.
 ```
-GET https://search.api.sennetconsortium.org/param-search/donors?group_name=Stanford TMC&descendants.organ=LI
+GET https://search.api.sennetconsortium.org/param-search/sources?group_name=Stanford TMC&descendants.organ=LI
 ```
 
 ### Person Schema
