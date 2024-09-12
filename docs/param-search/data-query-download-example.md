@@ -19,7 +19,7 @@ The following query will return all Histology (`dataset_type=Histology`) Dataset
  GET https://search.api.sennetconsortium.org/param-search/datasets?dataset_type=Histology&ingest_metadata.metadata.acquisition_instrument_model=BZ-X800&origin_sample.organ=HT
 ```
 
-As is, if this query is submitted via HTTP GET it will produce a json Response with an array of dataset objects which match the query.  Adding the `produce-clt-manifest=true` option to this query will instead produce a list of Dataset IDs pointing to the Datasets that match this query in a format that will be directly usable by the [SenNet Command Line Transfer Tool](../clt/index.html).
+As is, if this query is submitted via HTTP GET it will produce a json Response with an array of dataset objects which match the query.  Adding the `produce-clt-manifest=true` option to this query will instead produce a list of Dataset IDs pointing to the Datasets that match this query in a format that will be directly usable by the [SenNet Command Line Transfer Tool](/libraries/clt/).
 
 To run this from the command line and save the results to a file run:
 ```
@@ -30,13 +30,13 @@ This results in a file that looks like:
 
 ```
 SNT948.QRZW.946 /
-SNT976.WLTL.469 /
+SNT976.WLTL.469 /f
 ...
 ```
 
 To use the SenNet CLT tool to download the data from these datasets:
 
-  - Install the Globus Connect Personal client and the SenNet CLT per the [SenNet CLT Setup Instructions](../clt/install-sennet-clt.html)
+  - Install the Globus Connect Personal client and the SenNet CLT per the [SenNet CLT Setup Instructions](/libraries/clt/)
     - Python 3.9 or greater is required for the SenNet CLT, install from the [Python Downloads page](https://www.python.org/downloads/)
     - Setup Note: A common issue arises between the configuration of the GCP client and SenNet CLT.  By default, SenNet CLT stores files in the user's home directory under a directory called `sennet-downloads`, so make sure to configure the GCP client by going to "Preferences"-->"Access" and adding the `sennet-downloads` directory in the user's home like (Example shown is Mac OS X):<br/>
     <img src="/imgs/globus-properties.jpg" alt="SenNet Provenance" width="400"/>
@@ -50,4 +50,4 @@ To use the SenNet CLT tool to download the data from these datasets:
   sennet-clt transfer dataset-manifest-for-download.out
   ```
 
-Futher instructions on the usage of the SenNet CLT are available on the main [SenNet Command Line Transfer Tool page](../clt/index.html)
+Futher instructions on the usage of the SenNet CLT are available on the main [SenNet Command Line Transfer Tool page](/libraries/clt/)
