@@ -51,7 +51,7 @@ A json array containing Dataset objects will be returned.
 
 ---
 
-To find all Histology datasets (`dataset_type=Histology`) that were run on tissue from a right lung (`origin_samples.organ=RL`):
+To find all Histology datasets (`dataset_type=Histology`) that were run on tissue from a right lung (`origin_sample.organ=RL`):
 ```
  GET https://search.api.sennetconsortium.org/param-search/datasets?origin_sample.organ=RL&dataset_type=Histology
 ```
