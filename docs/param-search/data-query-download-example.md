@@ -30,7 +30,7 @@ This results in a file that looks like:
 
 ```
 SNT948.QRZW.946 /
-SNT976.WLTL.469 /f
+SNT976.WLTL.469 /
 ...
 ```
 
