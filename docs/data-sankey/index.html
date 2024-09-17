@@ -95,6 +95,16 @@ async function generate_sankey(){
     d['data_category'] = dict[d.dataset_type] || "unknown"
   }
 
+  //remove any "(Left)" or "(Right)" suffix from organ types
+  for (var i = 0; i < data.length; i++) {
+    if(data[i].organ_type.toUpperCase().trim().endsWith("(LEFT)")){
+      data[i].organ_type = data[i].organ_type.trim().substring(0, data[i].organ_type.trim().length - 6).trim();
+    }
+    if(data[i].organ_type.toUpperCase().trim().endsWith("(RIGHT)")){
+      data[i].organ_type = data[i].organ_type.trim().substring(0, data[i].organ_type.trim().length - 7).trim();
+    }
+  }
+
   graph = {"nodes":[],"links":[]};
 
   // JCS: this section accumulates the sankey graph without error checking - each column header and item in the csv might need to be filled in without nulls
