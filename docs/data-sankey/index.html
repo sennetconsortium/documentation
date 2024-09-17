@@ -87,22 +87,21 @@ async function getData(url = '') {
 async function generate_sankey(){
   const data = await getData('https://entity.api.sennetconsortium.org/datasets/sankey_data');
   const dataCategories = await getData('https://ontology-api.dev.hubmapconsortium.org/assayclasses?application_context=SENNET');
-  const dict = {}
-  for (let d of dataCategories) {
-    dict[d.value.dataset_type.dataset_type] = d.value.dataset_type.fig2.modality
-  }
-  for (let d of data) {
-    d['data_category'] = dict[d.dataset_type] || "unknown"
+  const organs = await getData('https://ontology-api.dev.hubmapconsortium.org/organs?application_context=sennet');
+
+  const organsDict = {}
+  for (let o of organs) {
+   organsDict[o.term.trim()] = o.category?.term.trim() || o.term.trim()
   }
 
-  //remove any "(Left)" or "(Right)" suffix from organ types
-  for (var i = 0; i < data.length; i++) {
-    if(data[i].organ_type.toUpperCase().trim().endsWith("(LEFT)")){
-      data[i].organ_type = data[i].organ_type.trim().substring(0, data[i].organ_type.trim().length - 6).trim();
-    }
-    if(data[i].organ_type.toUpperCase().trim().endsWith("(RIGHT)")){
-      data[i].organ_type = data[i].organ_type.trim().substring(0, data[i].organ_type.trim().length - 7).trim();
-    }
+  const catDict = {}
+  for (let d of dataCategories) {
+    catDict[d.value.dataset_type.dataset_type] = d.value.dataset_type.fig2.modality
+  }
+
+  for (let d of data) {
+    d['data_category'] = catDict[d.dataset_type] || "unknown"
+    d.organ_type = organsDict[d.organ_type.trim()]
   }
 
   graph = {"nodes":[],"links":[]};
