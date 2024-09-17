@@ -1,12 +1,13 @@
 {
   "SenNet Docs": "SenNet Documentation",
+  "SenNet": "SenNet",
   "Not Found": "Not Found",
   "breadcrumbRoot": "Home",
   "menu": [
     {
       "name": "SenNet",
       "href": "/",
-      "class": "h2"
+      "class": "h2 lg"
     },
     {
       "name": "Entity Registration",
