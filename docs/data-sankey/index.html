@@ -86,21 +86,29 @@ async function getData(url = '') {
 // above line was to direclty reference a csv file. now an api call is made to entity-api to retrieve a json with the data
 async function generate_sankey(){
   const data = await getData('https://entity.api.sennetconsortium.org/datasets/sankey_data');
+  const dataCategories = await getData('https://ontology-api.dev.hubmapconsortium.org/assayclasses?application_context=SENNET');
+  const organs = await getData('https://ontology-api.dev.hubmapconsortium.org/organs?application_context=sennet');
 
-  //remove any "(Left)" or "(Right)" suffix from organ types
-  for (var i = 0; i < data.length; i++) {
-    if(data[i].organ_type.toUpperCase().trim().endsWith("(LEFT)")){
-      data[i].organ_type = data[i].organ_type.trim().substring(0, data[i].organ_type.trim().length - 6).trim();
-    }
-    if(data[i].organ_type.toUpperCase().trim().endsWith("(RIGHT)")){
-      data[i].organ_type = data[i].organ_type.trim().substring(0, data[i].organ_type.trim().length - 7).trim();
-    }
+  const organsDict = {}
+  for (let o of organs) {
+   organsDict[o.term.trim()] = o.category?.term.trim() || o.term.trim()
   }
+
+  const catDict = {}
+  for (let d of dataCategories) {
+    catDict[d.value.dataset_type.dataset_type] = d.value.dataset_type.fig2.modality
+  }
+
+  for (let d of data) {
+    d['data_category'] = catDict[d.dataset_type] || "unknown"
+    d.organ_type = organsDict[d.organ_type.trim()]
+  }
+
   graph = {"nodes":[],"links":[]};
 
   // JCS: this section accumulates the sankey graph without error checking - each column header and item in the csv might need to be filled in without nulls
   // columnnames = Object.keys(data[0]);
-  columnnames = ["dataset_group_name", "dataset_type", "organ_type", "dataset_status"];
+  columnnames = ["dataset_group_name", "data_category", "dataset_type", "organ_type", "dataset_status"];
   data.forEach(function (row, rowIndex){
       columnnames.forEach(function (columnName, columnIndex){
           if (columnIndex !== columnnames.length -1){
