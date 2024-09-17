@@ -1,10 +1,20 @@
-header.c-header.js-app--header(role='navigation')
+header.c-header.navbar.navbar-expand-lg(role='navigation')
     .c-header__main
-        .c-header__menu.js-header__menu
-            ul
-                li.c-header__logo
-                    a(href='/')
-                        img(src='/logo192.png' alt=_m['SenNet Docs'])
+        a.c-header__logo.navbar-brand(href='/')
+            img(src='/logo192.png' alt=_m['SenNet Docs'])
+            span.c-header__sm=_m['SenNet']
+
+        button.navbar-toggler(
+            aria-label="Toggle navigation"
+            aria-expanded="false"
+            aria-controls="js-header__menu"
+            data-target="#js-header__menu"
+            data-toggle="collapse"
+            type="button"
+        )
+            span.navbar-toggler-icon
+        .c-header__menu#js-header__menu.collapse.navbar-collapse
+            ul.navbar-nav.mr-auto
                 each item in _m.menu
-                    li(class=item.class)
-                        a(href=item.href)=item.name
+                    li(class=`nav-item${item.class ? ' '+item.class : ''}`)
+                        a.nav-link(href=item.href)=item.name
