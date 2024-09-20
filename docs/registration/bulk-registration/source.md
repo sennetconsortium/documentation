@@ -25,5 +25,5 @@ be registered. Descriptions of these fields are below.
 ### Source metadata submission
 After a `murine` source has been registered you can bulk upload metadata by clicking "Upload metadata" and then selecting `Mouse`. For more information regarding metadata upload you can visit the [documentation page](../../libraries/ingest-validation-tools/schemas/source-murine).
 
-After a `human` source has been registered, documents need to be provided to the HIVE so additional metadata can be
-extracted. See a description on the [documentation page](../../libraries/ingest-validation-tools/schemas/source-human).
+After a `human` source has been registered, documents need to be provided to the CODCC so additional metadata can be
+extracted. An outline of the clinical human source metadata submission process can be found [in this section of the Data Submission Guide](https://docs.sennetconsortium.org/data-submission/Section9).
