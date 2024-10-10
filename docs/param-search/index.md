@@ -51,9 +51,9 @@ A json array containing Dataset objects will be returned.
 
 ---
 
-To find all Histology datasets (`dataset_type=Histology`) that were run on tissue from a right lung (`origin_sample.organ=RL`):
+To find all Histology datasets (`dataset_type=Histology`) that were run on tissue from a right lung (`origin_samples.organ=RL`):
 ```
- GET https://search.api.sennetconsortium.org/param-search/datasets?origin_sample.organ=RL&dataset_type=Histology
+ GET https://search.api.sennetconsortium.org/param-search/datasets?origin_samples.organ=RL&dataset_type=Histology
 ```
 A json array containing Dataset objects will be returned.
 
@@ -61,12 +61,12 @@ A json array containing Dataset objects will be returned.
 
 To run the same query finding all Histology datasets, but produce a manifest file to download all of the data instead of producing the json of all dataset information, add the `produce-clt-manifest=true` option
 ```
- GET https://search.api.sennetconsortium.org/param-search/datasets?origin_sample.organ=RL&dataset_type=Histology&produce-clt-manifest=true
+ GET https://search.api.sennetconsortium.org/param-search/datasets?origin_samples.organ=RL&dataset_type=Histology&produce-clt-manifest=true
 ```
 
 This will produce a list of dataset ids in a format usable by the [SenNet Command Line Transfer Tool](/libraries/clt/) to download the data.  A Linux/MAC command line example of how to produce a manifest file:
 
 ```
-curl "https://search.api.sennetconsortium.org/param-search/datasets?origin_sample.organ=RL&dataset_type=Histology&produce-clt-manifest=true" > manifest.out
+curl "https://search.api.sennetconsortium.org/param-search/datasets?origin_samples.organ=RL&dataset_type=Histology&produce-clt-manifest=true" > manifest.out
 ```
 
