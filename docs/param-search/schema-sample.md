@@ -17,7 +17,7 @@ A query string is built by combining schema elements documented below with match
 
 Query terms may be composited from attributes deeper in the schema type of an attribute.  For example, the Sample Schema attribute ```metadata``` is has a type of [Sample Metadata Schema](/libraries/ingest-validation-tools/schemas/), and Sample `Block` Metadata Schema has an attribute ```preparation_condition```. Querying Samples supports a term to search for sample blocks with a preparation condition, such as ```metadata.preparation_condition=Frozen%20on%20ice```, and a query like:
 ```
-GET https://search.api.sennetconsortium.org/param-search/samples?metadata.preparation_condition=Frozen%20on%20ice&origin_sample.organ=HT
+GET https://search.api.sennetconsortium.org/param-search/samples?metadata.preparation_condition=Frozen%20on%20ice&origin_samples.organ=HT
 ```
 
 | Attribute                   | Type                                                                                    | Description                                                                                                                                                                                               |
