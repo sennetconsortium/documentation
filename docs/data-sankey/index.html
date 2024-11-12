@@ -86,7 +86,6 @@ async function getData(url = '') {
 // above line was to direclty reference a csv file. now an api call is made to entity-api to retrieve a json with the data
 async function generate_sankey(){
   const data = await getData('https://entity.api.sennetconsortium.org/datasets/sankey_data');
-  const dataCategories = await getData('https://ontology.api.hubmapconsortium.org/assayclasses?application_context=SENNET');
   const organs = await getData('https://ontology.api.hubmapconsortium.org/organs?application_context=sennet');
 
   const organsDict = {}
@@ -95,9 +94,6 @@ async function generate_sankey(){
   }
 
   const catDict = {}
-  for (let d of dataCategories) {
-    catDict[d.value.dataset_type.dataset_type] = d.value.dataset_type.fig2.modality
-  }
 
   for (let d of data) {
     d['data_category'] = catDict[d.dataset_type] || "unknown"
