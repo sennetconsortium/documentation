@@ -105,7 +105,7 @@ async function generate_sankey(){
   // JCS: this section accumulates the sankey graph without error checking - each column header and item in the csv might need to be filled in without nulls
   // columnnames = Object.keys(data[0]);
   // columnnames = ["dataset_group_name", "data_category", "dataset_type", "organ_type", "dataset_status"];
-  columnnames = ["dataset_group_name", "dataset_type", "organ_type", "dataset_status"];
+  columnnames = ["dataset_group_name", "dataset_dataset_type", "organ_type", "dataset_status"];
   data.forEach(function (row, rowIndex){
       columnnames.forEach(function (columnName, columnIndex){
           if (columnIndex !== columnnames.length -1){
