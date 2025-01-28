@@ -39,7 +39,7 @@
         {"name": "6 - Preparing Metadata", "href": "/data-submission/Section6"},
         {"name": "7 - Local Validation", "href": "/data-submission/Section7"},
         {"name": "8 - Upload Directory", "href": "/data-submission/Section8"},
-        {"name": "9 - Data Upload", "href": "/data-submission/Section9"},
+        {"name": "9 - Clinical Human Metadata", "href": "/data-submission/Section9"},
         {"name": "10 - Data Processing", "href": "/data-submission/Section10"},
         {"name": "11 - Data Review", "href": "/data-submission/Section11"},
         {"name": "12 - dbGap Submission", "href": "/data-submission/Section12"}
