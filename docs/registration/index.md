@@ -2,7 +2,7 @@
 layout: default
 ---
 
-# Entity Registration Schemas & Guidlines
+# Entity Registration Schemas & Guidelines
 From the [Data Sharing Portal](https://data.sennetconsortium.org/), users have the ability to register entities individually 
 and in bulk.
 
