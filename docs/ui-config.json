@@ -1,5 +1,14 @@
 {
   "/data-submission/":{
     "cssModifier": "dsg"
-  }
+  },
+  "/gp-test":{
+    "cssModifier": "dsg"
+  },
+  "/gp-instructions":{
+    "cssModifier": "dsg"
+  },
+  "/request-hub-access":{
+    "cssModifier": "dsg"
+  }    
 }
