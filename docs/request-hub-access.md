@@ -10,7 +10,7 @@ Protected genomic data is included in this access. Consequently, users requestin
 In order to maintain the secure nature of the system and its data, the list of users with access will be reviewed every 90 days. If it is determined that a user no longer requires access, their access will be terminated.
 
 
-To initiate a request send an email to the <a href="mailto:crio@pitt.edu">Research Informatics Office <crio@pitt.edu></a> with the following information:
+To initiate a request send an email to the <a href="mailto:crio@pitt.edu">Research Informatics Office (crio@pitt.edu)</a> with the following information:
   - That you are requesting access to SenNet resources on the "Moonshot" Hub
   - The name of the funded SenNet componet that you work for
   - A description of why you need access
