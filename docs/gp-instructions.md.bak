@@ -10,13 +10,13 @@ This document describes how to gain access to the private network where the Hub 
 <h2 id="installing-global-protect-to-use-with-pitt-sponsored-accounts">Installing GlobalProtect to use with Pitt sponsored accounts</h2>
 ### Introduction
 
-Global Protect is the client required to access resources secured behind Pitt's firewall. Several use cases require the use of Global Protect for users external to Pitt who have a valid sponsored Pitt account. Install using the instructions included here for Windows, Mac or Linux.  After installation see the details below the installation instructions to check access to internal Pitt resources.
+Global Protect is the client required to access resources secured behind Pitt's firewall. Several use cases require the use of Global Protect for users external to Pitt who have a valid sponsored Pitt account. Install using the instructions included here for Windows, Mac or Linux.  After installation see the details below the installation instructions to check access to internal Pitt resources. If Global Protect won't work for you, there are further instructions on how to access the internal resources by remoting to an internal virtual desktop.
 
 ### Requirements
 
 GlobalProtect requires specific system requirements in order to pass a system "Health Check" before connections will be allowed to pass into the protected zones.  These requirements are listed below (click to expand). Verify your system can pass these checks before installing GlobalProtect.
 
-**IMPORTANT** Once GlobalProtect is installed and enabled, make an ssh connection to `login0.moonshot.pitt.edu`, if the connection is successful (doesn't hang) and you are prompted to log in, GlobalProtect is working and you have passed all Health Checks. However, you may not be able to log in if access to the systems has not been granted yet.
+**IMPORTANT** Once GlobalProtect is installed and enabled, make an ssh connection to `login0.moonshot.pitt.edu`, if the connection is successful (doesn't hang) and you are prompted to log in, GlobalProtect is working and you have passed all Health Checks. However, you may not be able to log in if access to the systems has not been granted yet.  If you are unable to use GlobalProtect, see the [Using a Virtual Desktop To Connect](#virt-desktop) section below.
 
 
 <details style="margin-bottom: 20px;">
@@ -68,3 +68,16 @@ To install GlobalProtect, use your Pitt sponsored account to log into <a href="h
 
 To test GlobalProtect after it has been successfully installed and enabled, open a shell/terminal on your computer and try to make an ssh connection to `yourpittusername@login0.moonshot.pitt.edu`. If you see the login prompt, everything is working, however, you will not be able to log in if full accss hasn't yet been granted. You will be notified once access has been granted.  If the ssh connection hangs or times out GlobalProtect is not working and likely hasn't passed one of the Health Check requirements listed above.<br/><br/>
 <img src="imgs/globalprotect-ssh.png" alt="Enter Endpoint" width="878" height="540">
+<br/><br/>
+<h2 id="virt-desktop" style="margin-bottom: 20px;">
+Virtual Desktop Access
+</h2>
+
+In the event that GlobalProtect won't work for you, you can use a browser based virtual desktop environment to access the Hub.  Start by connecting your browser to <a href="https://pi.tt/vlab" target="_blank" rel="noopener noreferrer">https://pi.tt/vlab</a>. After connecting to the Virtual Environment in your browser:
+
+  1. Click the "CRC - Moonshot" icon:<br/>
+ <img src="imgs/virt-desktop-crc-moonshot-icon.png" alt="Open Virtual Desktop" width="282" height="198"><br/><br/>
+  2. Start a terminal by searching for "Terminal" in the Windows Search Bar, then clicking the "Terminal" application:<br/>
+ <img src="imgs/virtual-desktop-start-terminal.png" alt="Start Virtual Desktop Terminal" width="716" height="605"><br/><br/>
+  3. In the terminal, ssh to `yourpittusername@login0.moonshot.pitt.edu`:<br/>
+  <img src="imgs/virtual-desktop-ssh-to-login0.png" alt="ssh to login0" width="943" height="511">
