@@ -9,66 +9,17 @@
 <div class='c-sankey' id='js-sankey'>
 </div>
 <script>
- // Retrieves JSON from entity api 'datasets/sankey_data'
- async function getData(url = '') {
-  const response = await fetch(url, {
-   method: 'GET',
-   mode: 'cors',
-   credentials: 'omit'
-  });
-  return response.json();
- }
-
- let organsDict = {}
-
- const setOrganTypes = async () => {
-  const organs = await getData('https://ontology.api.hubmapconsortium.org/organs?application_context=sennet');
-  for (let o of organs) {
-   organsDict[o.term.trim().toLowerCase()] = o.category?.term?.trim() || o.term?.trim()
-  }
- }
-
- const getOrganHierarchy = (str) => {
-  let res = organsDict[str.trim().toLowerCase()]
-  // fallback incase of missing unkg data
-  if (!res) {
-   const r = new RegExp(/.+?(?=\()/)
-   res = str.match(r)
-   return res && res.length ? res[0].trim() : str
-  }
-  return res
- }
 
  const initSankey = async () => {
-  await setOrganTypes();
-
   const sankeyOptions = btoa(JSON.stringify({
    useShadow: true,
-   styleSheetPath: '/data-sankey/xac-sankey.css',
-   api: { url: 'https://entity.api.sennetconsortium.org/datasets/sankey_data', }
+   styleSheetPath: '/data-sankey/xac-sankey.css'
   }))
 
   // the only way to pass objects is via a functional call to the exposed shadow dom
   // must observe that this web component el is ready in DOM before calling the method
   const targetNode = document.getElementById("js-sankey")
   targetNode.innerHTML = `<consortia-sankey  options="${sankeyOptions}" />`;
-
-  const config = {  attributes: true, childList: true, subtree: true }
-
-  const callback = (mutationList, observer) => {
-   const sankey = document.getElementById('js-sankey-main')
-   if (sankey && sankey.setOptions) {
-    sankey.setOptions({
-     dataCallback: (row) => {
-      return {...row, organ_type: getOrganHierarchy(row.organ_type)}
-     }
-    })
-    observer.disconnect()
-   }
-  }
-
-  const observer = new MutationObserver(callback)
-  observer.observe(targetNode, config)
  }
 
  initSankey()
