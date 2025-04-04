@@ -1,3 +1,7 @@
+/**
+* 
+* 4/4/2025, 2:26:12 PM | X Atlas Consortia Sankey 1.0.0 | git+https://github.com/x-atlas-consortia/data-sankey.git | Pitt DBMI CODCC
+**/
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -78,10 +82,15 @@ var XACSankey = /*#__PURE__*/function (_HTMLElement) {
     _this.fetchData();
     return _this;
   }
+
+  /**
+   * Sets the organTypes from UBKG.
+   * @returns {Promise<void>}
+   */
   _inherits(XACSankey, _HTMLElement);
   return _createClass(XACSankey, [{
     key: "setOrganTypes",
-    value: function () {
+    value: (function () {
       var _setOrganTypes = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
         var res, organs, _iterator, _step, _o$category, _o$term, o;
         return _regeneratorRuntime().wrap(function _callee$(_context) {
@@ -117,6 +126,12 @@ var XACSankey = /*#__PURE__*/function (_HTMLElement) {
       }
       return setOrganTypes;
     }()
+    /**
+     * Gets corresponding organ category from organ type. Example Lung (Left) -> Lung.
+     * @param {string} str The organ type
+     * @returns {string|*}
+     */
+    )
   }, {
     key: "getOrganHierarchy",
     value: function getOrganHierarchy(str) {
@@ -130,6 +145,10 @@ var XACSankey = /*#__PURE__*/function (_HTMLElement) {
       }
       return res;
     }
+
+    /**
+     * Appends stylesheet to exposed shadow dom.
+     */
   }, {
     key: "applyStyles",
     value: function applyStyles() {
@@ -145,6 +164,10 @@ var XACSankey = /*#__PURE__*/function (_HTMLElement) {
       s.href = this.styleSheetPath;
       (_classPrivateFieldGet2 = _classPrivateFieldGet(_shadow, this)) === null || _classPrivateFieldGet2 === void 0 || _classPrivateFieldGet2.appendChild(s);
     }
+
+    /**
+     * Retrieves options set via the element's options attr.
+     */
   }, {
     key: "handleOptions",
     value: function handleOptions() {
@@ -160,6 +183,11 @@ var XACSankey = /*#__PURE__*/function (_HTMLElement) {
         this.ops = {};
       }
     }
+
+    /**
+     * Returns request headers.
+     * @returns {{headers: {"Content-Type": string}}}
+     */
   }, {
     key: "getHeaders",
     value: function getHeaders() {
@@ -173,6 +201,11 @@ var XACSankey = /*#__PURE__*/function (_HTMLElement) {
       }
       return h;
     }
+
+    /**
+     * Sets options to this instance.
+     * @param {object} ops
+     */
   }, {
     key: "setOptions",
     value: function setOptions(ops) {
@@ -204,8 +237,8 @@ var XACSankey = /*#__PURE__*/function (_HTMLElement) {
     }
 
     /**
-     * Modifies the component attr so that attributeChangedCallback can be triggered
-     * @param attr
+     * Modifies the component attr so that attributeChangedCallback can be triggered.
+     * @param {string} attr Name of a watche attribute.
      */
   }, {
     key: "useEffect",
@@ -213,12 +246,16 @@ var XACSankey = /*#__PURE__*/function (_HTMLElement) {
       var attr = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'data';
       this.setAttribute(attr, "".concat(Date.now()));
     }
+
+    /**
+     * Converts the filter from the URL to the field names returned from the sankey endpoint.
+     * Also splits comma separated filter values into an array.
+     * @returns {{}}
+     */
   }, {
     key: "getValidFilters",
     value: function getValidFilters() {
       var _this2 = this;
-      // converts the filter from the URL to the field names returned from the sankey endpoint
-      // also splits comma separated filter values into an array
       return Object.keys(this.filters).reduce(function (acc, key) {
         if (_this2.validFilterMap[key.toLowerCase()] !== undefined) {
           acc[_this2.validFilterMap[key].toLowerCase()] = _this2.filters[key].split(',');
@@ -226,9 +263,14 @@ var XACSankey = /*#__PURE__*/function (_HTMLElement) {
         return acc;
       }, {});
     }
+
+    /**
+     * Gets and handles main sankey data to be visualized.
+     * @returns {Promise<void>}
+     */
   }, {
     key: "fetchData",
-    value: function () {
+    value: (function () {
       var _fetchData = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
         var _this3 = this;
         var res, data, validFilters, filteredData, columnNames, newGraph;
@@ -324,10 +366,9 @@ var XACSankey = /*#__PURE__*/function (_HTMLElement) {
                   }
                 });
               });
-              this.isLoading = false;
               this.graphData = newGraph;
               this.useEffect('fetch');
-            case 20:
+            case 19:
             case "end":
               return _context2.stop();
           }
@@ -338,12 +379,20 @@ var XACSankey = /*#__PURE__*/function (_HTMLElement) {
       }
       return fetchData;
     }()
+    /**
+     * Grabs client size info.
+     */
+    )
   }, {
     key: "handleWindowResize",
     value: function handleWindowResize() {
       this.containerDimensions.width = this.clientWidth;
       this.containerDimensions.height = Math.max(this.clientHeight, 1080);
     }
+
+    /**
+     * Builds the visualization.
+     */
   }, {
     key: "buildGraph",
     value: function buildGraph() {
@@ -435,22 +484,41 @@ var XACSankey = /*#__PURE__*/function (_HTMLElement) {
       }).filter(function (d) {
         return d.x0 < width / 2;
       }).attr('x', 6 + sankey.nodeWidth()).attr('text-anchor', 'start');
+      this.isLoading = false;
+      this.useEffect('graph');
     }
+
+    /**
+     * Callback for handling window resize.
+     */
   }, {
     key: "onWindowResize",
     value: function onWindowResize() {
       this.handleWindowResize();
       this.useEffect('options');
     }
+
+    /**
+     * Runs when the element is connected to the DOM.
+     */
   }, {
     key: "connectedCallback",
     value: function connectedCallback() {
       this.handleWindowResize();
       window.addEventListener('resize', this.onWindowResize.bind(this));
     }
+
+    /**
+     * Determines which attributes to watch for triggering change notifications to attributeChangedCallback.
+     * @returns {string[]}
+     */
   }, {
     key: "clearCanvas",
-    value: function clearCanvas() {
+    value:
+    /**
+     * Clears viewport of svgs.
+     */
+    function clearCanvas() {
       if (this.ops.useShadow) {
         var l = _classPrivateFieldGet(_shadow, this).querySelectorAll('svg');
         l.forEach(function (el) {
@@ -460,6 +528,10 @@ var XACSankey = /*#__PURE__*/function (_HTMLElement) {
         this.innerHTML = '';
       }
     }
+
+    /**
+     * Displays or removes loading spinner.
+     */
   }, {
     key: "handleLoader",
     value: function handleLoader() {
@@ -480,7 +552,7 @@ var XACSankey = /*#__PURE__*/function (_HTMLElement) {
     }
 
     /**
-     *
+     * Invoked when one of the custom element's attributes is added, removed, or changed.
      * @param property
      * @param oldValue
      * @param newValue
@@ -492,19 +564,32 @@ var XACSankey = /*#__PURE__*/function (_HTMLElement) {
       this.log("XACSankey.attributeChangedCallback: ".concat(property, " ").concat(newValue));
       if (oldValue === newValue) return;
       this.handleLoader();
-      if (property === 'data') {
-        this.fetchData().then(function () {
-          _this4.clearCanvas();
-          _this4.buildGraph();
-        }.bind(this));
-      } else {
-        this.clearCanvas();
-        this.buildGraph();
+      if (property !== 'graph') {
+        if (property === 'data') {
+          this.fetchData().then(function () {
+            _this4.clearCanvas();
+            _this4.buildGraph();
+          }.bind(this));
+        } else {
+          this.clearCanvas();
+          this.buildGraph();
+        }
       }
     }
+
+    /**
+     * Checks if running in local or dev env
+     * @returns {boolean}
+     */
   }, {
     key: "log",
-    value: function log(msg) {
+    value:
+    /**
+     *  Logs message to screen.
+     * @param {string} msg The message to display
+     * @param {string} fn The type of message {log|warn|error}
+     */
+    function log(msg) {
       var fn = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'log';
       XACSankey.log(msg, {
         fn: fn
@@ -513,13 +598,19 @@ var XACSankey = /*#__PURE__*/function (_HTMLElement) {
   }], [{
     key: "observedAttributes",
     get: function get() {
-      return ['data', 'fetch', 'options'];
+      return ['data', 'fetch', 'options', 'graph'];
     }
   }, {
     key: "isLocal",
     value: function isLocal() {
       return location.host.indexOf('localhost') !== -1 || location.host.indexOf('.dev') !== -1;
     }
+
+    /**
+     * Logs message to screen
+     * @param {string} msg The message to display
+     * @param {object} ops Color options for console
+     */
   }, {
     key: "log",
     value: function log(msg, ops) {
