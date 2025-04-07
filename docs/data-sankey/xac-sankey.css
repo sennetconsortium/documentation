@@ -4,3 +4,11 @@
     font-weight: 500;
     font-style: normal;
 }
+
+.c-sankey__node {
+    cursor: pointer;
+}
+
+.c-sankey__node.c-sankey__node--dataset_dataset_type {
+    cursor: default;
+}
