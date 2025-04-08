@@ -30,14 +30,16 @@
 
     const goTo = (d) => {
      if (d.ref === 'dataset_dataset_type') return
+     const facetsMap = {
+      organ: 'origin_samples.organ',
+      source_type: 'sources.source_type'
+     }
      let values = filterMap[d.ref] === 'organ' ? ctx.organsDictByCategory[d.name] : [d.name]
+     const facet = facetsMap[filterMap[d.ref]] || filterMap[d.ref]
+     const addFilters = ';entity_type=Dataset'
      if (values) {
       values = Array.from(values)
-      addFilters = ''
-      if (d.ref === 'dataset_group_name') {
-       addFilters = ';entity_type=Dataset'
-      }
-      window.open(`https://data.sennetconsortium.org/search?addFilters=${filterMap[d.ref]}=${values.join(',')}${addFilters}`, '_blank')
+      window.open(`https://data.sennetconsortium.org/search?addFilters=${facet}=${values.join(',')}${addFilters}`, '_blank')
      }
     }
     clearInterval(i)
