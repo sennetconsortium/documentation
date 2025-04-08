@@ -1,6 +1,14 @@
-@import "https://rawcdn.githack.com/x-atlas-consortia/data-sankey/1.0.0/src/lib/xac-sankey.css";
+@import "https://rawcdn.githack.com/x-atlas-consortia/data-sankey/1.0.2/src/lib/xac-sankey.css";
 .c-sankey {
     font-family: 'Roboto', Arial;
     font-weight: 500;
     font-style: normal;
+}
+
+.c-sankey__node {
+    cursor: pointer;
+}
+
+.c-sankey__node.c-sankey__node--dataset_dataset_type {
+    cursor: default;
 }
