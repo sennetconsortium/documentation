@@ -33,7 +33,11 @@
      let values = filterMap[d.ref] === 'organ' ? ctx.organsDictByCategory[d.name] : [d.name]
      if (values) {
       values = Array.from(values)
-      window.open(`https://data.sennetconsortium.org/search?addFilters=${filterMap[d.ref]}=${values.join(',')}`, '_blank')
+      addFilters = ''
+      if (d.ref === 'dataset_group_name') {
+       addFilters = ';entity_type=Dataset'
+      }
+      window.open(`https://data.sennetconsortium.org/search?addFilters=${filterMap[d.ref]}=${values.join(',')}${addFilters}`, '_blank')
      }
     }
     clearInterval(i)
