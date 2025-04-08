@@ -103,9 +103,9 @@ Microsoft Windows App is a remote desktop client that will connect you to a remo
 
 ### Launching the Virtual Desktop and connecting to the login node
 
-  1. Under the newly added workspace a "CRC - Moonshot" device connection will be shown, choose that option:<br/>
+  1. Under the newly added workspace, a "CRC - Moonshot" device connection will be shown. Choose that option:<br/>
 <img src="imgs/virt-desktop-step3.png" alt="Start Device" width="668" height="347"><br/><br/>
-  2. The Virtual Desktop will be created and launched.  You will see a notification box which will announce that it is:<br/>&nbsp;&nbsp;&nbsp;
+  2. The Virtual Desktop will be created and launched.  You will see a notification box which will display:<br/>&nbsp;&nbsp;&nbsp;
     - "Initiating Connection"<br/>&nbsp;&nbsp;&nbsp;
     - "Starting remote PC"<br/>&nbsp;&nbsp;&nbsp;
     - "Waiting for remote PC"<br/>&nbsp;&nbsp;&nbsp;
