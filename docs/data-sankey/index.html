@@ -35,9 +35,14 @@
       organ: 'origin_samples.organ',
       source_type: 'sources.source_type'
      }
-     let values = col === 'organ' ? ctx.organsDictByCategory[d.name] : [d.name]
+     let values = [d.name]
+     let depFacet = ''
+     if (col === 'organ') {
+       values = ctx.organsDictByCategory[d.name]
+       depFacet='Sample,'
+     }
      const facet = facetsMap[col] || col
-     const addFilters = ';entity_type=Dataset'
+     const addFilters = `;dataset_class=Create Dataset Activity;entity_type=${depFacet}Dataset`
      if (values) {
       values = Array.from(values)
       window.open(`https://data.sennetconsortium.org/search?addFilters=${facet}=${values.join(',')}${addFilters}`, '_blank')
