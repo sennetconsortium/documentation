@@ -42,7 +42,7 @@
        depFacet='Sample,'
      }
      const facet = facetsMap[col] || col
-     const addFilters = `;dataset_class=Create Dataset Activity;entity_type=${depFacet}Dataset`
+     const addFilters = `;data_class=Create Dataset Activity;entity_type=${depFacet}Dataset`
      if (values) {
       values = Array.from(values)
       window.open(`https://data.sennetconsortium.org/search?addFilters=${facet}=${values.join(',')}${addFilters}`, '_blank')
