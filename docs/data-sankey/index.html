@@ -3,7 +3,7 @@
 <head>
  <title>Data Sankey</title>
  <link type='text/css' rel="stylesheet" href='./xac-sankey.css' />
- <script type='module' src="https://rawcdn.githack.com/x-atlas-consortia/data-sankey/1.0.2a/dist/js/ConsortiaSankey.js"></script>
+ <script type='module' src="https://rawcdn.githack.com/x-atlas-consortia/data-sankey/1.0.2c/dist/js/ConsortiaSankey.js"></script>
 </head>
 <body>
 <div class='c-sankey' id='js-sankey'>
@@ -29,13 +29,14 @@
     let filterMap = ctx.flipObj(ctx.validFilterMap)
 
     const goTo = (d) => {
-     if (d.ref === 'dataset_dataset_type') return
+     const col = filterMap[d.ref]
+     if (col === 'dataset_type') return
      const facetsMap = {
       organ: 'origin_samples.organ',
       source_type: 'sources.source_type'
      }
-     let values = filterMap[d.ref] === 'organ' ? ctx.organsDictByCategory[d.name] : [d.name]
-     const facet = facetsMap[filterMap[d.ref]] || filterMap[d.ref]
+     let values = col === 'organ' ? ctx.organsDictByCategory[d.name] : [d.name]
+     const facet = facetsMap[col] || col
      const addFilters = ';entity_type=Dataset'
      if (values) {
       values = Array.from(values)
