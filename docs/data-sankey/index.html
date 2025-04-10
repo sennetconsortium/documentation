@@ -1,53 +1,68 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
+<meta charset="utf-8" />
 <head>
- <title>Data Sankey</title>
- <link type='text/css' rel="stylesheet" href='./xac-sankey.css' />
- <script type='module' src="https://rawcdn.githack.com/x-atlas-consortia/data-sankey/1.0.2/dist/js/ConsortiaSankey.js"></script>
+    <title>Data Sankey</title>
+    <link type="text/css" rel="stylesheet" href="./xac-sankey.css" />
+    <script
+        type="module"
+        src="https://rawcdn.githack.com/x-atlas-consortia/data-sankey/1.0.3/dist/js/ConsortiaSankey.js"
+    ></script>
 </head>
 <body>
-<div class='c-sankey' id='js-sankey'>
-</div>
-<script>
+    <div class="c-sankey" id="js-sankey"></div>
+    <script>
+        const initSankey = async () => {
+            const sankeyOptions = btoa(
+                JSON.stringify({
+                    useShadow: true,
+                    styleSheetPath: '/data-sankey/xac-sankey.css',
+                    validFilterMap: {
+                        status: null,
+                        source_type: 'dataset_source_type'
+                    }
+                })
+            )
 
- const initSankey = async () => {
-  const sankeyOptions = btoa(JSON.stringify({
-   useShadow: true,
-   styleSheetPath: '/data-sankey/xac-sankey.css',
-   validFilterMap: {
-    status: null,
-    source_type: 'dataset_source_type'
-   }
-  }))
+            const el = document.getElementById('js-sankey')
+            el.innerHTML = `<consortia-sankey options="${sankeyOptions}" />`
 
-  const el = document.getElementById("js-sankey")
-  el.innerHTML = `<consortia-sankey options="${sankeyOptions}" />`;
+            const i = setInterval(() => {
+                const ctx = document.querySelector('consortia-sankey')
+                if (ctx.setOptions) {
+                    let filterMap = ctx.flipObj(ctx.validFilterMap)
 
-  const i = setInterval(()=> {
-   const ctx = document.querySelector('consortia-sankey')
-   if (ctx.setOptions) {
-    let filterMap = ctx.flipObj(ctx.validFilterMap)
+                    const goTo = (d) => {
+                        const col = filterMap[d.ref]
+                        if (col === 'dataset_type') return
+                        const facetsMap = {
+                            organ: 'origin_samples.organ',
+                            source_type: 'sources.source_type'
+                        }
+                        let values = [d.name]
+                        if (col === 'organ') {
+                            values = ctx.organsDictByCategory[d.name]
+                        }
+                        const facet = facetsMap[col] || col
+                        const addFilters = `;data_class=Create Dataset Activity;entity_type=Dataset`
+                        if (values) {
+                            values = Array.from(values)
+                            window.open(
+                                `https://data.sennetconsortium.org/search?addFilters=${facet}=${values.join(
+                                    ','
+                                )}${addFilters}`,
+                                '_blank'
+                            )
+                        }
+                    }
+                    clearInterval(i)
+                    ctx.setOptions({
+                        onNodeClickCallback: (e, d) => goTo(d),
+                        onLabelClickCallback: (e, d) => goTo(d)
+                    })
+                }
+            }, 500)
+        }
 
-    const goTo = (d) => {
-     if (d.ref === 'dataset_dataset_type') return
-     let values = filterMap[d.ref] === 'organ' ? ctx.organsDictByCategory[d.name] : [d.name]
-     if (values) {
-      values = Array.from(values)
-      window.open(`https://data.sennetconsortium.org/search?addFilters=${filterMap[d.ref]}=${values.join(',')}`, '_blank')
-     }
-    }
-    clearInterval(i)
-    ctx.setOptions({
-         onNodeClickCallback: (e, d) => goTo(d),
-         onLabelClickCallback: (e, d) => goTo(d)
-    })
-   }
-  }, 500)
-
- }
-
- initSankey()
-
- </script>
+        initSankey()
+    </script>
 </body>
-
