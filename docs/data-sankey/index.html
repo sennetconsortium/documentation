@@ -5,7 +5,11 @@
     <link type="text/css" rel="stylesheet" href="./xac-sankey.css" />
     <script
         type="module"
-        src="https://rawcdn.githack.com/x-atlas-consortia/data-sankey/1.0.3/dist/js/ConsortiaSankey.js"
+        src="https://rawcdn.githack.com/x-atlas-consortia/data-sankey/1.0.4c/src/lib/js/adapters/SenNetAdapter.js"
+    ></script>
+    <script
+        type="module"
+        src="https://rawcdn.githack.com/x-atlas-consortia/data-sankey/1.0.4c/src/lib/js/ConsortiaSankey.js"
     ></script>
 </head>
 <body>
@@ -17,8 +21,9 @@
                     useShadow: true,
                     styleSheetPath: '/data-sankey/xac-sankey.css',
                     validFilterMap: {
+                        dataset_type: 'dataset_type_hierarchy',
                         status: null,
-                        source_type: 'dataset_source_type'
+                        source_type: 'dataset_source_type',
                     }
                 })
             )
@@ -29,35 +34,12 @@
             const i = setInterval(() => {
                 const ctx = document.querySelector('consortia-sankey')
                 if (ctx.setOptions) {
-                    let filterMap = ctx.flipObj(ctx.validFilterMap)
+                    let adapter = new SenNetAdapter(ctx, {isProd: true})
 
-                    const goTo = (d) => {
-                        const col = filterMap[d.ref]
-                        if (col === 'dataset_type') return
-                        const facetsMap = {
-                            organ: 'origin_samples.organ',
-                            source_type: 'sources.source_type'
-                        }
-                        let values = [d.name]
-                        if (col === 'organ') {
-                            values = ctx.organsDictByCategory[d.name]
-                        }
-                        const facet = facetsMap[col] || col
-                        const addFilters = `;data_class=Create Dataset Activity;entity_type=Dataset`
-                        if (values) {
-                            values = Array.from(values)
-                            window.open(
-                                `https://data.sennetconsortium.org/search?addFilters=${facet}=${values.join(
-                                    ','
-                                )}${addFilters}`,
-                                '_blank'
-                            )
-                        }
-                    }
                     clearInterval(i)
                     ctx.setOptions({
-                        onNodeClickCallback: (e, d) => goTo(d),
-                        onLabelClickCallback: (e, d) => goTo(d)
+                        onNodeClickCallback: (e, d) => adapter.goTo(d),
+                        onLabelClickCallback: (e, d) => adapter.goTo(d)
                     })
                 }
             }, 500)
