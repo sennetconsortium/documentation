@@ -9,7 +9,12 @@ contains information about this software and tools, more information is availabl
 the [SenNet Consortium Site](https://sennetconsortium.org/) or
 the [SenNet Data Sharing Portal](https://data.sennetconsortium.org).
 
-For an overview of SenNet data visit the [Data Overview](/data-sankey) page.
+For a comprehensive overview of SenNet data, please visit the [Data Overview](/data-sankey) page. This Sankey diagram
+presents detailed information about published primary datasets, which are the initial sets of data directly collected
+from a murine or huma n assay, such as histology, single-cell RNAseq, spatial transcriptomics, or proteomics. The
+interactive nature of the diagram enables users to select specific nodes, which redirect to the Data Sharing Portal with
+predefined faceted search options. Due to the intricate nature of the data, it is cached on an hourly basis, ensuring
+that the data viewed may not always be the most current.
 
 ## [Data Submission Guide](/data-submission)
 Instructions for TMCs, Assay teams, and others who need to upload data to the SenNet Data Sharing Portal.
