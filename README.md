@@ -79,3 +79,25 @@ To test this repository locally using the docker image execute the `runlocal.sh`
 
 `sh ./runlocal.sh /full/absolute/path/to/the/downloaded/repository`
 When the container is running correctly you'll be able to navigate to https://localhost:4000/ in a local browser.
+
+## Other
+### Adding custom CSS modifier to a page.
+To add a custom modifier that can be used as a class for styling a particular page, go to `./docs/ui-config.json`, and enter:
+```
+{
+ "/pathname/":{
+    "cssModifier": "mod"
+ }
+}
+  
+```
+Example:
+```
+{
+ "/data-submission/":{
+    "cssModifier": "dsg"
+ }
+}
+  
+```
+This will create a `.c-documentation--dsg` class which can be used to style a page.
