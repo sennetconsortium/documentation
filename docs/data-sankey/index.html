@@ -5,11 +5,11 @@
     <link type="text/css" rel="stylesheet" href="./xac-sankey.css" />
     <script
         type="module"
-        src="https://rawcdn.githack.com/x-atlas-consortia/data-sankey/1.0.4c/src/lib/js/adapters/SenNetAdapter.js"
+        src="https://rawcdn.githack.com/x-atlas-consortia/data-sankey/1.0.5/src/lib/js/adapters/SenNetAdapter.js"
     ></script>
     <script
         type="module"
-        src="https://rawcdn.githack.com/x-atlas-consortia/data-sankey/1.0.4c/src/lib/js/ConsortiaSankey.js"
+        src="https://rawcdn.githack.com/x-atlas-consortia/data-sankey/1.0.5/src/lib/js/ConsortiaSankey.js"
     ></script>
 </head>
 <body>
@@ -19,6 +19,7 @@
             const sankeyOptions = btoa(
                 JSON.stringify({
                     useShadow: true,
+                    isProd: true,
                     styleSheetPath: '/data-sankey/xac-sankey.css',
                     validFilterMap: {
                         dataset_type: 'dataset_type_hierarchy',
@@ -38,8 +39,26 @@
 
                     clearInterval(i)
                     ctx.setOptions({
-                        onNodeClickCallback: (e, d) => adapter.goTo(d),
-                        onLabelClickCallback: (e, d) => adapter.goTo(d)
+                        onDataBuildCallback: () => adapter.onDataBuildCallback(),
+                        onNodeBuildCssCallback: (d) => {
+                            if (d.columnName === ctx.validFilterMap.dataset_type) {
+                                const assay = adapter.captureByKeysValue({matchKey: d.columnName, matchValue: d.name, keepKey: 'dataset_type_description'}, ctx.rawData)
+                                return assay.length <= 0 ? 'c-sankey__node--default' : ''
+                            }
+                            return ''
+                        },
+                        onLinkClickCallback: (e, d) => {
+                            e.preventDefault()
+                            adapter.goToFromLink(d)
+                        },
+                        onNodeClickCallback: (e, d) => {
+                            e.preventDefault()
+                            adapter.goToFromNode(d)
+                        },
+                        onLabelClickCallback: (e, d) => {
+                            e.preventDefault()
+                            adapter.goToFromNode(d)
+                        }
                     })
                 }
             }, 500)
