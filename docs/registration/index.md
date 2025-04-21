@@ -6,6 +6,8 @@ layout: default
 From the [Data Sharing Portal](https://data.sennetconsortium.org/), users have the ability to register entities individually 
 and in bulk.
 
+More information regarding the structure of the SenNet provenance can be found [here](../provenance).
+
 ## New to the Data Submission process?
 Visit this page to learn more: [Getting Started](../libraries/ingest-validation-tools/upload-guidelines/getting-started)
 
