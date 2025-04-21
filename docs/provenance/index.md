@@ -31,7 +31,9 @@ sub-types:
     - SenNet Processed Data: Data created by one of the central processing pipelines. This data must have a
       direct parent entity in the provenance graph of type Dataset, i.e., data derived by processing other data. (
       findable by matching <code>Dataset.creation_action == "Central Process"</code>)
-    - Component Data: 
+    - Component Data: Separate datasets that represent the components that make up a Multi-Assay Primary Data dataset.
+      For example a 10X Multiome Multi-Assay primary dataset is composed of both RNAseq and ATACseq assays. (findable by
+      matching <code>Dataset.creation_action == "Multi-Assay Split"</code>)
     - Lab/Provider Processed Data: Data created by one of the SenNet data provider labs by processing primary data. This
       data must have a direct parent entity in the provenance graph of type Dataset. (findable by matching
       <code>Dataset.creation_action == "Lab Processed"</code>)
