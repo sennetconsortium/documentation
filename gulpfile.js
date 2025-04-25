@@ -66,7 +66,7 @@ gulp.task('html-layouts', html)
 
 function html2() {
     return gulp
-        .src(['./src/pug/*.pug'])
+        .src(['./src/pug/**/*.pug'])
         .pipe(
             pug({
                 pretty: true,
