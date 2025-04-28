@@ -1,0 +1,15 @@
+include ../../components/mixins/gtm
+include ../../components/mixins/gtmNoScript
+
+doctype html
+meta(charset='utf-8')
+html
+    head
+        // This html file was auto generated and should not be edited.
+        +gtm
+        title=_t('SenNet Biomarkers', _m)
+    body
+        +gtmNoScript
+        script(src='https://d3js.org/d3.v4.min.js')
+        script(src='https://www.gstatic.com/charts/loader.js')
+        script(type='module' src='./graphviz.js')

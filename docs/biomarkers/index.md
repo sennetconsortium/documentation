@@ -5,7 +5,7 @@ layout: default
 # Biomarkers
 
 Interactive graph visualization of [senescence
-biomarkers](graphviz.html?sheet=1ScnrvcwUpwN_ikklZnd8HSqvgm4GRRTCVxbkyU_j2iw).
+biomarkers](graphviz.html?sheet=1ScnrvcwUpwN_ikklZnd8HSqvgm4GRRTCVxbkyU_j2iw){:target="_blank"}.
 This network representation of the supplemental data shows each organ node as a text string, each colored node as a
 biomarker (with hover revealing the human gene symbol), node colors representing the hallmarks according to the legend, node sizes
 representing the number of supporting papers in PubMed (with clicking on each node automatically revealing the papers in

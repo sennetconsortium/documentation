@@ -1,0 +1,20 @@
+include ../../components/mixins/gtm
+include ../../components/mixins/gtmNoScript
+
+doctype html
+meta(charset='utf-8')
+html
+    head
+        // This html file was auto generated and should not be edited.
+        +gtm
+        link(rel='stylesheet', href='./xac-sankey.css')
+        script(type='module'
+            src='https://rawcdn.githack.com/x-atlas-consortia/data-sankey/1.0.7/src/lib/js/adapters/SenNetAdapter.js')
+        script(type='module'
+            src='https://rawcdn.githack.com/x-atlas-consortia/data-sankey/1.0.7/src/lib/js/ConsortiaSankey.js')
+        script(type='module'
+            src='./xac-sankey.js')
+        title=_t('SenNet Data Sankey', _m)
+    body
+        +gtmNoScript
+        div.c-sankey#js-sankey

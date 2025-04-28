@@ -1,69 +1,38 @@
 <!DOCTYPE html>
-<meta charset="utf-8" />
-<head>
-    <title>Data Sankey</title>
-    <link type="text/css" rel="stylesheet" href="./xac-sankey.css" />
-    <script
-        type="module"
-        src="https://rawcdn.githack.com/x-atlas-consortia/data-sankey/1.0.5/src/lib/js/adapters/SenNetAdapter.js"
-    ></script>
-    <script
-        type="module"
-        src="https://rawcdn.githack.com/x-atlas-consortia/data-sankey/1.0.5/src/lib/js/ConsortiaSankey.js"
-    ></script>
-</head>
-<body>
-    <div class="c-sankey" id="js-sankey"></div>
+<meta charset="utf-8">
+<html>
+  <head>
+    <!-- This html file was auto generated and should not be edited.-->
+    <!-- Google Tag Manager-->
     <script>
-        const initSankey = async () => {
-            const sankeyOptions = btoa(
-                JSON.stringify({
-                    useShadow: true,
-                    isProd: true,
-                    styleSheetPath: '/data-sankey/xac-sankey.css',
-                    validFilterMap: {
-                        dataset_type: 'dataset_type_hierarchy',
-                        status: null,
-                        source_type: 'dataset_source_type',
-                    }
-                })
-            )
-
-            const el = document.getElementById('js-sankey')
-            el.innerHTML = `<consortia-sankey options="${sankeyOptions}" />`
-
-            const i = setInterval(() => {
-                const ctx = document.querySelector('consortia-sankey')
-                if (ctx.setOptions) {
-                    let adapter = new SenNetAdapter(ctx, {isProd: true})
-
-                    clearInterval(i)
-                    ctx.setOptions({
-                        onDataBuildCallback: () => adapter.onDataBuildCallback(),
-                        onNodeBuildCssCallback: (d) => {
-                            if (d.columnName === ctx.validFilterMap.dataset_type) {
-                                const assay = adapter.captureByKeysValue({matchKey: d.columnName, matchValue: d.name, keepKey: 'dataset_type_description'}, ctx.rawData)
-                                return assay.length <= 0 ? 'c-sankey__node--default' : ''
-                            }
-                            return ''
-                        },
-                        onLinkClickCallback: (e, d) => {
-                            e.preventDefault()
-                            adapter.goToFromLink(d)
-                        },
-                        onNodeClickCallback: (e, d) => {
-                            e.preventDefault()
-                            adapter.goToFromNode(d)
-                        },
-                        onLabelClickCallback: (e, d) => {
-                            e.preventDefault()
-                            adapter.goToFromNode(d)
-                        }
-                    })
-                }
-            }, 500)
-        }
-
-        initSankey()
+      (function(w, d, s, l, i) {
+          w[l] = w[l] || [];
+          w[l].push({
+              'gtm.start':
+                  new Date().getTime(), event: 'gtm.js'
+          });
+          var f = d.getElementsByTagName(s)[0],
+              j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+          j.async = true;
+          j.src =
+              'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+          f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-MD7FVBSS');
     </script>
-</body>
+    <!-- End Google Tag Manager-->
+    <link rel="stylesheet" href="./xac-sankey.css">
+    <script type="module" src="https://rawcdn.githack.com/x-atlas-consortia/data-sankey/1.0.7/src/lib/js/adapters/SenNetAdapter.js"></script>
+    <script type="module" src="https://rawcdn.githack.com/x-atlas-consortia/data-sankey/1.0.7/src/lib/js/ConsortiaSankey.js"></script>
+    <script type="module" src="./xac-sankey.js"></script>
+    <title>SenNet Data Sankey</title>
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript)-->
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MD7FVBSS"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript)-->
+    <div class="c-sankey" id="js-sankey"></div>
+  </body>
+</html>
