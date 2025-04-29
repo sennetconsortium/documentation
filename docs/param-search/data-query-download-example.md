@@ -13,17 +13,17 @@ This example uses the command line tool `curl` to execute queries.  The [Example
 
 ### Example Query and Download
 
-The following query will return all Histology (`dataset_type=Histology`) Datasets run on a Keyence BZ-X800 machine (`ingest_metadata.metadata.acquisition_instrument_model=BZ-X800`) where tissue from a heart was used (`origin_samples.organ=HT`).  See the [RESTful parameterized search page](index.html) for further information on querying dataset, organ (`origin_samples.organ` represents the organ in the query and `HT` is the organ code (organ code list available [here](schema-sample.html#organ-attribute-values)) and dataset metadata fields.
+The following query will return all Histology (`dataset_type=Histology`) Datasets run on a Keyence BZ-X800 machine (`metadata.acquisition_instrument_model=BZ-X800`) where tissue from a heart was used (`origin_samples.organ=HT`).  See the [RESTful parameterized search page](index.html) for further information on querying dataset, organ (`origin_samples.organ` represents the organ in the query and `HT` is the organ code (organ code list available [here](schema-sample.html#organ-attribute-values)) and dataset metadata fields.
 
 ```
- GET https://search.api.sennetconsortium.org/param-search/datasets?dataset_type=Histology&ingest_metadata.metadata.acquisition_instrument_model=BZ-X800&origin_samples.organ=HT
+ GET https://search.api.sennetconsortium.org/param-search/datasets?dataset_type=Histology&metadata.acquisition_instrument_model=BZ-X800&origin_samples.organ=HT
 ```
 
 As is, if this query is submitted via HTTP GET it will produce a json Response with an array of dataset objects which match the query.  Adding the `produce-clt-manifest=true` option to this query will instead produce a list of Dataset IDs pointing to the Datasets that match this query in a format that will be directly usable by the [SenNet Command Line Transfer Tool](/libraries/clt/).
 
 To run this from the command line and save the results to a file run:
 ```
-curl "https://search.api.sennetconsortium.org/param-search/datasets?dataset_type=Histology&ingest_metadata.metadata.acquisition_instrument_model=BZ-X800&origin_samples.organ=HT&produce-clt-manifest=true" > dataset-manifest-for-download.out
+curl "https://search.api.sennetconsortium.org/param-search/datasets?dataset_type=Histology&metadata.acquisition_instrument_model=BZ-X800&origin_samples.organ=HT&produce-clt-manifest=true" > dataset-manifest-for-download.out
 ```
 
 This results in a file that looks like:

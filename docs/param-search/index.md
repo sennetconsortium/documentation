@@ -44,7 +44,7 @@ Each document in the `entities` indices contains information about one entity in
 ---
 To find all Datasets of type `RNAseq` where specific molecules are not targeted for detection use this query:
 ```
- GET https://search.api.sennetconsortium.org/param-search/datasets?dataset_type=RNAseq&ingest_metadata.metadata.is_targeted=No
+ GET https://search.api.sennetconsortium.org/param-search/datasets?dataset_type=RNAseq&metadata.is_targeted=No
 ```
 
 A json array containing Dataset objects will be returned.
