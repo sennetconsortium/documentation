@@ -19,7 +19,6 @@ const initSankey = async () => {
         const ctx = document.querySelector('consortia-sankey')
         if (ctx.setOptions) {
             let adapter = new SenNetAdapter(ctx, {isProd: true})
-
             clearInterval(i)
             ctx.setOptions({
                 onDataBuildCallback: () => adapter.onDataBuildCallback(),
