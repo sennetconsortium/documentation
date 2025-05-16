@@ -20,8 +20,6 @@ const initSankey = async () => {
         const ctx = document.querySelector('consortia-sankey')
         if (ctx.setOptions) {
             let adapter = new SenNetAdapter(ctx, {isProd: true})
-            //ctx.theme.byScheme.dataset_group_name = ctx.d3.d3.scaleOrdinal(ctx.)
-
             clearInterval(i)
             ctx.setOptions({
                 theme: {
