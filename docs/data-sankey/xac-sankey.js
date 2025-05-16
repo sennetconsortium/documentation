@@ -1,7 +1,6 @@
 const initSankey = async () => {
     const sankeyOptions = btoa(
         JSON.stringify({
-            onSvgBuildCallback: true,
             useShadow: true,
             isProd: true,
             styleSheetPath: '/data-sankey/xac-sankey.css',
@@ -22,15 +21,6 @@ const initSankey = async () => {
             let adapter = new SenNetAdapter(ctx, {isProd: true})
             clearInterval(i)
             ctx.setOptions({
-                theme: {
-                    palettes: {
-                        dataset_group_name: ctx.getColorPalettes().blueGrey
-                    }
-                },
-                onSvgBuildCallback: () => {
-                    ctx.getContainer().select('svg').attr('class', '')
-                    ctx.hideLoadingSpinner()
-                },
                 onDataBuildCallback: () => adapter.onDataBuildCallback(),
                 onNodeBuildCssCallback: (d) => {
                     if (d.columnName === ctx.validFilterMap.dataset_type) {
