@@ -10,9 +10,12 @@
 
 # production
 /build
-.idea
 docs/_site
 docs/.sass-cache
+
+# ide
+.idea/
+.vscode/
 
 # misc
 .DS_Store
