@@ -20,16 +20,16 @@ Query terms may be composited from attributes deeper in the schema type of an at
 GET https://search.api.sennetconsortium.org/param-search/samples?metadata.preparation_condition=Frozen%20on%20ice&origin_samples.organ=HT
 ```
 
-| Attribute                   | Type                                                                                    | Description                                                                                                                                                                                               |
-|-----------------------------|-----------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| uuid                        | string                                                                                  | The SenNet unique identifier, intended for internal software use only. This is a 32 digit hexadecimal uuid e.g. 461bbfdc353a2673e381f632510b0f17                                                          |
-| sennet_id                   | string                                                                                  | A SenNet Consortium wide unique identifier randomly generated in the format SNT###.ABCD.### for every entity.                                                                                             |
-| protocol_url                | string                                                                                  | The protocols.io doi url pointing the protocol under wich the sample was obtained and/or prepared.                                                                                                        |
-| group_name                  | string                                                                                  | The name of the SenNet data provider group which registered the sample.  See the [SenNet Data Provider Groups](data-provider-groups.html) for a list of valid group names.                                |
-| data_access_level           | string from [`data_access_level` attribute values](#data_access_level-attribute-values) | One of the values: public, consortium                                                                                                                                                                     |
-| sample_category             | string from [`sample_category` attribute values](#sample_category-attribute-values)     | A code representing the category of the specimen. Must be one of organ, block, section , suspension. This is a required field. If set to organ, the organ property must be provided as well.              |
-| organ                       | string from [`organ` attribute values](#organ-attribute-values)                         | Organ code specifier, only set if sample_category == Organ. Valid values found in the `rui_code` attribute in: [organ types](https://ontology.api.hubmapconsortium.org/organs?application_context=SENNET) |
-| metadata                    | JSON-encoded string for a supported [`Sample Metadata Schema`](/libraries/ingest-validation-tools/schemas/)                                                  | The sample specific metadata derived from the uploaded sample_metadata.tsv file. Returned as a json object.                                                                                               |
+| Attribute                   | Type                                                                                    | Description                                                                                                                                                                                                   |
+|-----------------------------|-----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| uuid                        | string                                                                                  | The SenNet unique identifier, intended for internal software use only. This is a 32 digit hexadecimal uuid e.g. 461bbfdc353a2673e381f632510b0f17                                                              |
+| sennet_id                   | string                                                                                  | A SenNet Consortium wide unique identifier randomly generated in the format SNT###.ABCD.### for every entity.                                                                                                 |
+| protocol_url                | string                                                                                  | The protocols.io doi url pointing the protocol under wich the sample was obtained and/or prepared.                                                                                                            |
+| group_name                  | string                                                                                  | The name of the SenNet data provider group which registered the sample.  See the [SenNet Data Provider Groups](data-provider-groups.html) for a list of valid group names.                                    |
+| data_access_level           | string from [`data_access_level` attribute values](#data_access_level-attribute-values) | One of the values: public, consortium                                                                                                                                                                         |
+| sample_category             | string from [`sample_category` attribute values](#sample_category-attribute-values)     | A code representing the category of the specimen. Must be one of organ, block, section , suspension. This is a required field. If set to organ, the organ property must be provided as well.                  |
+| organ                       | string from [`organ` attribute values](#organ-attribute-values)                         | Organ code specifier, only set if sample_category == Organ. Valid values found in the `organ_uberon` attribute in: [organ types](https://ontology.api.hubmapconsortium.org/organs?application_context=SENNET) |
+| metadata                    | JSON-encoded string for a supported [`Sample Metadata Schema`](/libraries/ingest-validation-tools/schemas/)                                                  | The sample specific metadata derived from the uploaded sample_metadata.tsv file. Returned as a json object.                                                                                                   |
 
 ### `data_access_level` attribute values
 The data_access_level of the `Sample Schema` is one of the values following enumerated values:
@@ -44,47 +44,37 @@ The sample_category of the `Sample Schema` is one of the values following enumer
 - `suspension`
 
 ### `organ` attribute values
-The organ of the `Sample Schema` is a value from the current, authoritative list of `rui_code` attributes in: [organ types](https://ontology.api.hubmapconsortium.org/organs?application_context=SENNET)
-As of 8/25/2024, the list is:
-- `AO`: Aorta
-- `BL`: Bladder
-- `BD`: Blood
-- `BM`: Bone Marrow
-- `BR`: Brain
-- `LB`: Bronchus (Left)
-- `RB`: Bronchus (Right)
-- `LE`: Eye (Left)
-- `RE`: Eye (Right)
-- `LF`: Fallopian Tube (Left)
-- `RF`: Fallopian Tube (Right)
-- `HT`: Heart
-- `LK`: Kidney (Left)
-- `RK`: Kidney (Right)
-- `LN`: Knee (Left)
-- `RN`: Knee (Right)
-- `LI`: Large Intestine
-- `LV`: Liver
-- `LL`: Lung (Left)
-- `RL`: Lung (Right)
-- `LY`: Lymph Node
-- `VL`: Lymphatic Vasculature
-- `VL`: Lymphatic Vasculature
-- `LO`: Ovary (Left)
-- `RO`: Ovary (Right)
-- `PA`: Pancreas
-- `PL`: Placenta
-- `PL`: Placenta
-- `SK`: Skin
-- `SI`: Small Intestine
-- `SC`: Spinal Cord
-- `SP`: Spleen
-- `ST`: Sternum
-- `TH`: Thymus
-- `LT`: Tonsil (Left)
-- `RT`: Tonsil (Right)
-- `TR`: Trachea
-- `UR`: Ureter
-- `UT`: Uterus
+The organ of the `Sample Schema` is a value from the current, authoritative list of `organ_uberon` attributes in: [organ types](https://ontology.api.hubmapconsortium.org/organs?application_context=SENNET)
+As of 6/01/2025, the list is:
+- UBERON_0001013: Adipose Tissue
+- UBERON_0000178: Blood
+- UBERON_0001474: Bone
+- UBERON_0002371: Bone Marrow
+- UBERON_0000955: Brain
+- UBERON_0000948: Heart
+- UBERON_0004538: Kidney (Left)
+- UBERON_0004539: Kidney (Right)
+- UBERON_0000059: Large Intestine
+- UBERON_0002107: Liver
+- UBERON_0002168: Lung (Left)
+- UBERON_0002167: Lung (Right)
+- UBERON_0000029: Lymph Node
+- UBERON_0001911: Mammary Gland
+- FMA_57991: Mammary Gland (Left)
+- FMA_57987: Mammary Gland (Right)
+- UBERON_0005090: Muscle
+- UBERON_0010000: Other
+- UBERON_0002119: Ovary (Left)
+- UBERON_0002118: Ovary (Right)
+- UBERON_0001264: Pancreas
+- UBERON_0001987: Placenta
+- UBERON_0002097: Skin
+- UBERON_0002240: Spinal Cord
+- UBERON_0002106: Spleen
+- UBERON_0002370: Thymus
+- FMA_54974: Tonsil (Left)
+- FMA_54973: Tonsil (Right)
+- UBERON_0003126: Trachea
 
 ### `vital_state` attribute values
 The vital_state of the `Sample Metadata Schema` is one of the values following enumerated values:
