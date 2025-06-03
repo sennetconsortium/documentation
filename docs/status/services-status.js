@@ -82,10 +82,7 @@ class ServicesStatus extends HTMLElement {
         ])
     }
 
-
-
     adjustHtml(data, html) {
-
         html += '<tr>'
         for (let c in data) {
             html += `<td>${data[c]}</td>`
@@ -126,11 +123,8 @@ class ServicesStatus extends HTMLElement {
 
         const spinner = '<div class="c-spinner"></div>'
         let html = ''
-        let heading = `
-        <table>
-        <tr>
-        `
 
+        let heading = '<table><tr>'
         for (let c of cols) {
             heading += `<th>${c}</th>`
         }
@@ -138,13 +132,14 @@ class ServicesStatus extends HTMLElement {
 
         let tail = '</table>'
 
-        const _t = this
+
         const jsonPromises = []
+        const statusEndpointsFixtures = this.getStatusEndpointsFixture()
         Promise.all(promises).then((values) => {
             let row
 
             for (let i = 0; i < values.length; i++) {
-                row = this.getStatusEndpointsFixture()[i]
+                row = statusEndpointsFixtures[i]
                 row.Status = values[i].ok
                 jsonPromises.push(values[i]?.json())
             }
@@ -154,7 +149,7 @@ class ServicesStatus extends HTMLElement {
                     let d = list[i]
 
                     if (i < jsonPromises.length) {
-                        row = this.getStatusEndpointsFixture()[i]
+                        row = statusEndpointsFixtures[i]
                         row['Version Number'] = d.version || 'N/A'
                         row['Build'] = d.build || 'N/A'
                         if (d.services && Array.isArray(d.services)) {
@@ -167,13 +162,13 @@ class ServicesStatus extends HTMLElement {
                     } else {
                         let j = i - jsonPromises.length;
 
-                        row = _t.getPingEndpointsFixture()[j]
+                        row = this.getPingEndpointsFixture()[j]
                         row.Status = values[j].ok
-                        html = _t.adjustHtml(row, html)
+                        html = this.adjustHtml(row, html)
                     }
-                    html = _t.adjustHtml(row, html)
+                    html = this.adjustHtml(row, html)
                 }
-                _t.innerHTML = heading +  html + tail;
+                this.innerHTML = heading +  html + tail;
             })
         })
 
