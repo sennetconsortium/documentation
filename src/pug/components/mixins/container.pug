@@ -1,4 +1,4 @@
-mixin container
-    .c-container(role='main')
+mixin container(cls='')
+    .c-container(role='main', class=cls)
         if block
             block

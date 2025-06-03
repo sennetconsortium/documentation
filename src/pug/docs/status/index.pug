@@ -1,0 +1,23 @@
+include ../../components/mixins/gtm
+include ../../components/mixins/gtmNoScript
+include ../../components/mixins/head
+include ../../components/mixins/container
+
+doctype html
+meta(charset='utf-8')
+html
+    +head(false)
+        // This html file was auto generated and should not be edited.
+        title=_t('SenNet Services Status', _m)
+        link(rel='stylesheet', href='https://cdn.datatables.net/2.3.1/css/dataTables.dataTables.min.css')
+    body
+        +gtmNoScript
+        script(src='https://cdn.datatables.net/2.3.1/js/dataTables.min.js')
+        script(type='module' src='./services-status.js')
+        include ../../components/layout/header
+        +container('c-container--noSideBar')
+            h1=_t('Status', _m)
+            p=_t('statusNote', _m)
+            services-status
+
+        include ../../components/layout/footer

@@ -3,6 +3,7 @@
   "SenNet": "SenNet",
   "Not Found": "Not Found",
   "breadcrumbRoot": "Home",
+  "statusNote": "SenNet is powered by a number of APIs. The SenNet Portal software also has a number of dependencies.",
   "menu": [
     {
       "name": "SenNet",

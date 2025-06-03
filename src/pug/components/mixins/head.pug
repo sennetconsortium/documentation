@@ -1,6 +1,6 @@
 include ./gtm
 
-mixin head(seo)
+mixin head(seo, other)
     head
         +gtm
         script(src='/js/jquery-3.6.2.min.js')
@@ -15,3 +15,5 @@ mixin head(seo)
         if seo
             |
             | {% seo %}
+        if block
+            block

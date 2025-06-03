@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+  <head>
+    <!-- Google Tag Manager-->
+    <script>
+      (function(w, d, s, l, i) {
+          w[l] = w[l] || [];
+          w[l].push({
+              'gtm.start':
+                  new Date().getTime(), event: 'gtm.js'
+          });
+          var f = d.getElementsByTagName(s)[0],
+              j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+          j.async = true;
+          j.src =
+              'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+          f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-MD7FVBSS');
+    </script>
+    <!-- End Google Tag Manager-->
+    <script src="/js/jquery-3.6.2.min.js"></script>
+    <script src="/js/markdown.min.js"></script>
+    <script src="/js/main.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="/css/main.css"/>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <script src="/js/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- This html file was auto generated and should not be edited.-->
+    <title>SenNet Services Status</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.1/css/dataTables.dataTables.min.css">
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript)-->
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MD7FVBSS"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript)-->
+    <script src="https://cdn.datatables.net/2.3.1/js/dataTables.min.js"></script>
+    <script type="module" src="./services-status.js"></script>
+    <header class="c-header navbar navbar-expand-lg" role="navigation">
+      <div class="c-header__main"><a class="c-header__logo navbar-brand" href="/"><img src="/logo192.png" alt="SenNet Documentation"><span class="c-header__sm">SenNet</span></a>
+        <button class="navbar-toggler" aria-label="Toggle navigation" aria-expanded="false" aria-controls="js-header__menu" data-target="#js-header__menu" data-toggle="collapse" type="button"><span class="navbar-toggler-icon"></span></button>
+        <div class="c-header__menu collapse navbar-collapse" id="js-header__menu">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item h2 lg"><a class="nav-link" href="/">SenNet</a></li>
+            <li class="nav-item"><a class="nav-link" href="/registration">Entity Registration</a></li>
+            <li class="nav-item"><a class="nav-link" href="/apis">APIs</a></li>
+            <li class="nav-item"><a class="nav-link" href="/libraries">Libraries</a></li>
+            <li class="nav-item"><a class="nav-link" href="/data-submission">Data Submission Guide</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <div class="c-container c-container--noSideBar" role="main">
+      <h1>Status</h1>
+      <p>SenNet is powered by a number of APIs. The SenNet Portal software also has a number of dependencies.</p>
+      <services-status></services-status>
+    </div>
+    <footer class="c-footer js-app--footer">
+      <div class="c-footer__meta">
+        <div class="c-fileMeta js-app--fileMeta"><span class="c-fileMeta__label js-fileMeta__label">Last Generated: </span>&nbsp;<span class="js-fileMeta__date"></span></div>
+      </div>
+      <div class="c-footer__main">
+        <div class="c-footer__wrap"><span class="c-footer__name">Copyright</span>&nbsp;<span class="c-footer__date js-footer__date"></span>&nbsp;</div>
+      </div>
+    </footer>
+  </body>
+</html>
