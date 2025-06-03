@@ -82,17 +82,53 @@ class ServicesStatus extends HTMLElement {
         ])
     }
 
+    formatColumn(c, data) {
+        if (c === 'Status') {
+            const html = `<div class='c-status'><span class="c-status__beacon c-status__beacon--${data[c]}"></span> <span class='c-status__txt'>${data[c] ? 'Up' : 'Down'}</span></div>`
+            return html
+        } else if (c === 'Github Repository') {
+            return `<a href="${data[c]}">${data.Service} <i class="fa fa-external-link"></i></a>`
+        }  else {
+            return data[c];
+        }
+
+    }
+
     adjustHtml(data, html) {
         html += '<tr>'
         for (let c in data) {
-            html += `<td>${data[c]}</td>`
+            html += `<td>${this.formatColumn(c, data)}</td>`
         }
         html += '</tr>'
         return html
     }
 
     fetchData() {
-        const cols = ['Service', 'Status', 'Endpoint', 'Github Repository', 'Version Number', 'Build', 'Note']
+        const cols = [
+            {
+                name: 'Service',
+            },
+            {
+                name:  'Status',
+                width: '7%'
+            },
+            {
+                name: 'Endpoint',
+            },
+            {
+                name: 'Github Repository',
+            },
+            {
+                name: 'Version Number',
+            },
+            {
+                name: 'Build',
+            },
+            {
+                name: 'Note',
+                width: '15%'
+            }
+        ]
 
         const statusEndpoints = []
         for (let f of this.getStatusEndpointsFixture()) {
@@ -126,7 +162,8 @@ class ServicesStatus extends HTMLElement {
 
         let heading = '<table><tr>'
         for (let c of cols) {
-            heading += `<th>${c}</th>`
+            let w = c.width ? `width='${c.width}'` : ''
+            heading += `<th ${w}>${c.name}</th>`
         }
         heading += `</tr>`
 
