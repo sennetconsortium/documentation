@@ -87,7 +87,7 @@ class ServicesStatus extends HTMLElement {
             const html = `<div class='c-status'><span class="c-status__beacon c-status__beacon--${data[c]}"></span> <span class='c-status__txt'>${data[c] ? 'Up' : 'Down'}</span></div>`
             return html
         } else if (c === 'Github Repository') {
-            return `<a href="${data[c]}">${data.Service} <i class="fa fa-external-link"></i></a>`
+            return `<a href="${data[c]}" target='_blank'>${data.Service} <i class="fa fa-external-link"></i></a>`
         }  else {
             return data[c];
         }
@@ -161,13 +161,13 @@ class ServicesStatus extends HTMLElement {
         const spinner = '<div class="c-spinner"></div>'
         let html = ''
 
-        let heading = '<table><tr>'
+        let heading = '<div class="c-table c-table--scrollable"><table><tr>'
         for (let c of cols) {
             let w = c.width ? `width='${c.width}'` : ''
             heading += `<th ${w}>${c.name}</th>`
         }
         heading += `</tr>`
-        let tail = '</table>'
+        let tail = '</table></div>'
 
         const jsonPromises = []
         Promise.all(promises).then((values) => {
