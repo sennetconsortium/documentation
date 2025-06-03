@@ -142,7 +142,6 @@ class ServicesStatus extends HTMLElement {
         }
 
         let promises = []
-
         for (let e of statusEndpoints) {
             promises.push(fetch(e))
         }
@@ -172,6 +171,7 @@ class ServicesStatus extends HTMLElement {
 
         const jsonPromises = []
         const statusEndpointsFixtures = this.getStatusEndpointsFixture()
+        const pingEndpointsFixtures = this.getPingEndpointsFixture()
         Promise.all(promises).then((values) => {
             let row
 
@@ -190,16 +190,16 @@ class ServicesStatus extends HTMLElement {
                         row['Version Number'] = d.version || 'N/A'
                         row['Build'] = d.build || 'N/A'
                         if (d.services && Array.isArray(d.services)) {
-                            row.Note = '<ul>'
+                            row.Note = '<ul class="c-status c-status__servicesList">'
                             for (let s of d.services) {
-                                row.Note += `<li><span>${s.name}</span>: <span>${s.status}</span></li>`
+                                row.Note += `<li><strong>${s.name}</strong>: <span>${s.status} <i class="c-status c-status__iconStatus c-status__iconStatus--${s.status} fa fa-${s.status ? 'check-circle' : 'times-circle'}"></i></span></li>`
                             }
                             row.Note += '</ul>'
                         }
                     } else {
                         let j = i - jsonPromises.length;
 
-                        row = this.getPingEndpointsFixture()[j]
+                        row = pingEndpointsFixtures[j]
                         row.Status = values[j].ok
                         html = this.adjustHtml(row, html)
                     }
