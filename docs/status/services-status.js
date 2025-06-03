@@ -130,14 +130,16 @@ class ServicesStatus extends HTMLElement {
             }
         ]
 
+        const statusEndpointsFixtures = this.getStatusEndpointsFixture()
+        const pingEndpointsFixtures = this.getPingEndpointsFixture()
+
         const statusEndpoints = []
-        for (let f of this.getStatusEndpointsFixture()) {
+        for (let f of statusEndpointsFixtures) {
             statusEndpoints.push(f.Endpoint)
         }
 
-
         const pingEndpoints = []
-        for (let f of this.getPingEndpointsFixture()) {
+        for (let f of pingEndpointsFixtures) {
             pingEndpoints.push(f.Endpoint)
         }
 
@@ -165,13 +167,9 @@ class ServicesStatus extends HTMLElement {
             heading += `<th ${w}>${c.name}</th>`
         }
         heading += `</tr>`
-
         let tail = '</table>'
 
-
         const jsonPromises = []
-        const statusEndpointsFixtures = this.getStatusEndpointsFixture()
-        const pingEndpointsFixtures = this.getPingEndpointsFixture()
         Promise.all(promises).then((values) => {
             let row
 
@@ -198,10 +196,8 @@ class ServicesStatus extends HTMLElement {
                         }
                     } else {
                         let j = i - jsonPromises.length;
-
                         row = pingEndpointsFixtures[j]
                         row.Status = values[j].ok
-                        html = this.adjustHtml(row, html)
                     }
                     html = this.adjustHtml(row, html)
                 }
