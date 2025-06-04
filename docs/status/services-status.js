@@ -3,39 +3,43 @@ class ServicesStatus extends HTMLElement {
     getStatusEndpointsFixture() {
         return ([
             {
-                Service: 'ingest-api',
+                Service: 'Ingest API',
                 Status: false,
                 Endpoint: 'https://ingest.api.sennetconsortium.org/status',
                 'Github Repository': 'https://github.com/sennetconsortium/ingest-api',
                 'Version Number': 'N/A',
                 Build: 'N/A',
+                Usage: 'N/A',
                 Note: 'N/A'
             },
             {
-                Service: 'entity-api',
+                Service: 'Entity API',
                 Status: false,
                 Endpoint: 'https://entity.api.sennetconsortium.org/status',
                 'Github Repository': 'https://github.com/sennetconsortium/entity-api',
                 'Version Number': 'N/A',
                 Build: 'N/A',
+                Usage: 'N/A',
                 Note: 'N/A'
             },
             {
-                Service: 'search-api',
+                Service: 'Search API',
                 Status: false,
                 Endpoint: 'https://search.api.sennetconsortium.org/status',
                 'Github Repository': 'https://github.com/sennetconsortium/search-api',
                 'Version Number': 'N/A',
                 Build: 'N/A',
+                Usage: 'N/A',
                 Note: 'N/A'
             },
             {
-                Service: 'uuid-api',
+                Service: 'UUID API',
                 Status: false,
                 Endpoint: 'https://uuid.api.sennetconsortium.org/status',
                 'Github Repository': 'https://github.com/x-atlas-consortia/uuid-api',
                 'Version Number': 'N/A',
                 Build: 'N/A',
+                Usage: 'N/A',
                 Note: 'N/A'
             }
         ])
@@ -44,54 +48,69 @@ class ServicesStatus extends HTMLElement {
     getPingEndpointsFixture() {
         return ([
             {
-                Service: 'portal-ui',
+                Service: 'Data Portal',
                 Status: false,
                 Endpoint: 'https://data.sennetconsortium.org/',
                 'Github Repository': 'https://github.com/sennetconsortium/ingest-api',
                 'Version Number': 'N/A',
                 Build: 'N/A',
+                Usage: 'N/A',
                 Note: 'N/A'
             },
             {
-                Service: 'data-ingest-board',
+                Service: 'Data Ingest Board',
                 Status: false,
                 Endpoint: 'https://ingest.board.sennetconsortium.org/',
                 'Github Repository': 'https://github.com/sennetconsortium/ingest-api',
                 'Version Number': 'N/A',
                 Build: 'N/A',
+                Usage: 'N/A',
                 Note: 'N/A'
             },
             {
-                Service: 'main',
+                Service: 'SenNet Consortium',
                 Status: false,
                 Endpoint: 'https://sennetconsortium.org/',
                 'Github Repository': 'https://github.com/sennetconsortium/ingest-api',
                 'Version Number': 'N/A',
                 Build: 'N/A',
+                Usage: 'N/A',
                 Note: 'N/A'
             },
             {
-                Service: 'members',
+                Service: 'Member Portal',
                 Status: false,
                 Endpoint: 'https://profile.sennetconsortium.org/',
                 'Github Repository': 'https://github.com/sennetconsortium/ingest-api',
                 'Version Number': 'N/A',
                 Build: 'N/A',
+                Usage: 'N/A',
                 Note: 'N/A'
             },
         ])
+    }
+
+    pingItems() {
+        return (
+            {
+                'Data Portal': 'favicon.ico',
+                'Data Ingest Board': 'favicons/sennet-favicon.ico',
+                'SenNet Consortium': 'wp-content/uploads/2021/10/Untitled3.png',
+                'Member Portal': 'static/js/apps.min.js'
+            }
+        )
     }
 
     formatColumn(c, data) {
         if (c === 'Status') {
             const html = `<div class='c-status'><span class="c-status__beacon c-status__beacon--${data[c]}"></span> <span class='c-status__txt'>${data[c] ? 'Up' : 'Down'}</span></div>`
             return html
-        } else if (c === 'Github Repository') {
-            return `<a href="${data[c]}" target='_blank'>${data.Service} <i class="fa fa-external-link"></i></a>`
+        } else if (c === 'Github Repository' || c === 'Endpoint') {
+            const title = c === 'Github Repository' ? data.Service : data[c]
+            return `<a href="${data[c]}" target='_blank'>${title} <i class="fa fa-external-link"></i></a>`
         }  else {
             return data[c];
         }
-
     }
 
     adjustHtml(data, html) {
@@ -103,13 +122,62 @@ class ServicesStatus extends HTMLElement {
         return html
     }
 
+    formatUsageColumn(data, html) {
+        const d = data
+        let color
+        if (d.usage && Array.isArray(d.usage)) {
+            color = s.percent_used < 50 ? 'good' : (s.percent_used > 79 ? 'err' : 'warn')
+            row.Usage = `<progress-bar class="c-progressBar bg--${color}">`
+            for (let s of d.usage) {
+                row.Usage += `<span data-progress="${s.percent_used}"></span>`
+            }
+            row.Usage += '</progress-bar>'
+        }
+        return html
+    }
+
+    /**
+     * It is not possible to directly "ping" a URL using JavaScript in a browser environment due to security restrictions.
+     * The traditional "ping" command uses ICMP (Internet Control Message Protocol), which browsers do not have direct access to.
+     * The method simulates a ping-like functionality by making an HTTP request to the URL and measuring the response time.
+     * @param row
+     * @returns {Promise<unknown>}
+     */
+    async pingURL(row) {
+        return new Promise((resolve, reject) => {
+            const item = this.pingItems()[row.Service]
+            const isJs = item.indexOf('.js') !== -1
+            const ping = isJs ? document.createElement('script') : new Image()
+            const startTime = Date.now();
+            ping.onload = () => {
+                const endTime = Date.now();
+                const latency = endTime - startTime
+                if (isJs) {
+                    document.body.removeChild(ping)
+                }
+
+                resolve({ ok: true, latency, request: row.Endpoint })
+            };
+            ping.onerror = (e) => {
+                if (isJs) {
+                    document.body.removeChild(ping)
+                }
+                resolve({ ok: false, e, latency: null, request: row.Endpoint })
+            };
+            ping.src = row.Endpoint + item
+            if (isJs) {
+                document.body.append(ping)
+            }
+        });
+    }
+
     fetchData() {
         const cols = [
             {
                 name: 'Service',
             },
             {
-                name:  'Status',
+                name: 'Status',
                 width: '7%'
             },
             {
@@ -125,6 +193,9 @@ class ServicesStatus extends HTMLElement {
                 name: 'Build',
             },
             {
+                name: 'Usage',
+            },
+            {
                 name: 'Note',
                 width: '15%'
             }
@@ -132,30 +203,23 @@ class ServicesStatus extends HTMLElement {
 
         const statusEndpointsFixtures = this.getStatusEndpointsFixture()
         const pingEndpointsFixtures = this.getPingEndpointsFixture()
+        try {
 
         const statusEndpoints = []
         for (let f of statusEndpointsFixtures) {
             statusEndpoints.push(f.Endpoint)
         }
 
-        const pingEndpoints = []
-        for (let f of pingEndpointsFixtures) {
-            pingEndpoints.push(f.Endpoint)
-        }
-
         let promises = []
         for (let e of statusEndpoints) {
-            promises.push(fetch(e))
+            promises.push(fetch(e).catch((err) => {
+                console.log(err)
+            }))
         }
 
         let promises2 = []
-        for (let e of pingEndpoints) {
-            promises2.push(fetch(e, {
-                method: "GET",
-                mode: "no-cors",
-                cache: "no-cache",
-                referrerPolicy: "no-referrer"
-            }))
+        for (let row of pingEndpointsFixtures) {
+            promises2.push(this.pingURL(row))
         }
 
         const spinner = '<div class="c-spinner"></div>'
@@ -172,40 +236,48 @@ class ServicesStatus extends HTMLElement {
         const jsonPromises = []
         Promise.all(promises).then((values) => {
             let row
+            let status
 
             for (let i = 0; i < values.length; i++) {
+                status = values[i] || {ok: false, json: () => {}}
                 row = statusEndpointsFixtures[i]
-                row.Status = values[i].ok
-                jsonPromises.push(values[i]?.json())
+                row.Status = status.ok
+                jsonPromises.push(status?.json())
             }
 
             Promise.all([...jsonPromises, ...promises2]).then((list) => {
                 for (let i = 0; i < list.length; i++) {
+                    let j = i < jsonPromises.length ? i : i - jsonPromises.length
                     let d = list[i]
 
                     if (i < jsonPromises.length) {
-                        row = statusEndpointsFixtures[i]
-                        row['Version Number'] = d.version || 'N/A'
-                        row['Build'] = d.build || 'N/A'
-                        if (d.services && Array.isArray(d.services)) {
+                        row = statusEndpointsFixtures[j]
+                        row['Version Number'] = d?.version || 'N/A'
+                        row['Build'] = d?.build || 'N/A'
+                        if (d?.services && Array.isArray(d?.services)) {
                             row.Note = '<ul class="c-status c-status__servicesList">'
                             for (let s of d.services) {
-                                row.Note += `<li><strong>${s.name}</strong>: <span>${s.status} <i class="c-status c-status__iconStatus c-status__iconStatus--${s.status} fa fa-${s.status ? 'check-circle' : 'times-circle'}"></i></span></li>`
+                                row.Note += `<li><strong>${s.name}</strong>: <span>${s.status} <i class='c-status c-status__iconStatus c-status__iconStatus--${s.status} fa fa-${s.status ? 'check-circle' : 'times-circle'}'></i></span></li>`
                             }
                             row.Note += '</ul>'
                         }
+
                     } else {
-                        let j = i - jsonPromises.length;
                         row = pingEndpointsFixtures[j]
-                        row.Status = values[j].ok
+                        row.Status = d.ok
                     }
+                    html = this.formatUsageColumn(row, html)
                     html = this.adjustHtml(row, html)
                 }
-                this.innerHTML = heading +  html + tail;
+                this.innerHTML = heading + html + tail;
             })
         })
 
         this.innerHTML = spinner;
+        }
+        catch(e) {
+            console.error(e)
+        }
     }
 
     /**
@@ -214,7 +286,7 @@ class ServicesStatus extends HTMLElement {
     connectedCallback() {
         this.fetchData()
     }
-
 }
+
 
 customElements.define('services-status', ServicesStatus)
