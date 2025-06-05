@@ -190,6 +190,7 @@ class ServicesStatus extends HTMLElement {
         const cols = [
             {
                 name: 'Service',
+                width: '14%'
             },
             {
                 name: 'Status',
@@ -197,9 +198,11 @@ class ServicesStatus extends HTMLElement {
             },
             {
                 name: 'Endpoint',
+                width: '27%'
             },
             {
                 name: 'Github Repository',
+                width: '14%'
             },
             {
                 name: 'Version Number',
@@ -209,7 +212,7 @@ class ServicesStatus extends HTMLElement {
             },
             {
                 name: 'Usage',
-                width: '20%'
+                width: '17%'
             },
             {
                 name: 'Note',
