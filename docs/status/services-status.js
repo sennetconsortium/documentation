@@ -278,7 +278,8 @@ class ServicesStatus extends HTMLElement {
                     } else {
                         row = pingEndpointsFixtures[j]
                         row.Status = d.ok
-                        d.usage = [
+                        // Temporary for testing
+                        d.usage = d.usage || [
                             {
                                 "type": "memory",
                                 "percent_used": 50.0,
