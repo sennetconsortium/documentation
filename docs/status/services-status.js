@@ -122,18 +122,33 @@ class ServicesStatus extends HTMLElement {
         return html
     }
 
-    formatUsageColumn(data, html) {
-        const d = data
+    formatServicesColumn(d, row) {
+
+        if (d?.services && Array.isArray(d?.services)) {
+            row.Note = '<ul class="c-status c-status__servicesList">'
+            for (let s of d.services) {
+                row.Note += `<li><strong>${s.name}</strong>: <span>${s.status} <i class='c-status c-status__iconStatus c-status__iconStatus--${s.status} fa fa-${s.status ? 'check-circle' : 'times-circle'}'></i></span></li>`
+            }
+            row.Note += '</ul>'
+        }
+    }
+
+    formatUsageColumn(d, row) {
         let color
         if (d.usage && Array.isArray(d.usage)) {
-            color = s.percent_used < 50 ? 'good' : (s.percent_used > 79 ? 'err' : 'warn')
-            row.Usage = `<progress-bar class="c-progressBar bg--${color}">`
-            for (let s of d.usage) {
-                row.Usage += `<span data-progress="${s.percent_used}"></span>`
+            row.Usage = ''
+            for (let r of d.usage) {
+                row.Usage += `<div class='c-usageInfo'>`
+                color = r.percent_used < 50 ? 'good' : (r.percent_used > 79 ? 'err' : 'warn')
+                row.Usage += `<span class='c-usageInfo__type' title='${r.description}'>${r.type}</span>`
+                row.Usage += `<progress-bar class="c-progressBar">`
+                row.Usage += `<span class="c-progressBar__main bg--${color} js-progressBar__bar" data-progress="${r.percent_used}"></span>`
+                row.Usage += '</progress-bar>'
+                row.Usage += `</div>`
+
             }
-            row.Usage += '</progress-bar>'
+
         }
-        return html
     }
 
     /**
@@ -194,6 +209,7 @@ class ServicesStatus extends HTMLElement {
             },
             {
                 name: 'Usage',
+                width: '20%'
             },
             {
                 name: 'Note',
@@ -254,19 +270,25 @@ class ServicesStatus extends HTMLElement {
                         row = statusEndpointsFixtures[j]
                         row['Version Number'] = d?.version || 'N/A'
                         row['Build'] = d?.build || 'N/A'
-                        if (d?.services && Array.isArray(d?.services)) {
-                            row.Note = '<ul class="c-status c-status__servicesList">'
-                            for (let s of d.services) {
-                                row.Note += `<li><strong>${s.name}</strong>: <span>${s.status} <i class='c-status c-status__iconStatus c-status__iconStatus--${s.status} fa fa-${s.status ? 'check-circle' : 'times-circle'}'></i></span></li>`
-                            }
-                            row.Note += '</ul>'
-                        }
+                        this.formatServicesColumn(d, row)
 
                     } else {
                         row = pingEndpointsFixtures[j]
                         row.Status = d.ok
+                        d.usage = [
+                            {
+                                "type": "memory",
+                                "percent_used": 50.0,
+                                "description": "host memory"
+                            },
+                            {
+                                "type": "storage",
+                                "percent_used": Math.floor(Math.random() * (100 - 10 + 1) + 10),
+                                "description": "host disk space"
+                            }
+                        ]
                     }
-                    html = this.formatUsageColumn(row, html)
+                    this.formatUsageColumn(d, row)
                     html = this.adjustHtml(row, html)
                 }
                 this.innerHTML = heading + html + tail;

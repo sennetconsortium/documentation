@@ -1,17 +1,20 @@
+$height = 16px
 .c-progressBar
   width 150px
-  height 20px
+  height $height
   border-radius 5px
-  margin 20px 10px
-  border 1px solid rgb(189, 113, 113)
+  border 1px solid $col-silver
   overflow hidden
   position relative
-  span
+  display inline-block
+  &__main
+    font-size 10px
+    font-weight bold
     height 100%
     display block
     width 0
-    color rgb(255, 251, 251)
-    line-height 30px
+    color black
+    line-height $height - 2
     position absolute
     text-align end
     padding-right 5px

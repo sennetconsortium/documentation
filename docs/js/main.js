@@ -2,7 +2,7 @@
  * sennetdocs - 
  * @version v0.1.0
  * @link https://docs.sennetconsortium.org/
- * @date Wed Jun 04 2025 13:26:37 GMT-0400 (Eastern Daylight Time)
+ * @date Thu Jun 05 2025 10:24:38 GMT-0400 (Eastern Daylight Time)
  */
 var _this11 = this;
 function _wrapNativeSuper(Class) { var _cache = typeof Map === "function" ? new Map() : undefined; _wrapNativeSuper = function _wrapNativeSuper(Class) { if (Class === null || !_isNativeFunction(Class)) return Class; if (typeof Class !== "function") { throw new TypeError("Super expression must either be null or a function"); } if (typeof _cache !== "undefined") { if (_cache.has(Class)) return _cache.get(Class); _cache.set(Class, Wrapper); } function Wrapper() { return _construct(Class, arguments, _getPrototypeOf(this).constructor); } Wrapper.prototype = Object.create(Class.prototype, { constructor: { value: Wrapper, enumerable: false, writable: true, configurable: true } }); return _setPrototypeOf(Wrapper, Class); }; return _wrapNativeSuper(Class); }
@@ -9703,7 +9703,7 @@ var ProgressBar = /*#__PURE__*/function (_HTMLElement) {
   _createClass(ProgressBar, [{
     key: "animate",
     value: function animate() {
-      $(this).find('span').each(function () {
+      $(this).find('.js-progressBar__bar').each(function () {
         $(this).animate({
           width: $(this).attr("data-progress") + "%"
         }, 1000);

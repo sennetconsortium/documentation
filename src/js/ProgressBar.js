@@ -1,7 +1,7 @@
 class ProgressBar extends HTMLElement {
 
     animate() {
-        $(this).find('span').each(function () {
+        $(this).find('.js-progressBar__bar').each(function () {
             $(this).animate(
                 {
                     width: $(this).attr("data-progress") + "%",
