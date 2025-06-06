@@ -231,6 +231,7 @@ class ServicesStatus extends HTMLElement {
 
         let promises = []
         for (let e of statusEndpoints) {
+            // For testing on dev, use: e.replace('.api', '-api.dev')
             promises.push(fetch(e).catch((err) => {
                 console.log(err)
             }))
@@ -278,19 +279,7 @@ class ServicesStatus extends HTMLElement {
                     } else {
                         row = pingEndpointsFixtures[j]
                         row.Status = d.ok
-                        // Temporary for testing
-                        d.usage = d.usage || [
-                            {
-                                "type": "memory",
-                                "percent_used": 50.0,
-                                "description": "host memory"
-                            },
-                            {
-                                "type": "storage",
-                                "percent_used": Math.floor(Math.random() * (100 - 10 + 1) + 10),
-                                "description": "host disk space"
-                            }
-                        ]
+
                     }
                     this.formatUsageColumn(d, row)
                     html = this.adjustHtml(row, html)
