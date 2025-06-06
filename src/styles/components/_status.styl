@@ -1,0 +1,26 @@
+.c-status
+
+  &__beacon
+    width 12px
+    height 12px
+    display inline-block
+    border-radius 50%
+    &--true
+      background-color $col-good
+    &--false
+      background-color $col-err
+  &__txt
+    display inline-block
+    width 30px
+  .fa-external-link
+    font-size 10px
+
+  &__iconStatus
+    &--true
+      color $col-good
+    &--false
+      color $col-err
+
+  &__servicesList
+    li
+      list-style none

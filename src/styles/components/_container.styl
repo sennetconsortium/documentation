@@ -17,6 +17,12 @@
   p
     margin $mgn 0
 
+  &--noSideBar
+    @media (min-width:$lg-min)
+      margin-left auto
+      max-width 90%
+
   .c-documentation--dsg
     img
       width inherit
+
