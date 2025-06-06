@@ -8,7 +8,7 @@ The following APIs, available as RESTful web services, support data ingest, quer
 Data delivery is available via the [Globus Transfer Service](https://www.globus.org/data-transfer)
 and [Globus Transfer API](https://docs.globus.org/api/transfer/). See the [SenNet IDs](#identifiers-used-in-sennet-and-the-apis) section below for
 information about how the IDs are used by the SenNet APIs. SenNet is powered by a number of APIs. The SenNet Portal software also has a number of dependencies. 
-You may check the stats of these services [here](/status).
+You may check the status of these services [here](/status).
 
 ## Entity API
 The Entity API returns information about SenNet data entities.
