@@ -1,5 +1,10 @@
 class ServicesStatus extends HTMLElement {
 
+    constructor() {
+        super()
+        this.timeout = null
+    }
+
     getStatusEndpointsFixture() {
         return ([
             {
@@ -135,6 +140,12 @@ class ServicesStatus extends HTMLElement {
         if (d?.indexing && d.indexing.is_indexing) {
             let color = d.indexing.percent_complete < 79 ? 'warn' : 'good';
             row.Note += this.progressBar({percent: d.indexing.percent_complete, type: '<br><hr><strong>Indexing status:</strong>', description: 'Currently indexing...'}, color, 'c-progressBar--blocked')
+
+            if (this.timeout == null) {
+                this.timeout = setInterval(()=> {
+                    location.reload()
+                }, 1000 * 60 * 5)
+            }
         }
 
     }
