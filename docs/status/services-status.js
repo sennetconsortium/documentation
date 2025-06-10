@@ -1,5 +1,10 @@
 class ServicesStatus extends HTMLElement {
 
+    constructor() {
+        super()
+        this.timeout = null
+    }
+
     getStatusEndpointsFixture() {
         return ([
             {
@@ -131,6 +136,31 @@ class ServicesStatus extends HTMLElement {
             }
             row.Note += '</ul>'
         }
+
+        if (d?.indexing && d.indexing.is_indexing) {
+            let color = d.indexing.percent_complete < 79 ? 'warn' : 'good';
+            row.Note += this.progressBar({percent: d.indexing.percent_complete, type: '<br><hr><strong>Indexing status:</strong>', description: 'Currently indexing...'}, color, 'c-progressBar--noMgn')
+
+            if (this.timeout == null) {
+                this.timeout = setInterval(()=> {
+                    location.reload()
+                }, 1000 * 60 * 5)
+            }
+        }
+
+    }
+
+    progressBar(r, color, cls = '') {
+        let html = ''
+        html += `<div class='c-usageInfo'>`
+
+        html += `<span class='c-usageInfo__type' title='${r.description}'>${r.type}</span>`
+        html += `<progress-bar class="c-progressBar ${cls}">`
+        html += `<span class="c-progressBar__main bg--${color} js-progressBar__bar" data-progress="${r.percent}"></span>`
+        html += '</progress-bar>'
+        html += `</div>`
+
+        return html
     }
 
     formatUsageColumn(d, row) {
@@ -138,16 +168,9 @@ class ServicesStatus extends HTMLElement {
         if (d.usage && Array.isArray(d.usage)) {
             row.Usage = ''
             for (let r of d.usage) {
-                row.Usage += `<div class='c-usageInfo'>`
                 color = r.percent_used < 50 ? 'good' : (r.percent_used > 79 ? 'err' : 'warn')
-                row.Usage += `<span class='c-usageInfo__type' title='${r.description}'>${r.type}</span>`
-                row.Usage += `<progress-bar class="c-progressBar">`
-                row.Usage += `<span class="c-progressBar__main bg--${color} js-progressBar__bar" data-progress="${r.percent_used}"></span>`
-                row.Usage += '</progress-bar>'
-                row.Usage += `</div>`
-
+                row.Usage += this.progressBar({...r, percent: r.percent_used}, color)
             }
-
         }
     }
 
