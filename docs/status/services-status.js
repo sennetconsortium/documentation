@@ -139,7 +139,7 @@ class ServicesStatus extends HTMLElement {
 
         if (d?.indexing && d.indexing.is_indexing) {
             let color = d.indexing.percent_complete < 79 ? 'warn' : 'good';
-            row.Note += this.progressBar({percent: d.indexing.percent_complete, type: '<br><hr><strong>Indexing status:</strong>', description: 'Currently indexing...'}, color, 'c-progressBar--blocked')
+            row.Note += this.progressBar({percent: d.indexing.percent_complete, type: '<br><hr><strong>Indexing status:</strong>', description: 'Currently indexing...'}, color, 'c-progressBar--noMgn')
 
             if (this.timeout == null) {
                 this.timeout = setInterval(()=> {
