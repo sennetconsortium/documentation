@@ -2,7 +2,7 @@ class ServicesStatus extends HTMLElement {
 
     constructor() {
         super()
-        this.timeout = 30000
+        this.timeout = 10000
         this.counter = 0
         this.interval = null
         this.html = {}
