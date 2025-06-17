@@ -2,7 +2,8 @@ class ServicesStatus extends HTMLElement {
 
     constructor() {
         super()
-        this.timeout = null
+        this.timeout = 30000
+        this.interval = null
     }
 
     getStatusEndpointsFixture() {
@@ -141,8 +142,8 @@ class ServicesStatus extends HTMLElement {
             let color = d.indexing.percent_complete < 79 ? 'warn' : 'good';
             row.Note += this.progressBar({percent: d.indexing.percent_complete, type: '<br><hr><strong>Indexing status:</strong>', description: 'Currently indexing...'}, color, 'c-progressBar--noMgn')
 
-            if (this.timeout == null) {
-                this.timeout = setInterval(()=> {
+            if (this.interval == null) {
+                this.interval = setInterval(()=> {
                     location.reload()
                 }, 1000 * 60 * 5)
             }
@@ -152,11 +153,11 @@ class ServicesStatus extends HTMLElement {
 
     progressBar(r, color, cls = '') {
         let html = ''
-        html += `<div class='c-usageInfo'>`
+        html += `<div class='c-usageInfo' title='${r.description}'>`
 
-        html += `<span class='c-usageInfo__type' title='${r.description}'>${r.type}</span>`
+        html += `<span class='c-usageInfo__type'>${r.type}</span>`
         html += `<progress-bar class="c-progressBar ${cls}">`
-        html += `<span class="c-progressBar__main bg--${color} js-progressBar__bar" data-progress="${r.percent}"></span>`
+        html += `<span class="c-progressBar__main bg--${color} js-progressBar__bar"  data-progress="${r.percent}"></span>`
         html += '</progress-bar>'
         html += `</div>`
 
@@ -255,7 +256,7 @@ class ServicesStatus extends HTMLElement {
         let promises = []
         for (let e of statusEndpoints) {
             // For testing on dev, use: e.replace('.api', '-api.dev')
-            promises.push(fetch(e).catch((err) => {
+            promises.push(fetch(e, {signal: AbortSignal.timeout(this.timeout)}).catch((err) => {
                 console.log(err)
             }))
         }
