@@ -181,7 +181,7 @@ class ServicesStatus extends HTMLElement {
      * It is not possible to directly "ping" a URL using JavaScript in a browser environment due to security restrictions.
      * The traditional "ping" command uses ICMP (Internet Control Message Protocol), which browsers do not have direct access to.
      * The method simulates a ping-like functionality by making an HTTP request to the URL and measuring the response time.
-     * @param row
+     * @param {object} row Fixture
      */
     pingURL(row) {
         const item = this.pingItems()[row.Service]
@@ -209,6 +209,11 @@ class ServicesStatus extends HTMLElement {
         }
     }
 
+    /**
+     * Formats the row according to response
+     * @param {object} d Response data
+     * @param {object} row Fixture
+     */
     structureRow(d, row) {
         row['Version Number'] = d?.version || 'N/A'
         row['Build'] = d?.build || 'N/A'
@@ -244,7 +249,7 @@ class ServicesStatus extends HTMLElement {
                         let i = statusEndpoints.indexOf(e)
                         _t.structureRow({...r, ok: true},  statusEndpointsFixtures[i])
                     },
-                    timeout: this.timeout // sets timeout to 3 seconds
+                    timeout: this.timeout
                 })
             }
 
@@ -265,6 +270,9 @@ class ServicesStatus extends HTMLElement {
         return ['html']
     }
 
+    /**
+     * Builds the html table for the page
+     */
     buildHtml() {
         const cols = [
             {
