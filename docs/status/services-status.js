@@ -5,7 +5,7 @@ class ServicesStatus extends HTMLElement {
         this.timeout = 30000
         this.counter = 0
         this.interval = null
-        this.html = ''
+        this.html = {}
     }
 
     getStatusEndpointsFixture() {
@@ -13,7 +13,7 @@ class ServicesStatus extends HTMLElement {
             {
                 Service: 'Ingest API',
                 Status: false,
-                Endpoint: 'http://localhost:5555/status',
+                Endpoint: 'https://ingest.api.sennetconsortium.org/status',
                 'Github Repository': 'https://github.com/sennetconsortium/ingest-api',
                 'Version Number': 'N/A',
                 Build: 'N/A',
@@ -215,7 +215,8 @@ class ServicesStatus extends HTMLElement {
         this.formatServicesColumn(d, row)
         row.Status = d.ok
         this.formatUsageColumn(d, row)
-        this.html = this.adjustHtml(row, this.html)
+        this.html[row.Endpoint]  = this.adjustHtml(row, '')
+
         this.setAttribute('html', (new Date()).toLocaleDateString())
     }
 
@@ -231,10 +232,8 @@ class ServicesStatus extends HTMLElement {
                 statusEndpoints.push(f.Endpoint)
             }
 
-            let promises = []
             const _t = this
             for (let e of statusEndpoints) {
-
                 $.ajax({
                     url: e,
                     error: function(){
@@ -306,8 +305,12 @@ class ServicesStatus extends HTMLElement {
         }
         heading += `</tr>`
         let tail = '</table></div>'
-
-        this.innerHTML = heading + this.html + tail;
+        let html = ''
+        const endpoints = [...this.getStatusEndpointsFixture(), ...this.getPingEndpointsFixture()]
+        for (let e of endpoints) {
+            html += this.html[e.Endpoint] || this.structureRow({ok: false}, e)
+        }
+        this.innerHTML = heading + html + tail;
     }
 
     /**
@@ -318,7 +321,7 @@ class ServicesStatus extends HTMLElement {
      */
     attributeChangedCallback(property, oldValue, newValue) {
         this.counter++
-        if (this.counter >= this.getPingEndpointsFixture().length + this.getStatusEndpointsFixture().length) {
+        if (this.counter >= (this.getPingEndpointsFixture().length + this.getStatusEndpointsFixture().length)) {
             this.buildHtml()
         }
     }
