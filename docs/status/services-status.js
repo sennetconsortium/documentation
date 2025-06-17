@@ -3,7 +3,9 @@ class ServicesStatus extends HTMLElement {
     constructor() {
         super()
         this.timeout = 30000
+        this.counter = 0
         this.interval = null
+        this.html = ''
     }
 
     getStatusEndpointsFixture() {
@@ -11,7 +13,7 @@ class ServicesStatus extends HTMLElement {
             {
                 Service: 'Ingest API',
                 Status: false,
-                Endpoint: 'https://ingest.api.sennetconsortium.org/status',
+                Endpoint: 'http://localhost:5555/status',
                 'Github Repository': 'https://github.com/sennetconsortium/ingest-api',
                 'Version Number': 'N/A',
                 Build: 'N/A',
@@ -180,37 +182,91 @@ class ServicesStatus extends HTMLElement {
      * The traditional "ping" command uses ICMP (Internet Control Message Protocol), which browsers do not have direct access to.
      * The method simulates a ping-like functionality by making an HTTP request to the URL and measuring the response time.
      * @param row
-     * @returns {Promise<unknown>}
      */
-    async pingURL(row) {
-        return new Promise((resolve, reject) => {
-            const item = this.pingItems()[row.Service]
-            const isJs = item.indexOf('.js') !== -1
-            const ping = isJs ? document.createElement('script') : new Image()
-            const startTime = Date.now();
-            ping.onload = () => {
-                const endTime = Date.now();
-                const latency = endTime - startTime
-                if (isJs) {
-                    document.body.removeChild(ping)
-                }
-
-                resolve({ ok: true, latency, request: row.Endpoint })
-            };
-            ping.onerror = (e) => {
-                if (isJs) {
-                    document.body.removeChild(ping)
-                }
-                resolve({ ok: false, e, latency: null, request: row.Endpoint })
-            };
-            ping.src = row.Endpoint + item
+    pingURL(row) {
+        const item = this.pingItems()[row.Service]
+        const isJs = item.indexOf('.js') !== -1
+        const ping = isJs ? document.createElement('script') : new Image()
+        const startTime = Date.now();
+        const _t = this
+        ping.onload = () => {
+            const endTime = Date.now();
+            const latency = endTime - startTime
             if (isJs) {
-                document.body.append(ping)
+                document.body.removeChild(ping)
             }
-        });
+            _t.structureRow({ ok: true, latency, request: row.Endpoint }, row)
+        };
+        ping.onerror = (e) => {
+            if (isJs) {
+                document.body.removeChild(ping)
+            }
+            _t.structureRow({ ok: false, request: row.Endpoint }, row)
+        };
+        ping.src = row.Endpoint + item
+        if (isJs) {
+            document.body.append(ping)
+        }
+    }
+
+    structureRow(d, row) {
+        row['Version Number'] = d?.version || 'N/A'
+        row['Build'] = d?.build || 'N/A'
+        this.formatServicesColumn(d, row)
+        row.Status = d.ok
+        this.formatUsageColumn(d, row)
+        this.html = this.adjustHtml(row, this.html)
+        this.setAttribute('html', (new Date()).toLocaleDateString())
     }
 
     fetchData() {
+        this.innerHTML = '<div class="c-spinner"></div>'
+
+        const statusEndpointsFixtures = this.getStatusEndpointsFixture()
+        const pingEndpointsFixtures = this.getPingEndpointsFixture()
+        try {
+
+            const statusEndpoints = []
+            for (let f of statusEndpointsFixtures) {
+                statusEndpoints.push(f.Endpoint)
+            }
+
+            let promises = []
+            const _t = this
+            for (let e of statusEndpoints) {
+
+                $.ajax({
+                    url: e,
+                    error: function(){
+                        let i = statusEndpoints.indexOf(e)
+                        _t.structureRow({ok: false},  statusEndpointsFixtures[i])
+                    },
+                    success: function(r){
+                        let i = statusEndpoints.indexOf(e)
+                        _t.structureRow({...r, ok: true},  statusEndpointsFixtures[i])
+                    },
+                    timeout: this.timeout // sets timeout to 3 seconds
+                })
+            }
+
+            for (let row of pingEndpointsFixtures) {
+                this.pingURL(row)
+            }
+        }
+        catch(e) {
+            console.error(e)
+        }
+    }
+
+    /**
+     * Determines which attributes to watch for triggering change notifications to attributeChangedCallback.
+     * @returns {string[]}
+     */
+    static get observedAttributes() {
+        return ['html']
+    }
+
+    buildHtml() {
         const cols = [
             {
                 name: 'Service',
@@ -243,32 +299,6 @@ class ServicesStatus extends HTMLElement {
                 width: '15%'
             }
         ]
-
-        const statusEndpointsFixtures = this.getStatusEndpointsFixture()
-        const pingEndpointsFixtures = this.getPingEndpointsFixture()
-        try {
-
-        const statusEndpoints = []
-        for (let f of statusEndpointsFixtures) {
-            statusEndpoints.push(f.Endpoint)
-        }
-
-        let promises = []
-        for (let e of statusEndpoints) {
-            // For testing on dev, use: e.replace('.api', '-api.dev')
-            promises.push(fetch(e, {signal: AbortSignal.timeout(this.timeout)}).catch((err) => {
-                console.log(err)
-            }))
-        }
-
-        let promises2 = []
-        for (let row of pingEndpointsFixtures) {
-            promises2.push(this.pingURL(row))
-        }
-
-        const spinner = '<div class="c-spinner"></div>'
-        let html = ''
-
         let heading = '<div class="c-table c-table--scrollable"><table><tr>'
         for (let c of cols) {
             let w = c.width ? `width='${c.width}'` : ''
@@ -277,45 +307,19 @@ class ServicesStatus extends HTMLElement {
         heading += `</tr>`
         let tail = '</table></div>'
 
-        const jsonPromises = []
-        Promise.all(promises).then((values) => {
-            let row
-            let status
+        this.innerHTML = heading + this.html + tail;
+    }
 
-            for (let i = 0; i < values.length; i++) {
-                status = values[i] || {ok: false, json: () => {}}
-                row = statusEndpointsFixtures[i]
-                row.Status = status.ok
-                jsonPromises.push(status?.json())
-            }
-
-            Promise.all([...jsonPromises, ...promises2]).then((list) => {
-                for (let i = 0; i < list.length; i++) {
-                    let j = i < jsonPromises.length ? i : i - jsonPromises.length
-                    let d = list[i]
-
-                    if (i < jsonPromises.length) {
-                        row = statusEndpointsFixtures[j]
-                        row['Version Number'] = d?.version || 'N/A'
-                        row['Build'] = d?.build || 'N/A'
-                        this.formatServicesColumn(d, row)
-
-                    } else {
-                        row = pingEndpointsFixtures[j]
-                        row.Status = d.ok
-
-                    }
-                    this.formatUsageColumn(d, row)
-                    html = this.adjustHtml(row, html)
-                }
-                this.innerHTML = heading + html + tail;
-            })
-        })
-
-        this.innerHTML = spinner;
-        }
-        catch(e) {
-            console.error(e)
+    /**
+     * Invoked when one of the custom element's attributes is added, removed, or changed.
+     * @param property
+     * @param oldValue
+     * @param newValue
+     */
+    attributeChangedCallback(property, oldValue, newValue) {
+        this.counter++
+        if (this.counter >= this.getPingEndpointsFixture().length + this.getStatusEndpointsFixture().length) {
+            this.buildHtml()
         }
     }
 
