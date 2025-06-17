@@ -165,7 +165,7 @@ class ServicesStatus extends HTMLElement {
 
     formatUsageColumn(d, row) {
         let color
-        if (d.usage && Array.isArray(d.usage)) {
+        if (d?.usage && Array.isArray(d?.usage)) {
             row.Usage = ''
             for (let r of d.usage) {
                 color = r.percent_used < 50 ? 'good' : (r.percent_used > 79 ? 'err' : 'warn')
