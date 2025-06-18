@@ -2,7 +2,10 @@ class ServicesStatus extends HTMLElement {
 
     constructor() {
         super()
-        this.timeout = null
+        this.timeout = 10000
+        this.counter = 0
+        this.interval = null
+        this.html = {}
     }
 
     getStatusEndpointsFixture() {
@@ -141,8 +144,8 @@ class ServicesStatus extends HTMLElement {
             let color = d.indexing.percent_complete < 79 ? 'warn' : 'good';
             row.Note += this.progressBar({percent: d.indexing.percent_complete, type: '<br><hr><strong>Indexing status:</strong>', description: 'Currently indexing...'}, color, 'c-progressBar--noMgn')
 
-            if (this.timeout == null) {
-                this.timeout = setInterval(()=> {
+            if (this.interval == null) {
+                this.interval = setInterval(()=> {
                     location.reload()
                 }, 1000 * 60 * 5)
             }
@@ -152,11 +155,11 @@ class ServicesStatus extends HTMLElement {
 
     progressBar(r, color, cls = '') {
         let html = ''
-        html += `<div class='c-usageInfo'>`
+        html += `<div class='c-usageInfo' title='${r.description}'>`
 
-        html += `<span class='c-usageInfo__type' title='${r.description}'>${r.type}</span>`
+        html += `<span class='c-usageInfo__type'>${r.type}</span>`
         html += `<progress-bar class="c-progressBar ${cls}">`
-        html += `<span class="c-progressBar__main bg--${color} js-progressBar__bar" data-progress="${r.percent}"></span>`
+        html += `<span class="c-progressBar__main bg--${color} js-progressBar__bar"  data-progress="${r.percent}"></span>`
         html += '</progress-bar>'
         html += `</div>`
 
@@ -165,7 +168,7 @@ class ServicesStatus extends HTMLElement {
 
     formatUsageColumn(d, row) {
         let color
-        if (d.usage && Array.isArray(d.usage)) {
+        if (d?.usage && Array.isArray(d?.usage)) {
             row.Usage = ''
             for (let r of d.usage) {
                 color = r.percent_used < 50 ? 'good' : (r.percent_used > 79 ? 'err' : 'warn')
@@ -178,38 +181,99 @@ class ServicesStatus extends HTMLElement {
      * It is not possible to directly "ping" a URL using JavaScript in a browser environment due to security restrictions.
      * The traditional "ping" command uses ICMP (Internet Control Message Protocol), which browsers do not have direct access to.
      * The method simulates a ping-like functionality by making an HTTP request to the URL and measuring the response time.
-     * @param row
-     * @returns {Promise<unknown>}
+     * @param {object} row Fixture
      */
-    async pingURL(row) {
-        return new Promise((resolve, reject) => {
-            const item = this.pingItems()[row.Service]
-            const isJs = item.indexOf('.js') !== -1
-            const ping = isJs ? document.createElement('script') : new Image()
-            const startTime = Date.now();
-            ping.onload = () => {
-                const endTime = Date.now();
-                const latency = endTime - startTime
-                if (isJs) {
-                    document.body.removeChild(ping)
-                }
-
-                resolve({ ok: true, latency, request: row.Endpoint })
-            };
-            ping.onerror = (e) => {
-                if (isJs) {
-                    document.body.removeChild(ping)
-                }
-                resolve({ ok: false, e, latency: null, request: row.Endpoint })
-            };
-            ping.src = row.Endpoint + item
+    pingURL(row) {
+        const item = this.pingItems()[row.Service]
+        const isJs = item.indexOf('.js') !== -1
+        const ping = isJs ? document.createElement('script') : new Image()
+        const startTime = Date.now();
+        const _t = this
+        ping.onload = () => {
+            const endTime = Date.now();
+            const latency = endTime - startTime
             if (isJs) {
-                document.body.append(ping)
+                document.body.removeChild(ping)
             }
-        });
+            _t.structureRow({ ok: true, latency, request: row.Endpoint }, row)
+        };
+        ping.onerror = (e) => {
+            if (isJs) {
+                document.body.removeChild(ping)
+            }
+            _t.structureRow({ ok: false, request: row.Endpoint }, row)
+        };
+        ping.src = row.Endpoint + item
+        if (isJs) {
+            document.body.append(ping)
+        }
+    }
+
+    /**
+     * Formats the row according to response
+     * @param {object} d Response data
+     * @param {object} row Fixture
+     */
+    structureRow(d, row) {
+        row['Version Number'] = d?.version || 'N/A'
+        row['Build'] = d?.build || 'N/A'
+        this.formatServicesColumn(d, row)
+        row.Status = d.ok
+        this.formatUsageColumn(d, row)
+        this.html[row.Endpoint]  = this.adjustHtml(row, '')
+
+        this.setAttribute('html', (new Date()).toLocaleDateString())
     }
 
     fetchData() {
+        this.innerHTML = '<div class="c-spinner"></div>'
+
+        const statusEndpointsFixtures = this.getStatusEndpointsFixture()
+        const pingEndpointsFixtures = this.getPingEndpointsFixture()
+        try {
+
+            const statusEndpoints = []
+            for (let f of statusEndpointsFixtures) {
+                statusEndpoints.push(f.Endpoint)
+            }
+
+            const _t = this
+            for (let e of statusEndpoints) {
+                $.ajax({
+                    url: e,
+                    error: function(){
+                        let i = statusEndpoints.indexOf(e)
+                        _t.structureRow({ok: false},  statusEndpointsFixtures[i])
+                    },
+                    success: function(r){
+                        let i = statusEndpoints.indexOf(e)
+                        _t.structureRow({...r, ok: true},  statusEndpointsFixtures[i])
+                    },
+                    timeout: this.timeout
+                })
+            }
+
+            for (let row of pingEndpointsFixtures) {
+                this.pingURL(row)
+            }
+        }
+        catch(e) {
+            console.error(e)
+        }
+    }
+
+    /**
+     * Determines which attributes to watch for triggering change notifications to attributeChangedCallback.
+     * @returns {string[]}
+     */
+    static get observedAttributes() {
+        return ['html']
+    }
+
+    /**
+     * Builds the html table for the page
+     */
+    buildHtml() {
         const cols = [
             {
                 name: 'Service',
@@ -242,32 +306,6 @@ class ServicesStatus extends HTMLElement {
                 width: '15%'
             }
         ]
-
-        const statusEndpointsFixtures = this.getStatusEndpointsFixture()
-        const pingEndpointsFixtures = this.getPingEndpointsFixture()
-        try {
-
-        const statusEndpoints = []
-        for (let f of statusEndpointsFixtures) {
-            statusEndpoints.push(f.Endpoint)
-        }
-
-        let promises = []
-        for (let e of statusEndpoints) {
-            // For testing on dev, use: e.replace('.api', '-api.dev')
-            promises.push(fetch(e).catch((err) => {
-                console.log(err)
-            }))
-        }
-
-        let promises2 = []
-        for (let row of pingEndpointsFixtures) {
-            promises2.push(this.pingURL(row))
-        }
-
-        const spinner = '<div class="c-spinner"></div>'
-        let html = ''
-
         let heading = '<div class="c-table c-table--scrollable"><table><tr>'
         for (let c of cols) {
             let w = c.width ? `width='${c.width}'` : ''
@@ -275,46 +313,24 @@ class ServicesStatus extends HTMLElement {
         }
         heading += `</tr>`
         let tail = '</table></div>'
-
-        const jsonPromises = []
-        Promise.all(promises).then((values) => {
-            let row
-            let status
-
-            for (let i = 0; i < values.length; i++) {
-                status = values[i] || {ok: false, json: () => {}}
-                row = statusEndpointsFixtures[i]
-                row.Status = status.ok
-                jsonPromises.push(status?.json())
-            }
-
-            Promise.all([...jsonPromises, ...promises2]).then((list) => {
-                for (let i = 0; i < list.length; i++) {
-                    let j = i < jsonPromises.length ? i : i - jsonPromises.length
-                    let d = list[i]
-
-                    if (i < jsonPromises.length) {
-                        row = statusEndpointsFixtures[j]
-                        row['Version Number'] = d?.version || 'N/A'
-                        row['Build'] = d?.build || 'N/A'
-                        this.formatServicesColumn(d, row)
-
-                    } else {
-                        row = pingEndpointsFixtures[j]
-                        row.Status = d.ok
-
-                    }
-                    this.formatUsageColumn(d, row)
-                    html = this.adjustHtml(row, html)
-                }
-                this.innerHTML = heading + html + tail;
-            })
-        })
-
-        this.innerHTML = spinner;
+        let html = ''
+        const endpoints = [...this.getStatusEndpointsFixture(), ...this.getPingEndpointsFixture()]
+        for (let e of endpoints) {
+            html += this.html[e.Endpoint] || this.structureRow({ok: false}, e)
         }
-        catch(e) {
-            console.error(e)
+        this.innerHTML = heading + html + tail;
+    }
+
+    /**
+     * Invoked when one of the custom element's attributes is added, removed, or changed.
+     * @param property
+     * @param oldValue
+     * @param newValue
+     */
+    attributeChangedCallback(property, oldValue, newValue) {
+        this.counter++
+        if (this.counter >= (this.getPingEndpointsFixture().length + this.getStatusEndpointsFixture().length)) {
+            this.buildHtml()
         }
     }
 
