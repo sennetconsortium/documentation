@@ -31,7 +31,7 @@ SNT378.HDGT.837 /extras             #download the extras directory from dataset 
 
 Manifest files can be created from the home page of
 the [Data Sharing Portal](https://data.sennetconsortium.org/search?size=n_10000_n&filters%5B0%5D%5Bfield%5D=entity_type&filters%5B0%5D%5Bvalues%5D%5B0%5D=Dataset&filters%5B0%5D%5Btype%5D=any&sort%5B0%5D%5Bfield%5D=last_modified_timestamp&sort%5B0%5D%5Bdirection%5D=desc)
-when `Dataset` is selected as a filter. Select the checkboxes next to the datasets of interest and click the "..." button
+when `Dataset` is selected as a filter. Select the checkboxes next to the datasets of interest and click the download icon
 at the top left of the table.<br>
 ![Creating manifest](../../imgs/manifest-create.png){: .clt-img }
 
