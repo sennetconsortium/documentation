@@ -9,7 +9,7 @@ right. Select `Copy Globus Token`. This will copy the active token to your clipb
 
 ## Making your first request
 Now that you have a token, let's make a simple request to retrieve data about a given entity. The endpoint that handles that request is `/entities/<id>`. You will need
-to build the full url to be requested against the domain base for the service which the endpoint belongs to, in this case, that's the Entity API. The domain base for the Entity API is `https://entitiy.api.sennetconsortium.org`. For a full list of API services see the
+to build the full url to be requested against the domain base for the service which the endpoint belongs to, in this case, that's the Entity API. The domain base for the Entity API is `https://entity.api.sennetconsortium.org`. For a full list of API services see the
 [APIs page](/apis). Given a Source with UUID `2f2a7af9951f50b399d76b5080486fe1` (SenNet ID SNT722.BGFJ.623), data about this entity can be requested using the following code below.
 
 
@@ -17,7 +17,7 @@ to build the full url to be requested against the domain base for the service wh
 <code class="language-python">
 import requests
 import os
-domain_base = "https://entitiy.api.sennetconsortium.org" 
+domain_base = "https://entity.api.sennetconsortium.org" 
 headers = {
     "Authorization": "Bearer COPIED_TOKEN_HERE",
     "Content-Type": "application/json"
