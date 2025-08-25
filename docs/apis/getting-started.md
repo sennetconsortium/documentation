@@ -49,7 +49,7 @@ You may want to write this response data to a file. You can do so with the follo
 if not entity_data is None:
     file_name = "entity_data.json"
     with open(file_name, 'w') as file:                                                                                           
-        file.write(manifest_text)
+        file.write(entity_data)
     print(f"manifest file written at: {os.path.abspath(file_name)}")
 else:
     print("ERROR: No entity data information found. File not written")
