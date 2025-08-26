@@ -9,25 +9,22 @@ The domain base for the Entity API is `https://entity.api.sennetconsortium.org`.
 endpoints, see its [Smart API](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812).
 
 This python library is required for making our HTTP calls. Let's import that first and only once in our file.
-<pre>
-<code class="language-python">
-import requests
+<pre class="line-numbers">
+<code class="language-python">import requests
 </code>
 </pre>
 
 Let's also define a variable for our domain base:
-<pre>
-<code class="language-python">
-domain_base = "https://entity.api.sennetconsortium.org"
+<pre class="line-numbers">
+<code class="language-python">domain_base = "https://entity.api.sennetconsortium.org"
 </code>
 </pre>
 
 
 ## Defining a reusable `get_data` function
 To get started, lets define a simple function that we will use for our GET requests.
-<pre>
-<code class="language-python">
-def get_data(endpoint):
+<pre class="line-numbers">
+<code class="language-python">def get_data(endpoint):
     query_url =  f"{domain_base}{endpoint}"
     entity_data = None
     try:
@@ -48,26 +45,23 @@ Now that we have that method, we will make use of it in the following code snipp
 ## Given a Source with SenNet ID `SNT722.BGFJ.623`
 ### Get Entity by ID:
 The follow code retrieves an entity by its ID (either SenNet ID or UUID) by making a call to the `/entities/<id>` endpoint.
-<pre>
-<code class="language-python">
-uuid = "2f2a7af9951f50b399d76b5080486fe1"
+<pre class="line-numbers">
+<code class="language-python">uuid = "2f2a7af9951f50b399d76b5080486fe1"
 entity_data = get_data(f"/entities/{uuid}")
 </code>
 </pre>
 
 We could similarly use the entity's SenNet ID, and the results would remain the same.
-<pre>
-<code class="language-python">
-sennet_id = "SNT722.BGFJ.623"
+<pre class="line-numbers">
+<code class="language-python">sennet_id = "SNT722.BGFJ.623"
 entity_data = get_data(f"/entities/{uuid}")
 </code>
 </pre>
 
 The response to any of these calls would look like:
 
-<pre>
-<code class="language-json">
-{
+<pre class="line-numbers">
+<code class="language-json">{
     "cedar_mapped_metadata": {
         "Bedding": "1/4-inch pelleted cellulose",
         "Cage Enhancements": "Nestlets",
@@ -138,14 +132,14 @@ The response to any of these calls would look like:
 
 ### Get Entity's Descendants:
 To retrieve the descendants of this `Source`, we would request the `/descendants/<id>` endpoint. 
-<pre>
+<pre class="line-numbers">
 <code class="language-python">
 uuid = "2f2a7af9951f50b399d76b5080486fe1"
 entity_data = get_data(f"/descendants/{uuid}")
 </code>
 </pre>
 The response of this request would look like
-<pre>
+<pre class="line-numbers">
 <code class="language-json">
 [
     {
@@ -1746,9 +1740,8 @@ Woah! That's a lot! Next, we'll show how to trim the results to return only cert
 ### Filtering the results
 What if we want to filter our results such that only the necessary properties are returned? We could issue calls to the same endpoints, but
 instead of a GET request, we will make a POST request so we can add some `body` to our request. The body data will define what properties we expect. Let's create a `filter_data` method that we will reuse for upcoming requests.
-<pre>
-<code class="language-python">
-def filter_data(endpoint, body):
+<pre class="line-numbers">
+<code class="language-python">def filter_data(endpoint, body):
     query_url =  f"{domain_base}{endpoint}"
     entity_data = None
     try:
@@ -1769,9 +1762,8 @@ In this method, notice the use of the `post` method, and passing additional data
 #### Defining a request body for the `data` param
 What if for the previous `/descendants` call we just want a list of the most basic information for the entities? We could get those results by creating a request body with `filter_properties` setting. It's just a list of strings.
 The strings are the property names that should be returned in the response body. In this case, we just want the basic properties defined by the application. So we just need to set the list to be empty `[]`. Like so:
-<pre>
-<code class="language-python">
-body = {
+<pre class="line-numbers">
+<code class="language-python">body = {
     "filter_properties": []
 }
 uuid = "2f2a7af9951f50b399d76b5080486fe1"
@@ -1779,9 +1771,8 @@ entity_data = filter_data(f"/descendants/{uuid}", body)
 </code>
 </pre>
 This call would yield:
-<pre>
-<code class="language-json">
-[
+<pre class="line-numbers">
+<code class="language-json">[
     {
         "contains_human_genetic_sequences": false,
         "data_access_level": "public",
@@ -1836,9 +1827,8 @@ This call would yield:
 </code>
 </pre>
 If we only wanted the UUIDs in the response, our code would look like:
-<pre>
-<code class="language-python">
-body = {
+<pre class="line-numbers">
+<code class="language-python">body = {
     "filter_properties": ["uuid"]
 }
 uuid = "2f2a7af9951f50b399d76b5080486fe1"
@@ -1846,9 +1836,8 @@ entity_data = filter_data(f"/descendants/{uuid}", body)
 </code>
 </pre>
 That would yield:
-<pre>
-<code class="language-json">
-[
+<pre class="line-numbers">
+<code class="language-json">[
 "1c49b822f9a9341cfb2be080f08eb15f",
 "8208088865da724bbb55cae38632a88a",
 "fb1398a3f416df8f2fc97583796f29be",

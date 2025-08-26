@@ -111,12 +111,41 @@ class App {
         }
     }
 
+    static applyStyles(args) {
+        let css = ''
+        $('img').each(function( i ) {
+            let width = $(this).attr('width')
+            if (width && parseInt(width) > 0) {
+                let cls = `imgw--${i}`
+                $(this).addClass(`${cls}`)
+                width = parseInt(width).toString() === width ? width + 'px' : width
+                css += `.${cls} {max-width: ${width};}`
+            }
+        })
+        if (css.length) {
+            $('body').append(`<style>${css}</style>`)
+        }
+
+        $('pre').each(function( i ) {
+            new Pre(this, {app: Pre, ...args})
+        })
+
+
+    }
+
     static applyTheme() {
         const path = window.location.pathname
         this.pathBase = path
         for (let section in window.apps.theme) {
             if (path.includes(section)) {
-                $('.c-documentation').addClass(`c-documentation--${window.apps.theme[section].cssModifier}`)
+                const $page = $('.c-documentation')
+                if (window.apps.theme[section].cssModifier) {
+                    $page.addClass(`c-documentation--${window.apps.theme[section].cssModifier}`)
+                }
+                if (window.apps.theme[section].classNames) {
+                    $page.addClass(window.apps.theme[section].classNames)
+                }
+
             }
         }
         const format = (el) => {

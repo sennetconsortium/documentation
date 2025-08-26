@@ -10,8 +10,27 @@ pre()
 
 pre
   pre()
+  pos-rel()
   max-height 700px
   overflow-y auto
+  &.is-collapsed
+    height 20px
+    overflow-y hidden !important
+    .pre__toggle
+      &:after
+        content "\f0fe"
+  .pre__toggle
+    pos-abs()
+    top 5px
+    right 30px
+    cursor pointer
+    &:after
+      content "\f146"
+      display inline-block
+      font normal normal normal 14px / 1 FontAwesome
+      font-size inherit
+      text-rendering auto
+      -webkit-font-smoothing antialiased
 
 code
   color $col-secondary-accent
