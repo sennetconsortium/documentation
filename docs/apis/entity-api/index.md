@@ -3,7 +3,7 @@ layout: default
 ---
 
 # Entity API Usage
-The Entity API returns information about SenNet data entities. The document describes a few real world scenarios on retrieving entity data.
+The Entity API returns information about SenNet data entities. This document describes a few real world scenarios on retrieving entity data.
 
 The domain base for the Entity API is `https://entity.api.sennetconsortium.org`. The domain base will prefix the various endpoints. For a full list of Entity API 
 endpoints, see its [Smart API](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812).
@@ -130,6 +130,11 @@ The response to any of these calls would look like:
 }
 </code>
 </pre>
+<div class="alert alert-info c-tip" markdown="1">
+#### Downloads & Tools
+[Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/entities/get_entities__id_){:.btn.btn-outline-primary}  [Jupyter Notebook](/#){:.btn.btn-outline-primary}
+</div>
+
 
 ### Get Entity's Descendants:
 To retrieve the descendants of this `Source`, we would request the `/descendants/<id>` endpoint. 

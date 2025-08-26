@@ -2,7 +2,7 @@
  * sennetdocs - 
  * @version v0.1.0
  * @link https://docs.sennetconsortium.org/
- * @date Thu Jun 05 2025 10:24:38 GMT-0400 (Eastern Daylight Time)
+ * @date Tue Aug 26 2025 08:53:35 GMT-0400 (Eastern Daylight Time)
  */
 var _this11 = this;
 function _wrapNativeSuper(Class) { var _cache = typeof Map === "function" ? new Map() : undefined; _wrapNativeSuper = function _wrapNativeSuper(Class) { if (Class === null || !_isNativeFunction(Class)) return Class; if (typeof Class !== "function") { throw new TypeError("Super expression must either be null or a function"); } if (typeof _cache !== "undefined") { if (_cache.has(Class)) return _cache.get(Class); _cache.set(Class, Wrapper); } function Wrapper() { return _construct(Class, arguments, _getPrototypeOf(this).constructor); } Wrapper.prototype = Object.create(Class.prototype, { constructor: { value: Wrapper, enumerable: false, writable: true, configurable: true } }); return _setPrototypeOf(Wrapper, Class); }; return _wrapNativeSuper(Class); }
@@ -9188,6 +9188,13 @@ var App = /*#__PURE__*/function () {
       return window.apps.locale;
     }
   }, {
+    key: "toCamelCase",
+    value: function toCamelCase(input) {
+      return input.toLowerCase().replace(/-(.)/g, function (match, group1) {
+        return group1.toUpperCase();
+      });
+    }
+  }, {
     key: "toId",
     value: function toId(val) {
       return val.toLowerCase().replace(/[\W_]+/g, ' ').trim().replaceAll(' ', '-');
@@ -9874,9 +9881,17 @@ var Sidebar = /*#__PURE__*/function (_App6) {
     _this8.determineContentBuilder();
     _this8.sizeSideBarHeight();
     _this8.togglePositioning();
+    _this8.addPageId();
     return _this8;
   }
   _createClass(Sidebar, [{
+    key: "addPageId",
+    value: function addPageId() {
+      var id = window.location.pathname.replaceAll('/', '-');
+      id = id.substring(1, id.length - 1);
+      this.el.attr('id', "c-sidebar__".concat(this.toCamelCase(id)));
+    }
+  }, {
     key: "determineContentBuilder",
     value: function determineContentBuilder() {
       var hasBuiltSidebar = false;
