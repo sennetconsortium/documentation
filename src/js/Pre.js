@@ -8,6 +8,8 @@ class Pre extends App {
         this.el.prepend('<div class="pre__toggle" role="button">&nbsp;</div>')
         this.el.find('.pre__toggle').on('click', (e)=> {
             $(e.currentTarget).parent().toggleClass('is-collapsed')
-        }).bind(this)
+        })
     }
+
+
 }

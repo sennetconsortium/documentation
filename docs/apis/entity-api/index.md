@@ -10,21 +10,21 @@ endpoints, see its [Smart API](https://smart-api.info/ui/7d838c9dee0caa2f8fe5717
 
 This python library is required for making our HTTP calls. Let's import that first and only once in our file.
 <pre class="line-numbers">
-<code class="language-python">import requests
+<code class="language-python" data-section="req" data-prismjs-copy="Copy">import requests
 </code>
 </pre>
 
 Let's also define a variable for our domain base:
 <pre class="line-numbers">
-<code class="language-python">domain_base = "https://entity.api.sennetconsortium.org"
+<code class="language-python" data-section="req" data-prismjs-copy="Copy">domain_base = "https://entity.api.sennetconsortium.org"
 </code>
 </pre>
 
 
 ## Defining a reusable `get_data` function
-To get started, lets define a simple function that we will use for our GET requests.
+To get started, let's define a simple function that we will use for our GET requests.
 <pre class="line-numbers">
-<code class="language-python">def get_data(endpoint):
+<code class="language-python" data-section="l1" data-prismjs-copy="Copy">def get_data(endpoint):
     query_url =  f"{domain_base}{endpoint}"
     entity_data = None
     try:
@@ -46,14 +46,14 @@ Now that we have that method, we will make use of it in the following code snipp
 ### Get Entity by ID:
 The follow code retrieves an entity by its ID (either SenNet ID or UUID) by making a call to the `/entities/<id>` endpoint.
 <pre class="line-numbers">
-<code class="language-python">uuid = "2f2a7af9951f50b399d76b5080486fe1"
+<code class="language-python" data-section="l1" data-prismjs-copy="Copy">uuid = "2f2a7af9951f50b399d76b5080486fe1"
 entity_data = get_data(f"/entities/{uuid}")
 </code>
 </pre>
 
 We could similarly use the entity's SenNet ID, and the results would remain the same.
 <pre class="line-numbers">
-<code class="language-python">sennet_id = "SNT722.BGFJ.623"
+<code class="language-python" data-prismjs-copy="Copy">sennet_id = "SNT722.BGFJ.623"
 entity_data = get_data(f"/entities/{uuid}")
 </code>
 </pre>
@@ -126,14 +126,14 @@ The response to any of these calls would look like:
 </pre>
 <div class="alert alert-info c-tip" markdown="1">
 #### Downloads & Tools
-[Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/entities/get_entities__id_){:.btn.btn-outline-primary}  [Jupyter Notebook](/#){:.btn.btn-outline-primary}
+[Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/entities/get_entities__id_){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary} [Source](#){:.btn.btn-outline-primary data-js-copy="req,l1"}
 </div>
 
 
 ### Get Entity's Descendants:
 To retrieve the descendants of this `Source`, we would request the `/descendants/<id>` endpoint. 
 <pre class="line-numbers">
-<code class="language-python">
+<code class="language-python" data-prismjs-copy="Copy">
 uuid = "2f2a7af9951f50b399d76b5080486fe1"
 entity_data = get_data(f"/descendants/{uuid}")
 </code>
@@ -1741,7 +1741,7 @@ Woah! That's a lot! Next, we'll show how to trim the results to return only cert
 What if we want to filter our results such that only the necessary properties are returned? We could issue calls to the same endpoints, but
 instead of a GET request, we will make a POST request so we can add some `body` to our request. The body data will define what properties we expect. Let's create a `filter_data` method that we will reuse for upcoming requests.
 <pre class="line-numbers">
-<code class="language-python">def filter_data(endpoint, body):
+<code class="language-python" data-prismjs-copy="Copy">def filter_data(endpoint, body):
     query_url =  f"{domain_base}{endpoint}"
     entity_data = None
     try:
@@ -1763,7 +1763,7 @@ In this method, notice the use of the `post` method, and passing additional data
 What if for the previous `/descendants` call we just want a list of the most basic information for the entities? We could get those results by creating a request body with `filter_properties` setting. It's just a list of strings.
 The strings are the property names that should be returned in the response body. In this case, we just want the basic properties defined by the application. So we just need to set the list to be empty `[]`. Like so:
 <pre class="line-numbers">
-<code class="language-python">body = {
+<code class="language-python" data-prismjs-copy="Copy">body = {
     "filter_properties": []
 }
 uuid = "2f2a7af9951f50b399d76b5080486fe1"
@@ -1828,7 +1828,7 @@ This call would yield:
 </pre>
 If we only wanted the UUIDs in the response, our code would look like:
 <pre class="line-numbers">
-<code class="language-python">body = {
+<code class="language-python" data-prismjs-copy="Copy">body = {
     "filter_properties": ["uuid"]
 }
 uuid = "2f2a7af9951f50b399d76b5080486fe1"

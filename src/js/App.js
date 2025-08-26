@@ -91,6 +91,17 @@ class App {
         return this.msgs[msg] || msg
     }
 
+    autoBlobDownloader(data, filename, type = 'text/plain') {
+        const a = document.createElement('a')
+        const url = window.URL.createObjectURL(new Blob(data, {type}))
+        a.href = url
+        a.download = filename
+        document.body.append(a)
+        a.click()
+        a.remove()
+        window.URL.revokeObjectURL(url)
+    }
+
     static async loadLanguageFile() {
         try {
             if (window.apps.locale) return true
@@ -126,8 +137,10 @@ class App {
             $('body').append(`<style>${css}</style>`)
         }
 
+        new CodeCopy(document, {app: 'codeCopy', ...args})
+
         $('pre').each(function( i ) {
-            new Pre(this, {app: Pre, ...args})
+            new Pre(this, {app: '<pre>', ...args})
         })
 
 

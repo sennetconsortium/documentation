@@ -2,9 +2,9 @@
  * sennetdocs - 
  * @version v0.1.0
  * @link https://docs.sennetconsortium.org/
- * @date Tue Aug 26 2025 10:45:27 GMT-0400 (Eastern Daylight Time)
+ * @date Tue Aug 26 2025 15:20:47 GMT-0400 (Eastern Daylight Time)
  */
-var _this12 = this;
+var _this14 = this;
 function _wrapNativeSuper(Class) { var _cache = typeof Map === "function" ? new Map() : undefined; _wrapNativeSuper = function _wrapNativeSuper(Class) { if (Class === null || !_isNativeFunction(Class)) return Class; if (typeof Class !== "function") { throw new TypeError("Super expression must either be null or a function"); } if (typeof _cache !== "undefined") { if (_cache.has(Class)) return _cache.get(Class); _cache.set(Class, Wrapper); } function Wrapper() { return _construct(Class, arguments, _getPrototypeOf(this).constructor); } Wrapper.prototype = Object.create(Class.prototype, { constructor: { value: Wrapper, enumerable: false, writable: true, configurable: true } }); return _setPrototypeOf(Wrapper, Class); }; return _wrapNativeSuper(Class); }
 function _construct(Parent, args, Class) { if (_isNativeReflectConstruct()) { _construct = Reflect.construct.bind(); } else { _construct = function _construct(Parent, args, Class) { var a = [null]; a.push.apply(a, args); var Constructor = Function.bind.apply(Parent, a); var instance = new Constructor(); if (Class) _setPrototypeOf(instance, Class.prototype); return instance; }; } return _construct.apply(null, arguments); }
 function _isNativeFunction(fn) { return Function.toString.call(fn).indexOf("[native code]") !== -1; }
@@ -9263,6 +9263,21 @@ var App = /*#__PURE__*/function () {
       return this.msgs[msg] || msg;
     }
   }, {
+    key: "autoBlobDownloader",
+    value: function autoBlobDownloader(data, filename) {
+      var type = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'text/plain';
+      var a = document.createElement('a');
+      var url = window.URL.createObjectURL(new Blob(data, {
+        type: type
+      }));
+      a.href = url;
+      a.download = filename;
+      document.body.append(a);
+      a.click();
+      a.remove();
+      window.URL.revokeObjectURL(url);
+    }
+  }, {
     key: "log",
     value: function log(title, msg) {
       var ops = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
@@ -9373,9 +9388,12 @@ var App = /*#__PURE__*/function () {
       if (css.length) {
         $('body').append("<style>".concat(css, "</style>"));
       }
+      new CodeCopy(document, _objectSpread({
+        app: 'codeCopy'
+      }, args));
       $('pre').each(function (i) {
         new Pre(this, _objectSpread({
-          app: Pre
+          app: '<pre>'
         }, args));
       });
     }
@@ -9461,19 +9479,72 @@ var Breadcrumbs = /*#__PURE__*/function (_App) {
   }]);
   return Breadcrumbs;
 }(App);
-var FileMeta = /*#__PURE__*/function (_App2) {
-  _inherits(FileMeta, _App2);
-  var _super2 = _createSuper(FileMeta);
-  function FileMeta(el, args) {
+var CodeCopy = /*#__PURE__*/function (_App2) {
+  _inherits(CodeCopy, _App2);
+  var _super2 = _createSuper(CodeCopy);
+  function CodeCopy(el, args) {
     var _this3;
-    _classCallCheck(this, FileMeta);
+    _classCallCheck(this, CodeCopy);
     _this3 = _super2.call(this, el, args);
-    _this3.$ = {
-      date: _this3.el.find('.js-fileMeta__date'),
-      label: _this3.el.find('.js-fileMeta__label')
-    };
-    _this3.addDate();
+    _this3.sections = {};
+    _this3.initCopy();
     return _this3;
+  }
+  _createClass(CodeCopy, [{
+    key: "handleCopySource",
+    value: function handleCopySource(e) {
+      var $el = this.currentTarget(e);
+      var _sections = $el.attr('data-js-copy').split(',');
+      var text = [];
+      var _iterator = _createForOfIteratorHelper(_sections),
+        _step;
+      try {
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          var s = _step.value;
+          text.push(this.sections[s]);
+        }
+      } catch (err) {
+        _iterator.e(err);
+      } finally {
+        _iterator.f();
+      }
+      this.autoBlobDownloader([text.join('\n')], 'l1.py');
+    }
+  }, {
+    key: "initCopy",
+    value: function initCopy() {
+      var _this4 = this;
+      var t = this;
+      $('code').each(function (i) {
+        var s = $(this).attr('data-section');
+        var code = $(this).text().trim();
+        if (s) {
+          var txt = t.sections[s] || '';
+          t.sections[s] = "".concat(txt, "\n").concat(code);
+        }
+      });
+      $('[data-js-copy]').on('click', function (e) {
+        _this4.stop(e);
+        e.preventDefault();
+        _this4.handleCopySource(e);
+      });
+    }
+  }]);
+  return CodeCopy;
+}(App);
+var FileMeta = /*#__PURE__*/function (_App3) {
+  _inherits(FileMeta, _App3);
+  var _super3 = _createSuper(FileMeta);
+  function FileMeta(el, args) {
+    var _this5;
+    _classCallCheck(this, FileMeta);
+    _this5 = _super3.call(this, el, args);
+    _this5.$ = {
+      date: _this5.el.find('.js-fileMeta__date'),
+      label: _this5.el.find('.js-fileMeta__label')
+    };
+    _this5.addDate();
+    return _this5;
   }
   _createClass(FileMeta, [{
     key: "addDate",
@@ -9558,15 +9629,15 @@ var FileMeta = /*#__PURE__*/function (_App2) {
   }]);
   return FileMeta;
 }(App);
-var Footer = /*#__PURE__*/function (_App3) {
-  _inherits(Footer, _App3);
-  var _super3 = _createSuper(Footer);
+var Footer = /*#__PURE__*/function (_App4) {
+  _inherits(Footer, _App4);
+  var _super4 = _createSuper(Footer);
   function Footer(el, args) {
-    var _this4;
+    var _this6;
     _classCallCheck(this, Footer);
-    _this4 = _super3.call(this, el, args);
-    _this4.addYear();
-    return _this4;
+    _this6 = _super4.call(this, el, args);
+    _this6.addYear();
+    return _this6;
   }
   _createClass(Footer, [{
     key: "addYear",
@@ -9576,16 +9647,16 @@ var Footer = /*#__PURE__*/function (_App3) {
   }]);
   return Footer;
 }(App);
-var GTM = /*#__PURE__*/function (_App4) {
-  _inherits(GTM, _App4);
-  var _super4 = _createSuper(GTM);
+var GTM = /*#__PURE__*/function (_App5) {
+  _inherits(GTM, _App5);
+  var _super5 = _createSuper(GTM);
   function GTM(el, args) {
-    var _this5;
+    var _this7;
     _classCallCheck(this, GTM);
-    _this5 = _super4.call(this, el, args);
-    _this5.event = 'view';
-    _this5.pageView();
-    return _this5;
+    _this7 = _super5.call(this, el, args);
+    _this7.event = 'view';
+    _this7.pageView();
+    return _this7;
   }
   _createClass(GTM, [{
     key: "pageView",
@@ -9612,28 +9683,28 @@ var GTM = /*#__PURE__*/function (_App4) {
   }]);
   return GTM;
 }(App);
-var Header = /*#__PURE__*/function (_App5) {
-  _inherits(Header, _App5);
-  var _super5 = _createSuper(Header);
+var Header = /*#__PURE__*/function (_App6) {
+  _inherits(Header, _App6);
+  var _super6 = _createSuper(Header);
   function Header(el, args) {
-    var _this6;
+    var _this8;
     _classCallCheck(this, Header);
-    _this6 = _super5.call(this, el, args);
-    _this6.$ = {
-      li: _this6.el.find('.js-header__menu ul li'),
-      ul: _this6.el.find('.js-header__menu ul')
+    _this8 = _super6.call(this, el, args);
+    _this8.$ = {
+      li: _this8.el.find('.js-header__menu ul li'),
+      ul: _this8.el.find('.js-header__menu ul')
     };
-    _this6.syncHeader();
-    _this6.events();
-    return _this6;
+    _this8.syncHeader();
+    _this8.events();
+    return _this8;
   }
   _createClass(Header, [{
     key: "events",
     value: function events() {
-      var _this7 = this;
+      var _this9 = this;
       this.$.li.find('a').on('click', function (e) {
         e.preventDefault();
-        var link = _this7.currentTarget(e).attr('href');
+        var link = _this9.currentTarget(e).attr('href');
         if (window.location.pathname !== '/' || link[0] !== '#') {
           window.location = '/' + link.slice(1);
         } else {
@@ -9649,7 +9720,7 @@ var Header = /*#__PURE__*/function (_App5) {
     key: "syncHeader",
     value: function () {
       var _syncHeader = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4() {
-        var x, _iterator, _step, li, $li, $nLi;
+        var x, _iterator2, _step2, li, $li, $nLi;
         return _regeneratorRuntime().wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
@@ -9662,10 +9733,10 @@ var Header = /*#__PURE__*/function (_App5) {
               case 2:
                 x = 1;
                 try {
-                  _iterator = _createForOfIteratorHelper(this.msgs.menu);
+                  _iterator2 = _createForOfIteratorHelper(this.msgs.menu);
                   try {
-                    for (_iterator.s(); !(_step = _iterator.n()).done;) {
-                      li = _step.value;
+                    for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+                      li = _step2.value;
                       this.log("Menu ".concat(x), li);
                       $li = this.$.li.eq(x);
                       if ($li.length) {
@@ -9680,9 +9751,9 @@ var Header = /*#__PURE__*/function (_App5) {
                       x++;
                     }
                   } catch (err) {
-                    _iterator.e(err);
+                    _iterator2.e(err);
                   } finally {
-                    _iterator.f();
+                    _iterator2.f();
                   }
                 } catch (e) {
                   App.log('Error Building Menu: ', e, {
@@ -9728,15 +9799,15 @@ var LocalStore = /*#__PURE__*/function () {
   return LocalStore;
 }();
 _defineProperty(LocalStore, "langKey", 'language');
-var Pre = /*#__PURE__*/function (_App6) {
-  _inherits(Pre, _App6);
-  var _super6 = _createSuper(Pre);
+var Pre = /*#__PURE__*/function (_App7) {
+  _inherits(Pre, _App7);
+  var _super7 = _createSuper(Pre);
   function Pre(el, args) {
-    var _this8;
+    var _this10;
     _classCallCheck(this, Pre);
-    _this8 = _super6.call(this, el, args);
-    _this8.addToggleBtn();
-    return _this8;
+    _this10 = _super7.call(this, el, args);
+    _this10.addToggleBtn();
+    return _this10;
   }
   _createClass(Pre, [{
     key: "addToggleBtn",
@@ -9744,17 +9815,17 @@ var Pre = /*#__PURE__*/function (_App6) {
       this.el.prepend('<div class="pre__toggle" role="button">&nbsp;</div>');
       this.el.find('.pre__toggle').on('click', function (e) {
         $(e.currentTarget).parent().toggleClass('is-collapsed');
-      }).bind(this);
+      });
     }
   }]);
   return Pre;
 }(App);
 var ProgressBar = /*#__PURE__*/function (_HTMLElement) {
   _inherits(ProgressBar, _HTMLElement);
-  var _super7 = _createSuper(ProgressBar);
+  var _super8 = _createSuper(ProgressBar);
   function ProgressBar() {
     _classCallCheck(this, ProgressBar);
-    return _super7.apply(this, arguments);
+    return _super8.apply(this, arguments);
   }
   _createClass(ProgressBar, [{
     key: "animate",
@@ -9908,30 +9979,30 @@ var Rest = /*#__PURE__*/function () {
   }]);
   return Rest;
 }();
-var Sidebar = /*#__PURE__*/function (_App7) {
-  _inherits(Sidebar, _App7);
-  var _super8 = _createSuper(Sidebar);
+var Sidebar = /*#__PURE__*/function (_App8) {
+  _inherits(Sidebar, _App8);
+  var _super9 = _createSuper(Sidebar);
   function Sidebar(el, args) {
-    var _this9;
+    var _this11;
     _classCallCheck(this, Sidebar);
-    _this9 = _super8.call(this, el, args);
-    _this9.$ = {
-      wrap: _this9.el.find('.js-sidebar__wrap'),
-      main: _this9.el.find('.js-sidebar__main'),
-      list: _this9.el.find('.js-sidebar__list'),
+    _this11 = _super9.call(this, el, args);
+    _this11.$ = {
+      wrap: _this11.el.find('.js-sidebar__wrap'),
+      main: _this11.el.find('.js-sidebar__main'),
+      list: _this11.el.find('.js-sidebar__list'),
       hs: $('.c-documentation').find('h1, h2, h3, h4, h5, h6')
     };
-    _this9.sizeSideBar();
-    _this9.pathBase = '/';
-    _this9.classNames.root = 'is-root';
-    _this9.classNames["static"] = 'is-static';
-    _this9.headerHeight = 90;
-    _this9.events();
-    _this9.determineContentBuilder();
-    _this9.sizeSideBarHeight();
-    _this9.togglePositioning();
-    _this9.addPageId();
-    return _this9;
+    _this11.sizeSideBar();
+    _this11.pathBase = '/';
+    _this11.classNames.root = 'is-root';
+    _this11.classNames["static"] = 'is-static';
+    _this11.headerHeight = 90;
+    _this11.events();
+    _this11.determineContentBuilder();
+    _this11.sizeSideBarHeight();
+    _this11.togglePositioning();
+    _this11.addPageId();
+    return _this11;
   }
   _createClass(Sidebar, [{
     key: "addPageId",
@@ -9966,18 +10037,18 @@ var Sidebar = /*#__PURE__*/function (_App7) {
   }, {
     key: "events",
     value: function events() {
-      var _this10 = this;
+      var _this12 = this;
       $(document).on('scroll', function (e) {
         var st = $(document).scrollTop();
-        if (st > _this10.headerHeight && !_this10.isMobile()) {
-          _this10.el.addClass(_this10.classNames.active);
+        if (st > _this12.headerHeight && !_this12.isMobile()) {
+          _this12.el.addClass(_this12.classNames.active);
         } else {
-          _this10.el.removeClass(_this10.classNames.active);
+          _this12.el.removeClass(_this12.classNames.active);
         }
       }.bind(this));
       $(window).on('resize', function (e) {
-        _this10.sizeSideBar();
-        _this10.togglePositioning();
+        _this12.sizeSideBar();
+        _this12.togglePositioning();
       }.bind(this));
     }
   }, {
@@ -10006,7 +10077,7 @@ var Sidebar = /*#__PURE__*/function (_App7) {
   }, {
     key: "buildTableOfContents",
     value: function buildTableOfContents() {
-      var _this11 = this;
+      var _this13 = this;
       var rootChildren = [];
       var root = {
         tag: 'h0',
@@ -10021,7 +10092,7 @@ var Sidebar = /*#__PURE__*/function (_App7) {
         var n1 = Number(node[1]);
         var n2 = Number(top.tag[1]);
         var label = $(el).text();
-        var id = $(el).attr('id') || _this11.toId(label);
+        var id = $(el).attr('id') || _this13.toId(label);
         var pack = {
           tag: node,
           id: id,
@@ -10095,17 +10166,17 @@ var Sidebar = /*#__PURE__*/function (_App7) {
       html += "<li class=\"".concat(classes, "\" title=\"").concat(name, "\"><a href=\"").concat(n.href ? n.href : hrefDefault, "\">").concat(name, "</a>");
       if (this.hasChildren(n)) {
         html += "<ul class='".concat(levelClass, " has-parent'>");
-        var _iterator2 = _createForOfIteratorHelper(this.getChildren(n)),
-          _step2;
+        var _iterator3 = _createForOfIteratorHelper(this.getChildren(n)),
+          _step3;
         try {
-          for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-            var c = _step2.value;
+          for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
+            var c = _step3.value;
             html = this.getList(c, html, level + 1);
           }
         } catch (err) {
-          _iterator2.e(err);
+          _iterator3.e(err);
         } finally {
-          _iterator2.f();
+          _iterator3.f();
         }
         html += "</ul>";
       }
@@ -10163,5 +10234,5 @@ window.addEventListener('load', function (event) {
     App.loadThemeConfig().then(function () {
       ZIndex('init');
     });
-  }.bind(_this12));
+  }.bind(_this14));
 });

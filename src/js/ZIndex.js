@@ -33,7 +33,6 @@ function ZIndex(source, args = null) {
                     new apps[app](el, { app, ...args })
                 })
         }
-
         App.applyStyles(args)
     } catch (e) {
         console.error(e)
