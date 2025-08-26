@@ -24,7 +24,7 @@ Let's also define a variable for our domain base:
 ## Defining a reusable `get_data` function
 To get started, let's define a simple function that we will use for our GET requests.
 <pre class="line-numbers">
-<code class="language-python" data-section="l1" data-prismjs-copy="Copy">def get_data(endpoint):
+<code class="language-python" data-section="get_data" data-prismjs-copy="Copy">def get_data(endpoint):
     query_url =  f"{domain_base}{endpoint}"
     entity_data = None
     try:
@@ -126,7 +126,7 @@ The response to any of these calls would look like:
 </pre>
 <div class="alert alert-info c-tip" markdown="1">
 #### Downloads & Tools
-[Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/entities/get_entities__id_){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary} [Source](#){:.btn.btn-outline-primary data-js-copy="req,l1"}
+[Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/entities/get_entities__id_){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary} [Source](#){:.btn.btn-outline-primary data-js-copy="req,get_data,l1"}
 </div>
 
 
@@ -1826,7 +1826,7 @@ This call would yield:
 ]
 </code>
 </pre>
-If we only wanted the UUIDs in the response, our code would look like:
+If we only wanted the UUIDs in the response, we simply add the `"uuid"` property to the list. So our code would look like:
 <pre class="line-numbers">
 <code class="language-python" data-prismjs-copy="Copy">body = {
     "filter_properties": ["uuid"]
@@ -1846,4 +1846,49 @@ That would yield:
 ]
 </code>
 </pre>
+## Given a Dataset with SenNet ID `SNT788.ZBHP.683`
+<pre class="line-numbers">
+<code class="language-python" data-section="p2id" data-prismjs-copy="Copy">uuid = "2f2a7af9951f50b399d76b5080486fe1" # remember we could use the value of the SenNet ID here, but it is more common to call the API via the UUID.
+</code>
+</pre>
+### Get Entity's Sources
+In similar fashion, we can call other common endpoints. Using the reusable `get_data` method let's find out the sources for our target dataset.
+<pre class="line-numbers">
+<code class="language-python" data-section="dataset_sources" data-prismjs-copy="Copy">entity_data = get_data(f"/datasets/{uuid}/sources")
+</code>
+</pre>
+<div class="alert alert-info c-tip" markdown="1">
+#### Downloads & Tools
+[Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/datasets/get_datasets__id__sources){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary} [Source](#){:.btn.btn-outline-primary data-js-copy="req,get_data,p2l1r,dataset_sources"}
+</div>
 
+### Get Entity's Organs
+<pre class="line-numbers">
+<code class="language-python" data-section="dataset_organs" data-prismjs-copy="Copy">entity_data = get_data(f"/datasets/{uuid}/organs")
+</code>
+</pre>
+<div class="alert alert-info c-tip" markdown="1">
+#### Downloads & Tools
+[Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/datasets/get_datasets__id__organs){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary} [Source](#){:.btn.btn-outline-primary data-js-copy="req,get_data,p2l1r,dataset_organs"}
+</div>
+
+### Get Entity's Samples
+<pre class="line-numbers">
+<code class="language-python" data-section="dataset_samples" data-prismjs-copy="Copy">entity_data = get_data(f"/datasets/{uuid}/samples")
+</code>
+</pre>
+<div class="alert alert-info c-tip" markdown="1">
+#### Downloads & Tools
+[Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/datasets/get_datasets__id__samples){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary} [Source](#){:.btn.btn-outline-primary data-js-copy="req,get_data,p2l1r,dataset_samples"}
+</div>
+
+### Get Entity's Ancestors
+This endpoint is similar to the `/descendants` endpoint. 
+<pre class="line-numbers">
+<code class="language-python" data-section="dataset_ancestors" data-prismjs-copy="Copy">entity_data = get_data(f"/ancestors/{uuid}")
+</code>
+</pre>
+<div class="alert alert-info c-tip" markdown="1">
+#### Downloads & Tools
+[Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/ancestors/get_ancestors__id_){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary} [Source](#){:.btn.btn-outline-primary data-js-copy="req,get_data,p2l1r,dataset_ancestors"}
+</div>

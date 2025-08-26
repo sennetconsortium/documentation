@@ -12,8 +12,7 @@ class CodeCopy extends App {
         for (let s of _sections) {
             text.push(this.sections[s])
         }
-        this.autoBlobDownloader([text.join('\n')], 'l1.py')
-
+        this.autoBlobDownloader([text.join('\n')], `${_sections.join('_')}.py`)
     }
 
     initCopy() {
@@ -33,6 +32,4 @@ class CodeCopy extends App {
             this.handleCopySource(e)
         })
     }
-
-
 }
