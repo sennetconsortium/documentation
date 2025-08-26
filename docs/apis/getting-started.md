@@ -55,5 +55,10 @@ else:
     print("ERROR: No entity data information found. File not written")
 </code>
 </pre>
+<div class="alert alert-info c-tip" markdown="1">
+#### Downloads & Tools
+[Jupyter Notebook](/#){:.btn.btn-outline-primary}
+</div>
+
 
 And that's all it is. For a complete guide per service, visit the [APIs home page](/apis) and navigate to the usage links for the API you wish to query.
