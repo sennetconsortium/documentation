@@ -1743,7 +1743,7 @@ Woah! That's a lot! Next, we'll show how to trim the results to return only cert
 ### Filtering the results
 What if we want to filter our results such that only the necessary properties are returned? We could issue calls to the same endpoints, but
 instead of a GET request, we will make a POST request so we can add some `body` to our request. The body data will define what properties we expect. Let's create a `filter_data` method that we will reuse for upcoming requests.
-<pre class="line-numbers">
+<pre class="line-numbers" data-line='5'>
 <code class="language-python" data-section="filter_data" data-prismjs-copy="Copy">def filter_data(endpoint, body):
     query_url =  f"{domain_base}{endpoint}"
     entity_data = None
@@ -1985,6 +1985,17 @@ In a similar fashion, we can call other common endpoints. Using the reusable `ge
 [Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/datasets/get_datasets__id__samples){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary} [Source](#){:.btn.btn-outline-primary data-js-copy="req,get_data,p2id,dataset_samples"}
 </div>
 
+### Get Entity's Parents
+The `/parents/<id>` endpoint gets the immediate parent list for an entity. The parents are the nodes connected one level "upstream" from the current node and only goes to the next higher level in the graph.
+<pre class="line-numbers">
+<code class="language-python" data-section="dataset_parents" data-prismjs-copy="Copy">entity_data = get_data(f"/parents/{uuid}")
+</code>
+</pre>
+<div class="alert alert-info c-info" markdown="1">
+#### Downloads & Tools
+[Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/parents/get_parents__id_){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary data-js-jupyter="req,get_data,p2id,dataset_parents"} [Source](#){:.btn.btn-outline-primary data-js-copy="req,get_data,p2id,dataset_parents"}
+</div>
+
 ### Get Entity's Ancestors
 <pre class="line-numbers">
 <code class="language-python" data-section="dataset_ancestors" data-prismjs-copy="Copy">entity_data = get_data(f"/ancestors/{uuid}")
@@ -1995,8 +2006,25 @@ In a similar fashion, we can call other common endpoints. Using the reusable `ge
 [Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/ancestors/get_ancestors__id_){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary data-js-jupyter="req,get_data,p2id,dataset_ancestors"} [Source](#){:.btn.btn-outline-primary data-js-copy="req,get_data,p2id,dataset_ancestors"}
 </div>
 
+### Filtering the results 
+#### Exclude certain properties
+Because these lists can get very long and detailed, we may also want to return only certain properties. Earlier, we illustrated using `filter_properties` to specify which properties to return. What if we want that in reverse order? We want most properties, but some we want to ditch.
+We can accomplish this by setting `"is_include": false`. Here's the updated code.
+<pre class="line-numbers" data-line="3">
+<code class="language-python" data-section="filter_exclude_custom" data-prismjs-copy="Copy">body = {
+    "filter_properties": ["created_by_user_sub", "last_modified_user_sub", "group_uuid", "direct_ancestor", "source", "origin_samples"],
+    "is_include": false
+}
+entity_data = filter_data(f"/ancestors/{uuid}", body)
+</code>
+</pre>
+<div class="alert alert-info c-info" markdown="1">
+#### Downloads & Tools
+[Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/ancestors/post_ancestors__id_){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary data-js-jupyter="req,filter_data,p2id,filter_exclude_custom"} [Source](#){:.btn.btn-outline-primary data-js-copy="req,filter_data,p2id,filter_exclude_custom"}
+</div>
+
 ## Accessing restricted endpoints and data
-In order to access restricted endpoints and data, you will need to pass a token in your request. Let's update our `get_data` function to reflect that.
+In order to access restricted endpoints and data, you will need to pass a token in your request. Let's update our `get_data` function to reflect that making use of the `headers` param. (To retrieve an authorization token, see [this guide](/apis/getting-started).)
 <pre class="line-numbers" data-line='2,9'>
 <code class="language-python" data-section="get_data_token" data-prismjs-copy="Copy">headers = {
     "Authorization": "Bearer COPIED_TOKEN_HERE",
@@ -2022,8 +2050,7 @@ def get_data(endpoint):
 ### Get Entity's Children:
 The children are the nodes one level below the current node. To retrieve the children of an entity, we would request the `/children/<id>` endpoint. This endpoint is restricted and requires a token.
 <pre class="line-numbers">
-<code class="language-python" data-section='children' data-prismjs-copy="Copy">
-uuid = "2f2a7af9951f50b399d76b5080486fe1"
+<code class="language-python" data-section='children' data-prismjs-copy="Copy">uuid = "2f2a7af9951f50b399d76b5080486fe1"
 entity_data = get_data(f"/children/{uuid}")
 </code>
 </pre>
@@ -2033,5 +2060,10 @@ entity_data = get_data(f"/children/{uuid}")
 </div>
 <div class="alert alert-warning c-info" markdown="1">
 <strong class='p3'>Warning <i class="fa fa-exclamation-circle" aria-hidden="true"></i></strong>  
-You must pass a token in with your request for restricted endpoints. To retrieve an authorization token see [this guide](/apis/getting-started).
+You must pass a token in with your request for restricted endpoints. To retrieve an authorization token, see [this guide](/apis/getting-started).
 </div>
+Similarly, our line 5 in our `filter_data` method above can be updated to:
+<pre class="line-numbers">
+<code class="language-python" data-section="filter_data_token" data-prismjs-copy="Copy">response = requests.post(query_url, data=body, headers=headers)
+</code>
+</pre>
