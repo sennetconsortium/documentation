@@ -2062,7 +2062,7 @@ entity_data = get_data(f"/children/{uuid}")
 <strong class='p3'>Warning <i class="fa fa-exclamation-circle" aria-hidden="true"></i></strong>  
 You must pass a token in with your request for restricted endpoints. To retrieve an authorization token, see [this guide](/apis/getting-started).
 </div>
-Similarly, our line 5 in our `filter_data` method above can be updated to:
+Similarly, line 5 in our `filter_data` method above can be updated to:
 <pre class="line-numbers">
 <code class="language-python" data-section="filter_data_token" data-prismjs-copy="Copy">response = requests.post(query_url, data=body, headers=headers)
 </code>
