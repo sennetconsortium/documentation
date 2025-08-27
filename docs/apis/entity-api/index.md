@@ -46,7 +46,7 @@ Now that we have that method, we will make use of it in the following code snipp
 ### Get Entity by ID:
 The follow code retrieves an entity by its ID (either SenNet ID or UUID) by making a call to the `/entities/<id>` endpoint.
 <pre class="line-numbers">
-<code class="language-python" data-section="l1" data-prismjs-copy="Copy">uuid = "2f2a7af9951f50b399d76b5080486fe1"
+<code class="language-python" data-section="entities" data-prismjs-copy="Copy">uuid = "2f2a7af9951f50b399d76b5080486fe1"
 entity_data = get_data(f"/entities/{uuid}")
 </code>
 </pre>
@@ -124,14 +124,13 @@ The response to any of these calls would look like:
 }
 </code>
 </pre>
-<div class="alert alert-info c-tip" markdown="1">
+<div class="alert alert-info c-info" markdown="1">
 #### Downloads & Tools
-[Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/entities/get_entities__id_){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary} [Source](#){:.btn.btn-outline-primary data-js-copy="req,get_data,l1"}
+[Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/entities/get_entities__id_){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary data-js-jupyter="req,get_data,entities"} [Source](#){:.btn.btn-outline-primary data-js-copy="req,get_data,entities"}
 </div>
 
-
 ### Get Entity's Descendants:
-To retrieve the descendants of this `Source`, we would request the `/descendants/<id>` endpoint. 
+To retrieve the descendants of this `Source`, we would request the `/descendants/<id>` endpoint. Unlike the `/children/<id>` endpoint, the `/descendants/<id>` endpoint returns descendants at all levels downstream in the graph.
 <pre class="line-numbers">
 <code class="language-python" data-prismjs-copy="Copy">
 uuid = "2f2a7af9951f50b399d76b5080486fe1"
@@ -1737,11 +1736,15 @@ The response of this request would look like
 </code>
 </pre>
 Woah! That's a lot! Next, we'll show how to trim the results to return only certain properties.
+<div class="alert alert-info c-info" markdown="1">
+#### Downloads & Tools
+[Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/descendants/get_descendants__id_){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary data-js-jupyter="req,get_data,descendants"} [Source](#){:.btn.btn-outline-primary data-js-copy="req,get_data,descendants"}
+</div>
 ### Filtering the results
 What if we want to filter our results such that only the necessary properties are returned? We could issue calls to the same endpoints, but
 instead of a GET request, we will make a POST request so we can add some `body` to our request. The body data will define what properties we expect. Let's create a `filter_data` method that we will reuse for upcoming requests.
 <pre class="line-numbers">
-<code class="language-python" data-prismjs-copy="Copy">def filter_data(endpoint, body):
+<code class="language-python" data-section="filter_data" data-prismjs-copy="Copy">def filter_data(endpoint, body):
     query_url =  f"{domain_base}{endpoint}"
     entity_data = None
     try:
@@ -1758,12 +1761,13 @@ instead of a GET request, we will make a POST request so we can add some `body` 
     return entity_data
 </code>
 </pre>
-In this method, notice the use of the `post` method, and passing additional data via the `data` param. 
-#### Defining a request body for the `data` param
+In this method, notice the use of the `post` method, and passing additional data via the `data` param.
+
+#### Returning only basic entity properties
 What if for the previous `/descendants` call we just want a list of the most basic information for the entities? We could get those results by creating a request body with `filter_properties` setting. It's just a list of strings.
 The strings are the property names that should be returned in the response body. In this case, we just want the basic properties defined by the application. So we just need to set the list to be empty `[]`. Like so:
-<pre class="line-numbers">
-<code class="language-python" data-prismjs-copy="Copy">body = {
+<pre class="line-numbers" data-line="2">
+<code class="language-python" data-section="filter_basics" data-prismjs-copy="Copy">body = {
     "filter_properties": []
 }
 uuid = "2f2a7af9951f50b399d76b5080486fe1"
@@ -1826,9 +1830,14 @@ This call would yield:
 ]
 </code>
 </pre>
+<div class="alert alert-info c-info" markdown="1">
+#### Downloads & Tools
+[Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/descendants/post_descendants__id_){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary data-js-jupyter="req,filter_data,filter_basics"} [Source](#){:.btn.btn-outline-primary data-js-copy="req,filter_data,filter_basics"}
+</div>
+#### Returning only a list of UUIDs
 If we only wanted the UUIDs in the response, we simply add the `"uuid"` property to the list. So our code would look like:
 <pre class="line-numbers" data-line="2">
-<code class="language-python" data-prismjs-copy="Copy">body = {
+<code class="language-python" data-section="filter_uuids" data-prismjs-copy="Copy">body = {
     "filter_properties": ["uuid"]
 }
 uuid = "2f2a7af9951f50b399d76b5080486fe1"
@@ -1846,6 +1855,100 @@ That would yield:
 ]
 </code>
 </pre>
+<div class="alert alert-info c-info" markdown="1">
+#### Downloads & Tools
+[Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/descendants/post_descendants__id_){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary data-js-jupyter="req,filter_data,filter_uuids"} [Source](#){:.btn.btn-outline-primary data-js-copy="req,filter_data,filter_uuids"}
+</div>
+<div class="alert alert-warning c-info" markdown="1">
+<strong class='p3'>Warning <i class="fa fa-exclamation-circle" aria-hidden="true"></i></strong>  
+Note that specifying any other single property in `filter_properties` besides `uuid` will always return other basic properties in the response.
+</div>
+#### Returning custom properties
+Let's say along with basic properties, we'd also like `protocol_url`, `description`, `last_modified_user_displayname` but everything else out. Our code would look like:
+<pre class="line-numbers" data-line="2">
+<code class="language-python" data-section="filter_custom" data-prismjs-copy="Copy">body = {
+    "filter_properties": ["protocol_url", "description", "last_modified_user_displayname"]
+}
+uuid = "2f2a7af9951f50b399d76b5080486fe1"
+entity_data = filter_data(f"/descendants/{uuid}", body)
+</code>
+</pre>
+That would yield:
+<pre class="line-numbers" data-line='6,10,21'>
+<code class="language-json">[
+  {
+    "contains_human_genetic_sequences": false,
+    "data_access_level": "public",
+    "dataset_type": "PhenoCycler",
+    "description": "Aging in the immune system is marked by various phenotypic changes of the immune cells across organs and a functional decline in their ability to combat disease and infection. At the Yale TMCs, we aim to characterize how senescence manifests in the lymphoid and non-lymphoid tissues, how it affects immune cell function, and the complex relationship between immune cells and senescence-associated secretory phenotype (SASP) producing senescence cells. To achieve this, we are using the Phenocycler-Fusion system and a customized immune-senescence panel to produce high-plex immunofluorescence images of young and aged immune tissues and cells. In this dataset, we present imaging data from  formalin-fixed paraffin-embedded (FFPE) spleen tissues from a 7.5 month old and 25.5 month old wild-type C57BL6 mice, stained with 36 markers including eight markers for cell proliferation and senescence (Ki67, p16, 53BP1, p21, p53, gH2AX, LaminB1, Rb), various immune cell type markers, and two histone modification markers (H3K9me3, H3K27ac).",
+    "entity_type": "Dataset",
+    "group_name": "TMC - Yale University - Dixit",
+    "group_uuid": "1350e2f9-23a9-11ed-a56b-4ffe8363feee",
+    "last_modified_user_displayname": "Max Sibilla",
+    "sennet_id": "SNT397.CRWK.458",
+    "status": "Published",
+    "uuid": "f9a36aa133fff9cb3e62c2e4ea885578"
+  },
+  {
+    "data_access_level": "public",
+    "entity_type": "Sample",
+    "group_name": "TMC - Yale University - Dixit",
+    "group_uuid": "1350e2f9-23a9-11ed-a56b-4ffe8363feee",
+    "last_modified_user_displayname": "Hester Doyle",
+    "protocol_url": "dx.doi.org/10.17504/protocols.io.kqdg3x8keg25/v2",
+    "sample_category": "Block",
+    "sennet_id": "SNT664.KFZW.224",
+    "uuid": "8208088865da724bbb55cae38632a88a"
+  },
+  {
+    "data_access_level": "public",
+    "description": "fresh frozen",
+    "entity_type": "Sample",
+    "group_name": "TMC - Yale University - Dixit",
+    "group_uuid": "1350e2f9-23a9-11ed-a56b-4ffe8363feee",
+    "last_modified_user_displayname": "Jungmin Nam",
+    "protocol_url": "dx.doi.org/10.17504/protocols.io.kqdg3x8keg25/v2",
+    "sample_category": "Section",
+    "sennet_id": "SNT587.LHXH.846",
+    "uuid": "fb1398a3f416df8f2fc97583796f29be"
+  },
+  {
+    "contains_human_genetic_sequences": false,
+    "data_access_level": "public",
+    "dataset_type": "PhenoCycler",
+    "description": "Aging in the immune system is marked by various phenotypic changes of the immune cells across organs and a functional decline in their ability to combat disease and infection. At the Yale TMCs, we aim to characterize how senescence manifests in the lymphoid and non-lymphoid tissues, how it affects immune cell function, and the complex relationship between immune cells and senescence-associated secretory phenotype (SASP) producing senescence cells. To achieve this, we are using the Phenocycler-Fusion system and a customized immune-senescence panel to produce high-plex immunofluorescence images of young and aged immune tissues and cells. In this dataset, we present imaging data from fresh frozen (FF) spleen tissues from male 25.5 month old wild-type C57BL6 mice, stained with 20 markers consisting of immune cell type and cell proliferation markers that show the spatial distribution of various cell phenotypes in the spleen.",
+    "entity_type": "Dataset",
+    "group_name": "TMC - Yale University - Dixit",
+    "group_uuid": "1350e2f9-23a9-11ed-a56b-4ffe8363feee",
+    "last_modified_user_displayname": "Max Sibilla",
+    "sennet_id": "SNT854.VJMX.652",
+    "status": "Published",
+    "uuid": "b2c290335c4d69f377fce7b71ae91db6"
+  },
+  {
+    "data_access_level": "public",
+    "entity_type": "Sample",
+    "group_name": "TMC - Yale University - Dixit",
+    "group_uuid": "1350e2f9-23a9-11ed-a56b-4ffe8363feee",
+    "last_modified_user_displayname": "Hester Doyle",
+    "organ": "UBERON:0002106",
+    "protocol_url": "dx.doi.org/10.17504/protocols.io.kqdg3x8keg25/v2",
+    "sample_category": "Organ",
+    "sennet_id": "SNT666.XZGV.432",
+    "uuid": "1c49b822f9a9341cfb2be080f08eb15f"
+  }
+]
+</code>
+</pre>
+<div class="alert alert-info c-info" markdown="1">
+#### Downloads & Tools
+[Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/descendants/post_descendants__id_){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary data-js-jupyter="req,filter_data,filter_custom"} [Source](#){:.btn.btn-outline-primary data-js-copy="req,filter_data,filter_custom"}
+</div>
+<div class="alert alert-sn c-info c-info--tip" markdown="1">
+<strong class="p3">Pro tip <i class='fa fa-lightbulb-o'></i></strong>  
+You can easily find out what property names are available for an entity by using the <a href='#get-entity-by-id'>/entities/{id}</a> endpoint. 
+</div>
+
 ## Given a Dataset with SenNet ID `SNT379.SJFD.828`
 <pre class="line-numbers">
 <code class="language-python" data-section="p2id" data-prismjs-copy="Copy">uuid = "18c88ae2253ed9b4dabae35ad2c956ad" # remember we could use the value of the SenNet ID here, but it is more common to call the API via the UUID.
@@ -1857,9 +1960,9 @@ In a similar fashion, we can call other common endpoints. Using the reusable `ge
 <code class="language-python" data-section="dataset_sources" data-prismjs-copy="Copy">entity_data = get_data(f"/datasets/{uuid}/sources")
 </code>
 </pre>
-<div class="alert alert-info c-tip" markdown="1">
+<div class="alert alert-info c-info" markdown="1">
 #### Downloads & Tools
-[Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/datasets/get_datasets__id__sources){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary} [Source](#){:.btn.btn-outline-primary data-js-copy="req,get_data,p2l1r,dataset_sources"}
+[Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/datasets/get_datasets__id__sources){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary} [Source](#){:.btn.btn-outline-primary data-js-copy="req,get_data,p2id,dataset_sources"}
 </div>
 
 ### Get Entity's Organs
@@ -1867,9 +1970,9 @@ In a similar fashion, we can call other common endpoints. Using the reusable `ge
 <code class="language-python" data-section="dataset_organs" data-prismjs-copy="Copy">entity_data = get_data(f"/datasets/{uuid}/organs")
 </code>
 </pre>
-<div class="alert alert-info c-tip" markdown="1">
+<div class="alert alert-info c-info" markdown="1">
 #### Downloads & Tools
-[Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/datasets/get_datasets__id__organs){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary} [Source](#){:.btn.btn-outline-primary data-js-copy="req,get_data,p2l1r,dataset_organs"}
+[Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/datasets/get_datasets__id__organs){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary} [Source](#){:.btn.btn-outline-primary data-js-copy="req,get_data,p2id,dataset_organs"}
 </div>
 
 ### Get Entity's Samples
@@ -1877,9 +1980,9 @@ In a similar fashion, we can call other common endpoints. Using the reusable `ge
 <code class="language-python" data-section="dataset_samples" data-prismjs-copy="Copy">entity_data = get_data(f"/datasets/{uuid}/samples")
 </code>
 </pre>
-<div class="alert alert-info c-tip" markdown="1">
+<div class="alert alert-info c-info" markdown="1">
 #### Downloads & Tools
-[Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/datasets/get_datasets__id__samples){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary} [Source](#){:.btn.btn-outline-primary data-js-copy="req,get_data,p2l1r,dataset_samples"}
+[Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/datasets/get_datasets__id__samples){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary} [Source](#){:.btn.btn-outline-primary data-js-copy="req,get_data,p2id,dataset_samples"}
 </div>
 
 ### Get Entity's Ancestors
@@ -1887,7 +1990,48 @@ In a similar fashion, we can call other common endpoints. Using the reusable `ge
 <code class="language-python" data-section="dataset_ancestors" data-prismjs-copy="Copy">entity_data = get_data(f"/ancestors/{uuid}")
 </code>
 </pre>
-<div class="alert alert-info c-tip" markdown="1">
+<div class="alert alert-info c-info" markdown="1">
 #### Downloads & Tools
 [Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/ancestors/get_ancestors__id_){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary data-js-jupyter="req,get_data,p2id,dataset_ancestors"} [Source](#){:.btn.btn-outline-primary data-js-copy="req,get_data,p2id,dataset_ancestors"}
+</div>
+
+## Accessing restricted endpoints and data
+In order to access restricted endpoints and data, you will need to pass a token in your request. Let's update our `get_data` function to reflect that.
+<pre class="line-numbers" data-line='2,9'>
+<code class="language-python" data-section="get_data_token" data-prismjs-copy="Copy">headers = {
+    "Authorization": "Bearer COPIED_TOKEN_HERE",
+    "Content-Type": "application/json"
+}
+def get_data(endpoint):
+    query_url =  f"{domain_base}{endpoint}"
+    entity_data = None
+    try:
+        response = requests.get(query_url, headers=headers)
+        response_code = response.status_code
+
+        if response_code == 200:
+            entity_data = response.json()
+        else:
+            print(f"An error occurred {response_code}")
+    except Exception as err:
+        print(f"An unexpected error occurred: {err}")
+
+    return entity_data
+</code>
+</pre>
+### Get Entity's Children:
+The children are the nodes one level below the current node. To retrieve the children of an entity, we would request the `/children/<id>` endpoint. This endpoint is restricted and requires a token.
+<pre class="line-numbers">
+<code class="language-python" data-section='children' data-prismjs-copy="Copy">
+uuid = "2f2a7af9951f50b399d76b5080486fe1"
+entity_data = get_data(f"/children/{uuid}")
+</code>
+</pre>
+<div class="alert alert-info c-info" markdown="1">
+#### Downloads & Tools
+[Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/children/get_children__id_){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary data-js-jupyter="req,get_data_token,children"} [Source](#){:.btn.btn-outline-primary data-js-copy="req,get_data_token,children"}
+</div>
+<div class="alert alert-warning c-info" markdown="1">
+<strong class='p3'>Warning <i class="fa fa-exclamation-circle" aria-hidden="true"></i></strong>  
+You must pass a token in with your request for restricted endpoints. To retrieve an authorization token see [this guide](/apis/getting-started).
 </div>
