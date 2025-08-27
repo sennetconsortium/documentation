@@ -32,13 +32,13 @@ To get started, let's define a simple function that we will use for our GET requ
         response_code = response.status_code
 
         if response_code == 200:
-            entity_data = response.json
+            entity_data = response.json()
         else:
             print(f"An error occurred {response_code}")
     except Exception as err:
         print(f"An unexpected error occurred: {err}")
 
-return entity_data
+    return entity_data
 </code>
 </pre>
 Now that we have that method, we will make use of it in the following code snippets below!
@@ -1749,13 +1749,13 @@ instead of a GET request, we will make a POST request so we can add some `body` 
         response_code = response.status_code
 
         if response_code == 200:
-            entity_data = response.json
+            entity_data = response.json()
         else:
             print(f"An error occurred {response_code}")
     except Exception as err:
         print(f"An unexpected error occurred: {err}")
 
-return entity_data
+    return entity_data
 </code>
 </pre>
 In this method, notice the use of the `post` method, and passing additional data via the `data` param. 
@@ -1846,9 +1846,9 @@ That would yield:
 ]
 </code>
 </pre>
-## Given a Dataset with SenNet ID `SNT788.ZBHP.683`
+## Given a Dataset with SenNet ID `SNT379.SJFD.828`
 <pre class="line-numbers">
-<code class="language-python" data-section="p2id" data-prismjs-copy="Copy">uuid = "2f2a7af9951f50b399d76b5080486fe1" # remember we could use the value of the SenNet ID here, but it is more common to call the API via the UUID.
+<code class="language-python" data-section="p2id" data-prismjs-copy="Copy">uuid = "18c88ae2253ed9b4dabae35ad2c956ad" # remember we could use the value of the SenNet ID here, but it is more common to call the API via the UUID.
 </code>
 </pre>
 ### Get Entity's Sources
@@ -1889,5 +1889,5 @@ In a similar fashion, we can call other common endpoints. Using the reusable `ge
 </pre>
 <div class="alert alert-info c-tip" markdown="1">
 #### Downloads & Tools
-[Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/ancestors/get_ancestors__id_){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary} [Source](#){:.btn.btn-outline-primary data-js-copy="req,get_data,p2l1r,dataset_ancestors"}
+[Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/ancestors/get_ancestors__id_){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary data-js-jupyter="req,get_data,p2id,dataset_ancestors"} [Source](#){:.btn.btn-outline-primary data-js-copy="req,get_data,p2id,dataset_ancestors"}
 </div>

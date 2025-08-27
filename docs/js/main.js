@@ -2,7 +2,7 @@
  * sennetdocs - 
  * @version v0.1.0
  * @link https://docs.sennetconsortium.org/
- * @date Tue Aug 26 2025 16:46:04 GMT-0400 (Eastern Daylight Time)
+ * @date Wed Aug 27 2025 11:28:21 GMT-0400 (Eastern Daylight Time)
  */
 var _this14 = this;
 function _wrapNativeSuper(Class) { var _cache = typeof Map === "function" ? new Map() : undefined; _wrapNativeSuper = function _wrapNativeSuper(Class) { if (Class === null || !_isNativeFunction(Class)) return Class; if (typeof Class !== "function") { throw new TypeError("Super expression must either be null or a function"); } if (typeof _cache !== "undefined") { if (_cache.has(Class)) return _cache.get(Class); _cache.set(Class, Wrapper); } function Wrapper() { return _construct(Class, arguments, _getPrototypeOf(this).constructor); } Wrapper.prototype = Object.create(Class.prototype, { constructor: { value: Wrapper, enumerable: false, writable: true, configurable: true } }); return _setPrototypeOf(Wrapper, Class); }; return _wrapNativeSuper(Class); }
@@ -9487,6 +9487,7 @@ var CodeCopy = /*#__PURE__*/function (_App2) {
     _classCallCheck(this, CodeCopy);
     _this3 = _super2.call(this, el, args);
     _this3.sections = {};
+    _this3.sectionsJupyter = {};
     _this3.initCopy();
     return _this3;
   }
@@ -9511,6 +9512,31 @@ var CodeCopy = /*#__PURE__*/function (_App2) {
       this.autoBlobDownloader([text.join('\n')], "".concat(_sections.join('_'), ".py"));
     }
   }, {
+    key: "handleJupyterGeneration",
+    value: function handleJupyterGeneration(e) {
+      var $el = this.currentTarget(e);
+      var _sections = $el.attr('data-js-jupyter').split(',');
+      var cells = '';
+      var i = 0;
+      var _iterator2 = _createForOfIteratorHelper(_sections),
+        _step2;
+      try {
+        for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+          var s = _step2.value;
+          if (this.sectionsJupyter[s]) {
+            cells += "{\n                   \"cell_type\": \"code\",\n                   \"execution_count\": null,\n                   \"id\": \"b91b4dab7cc822".concat(i, "b\",\n                   \"metadata\": {},\n                   \"outputs\": [],\n                   \"source\": [").concat(this.sectionsJupyter[s].substring(0, this.sectionsJupyter[s].length - 1), "]\n                  },");
+            i++;
+          }
+        }
+      } catch (err) {
+        _iterator2.e(err);
+      } finally {
+        _iterator2.f();
+      }
+      var template = "{\n         \"cells\": [".concat(cells.substring(0, cells.length - 1), "],\n         \"metadata\": {\n          \"kernelspec\": {\n           \"display_name\": \"Python 3 (ipykernel)\",\n           \"language\": \"python\",\n           \"name\": \"python3\"\n          },\n          \"language_info\": {\n           \"codemirror_mode\": {\n            \"name\": \"ipython\",\n            \"version\": 3\n           },\n           \"file_extension\": \".py\",\n           \"mimetype\": \"text/x-python\",\n           \"name\": \"python\",\n           \"nbconvert_exporter\": \"python\",\n           \"pygments_lexer\": \"ipython3\",\n           \"version\": \"3.9.16\"\n          }\n         },\n         \"nbformat\": 4,\n         \"nbformat_minor\": 5\n        }");
+      this.autoBlobDownloader([template], "".concat(_sections.join('_'), ".ipynb"));
+    }
+  }, {
     key: "initCopy",
     value: function initCopy() {
       var _this4 = this;
@@ -9521,12 +9547,19 @@ var CodeCopy = /*#__PURE__*/function (_App2) {
         if (s) {
           var txt = t.sections[s] || '';
           t.sections[s] = "".concat(txt, "\n").concat(code);
+          var txt2 = t.sectionsJupyter[s] || '';
+          t.sectionsJupyter[s] = "".concat(txt2).concat(JSON.stringify(code + '\n'), ",");
         }
       });
       $('[data-js-copy]').on('click', function (e) {
         _this4.stop(e);
         e.preventDefault();
         _this4.handleCopySource(e);
+      });
+      $('[data-js-jupyter]').on('click', function (e) {
+        _this4.stop(e);
+        e.preventDefault();
+        _this4.handleJupyterGeneration(e);
       });
     }
   }]);
@@ -9720,7 +9753,7 @@ var Header = /*#__PURE__*/function (_App6) {
     key: "syncHeader",
     value: function () {
       var _syncHeader = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4() {
-        var x, _iterator2, _step2, li, $li, $nLi;
+        var x, _iterator3, _step3, li, $li, $nLi;
         return _regeneratorRuntime().wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
@@ -9733,10 +9766,10 @@ var Header = /*#__PURE__*/function (_App6) {
               case 2:
                 x = 1;
                 try {
-                  _iterator2 = _createForOfIteratorHelper(this.msgs.menu);
+                  _iterator3 = _createForOfIteratorHelper(this.msgs.menu);
                   try {
-                    for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-                      li = _step2.value;
+                    for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
+                      li = _step3.value;
                       this.log("Menu ".concat(x), li);
                       $li = this.$.li.eq(x);
                       if ($li.length) {
@@ -9751,9 +9784,9 @@ var Header = /*#__PURE__*/function (_App6) {
                       x++;
                     }
                   } catch (err) {
-                    _iterator2.e(err);
+                    _iterator3.e(err);
                   } finally {
-                    _iterator2.f();
+                    _iterator3.f();
                   }
                 } catch (e) {
                   App.log('Error Building Menu: ', e, {
@@ -10166,17 +10199,17 @@ var Sidebar = /*#__PURE__*/function (_App8) {
       html += "<li class=\"".concat(classes, "\" title=\"").concat(name, "\"><a href=\"").concat(n.href ? n.href : hrefDefault, "\">").concat(name, "</a>");
       if (this.hasChildren(n)) {
         html += "<ul class='".concat(levelClass, " has-parent'>");
-        var _iterator3 = _createForOfIteratorHelper(this.getChildren(n)),
-          _step3;
+        var _iterator4 = _createForOfIteratorHelper(this.getChildren(n)),
+          _step4;
         try {
-          for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
-            var c = _step3.value;
+          for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
+            var c = _step4.value;
             html = this.getList(c, html, level + 1);
           }
         } catch (err) {
-          _iterator3.e(err);
+          _iterator4.e(err);
         } finally {
-          _iterator3.f();
+          _iterator4.f();
         }
         html += "</ul>";
       }
