@@ -1827,7 +1827,7 @@ This call would yield:
 </code>
 </pre>
 If we only wanted the UUIDs in the response, we simply add the `"uuid"` property to the list. So our code would look like:
-<pre class="line-numbers">
+<pre class="line-numbers" data-line="2">
 <code class="language-python" data-prismjs-copy="Copy">body = {
     "filter_properties": ["uuid"]
 }
@@ -1852,7 +1852,7 @@ That would yield:
 </code>
 </pre>
 ### Get Entity's Sources
-In similar fashion, we can call other common endpoints. Using the reusable `get_data` method let's find out the sources for our target dataset.
+In a similar fashion, we can call other common endpoints. Using the reusable `get_data` method, let's find out the sources for our target dataset.
 <pre class="line-numbers">
 <code class="language-python" data-section="dataset_sources" data-prismjs-copy="Copy">entity_data = get_data(f"/datasets/{uuid}/sources")
 </code>
@@ -1883,7 +1883,6 @@ In similar fashion, we can call other common endpoints. Using the reusable `get_
 </div>
 
 ### Get Entity's Ancestors
-This endpoint is similar to the `/descendants` endpoint. 
 <pre class="line-numbers">
 <code class="language-python" data-section="dataset_ancestors" data-prismjs-copy="Copy">entity_data = get_data(f"/ancestors/{uuid}")
 </code>
