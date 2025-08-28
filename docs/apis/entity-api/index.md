@@ -132,7 +132,7 @@ The response to any of these calls would look like:
 ### Get Entity's Descendants:
 To retrieve the descendants of this `Source`, we would request the `/descendants/<id>` endpoint. Unlike the `/children/<id>` endpoint, the `/descendants/<id>` endpoint returns descendants at all levels downstream in the graph.
 <pre class="line-numbers">
-<code class="language-python" data-prismjs-copy="Copy">
+<code class="language-python" data-section="descendants" data-prismjs-copy="Copy">
 uuid = "2f2a7af9951f50b399d76b5080486fe1"
 entity_data = get_data(f"/descendants/{uuid}")
 </code>
@@ -1962,7 +1962,7 @@ In a similar fashion, we can call other common endpoints. Using the reusable `ge
 </pre>
 <div class="alert alert-info c-info" markdown="1">
 #### Downloads & Tools
-[Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/datasets/get_datasets__id__sources){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary} [Source](#){:.btn.btn-outline-primary data-js-copy="req,get_data,p2id,dataset_sources"}
+[Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/datasets/get_datasets__id__sources){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary data-js-jupyter="req,get_data,p2id,dataset_sources"} [Source](#){:.btn.btn-outline-primary data-js-copy="req,get_data,p2id,dataset_sources"}
 </div>
 
 ### Get Entity's Organs
@@ -1972,7 +1972,7 @@ In a similar fashion, we can call other common endpoints. Using the reusable `ge
 </pre>
 <div class="alert alert-info c-info" markdown="1">
 #### Downloads & Tools
-[Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/datasets/get_datasets__id__organs){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary} [Source](#){:.btn.btn-outline-primary data-js-copy="req,get_data,p2id,dataset_organs"}
+[Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/datasets/get_datasets__id__organs){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary data-js-jupyter="req,get_data,p2id,dataset_organs"} [Source](#){:.btn.btn-outline-primary data-js-copy="req,get_data,p2id,dataset_organs"}
 </div>
 
 ### Get Entity's Samples
@@ -1982,7 +1982,7 @@ In a similar fashion, we can call other common endpoints. Using the reusable `ge
 </pre>
 <div class="alert alert-info c-info" markdown="1">
 #### Downloads & Tools
-[Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/datasets/get_datasets__id__samples){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary} [Source](#){:.btn.btn-outline-primary data-js-copy="req,get_data,p2id,dataset_samples"}
+[Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/datasets/get_datasets__id__samples){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary data-js-jupyter="req,get_data,p2id,dataset_samples"} [Source](#){:.btn.btn-outline-primary data-js-copy="req,get_data,p2id,dataset_samples"}
 </div>
 
 ### Get Entity's Parents
