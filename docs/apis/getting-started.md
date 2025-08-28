@@ -8,7 +8,7 @@ Some data is not accessible to the public, for non-public data, you will need an
 right. Select `Copy Globus Token`. This will copy the active token to your clipboard for later usage.  
 ![SenNet Globus Token](./../../imgs/copy-globus-menu-screen.jpg){:width="263px"}
 
-## Making your first request
+## Making your first API request
 Now that you have a token, let's make a simple request to retrieve data about a given entity. The endpoint that handles that request is `/entities/<id>`. You will need
 to build the full url to be requested against the domain base for the service which the endpoint belongs to, in this case, that's the Entity API. The domain base for the Entity API is `https://entity.api.sennetconsortium.org`. For a full list of API services see the
 [APIs page](/apis). Given a Source with UUID `2f2a7af9951f50b399d76b5080486fe1` (SenNet ID SNT722.BGFJ.623), data about this entity can be requested using the following code below.
@@ -57,6 +57,20 @@ else:
 #### Downloads & Tools
 [Jupyter Notebook](/#){:.btn.btn-outline-primary data-js-jupyter="getting_started,guide"} [Source](#){:.btn.btn-outline-primary data-js-copy="getting_started,guide"}
 </div>
+
+## Using Smart API to test the APIs
+
+Most of the various SenNet [API services](/apis) have accompanying full documentation via Smart API. For our example above, we could also make use of the Smart API Try It Out tool
+to check entity data. To do so, follow the steps below.  
+1. Navigate to the [/entities/{id}](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/entities/get_entities__id_){: target="_blank"} endpoint.
+2. Click `Authorize` on the top right <app-modal data-title="Click Authorize on the top right" data-body="<img alt='Click Authorize on the top right' src='./../../imgs/smartapi-guide-1.jpg' width='800px' />"><i role='button' aria-label='View modal for Click Authorize' class='js-modal link-primary fa fa-picture-o'>&nbsp;</i> </app-modal>
+3. Paste your bearer token in the modal `Value:` field <app-modal data-title="Paste your bearer token" data-body="<img alt='Paste your bearer token' src='./../../imgs/smartapi-guide-2.jpg' width='800px' />"><i role='button' aria-label='View modal for Paste your bearer token' class='js-modal link-primary fa fa-picture-o'>&nbsp;</i> </app-modal>
+4. Click the `Authorize` button in the modal <app-modal data-title="Click the Authorize button" data-body="<img alt='Click the Authorize button' src='./../../imgs/smartapi-guide-2.jpg' width='800px' />"><i role='button' aria-label='View modal for Click the Authorize button' class='js-modal link-primary fa fa-picture-o'>&nbsp;</i> </app-modal>
+5. Then in the `/entities/{id}` section, click `Try it out` <app-modal data-title="Click the Try it out button" data-body="<img alt='Click Try it out' src='./../../imgs/smartapi-guide-3.jpg' width='800px' />"><i role='button' aria-label='View modal for Click the Try it out' class='js-modal link-primary fa fa-picture-o'>&nbsp;</i> </app-modal>
+6. In `Parameters` area, paste the entity's id UUID or SenNet ID the `id` field <app-modal data-title="Paste entity ID" data-body="<img alt='Paste entity ID' src='./../../imgs/smartapi-guide-4.jpg' width='800px' />"><i role='button' aria-label='View modal for Paste entity ID' class='js-modal link-primary fa fa-picture-o'>&nbsp;</i> </app-modal>
+7. Then click the `Execute` button <app-modal data-title="Click the Execute button" data-body="<img alt='Click the Execute button' src='./../../imgs/smartapi-guide-4.jpg' width='800px' />"><i role='button' aria-label='View modal for Click the Execute button' class='js-modal link-primary fa fa-picture-o'>&nbsp;</i> </app-modal>
+
+A `200` response means a successful result. A `404` response means that the entity was not found. Per endpoint, the `Responses` section describes the various response codes that could occur.
 
 
 And that's all it is. For a complete guide per service, visit the [APIs home page](/apis) and navigate to the usage links for the API you wish to query.

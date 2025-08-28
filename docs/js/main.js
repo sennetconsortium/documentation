@@ -2,9 +2,9 @@
  * sennetdocs - 
  * @version v0.1.0
  * @link https://docs.sennetconsortium.org/
- * @date Wed Aug 27 2025 12:42:31 GMT-0400 (Eastern Daylight Time)
+ * @date Thu Aug 28 2025 11:42:58 GMT-0400 (Eastern Daylight Time)
  */
-var _this14 = this;
+var _this17 = this;
 function _wrapNativeSuper(Class) { var _cache = typeof Map === "function" ? new Map() : undefined; _wrapNativeSuper = function _wrapNativeSuper(Class) { if (Class === null || !_isNativeFunction(Class)) return Class; if (typeof Class !== "function") { throw new TypeError("Super expression must either be null or a function"); } if (typeof _cache !== "undefined") { if (_cache.has(Class)) return _cache.get(Class); _cache.set(Class, Wrapper); } function Wrapper() { return _construct(Class, arguments, _getPrototypeOf(this).constructor); } Wrapper.prototype = Object.create(Class.prototype, { constructor: { value: Wrapper, enumerable: false, writable: true, configurable: true } }); return _setPrototypeOf(Wrapper, Class); }; return _wrapNativeSuper(Class); }
 function _construct(Parent, args, Class) { if (_isNativeReflectConstruct()) { _construct = Reflect.construct.bind(); } else { _construct = function _construct(Parent, args, Class) { var a = [null]; a.push.apply(a, args); var Constructor = Function.bind.apply(Parent, a); var instance = new Constructor(); if (Class) _setPrototypeOf(instance, Class.prototype); return instance; }; } return _construct.apply(null, arguments); }
 function _isNativeFunction(fn) { return Function.toString.call(fn).indexOf("[native code]") !== -1; }
@@ -9832,15 +9832,68 @@ var LocalStore = /*#__PURE__*/function () {
   return LocalStore;
 }();
 _defineProperty(LocalStore, "langKey", 'language');
+var Modal = /*#__PURE__*/function (_HTMLElement) {
+  _inherits(Modal, _HTMLElement);
+  var _super7 = _createSuper(Modal);
+  function Modal() {
+    _classCallCheck(this, Modal);
+    return _super7.apply(this, arguments);
+  }
+  _createClass(Modal, [{
+    key: "showModal",
+    value: function showModal() {
+      var title = this.getAttribute('data-title');
+      var body = this.getAttribute('data-body');
+      var sz = this.getAttribute('data-sz') || 'lg';
+      var template = "<!-- Modal -->\n          <div class=\"modal fade-in appModal\" role=\"dialog\" style=\"display: block; padding-left: 0px;\">\n            <div class=\"modal-dialog modal-".concat(sz, "\">\n              <div class=\"modal-content\">\n                <div class=\"modal-header\">\n                  <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\n                  ").concat(title ? "<h4 class=\"modal-title\">".concat(title, "</h4>") : '', "\n                </div>\n                <div class=\"modal-body\">\n                  <p>").concat(body, "</p>\n                </div>\n                <div class=\"modal-footer\">\n                  <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\n                </div>\n              </div>\n            </div>\n          </div>\n        </div>");
+      this.removeModal();
+      $('body').prepend(template);
+      this.modalCloseListener();
+    }
+  }, {
+    key: "removeModal",
+    value: function removeModal() {
+      $('body').find('.appModal').remove();
+    }
+  }, {
+    key: "modalCloseListener",
+    value: function modalCloseListener() {
+      var _this10 = this;
+      $('.modal-footer .btn, .modal-header .close').on('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        _this10.removeModal();
+      });
+    }
+  }, {
+    key: "modalOpenListener",
+    value: function modalOpenListener() {
+      var _this11 = this;
+      $(this).find('.js-modal').on('click', function (e) {
+        _this11.showModal();
+      });
+    }
+  }, {
+    key: "connectedCallback",
+    value: function connectedCallback() {
+      var _this12 = this;
+      setTimeout(function () {
+        _this12.modalOpenListener();
+      }, 1000);
+    }
+  }]);
+  return Modal;
+}( /*#__PURE__*/_wrapNativeSuper(HTMLElement));
+customElements.define('app-modal', Modal);
 var Pre = /*#__PURE__*/function (_App7) {
   _inherits(Pre, _App7);
-  var _super7 = _createSuper(Pre);
+  var _super8 = _createSuper(Pre);
   function Pre(el, args) {
-    var _this10;
+    var _this13;
     _classCallCheck(this, Pre);
-    _this10 = _super7.call(this, el, args);
-    _this10.addToggleBtn();
-    return _this10;
+    _this13 = _super8.call(this, el, args);
+    _this13.addToggleBtn();
+    return _this13;
   }
   _createClass(Pre, [{
     key: "addToggleBtn",
@@ -9853,12 +9906,12 @@ var Pre = /*#__PURE__*/function (_App7) {
   }]);
   return Pre;
 }(App);
-var ProgressBar = /*#__PURE__*/function (_HTMLElement) {
-  _inherits(ProgressBar, _HTMLElement);
-  var _super8 = _createSuper(ProgressBar);
+var ProgressBar = /*#__PURE__*/function (_HTMLElement2) {
+  _inherits(ProgressBar, _HTMLElement2);
+  var _super9 = _createSuper(ProgressBar);
   function ProgressBar() {
     _classCallCheck(this, ProgressBar);
-    return _super8.apply(this, arguments);
+    return _super9.apply(this, arguments);
   }
   _createClass(ProgressBar, [{
     key: "animate",
@@ -10014,28 +10067,28 @@ var Rest = /*#__PURE__*/function () {
 }();
 var Sidebar = /*#__PURE__*/function (_App8) {
   _inherits(Sidebar, _App8);
-  var _super9 = _createSuper(Sidebar);
+  var _super10 = _createSuper(Sidebar);
   function Sidebar(el, args) {
-    var _this11;
+    var _this14;
     _classCallCheck(this, Sidebar);
-    _this11 = _super9.call(this, el, args);
-    _this11.$ = {
-      wrap: _this11.el.find('.js-sidebar__wrap'),
-      main: _this11.el.find('.js-sidebar__main'),
-      list: _this11.el.find('.js-sidebar__list'),
+    _this14 = _super10.call(this, el, args);
+    _this14.$ = {
+      wrap: _this14.el.find('.js-sidebar__wrap'),
+      main: _this14.el.find('.js-sidebar__main'),
+      list: _this14.el.find('.js-sidebar__list'),
       hs: $('.c-documentation').find('h1, h2, h3, h4, h5, h6')
     };
-    _this11.sizeSideBar();
-    _this11.pathBase = '/';
-    _this11.classNames.root = 'is-root';
-    _this11.classNames["static"] = 'is-static';
-    _this11.headerHeight = 90;
-    _this11.events();
-    _this11.determineContentBuilder();
-    _this11.sizeSideBarHeight();
-    _this11.togglePositioning();
-    _this11.addPageId();
-    return _this11;
+    _this14.sizeSideBar();
+    _this14.pathBase = '/';
+    _this14.classNames.root = 'is-root';
+    _this14.classNames["static"] = 'is-static';
+    _this14.headerHeight = 90;
+    _this14.events();
+    _this14.determineContentBuilder();
+    _this14.sizeSideBarHeight();
+    _this14.togglePositioning();
+    _this14.addPageId();
+    return _this14;
   }
   _createClass(Sidebar, [{
     key: "addPageId",
@@ -10070,18 +10123,18 @@ var Sidebar = /*#__PURE__*/function (_App8) {
   }, {
     key: "events",
     value: function events() {
-      var _this12 = this;
+      var _this15 = this;
       $(document).on('scroll', function (e) {
         var st = $(document).scrollTop();
-        if (st > _this12.headerHeight && !_this12.isMobile()) {
-          _this12.el.addClass(_this12.classNames.active);
+        if (st > _this15.headerHeight && !_this15.isMobile()) {
+          _this15.el.addClass(_this15.classNames.active);
         } else {
-          _this12.el.removeClass(_this12.classNames.active);
+          _this15.el.removeClass(_this15.classNames.active);
         }
       }.bind(this));
       $(window).on('resize', function (e) {
-        _this12.sizeSideBar();
-        _this12.togglePositioning();
+        _this15.sizeSideBar();
+        _this15.togglePositioning();
       }.bind(this));
     }
   }, {
@@ -10110,7 +10163,7 @@ var Sidebar = /*#__PURE__*/function (_App8) {
   }, {
     key: "buildTableOfContents",
     value: function buildTableOfContents() {
-      var _this13 = this;
+      var _this16 = this;
       var rootChildren = [];
       var root = {
         tag: 'h0',
@@ -10125,7 +10178,7 @@ var Sidebar = /*#__PURE__*/function (_App8) {
         var n1 = Number(node[1]);
         var n2 = Number(top.tag[1]);
         var label = $(el).text();
-        var id = $(el).attr('id') || _this13.toId(label);
+        var id = $(el).attr('id') || _this16.toId(label);
         var pack = {
           tag: node,
           id: id,
@@ -10267,5 +10320,5 @@ window.addEventListener('load', function (event) {
     App.loadThemeConfig().then(function () {
       ZIndex('init');
     });
-  }.bind(_this14));
+  }.bind(_this17));
 });
