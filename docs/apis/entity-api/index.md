@@ -3,26 +3,25 @@ layout: default
 ---
 
 # Entity API Usage
-The Entity API returns information about SenNet data entities. This document describes a few real world scenarios on retrieving entity data.
 
-The domain base for the Entity API is `https://entity.api.sennetconsortium.org`. The domain base will prefix the various endpoints. For a full list of Entity API 
-endpoints, see its [Smart API](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812).
+This resource documents how to programmatically retrieve entity information housed in the SenNet Data Sharing Portal.
 
-This python library is required for making our HTTP calls. Let's import that first and only once in our file.
+Our programmatic example will be written in Python and will utilize the `requests` library for all HTTP calls.
 <pre class="line-numbers">
 <code class="language-python" data-section="req" data-prismjs-copy="Copy">import requests
 </code>
 </pre>
 
-Let's also define a variable for our domain base:
+The domain base for the Entity API is `https://entity.api.sennetconsortium.org` and will prefix the various
+endpoints. For a full list of Entity API endpoints, see its [Smart API](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812).
 <pre class="line-numbers">
 <code class="language-python" data-section="req" data-prismjs-copy="Copy">domain_base = "https://entity.api.sennetconsortium.org"
 </code>
 </pre>
 
-
 ## Defining a reusable `get_data` function
-To get started, let's define a simple function that we will use for our GET requests.
+
+Here we provide a simple function that can be reused for all GET requests.
 <pre class="line-numbers">
 <code class="language-python" data-section="get_data" data-prismjs-copy="Copy">def get_data(endpoint):
     query_url =  f"{domain_base}{endpoint}"
@@ -41,10 +40,15 @@ To get started, let's define a simple function that we will use for our GET requ
     return entity_data
 </code>
 </pre>
-Now that we have that method, we will make use of it in the following code snippets below!
+
+Below are some real world examples of how to retrieve specific entity information.
+
 ## Given a Source with SenNet ID `SNT722.BGFJ.623`
+
 ### Get Entity by ID:
-The follow code retrieves an entity by its ID (either SenNet ID or UUID) by making a call to the `/entities/<id>` endpoint.
+
+The follow code retrieves a speicifc entity by its ID (either SenNet ID or UUID) by making a call to the `/entities/<id>`
+endpoint.
 <pre class="line-numbers">
 <code class="language-python" data-section="entities" data-prismjs-copy="Copy">uuid = "2f2a7af9951f50b399d76b5080486fe1"
 entity_data = get_data(f"/entities/{uuid}")
@@ -130,7 +134,9 @@ The response to any of these calls would look like:
 </div>
 
 ### Get Entity's Descendants:
-To retrieve the descendants of this `Source`, we would request the `/descendants/<id>` endpoint. Unlike the `/children/<id>` endpoint, the `/descendants/<id>` endpoint returns descendants at all levels downstream in the graph.
+
+To retrieve the descendants of this `Source`, we would request the `/descendants/<id>` endpoint. Unlike the
+`/children/<id>` endpoint, the `/descendants/<id>` endpoint returns descendants at all levels downstream in the graph.
 <pre class="line-numbers">
 <code class="language-python" data-section="descendants" data-prismjs-copy="Copy">
 uuid = "2f2a7af9951f50b399d76b5080486fe1"
@@ -1759,13 +1765,17 @@ instead of a GET request, we will make a POST request so we can add some `body` 
         print(f"An unexpected error occurred: {err}")
 
     return entity_data
+
 </code>
 </pre>
 In this method, notice the use of the `post` method, and passing additional data via the `data` param.
 
 #### Returning only basic entity properties
-What if for the previous `/descendants` call we just want a list of the most basic information for the entities? We could get those results by creating a request body with `filter_properties` setting. It's just a list of strings.
-The strings are the property names that should be returned in the response body. In this case, we just want the basic properties defined by the application. So we just need to set the list to be empty `[]`. Like so:
+
+What if for the previous `/descendants` call we just want a list of the most basic information for the entities? We
+could get those results by creating a request body with `filter_properties` setting. It's just a list of strings.
+The strings are the property names that should be returned in the response body. In this case, we just want the basic
+properties defined by the application. So we just need to set the list to be empty `[]`. Like so:
 <pre class="line-numbers" data-line="2">
 <code class="language-python" data-section="filter_basics" data-prismjs-copy="Copy">body = {
     "filter_properties": []
@@ -1950,12 +1960,16 @@ You can easily find out what property names are available for an entity by using
 </div>
 
 ## Given a Dataset with SenNet ID `SNT379.SJFD.828`
+
 <pre class="line-numbers">
 <code class="language-python" data-section="p2id" data-prismjs-copy="Copy">uuid = "18c88ae2253ed9b4dabae35ad2c956ad" # remember we could use the value of the SenNet ID here, but it is more common to call the API via the UUID.
 </code>
 </pre>
+
 ### Get Entity's Sources
-In a similar fashion, we can call other common endpoints. Using the reusable `get_data` method, let's find out the sources for our target dataset.
+
+In a similar fashion, we can call other common endpoints. Using the reusable `get_data` method, let's find out the
+sources for our target dataset.
 <pre class="line-numbers">
 <code class="language-python" data-section="dataset_sources" data-prismjs-copy="Copy">entity_data = get_data(f"/datasets/{uuid}/sources")
 </code>
@@ -1966,6 +1980,7 @@ In a similar fashion, we can call other common endpoints. Using the reusable `ge
 </div>
 
 ### Get Entity's Organs
+
 <pre class="line-numbers">
 <code class="language-python" data-section="dataset_organs" data-prismjs-copy="Copy">entity_data = get_data(f"/datasets/{uuid}/organs")
 </code>
@@ -1976,6 +1991,7 @@ In a similar fashion, we can call other common endpoints. Using the reusable `ge
 </div>
 
 ### Get Entity's Samples
+
 <pre class="line-numbers">
 <code class="language-python" data-section="dataset_samples" data-prismjs-copy="Copy">entity_data = get_data(f"/datasets/{uuid}/samples")
 </code>
@@ -1986,7 +2002,9 @@ In a similar fashion, we can call other common endpoints. Using the reusable `ge
 </div>
 
 ### Get Entity's Parents
-The `/parents/<id>` endpoint gets the immediate parent list for an entity. The parents are the nodes connected one level "upstream" from the current node and only goes to the next higher level in the graph.
+
+The `/parents/<id>` endpoint gets the immediate parent list for an entity. The parents are the nodes connected one
+level "upstream" from the current node and only goes to the next higher level in the graph.
 <pre class="line-numbers">
 <code class="language-python" data-section="dataset_parents" data-prismjs-copy="Copy">entity_data = get_data(f"/parents/{uuid}")
 </code>
@@ -1997,6 +2015,7 @@ The `/parents/<id>` endpoint gets the immediate parent list for an entity. The p
 </div>
 
 ### Get Entity's Ancestors
+
 <pre class="line-numbers">
 <code class="language-python" data-section="dataset_ancestors" data-prismjs-copy="Copy">entity_data = get_data(f"/ancestors/{uuid}")
 </code>
@@ -2006,9 +2025,13 @@ The `/parents/<id>` endpoint gets the immediate parent list for an entity. The p
 [Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/ancestors/get_ancestors__id_){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary data-js-jupyter="req,get_data,p2id,dataset_ancestors"} [Source](#){:.btn.btn-outline-primary data-js-copy="req,get_data,p2id,dataset_ancestors"}
 </div>
 
-### Filtering the results 
+### Filtering the results
+
 #### Exclude certain properties
-Because these lists can get very long and detailed, we may also want to return only certain properties. Earlier, we illustrated using `filter_properties` to specify which properties to return. What if we want that in reverse order? We want most properties, but some we want to ditch.
+
+Because these lists can get very long and detailed, we may also want to return only certain properties. Earlier, we
+illustrated using `filter_properties` to specify which properties to return. What if we want that in reverse order? We
+want most properties, but some we want to ditch.
 We can accomplish this by setting `"is_include": false`. Here's the updated code.
 <pre class="line-numbers" data-line="3">
 <code class="language-python" data-section="filter_exclude_custom" data-prismjs-copy="Copy">body = {
@@ -2024,7 +2047,10 @@ entity_data = filter_data(f"/ancestors/{uuid}", body)
 </div>
 
 ## Accessing restricted endpoints and data
-In order to access restricted endpoints and data, you will need to pass a token in your request. Let's update our `get_data` function to reflect that making use of the `headers` param. (To retrieve an authorization token, see [this guide](/apis/getting-started).)
+
+In order to access restricted endpoints and data, you will need to pass a token in your request. Let's update our
+`get_data` function to reflect that making use of the `headers` param. (To retrieve an authorization token,
+see [this guide](/apis/getting-started).)
 <pre class="line-numbers" data-line='2,9'>
 <code class="language-python" data-section="get_data_token" data-prismjs-copy="Copy">headers = {
     "Authorization": "Bearer COPIED_TOKEN_HERE",
@@ -2047,8 +2073,11 @@ def get_data(endpoint):
     return entity_data
 </code>
 </pre>
+
 ### Get Entity's Children:
-The children are the nodes one level below the current node. To retrieve the children of an entity, we would request the `/children/<id>` endpoint. This endpoint is restricted and requires a token.
+
+The children are the nodes one level below the current node. To retrieve the children of an entity, we would request the
+`/children/<id>` endpoint. This endpoint is restricted and requires a token.
 <pre class="line-numbers">
 <code class="language-python" data-section='children' data-prismjs-copy="Copy">uuid = "2f2a7af9951f50b399d76b5080486fe1"
 entity_data = get_data(f"/children/{uuid}")
