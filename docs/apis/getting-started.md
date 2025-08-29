@@ -60,7 +60,7 @@ else:
 
 ## Using Smart API to test the APIs
 
-Most of the various SenNet [API services](/apis) have accompanying full documentation via Smart API. For our example above, we could also make use of the Smart API Try It Out tool
+Most of the various SenNet [API services](/apis) have accompanying full documentation via Smart API. For our example above, we could also make use of the _Smart API Try It Out_ tool
 to check entity data. To do so, follow the steps below.  
 1. Navigate to the [/entities/{id}](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/entities/get_entities__id_){: target="_blank"} endpoint.
 2. Click `Authorize` on the top right <app-modal data-title="Click Authorize on the top right" data-body="<img alt='Click Authorize on the top right' src='./../../imgs/smartapi-guide-1.jpg' width='800px' />"><i role='button' aria-label='View modal for Click Authorize' class='js-modal link-primary fa fa-picture-o'>&nbsp;</i> </app-modal>

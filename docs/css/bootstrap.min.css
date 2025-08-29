@@ -875,6 +875,18 @@ button.close {
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
+.btn-default {
+    background-color: #0d6efd;
+    color: #fff;
+}
+
+.btn:hover {
+    background-color: #0b5ed7;
+    border-color: #0a58ca;
+    color: #fff;
+    cursor: pointer;
+}
+
 .btn-outline-primary {
     color: #007bff;
     background-color: transparent;
