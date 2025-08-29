@@ -138,7 +138,7 @@ The response to any of these calls would look like:
 ### Get Entity's Descendants:
 
 When retrieving descendants of the `Source` there are two endpoints to consider. The `/descendants/<id>` (which we will
-use in this example) returns all descendants downstream in the provenance chain. An alternative option os to use the
+use in this example) returns all descendants downstream in the provenance chain. An alternative option is to use the
 `/children/<id>` endpoint, which returns just the immediate descendants of the specified entity.
 
 <pre class="line-numbers">
