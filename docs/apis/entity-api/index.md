@@ -48,7 +48,7 @@ Below are some real world examples of how to retrieve specific entity informatio
 
 ### Get Entity by ID:
 
-The follow code retrieves a speicifc entity by its ID (either SenNet ID or UUID) by making a call to the
+The following code retrieves a speicifc entity by its ID (either SenNet ID or UUID) by making a call to the
 `/entities/<id>`
 endpoint.
 <pre class="line-numbers">
