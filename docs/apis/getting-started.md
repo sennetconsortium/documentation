@@ -4,7 +4,7 @@ layout: default
 
 # Getting Started With SenNet APIs
 
-Some data is not accessible to the public, for non-public data, you will need an authorization token. Easily grab a token by first logging into the SenNet Data Sharing Portal. Then navigate to your user menu on the top
+Some data is not accessible to the public, for non-public data, you will need an authorization token. Easily grab a token by first logging into the SenNet [Data Sharing Portal](https://data.sennetconsortium.org/). Then navigate to your user menu on the top
 right. Select `Copy Globus Token`. This will copy the active token to your clipboard for later usage.  
 ![SenNet Globus Token](./../../imgs/copy-globus-menu-screen.jpg){:width="263px"}
 

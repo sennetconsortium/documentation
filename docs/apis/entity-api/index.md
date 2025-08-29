@@ -13,7 +13,8 @@ Our programmatic example will be written in Python and will utilize the `request
 </pre>
 
 The domain base for the Entity API is `https://entity.api.sennetconsortium.org` and will prefix the various
-endpoints. For a full list of Entity API endpoints, see its [Smart API](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812).
+endpoints. For a full list of Entity API endpoints, see
+its [Smart API](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812).
 <pre class="line-numbers">
 <code class="language-python" data-section="req" data-prismjs-copy="Copy">domain_base = "https://entity.api.sennetconsortium.org"
 </code>
@@ -21,7 +22,7 @@ endpoints. For a full list of Entity API endpoints, see its [Smart API](https://
 
 ## Defining a reusable `get_data` function
 
-Here we provide a simple function that can be reused for all GET requests.
+Here we provide a simple function that can be reused for all `GET` requests.
 <pre class="line-numbers">
 <code class="language-python" data-section="get_data" data-prismjs-copy="Copy">def get_data(endpoint):
     query_url =  f"{domain_base}{endpoint}"
@@ -47,7 +48,8 @@ Below are some real world examples of how to retrieve specific entity informatio
 
 ### Get Entity by ID:
 
-The follow code retrieves a speicifc entity by its ID (either SenNet ID or UUID) by making a call to the `/entities/<id>`
+The follow code retrieves a speicifc entity by its ID (either SenNet ID or UUID) by making a call to the
+`/entities/<id>`
 endpoint.
 <pre class="line-numbers">
 <code class="language-python" data-section="entities" data-prismjs-copy="Copy">uuid = "2f2a7af9951f50b399d76b5080486fe1"
@@ -135,8 +137,10 @@ The response to any of these calls would look like:
 
 ### Get Entity's Descendants:
 
-To retrieve the descendants of this `Source`, we would request the `/descendants/<id>` endpoint. Unlike the
-`/children/<id>` endpoint, the `/descendants/<id>` endpoint returns descendants at all levels downstream in the graph.
+When retrieving descendants of the `Source` there are two endpoints to consider. The `/descendants/<id>` (which we will
+use in this example) returns all descendants downstream in the provenance chain. An alternative option os to use the
+`/children/<id>` endpoint, which returns just the immediate descendants of the specified entity.
+
 <pre class="line-numbers">
 <code class="language-python" data-section="descendants" data-prismjs-copy="Copy">
 uuid = "2f2a7af9951f50b399d76b5080486fe1"
@@ -1741,14 +1745,16 @@ The response of this request would look like
 ]
 </code>
 </pre>
-Woah! That's a lot! Next, we'll show how to trim the results to return only certain properties.
+
 <div class="alert alert-info c-info" markdown="1">
 #### Downloads & Tools
 [Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/descendants/get_descendants__id_){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary data-js-jupyter="req,get_data,descendants"} [Source](#){:.btn.btn-outline-primary data-js-copy="req,get_data,descendants"}
 </div>
 ### Filtering the results
-What if we want to filter our results such that only the necessary properties are returned? We could issue calls to the same endpoints, but
-instead of a GET request, we will make a POST request so we can add some `body` to our request. The body data will define what properties we expect. Let's create a `filter_data` method that we will reuse for upcoming requests.
+All of the endpoints that support entity retrieval are issued using a `GET` request, however, most of these endpoints are accessible via a `POST` request. 
+This will allow you to define specific properties in the request `body` that are returned in the response rather than returning all properties.
+
+Here we provide a `filter_data` function to facilitate this.
 <pre class="line-numbers" data-line='5'>
 <code class="language-python" data-section="filter_data" data-prismjs-copy="Copy">def filter_data(endpoint, body):
     query_url =  f"{domain_base}{endpoint}"
@@ -1773,9 +1779,9 @@ In this method, notice the use of the `post` method, and passing additional data
 #### Returning only basic entity properties
 
 What if for the previous `/descendants` call we just want a list of the most basic information for the entities? We
-could get those results by creating a request body with `filter_properties` setting. It's just a list of strings.
-The strings are the property names that should be returned in the response body. In this case, we just want the basic
-properties defined by the application. So we just need to set the list to be empty `[]`. Like so:
+could get those results by creating a request body with `filter_properties`. When this key exists in the request body,
+certain properties will be returned by default, even if the list is empty `[]`.
+
 <pre class="line-numbers" data-line="2">
 <code class="language-python" data-section="filter_basics" data-prismjs-copy="Copy">body = {
     "filter_properties": []
@@ -1959,6 +1965,25 @@ That would yield:
 You can easily find out what property names are available for an entity by using the <a href='#get-entity-by-id'>/entities/{id}</a> endpoint. 
 </div>
 
+
+#### Exclude certain properties
+
+If instead of isolating certain properties to be returned you want to just exclude specific ones you can define those in `filter_properties` but also set `"is_include": false` to the request body:
+<pre class="line-numbers" data-line="3">
+<code class="language-python" data-section="filter_exclude_custom" data-prismjs-copy="Copy">body = {
+    "filter_properties": ["created_by_user_sub", "last_modified_user_sub", "group_uuid", "direct_ancestor", "source", "origin_samples"],
+    "is_include": false
+}
+entity_data = filter_data(f"/descendants/{uuid}", body)
+</code>
+</pre>
+<div class="alert alert-info c-info" markdown="1">
+#### Downloads & Tools
+[Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/descendants/post_descendants__id_){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary data-js-jupyter="req,filter_data,p2id,filter_exclude_custom"} [Source](#){:.btn.btn-outline-primary data-js-copy="req,filter_data,p2id,filter_exclude_custom"}
+</div>
+
+
+
 ## Given a Dataset with SenNet ID `SNT379.SJFD.828`
 
 <pre class="line-numbers">
@@ -2001,21 +2026,8 @@ sources for our target dataset.
 [Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/datasets/get_datasets__id__samples){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary data-js-jupyter="req,get_data,p2id,dataset_samples"} [Source](#){:.btn.btn-outline-primary data-js-copy="req,get_data,p2id,dataset_samples"}
 </div>
 
-### Get Entity's Parents
-
-The `/parents/<id>` endpoint gets the immediate parent list for an entity. The parents are the nodes connected one
-level "upstream" from the current node and only goes to the next higher level in the graph.
-<pre class="line-numbers">
-<code class="language-python" data-section="dataset_parents" data-prismjs-copy="Copy">entity_data = get_data(f"/parents/{uuid}")
-</code>
-</pre>
-<div class="alert alert-info c-info" markdown="1">
-#### Downloads & Tools
-[Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/parents/get_parents__id_){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary data-js-jupyter="req,get_data,p2id,dataset_parents"} [Source](#){:.btn.btn-outline-primary data-js-copy="req,get_data,p2id,dataset_parents"}
-</div>
-
 ### Get Entity's Ancestors
-
+The `/ancestors/<id>` endpoint returns all ancestors upstream in the provenance chain.
 <pre class="line-numbers">
 <code class="language-python" data-section="dataset_ancestors" data-prismjs-copy="Copy">entity_data = get_data(f"/ancestors/{uuid}")
 </code>
@@ -2025,26 +2037,18 @@ level "upstream" from the current node and only goes to the next higher level in
 [Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/ancestors/get_ancestors__id_){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary data-js-jupyter="req,get_data,p2id,dataset_ancestors"} [Source](#){:.btn.btn-outline-primary data-js-copy="req,get_data,p2id,dataset_ancestors"}
 </div>
 
-### Filtering the results
+### Get Entity's Parents
 
-#### Exclude certain properties
-
-Because these lists can get very long and detailed, we may also want to return only certain properties. Earlier, we
-illustrated using `filter_properties` to specify which properties to return. What if we want that in reverse order? We
-want most properties, but some we want to ditch.
-We can accomplish this by setting `"is_include": false`. Here's the updated code.
-<pre class="line-numbers" data-line="3">
-<code class="language-python" data-section="filter_exclude_custom" data-prismjs-copy="Copy">body = {
-    "filter_properties": ["created_by_user_sub", "last_modified_user_sub", "group_uuid", "direct_ancestor", "source", "origin_samples"],
-    "is_include": false
-}
-entity_data = filter_data(f"/ancestors/{uuid}", body)
+The `/parents/<id>` endpoint gets the immediate ancestors of the specified entity.
+<pre class="line-numbers">
+<code class="language-python" data-section="dataset_parents" data-prismjs-copy="Copy">entity_data = get_data(f"/parents/{uuid}")
 </code>
 </pre>
 <div class="alert alert-info c-info" markdown="1">
 #### Downloads & Tools
-[Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/ancestors/post_ancestors__id_){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary data-js-jupyter="req,filter_data,p2id,filter_exclude_custom"} [Source](#){:.btn.btn-outline-primary data-js-copy="req,filter_data,p2id,filter_exclude_custom"}
+[Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/parents/get_parents__id_){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary data-js-jupyter="req,get_data,p2id,dataset_parents"} [Source](#){:.btn.btn-outline-primary data-js-copy="req,get_data,p2id,dataset_parents"}
 </div>
+
 
 ## Accessing restricted endpoints and data
 
