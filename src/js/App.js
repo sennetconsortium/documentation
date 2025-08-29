@@ -19,6 +19,12 @@ class App {
         return window.apps.locale
     }
 
+    toCamelCase(input) {
+        return input.toLowerCase().replace(/-(.)/g, function(match, group1) {
+            return group1.toUpperCase();
+        });
+    }
+
     toId(val) {
         return val
             .toLowerCase()
@@ -85,6 +91,17 @@ class App {
         return this.msgs[msg] || msg
     }
 
+    autoBlobDownloader(data, filename, type = 'text/plain') {
+        const a = document.createElement('a')
+        const url = window.URL.createObjectURL(new Blob(data, {type}))
+        a.href = url
+        a.download = filename
+        document.body.append(a)
+        a.click()
+        a.remove()
+        window.URL.revokeObjectURL(url)
+    }
+
     static async loadLanguageFile() {
         try {
             if (window.apps.locale) return true
@@ -105,12 +122,43 @@ class App {
         }
     }
 
+    static applyStyles(args) {
+        let css = ''
+        $('img').each(function( i ) {
+            let width = $(this).attr('width')
+            if (width && parseInt(width) > 0) {
+                let cls = `imgw--${i}`
+                $(this).addClass(`${cls}`)
+                width = parseInt(width).toString() === width ? width + 'px' : width
+                css += `.${cls} {max-width: ${width};}`
+            }
+        })
+        if (css.length) {
+            $('body').append(`<style>${css}</style>`)
+        }
+
+        new CodeCopy(document, {app: 'codeCopy', ...args})
+
+        $('pre').each(function( i ) {
+            new Pre(this, {app: '<pre>', ...args})
+        })
+
+
+    }
+
     static applyTheme() {
         const path = window.location.pathname
         this.pathBase = path
         for (let section in window.apps.theme) {
             if (path.includes(section)) {
-                $('.c-documentation').addClass(`c-documentation--${window.apps.theme[section].cssModifier}`)
+                const $page = $('.c-documentation')
+                if (window.apps.theme[section].cssModifier) {
+                    $page.addClass(`c-documentation--${window.apps.theme[section].cssModifier}`)
+                }
+                if (window.apps.theme[section].classNames) {
+                    $page.addClass(window.apps.theme[section].classNames)
+                }
+
             }
         }
         const format = (el) => {

@@ -17,6 +17,13 @@ class Sidebar extends App {
         this.determineContentBuilder()
         this.sizeSideBarHeight()
         this.togglePositioning()
+        this.addPageId()
+    }
+
+    addPageId() {
+        let id = window.location.pathname.replaceAll('/', '-')
+        id = id.substring(1, id.length - 1)
+        this.el.attr('id', `c-sidebar__${this.toCamelCase(id)}`)
     }
 
     determineContentBuilder() {

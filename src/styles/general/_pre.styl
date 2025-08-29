@@ -8,8 +8,36 @@ pre()
   padding 10px
   overflow auto
 
+pre-ic()
+  display inline-block
+  font normal normal normal 14px / 1 FontAwesome
+  font-size inherit
+  text-rendering auto
+  -webkit-font-smoothing antialiased
+
 pre
   pre()
+  pos-rel()
+  max-height 700px
+  overflow-y auto
+  &.is-collapsed
+    height 20px
+    overflow-y hidden !important
+    .pre__toggle
+      &:after
+        content "\f0fe"
+  .pre__toggle
+    pos-abs()
+    top 5px
+    right 60px
+    cursor pointer
+    &:after
+      pre-ic()
+      content "\f146"
 
 code
   color $col-secondary-accent
+
+.code-toolbar
+  .copy-to-clipboard-button
+    cursor pointer

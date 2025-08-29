@@ -33,20 +33,7 @@ function ZIndex(source, args = null) {
                     new apps[app](el, { app, ...args })
                 })
         }
-
-        let css = ''
-        $('img').each(function( i ) {
-            let width = $(this).attr('width')
-            if (width && parseInt(width) > 0) {
-                let cls = `imgw--${i}`
-                $(this).addClass(`${cls}`)
-                width = parseInt(width).toString() === width ? width + 'px' : width
-                css += `.${cls} {max-width: ${width};}`
-            }
-        })
-        if (css.length) {
-            $('body').append(`<style>${css}</style>`)
-        }
+        App.applyStyles(args)
     } catch (e) {
         console.error(e)
     }
