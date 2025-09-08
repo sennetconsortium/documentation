@@ -50,6 +50,11 @@ A one-time login is required for any download session. For non-public data, you 
 sennet-clt login
 ```
 
+In the scenario that you cannot utilize a browser you will have to utilize Globus' CLI [`--no-local-server`
+option](https://docs.globus.org/cli/reference/login/#options-no-local-server). This will present you with a URL to be
+copied onto another device with browser support to perform authentication. Once complete you will be presented with an
+authorization code to be entered in the original console.
+
 ### Logout
 
 Logout can be used to log out the current user.
