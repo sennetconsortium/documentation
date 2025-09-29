@@ -33,7 +33,7 @@ GET https://search.api.sennetconsortium.org/param-search/sources?metadata.living
 | metadata.organ_source_data      | array of [`Source Metadata Schema`](#source-metadata-schema)                       | Information about the source who's organ(s) was/were used. The organ was obtained via an organ donation program from a deceaced source. Only living_source_data or organ_source_data, not both can be defined for a single source.                                                                                                       |
 
 ### Source Metadata Schema
-attributes as listed at [entity-api Source schema drop-down, metadata drop-down, SourceMetadata drop-down](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812):
+attributes as listed at [Schemas -> SourceMetadata](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812):
 
 | Attribute                       | Type                                                                                 | Description                                                                                                                                                                                                                                                                                                        |
 |---------------------------------|--------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
