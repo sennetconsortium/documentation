@@ -1,6 +1,9 @@
 .c-sidebar
   pos-rel()
   .has-collapser 
+    &.is-open
+      &:after 
+        content '\f147'
     > ul
       display none
       &.is-visible 

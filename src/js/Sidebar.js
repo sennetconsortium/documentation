@@ -66,7 +66,7 @@ class Sidebar extends App {
 
         $('body').on('click', '.has-collapser', (e) => {
             e.stopPropagation()
-            $(e.currentTarget).find('> ul').toggleClass('is-visible')
+            $(e.currentTarget).toggleClass('is-open').find('> ul').toggleClass('is-visible')
         })
     }
 
