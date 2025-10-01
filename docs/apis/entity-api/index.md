@@ -35,7 +35,7 @@ Here we provide a simple function that can be reused for all `GET` or `POST` req
     query_url =  f"{domain_base}{endpoint}"
     entity_data = None
     try:
-        if metod.lower() == 'post':
+        if method.lower() == 'post':
             response = requests.post(query_url, data=body, headers=headers)
         else:
             response = requests.get(query_url, headers=headers)
@@ -53,7 +53,7 @@ Here we provide a simple function that can be reused for all `GET` or `POST` req
 </code>
 </pre>
 
-Let's also create a simple helper function for `POST` requests.
+Let's also create a simple helper function for `POST` requests (so we do not need to keep passing `POST` string as the method by directly calling `api_request`).
 <pre class="line-numbers">
 <code class="language-python" data-section="api_post_req" data-prismjs-copy="Copy">def api_post_request(endpoint, body):
     return api_request(endpoint, body, 'POST')
@@ -1773,7 +1773,7 @@ All of the endpoints that support entity retrieval are issued using a `GET` requ
 This will allow you to define specific properties in the request `body` that are returned in the response rather than returning all properties.
 
 We will now make use of our `api_post_request` which calls the `api_request` method.
-In the `api_request` method, notice the use of the `post` method, and passing additional data via the `data` param.
+In the `api_request` method, notice the use of the `post` method on line 6, and passing additional data via the `data` param.
 
 #### Returning only basic entity properties
 
