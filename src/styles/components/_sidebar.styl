@@ -1,5 +1,20 @@
 .c-sidebar
   pos-rel()
+  .has-collapser 
+    > ul
+      display none
+      &.is-visible 
+        display block
+    pos-rel()
+    &:after
+      fa() 
+      pos-abs()
+      content '\f196'
+      width 24px 
+      height 24px
+      top 15px
+      right 0
+      cursor pointer
 
   &.is-active
     .c-sidebar__main

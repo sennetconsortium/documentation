@@ -55,7 +55,7 @@ Here we provide a simple function that can be reused for all `GET` or `POST` req
 
 Let's also create a simple helper function for `POST` requests (so we do not need to keep passing `POST` string as the method by directly calling `api_request`).
 <pre class="line-numbers">
-<code class="language-python" data-section="api_post_req" data-prismjs-copy="Copy">def api_post_request(endpoint, body):
+<code class="language-python" data-section="api_post_request" data-prismjs-copy="Copy">def api_post_request(endpoint, body):
     return api_request(endpoint, body, 'POST')
 </code>
 </pre>
@@ -1847,7 +1847,7 @@ This call would yield:
 </pre>
 <div class="alert alert-info c-info" markdown="1">
 #### Downloads & Tools
-[Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/descendants/post_descendants__id_){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary data-js-jupyter="req,headers,api_post_request,filter_basics"} [Source](#){:.btn.btn-outline-primary data-js-copy="req,headers,api_post_request,filter_basics"}
+[Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/descendants/post_descendants__id_){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary data-js-jupyter="req,headers,api_request,api_post_request,filter_basics"} [Source](#){:.btn.btn-outline-primary data-js-copy="req,headers,api_request,api_post_request,filter_basics"}
 </div>
 #### Returning only a list of UUIDs
 If we only wanted the UUIDs in the response, we simply add the `"uuid"` property to the list. So our code would look like:
@@ -1872,7 +1872,7 @@ That would yield:
 </pre>
 <div class="alert alert-info c-info" markdown="1">
 #### Downloads & Tools
-[Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/descendants/post_descendants__id_){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary data-js-jupyter="req,headers,api_post_request,filter_uuids"} [Source](#){:.btn.btn-outline-primary data-js-copy="req,headers,api_post_request,filter_uuids"}
+[Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/descendants/post_descendants__id_){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary data-js-jupyter="req,headers,api_request,api_post_request,filter_uuids"} [Source](#){:.btn.btn-outline-primary data-js-copy="req,headersapi_request,api_post_request,filter_uuids"}
 </div>
 <div class="alert alert-warning c-info" markdown="1">
 <strong class='p3'>Warning <i class="fa fa-exclamation-circle" aria-hidden="true"></i></strong>  
@@ -1957,7 +1957,7 @@ That would yield:
 </pre>
 <div class="alert alert-info c-info" markdown="1">
 #### Downloads & Tools
-[Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/descendants/post_descendants__id_){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary data-js-jupyter="req,headers,api_post_request,filter_custom"} [Source](#){:.btn.btn-outline-primary data-js-copy="req,headers,api_post_request,filter_custom"}
+[Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/descendants/post_descendants__id_){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary data-js-jupyter="req,headers,api_request,api_post_request,filter_custom"} [Source](#){:.btn.btn-outline-primary data-js-copy="req,headers,api_request,api_post_request,filter_custom"}
 </div>
 <div class="alert alert-sn c-info c-info--tip" markdown="1">
 <strong class="p3">Pro tip <i class='fa fa-lightbulb-o'></i></strong>  
@@ -1978,7 +1978,7 @@ entity_data = api_post_request(f"/descendants/{uuid}", body)
 </pre>
 <div class="alert alert-info c-info" markdown="1">
 #### Downloads & Tools
-[Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/descendants/post_descendants__id_){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary data-js-jupyter="req,headers,api_post_request,p2id,filter_exclude_custom"} [Source](#){:.btn.btn-outline-primary data-js-copy="req,headers,api_post_request,p2id,filter_exclude_custom"}
+[Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/descendants/post_descendants__id_){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary data-js-jupyter="req,headers,api_request,api_post_request,p2id,filter_exclude_custom"} [Source](#){:.btn.btn-outline-primary data-js-copy="req,headers,api_request,api_post_request,p2id,filter_exclude_custom"}
 </div>
 
 
@@ -2078,3 +2078,51 @@ entity_data = api_request(f"/children/{uuid}")
 <strong class='p3'>Warning <i class="fa fa-exclamation-circle" aria-hidden="true"></i></strong>  
 You must pass a token in with your request for restricted endpoints. To retrieve an authorization token, see [this guide](/apis/getting-started).
 </div>
+
+## Registering Entities
+Registration of entities all require an authorization token in the API request and are sent as `POST` requests. In the next examples, we will make use of the helper method `api_post_request` to handle our registrations.
+<div class="alert alert-sn c-info c-info--tip" markdown="1">
+<strong class="p3">Did you know? <i class='fa fa-lightbulb-o'></i></strong>  
+The [SenNet Data Portal](https://data.sennetconsortium.org/search) provides an intuitive user interface (UI) for registering Sources and Samples. For more information, see the [Entitiy Registration](/registration/) docs.
+</div>
+### Registering a Source:
+First prepare a payload with information about the Source to be registered. Then, send a `POST`request to `/entities/{entity_type}` endpoint to register the new Source. Please note, the `headers` object sent with the request should include Authorization with your token.
+<pre class="line-numbers">
+<code class="language-python" data-section='register_source' data-prismjs-copy="Copy">source_info = {
+    "group_uuid":"57192604-18e0-11ed-b79b-972795fc9504",
+    "lab_source_id":"10/01/2025-a",
+    "source_type":"Mouse",
+    "protocol_url":"https://dx.doi.org/10.17504/protocols.io.0000",
+    "description":"Some optional lab notes."
+}
+
+entity_data = api_post_request(f"/entities/Source", source_info)
+</code>
+</pre>
+All properties but `description` are required. See the API docs for more information about properties associated with the [Source entity](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#model-Source). 
+<div class="alert alert-info c-info" markdown="1">
+#### Downloads & Tools
+[Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/entities/post_entities__entity_type_){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary data-js-jupyter="req,headers_token,api_request,api_post_request,register_source"} [Source](#){:.btn.btn-outline-primary data-js-copy="req,headers_token,api_request,api_post_request,register_source"}
+</div>
+### Registering a Sample:
+First prepare a payload with information about the Sample to be registered. Then, send a `POST`request to `/entities/{entity_type}` endpoint to register the new Sample. Please note, the `headers` object sent with the request should include Authorization with your token.
+<pre class="line-numbers">
+<code class="language-python" data-section='register_sample' data-prismjs-copy="Copy">sample_info = {
+    "group_uuid":"57192604-18e0-11ed-b79b-972795fc9504",
+    "direct_ancestor_uuid":"7f78680bf2d157586832176eab9a9022",
+    "sample_category":"Organ",
+    "organ":"UBERON:0000178",
+    "protocol_url":"https://dx.doi.org/10.17504/protocols.io.9nzhvf6",
+    "lab_tissue_sample_id":"10/10/2025-b",
+    "description":"Some optional lab notes."
+}
+
+entity_data = api_post_request(f"/entities/Sample", sample_info)
+</code>
+</pre>
+All properties but `description` are required. The `organ` property is required only when `sample_category` is set to `Organ`. See the API docs for more information about properties associated with the [Sample entity](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812/#model-Sample). 
+<div class="alert alert-info c-info" markdown="1">
+#### Downloads & Tools
+[Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/entities/post_entities__entity_type_){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary data-js-jupyter="req,headers_token,api_request,api_post_request,register_sample"} [Sample](#){:.btn.btn-outline-primary data-js-copy="req,headers_token,api_request,api_post_request,register_sample"}
+</div>
+The process is similar for registering other single entity types. Simply issue a payload to `/entities/{entity_type}` via a `POST` request using the appropriate properties associated with the entity being registered. 
