@@ -15,7 +15,7 @@ GET https://search.api.sennetconsortium.org/param-search/samples?sample_category
 ## Description: 
 A query string is built by combining schema elements documented below with matching values.  Each "term" of the query is combined using the & character, and the entire query is attached to the base URL after a ? character, per web standards.
 
-Query terms may be composited from attributes deeper in the schema type of an attribute.  For example, the Sample Schema attribute ```metadata``` is has a type of [Sample Metadata Schema](/libraries/ingest-validation-tools/schemas/), and Sample `Block` Metadata Schema has an attribute ```preparation_condition```. Querying Samples supports a term to search for sample blocks with a preparation condition, such as ```metadata.preparation_condition=Frozen%20on%20ice```, and a query like:
+Query terms may be composited from attributes deeper in the schema type of an attribute.  For example, the Sample Schema attribute ```metadata``` is has a type of [Sample Metadata Schema](/registration/schemas/), and Sample `Block` Metadata Schema has an attribute ```preparation_condition```. Querying Samples supports a term to search for sample blocks with a preparation condition, such as ```metadata.preparation_condition=Frozen%20on%20ice```, and a query like:
 ```
 GET https://search.api.sennetconsortium.org/param-search/samples?metadata.preparation_condition=Frozen%20on%20ice&origin_samples.organ=UBERON:0000948
 ```
@@ -29,7 +29,7 @@ GET https://search.api.sennetconsortium.org/param-search/samples?metadata.prepar
 | data_access_level           | string from [`data_access_level` attribute values](#data_access_level-attribute-values) | One of the values: public, consortium                                                                                                                                                                         |
 | sample_category             | string from [`sample_category` attribute values](#sample_category-attribute-values)     | A code representing the category of the specimen. Must be one of organ, block, section , suspension. This is a required field. If set to organ, the organ property must be provided as well.                  |
 | organ                       | string from [`organ` attribute values](#organ-attribute-values)                         | Organ code specifier, only set if sample_category == Organ. Valid values found in the `organ_uberon` attribute in: [organ types](https://ontology.api.hubmapconsortium.org/organs?application_context=SENNET) |
-| metadata                    | JSON-encoded string for a supported [`Sample Metadata Schema`](/libraries/ingest-validation-tools/schemas/)                                                  | The sample specific metadata derived from the uploaded sample_metadata.tsv file. Returned as a json object.                                                                                                   |
+| metadata                    | JSON-encoded string for a supported [`Sample Metadata Schema`](/registration/schemas/)                                                  | The sample specific metadata derived from the uploaded sample_metadata.tsv file. Returned as a json object.                                                                                                   |
 
 ### `data_access_level` attribute values
 The data_access_level of the `Sample Schema` is one of the values following enumerated values:
