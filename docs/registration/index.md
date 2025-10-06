@@ -16,6 +16,22 @@ Visit this page to learn more: [Getting Started](../libraries/ingest-validation-
 - [Samples](/registration/bulk-registration/sample.html) 
 - [Data Upload](/data-submission/Section8) 
 
+## Available Metadata and Directory Schemas
+
+Uploading metadata in bulk can be done via the [Data Sharing Portal](https://data.sennetconsortium.org/edit/bulk/metadata).
+
+### Source
+- [Source - Murine](/registration/schemas/source-murine)
+
+### Sample
+- [Sample - Block](/registration/schemas/sample-block/)
+- [Sample - Section](/registration/schemas/sample-section/)
+- [Sample - Suspension](/registration/schemas/sample-suspension/)
+
+**Read More:** [HuBMAP Schemas](https://docs.hubmapconsortium.org/metadata)
+
+For assistance with validating your metadata files please visit the [CEDAR Metadata Spreadsheet Validator](https://metadatavalidator.metadatacenter.org/).
+
 ## Registration Interfaces
 ### [Data Sharing Portal](https://data.sennetconsortium.org/)
 Users can use the online graphical user interface to register entities. The process is as follows:

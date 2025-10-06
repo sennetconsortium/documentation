@@ -33,4 +33,4 @@ Tissue samples of type `organ`, `block`, `section` or `suspension` can be regist
 After samples have been registered you can bulk upload metadata by clicking "Upload metadata" and then selecting either
 `Block`, `Section`, or `Suspension`. Metadata for samples may only be bulk uploaded by a specific type at a time. For
 more information regarding metadata upload you can visit
-the [documentation page](../../libraries/ingest-validation-tools/schemas).
+the [documentation page](../schemas).
