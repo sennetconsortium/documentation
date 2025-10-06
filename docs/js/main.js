@@ -2,7 +2,7 @@
  * sennetdocs - 
  * @version v0.1.0
  * @link https://docs.sennetconsortium.org/
- * @date Wed Oct 01 2025 13:35:14 GMT-0400 (Eastern Daylight Time)
+ * @date Mon Oct 06 2025 13:04:02 GMT-0400 (Eastern Daylight Time)
  */
 var _this17 = this;
 function _wrapNativeSuper(Class) { var _cache = typeof Map === "function" ? new Map() : undefined; _wrapNativeSuper = function _wrapNativeSuper(Class) { if (Class === null || !_isNativeFunction(Class)) return Class; if (typeof Class !== "function") { throw new TypeError("Super expression must either be null or a function"); } if (typeof _cache !== "undefined") { if (_cache.has(Class)) return _cache.get(Class); _cache.set(Class, Wrapper); } function Wrapper() { return _construct(Class, arguments, _getPrototypeOf(this).constructor); } Wrapper.prototype = Object.create(Class.prototype, { constructor: { value: Wrapper, enumerable: false, writable: true, configurable: true } }); return _setPrototypeOf(Wrapper, Class); }; return _wrapNativeSuper(Class); }
@@ -9378,7 +9378,7 @@ var App = /*#__PURE__*/function () {
       var css = '';
       $('img').each(function (i) {
         var width = $(this).attr('width');
-        if (width && parseInt(width) > 0) {
+        if (width && parseInt(width) > 0 && !$(this).hasClass('w-fixed')) {
           var cls = "imgw--".concat(i);
           $(this).addClass("".concat(cls));
           width = parseInt(width).toString() === width ? width + 'px' : width;

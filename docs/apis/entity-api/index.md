@@ -54,7 +54,7 @@ Here we provide a simple function that can be reused for all `GET` or `POST` req
 </pre>
 
 Let's also create a simple helper function for `POST` requests (so we do not need to keep passing `POST` string as the method by directly calling `api_request`).
-<pre class="line-numbers">
+<pre class="line-numbers" id="api_post_request">
 <code class="language-python" data-section="api_post_request" data-prismjs-copy="Copy">def api_post_request(endpoint, body):
     return api_request(endpoint, body, 'POST')
 </code>
@@ -2053,7 +2053,7 @@ The `/parents/<id>` endpoint gets the immediate ancestors of the specified entit
 
 In order to access restricted endpoints and data, you will need to pass a token in your request. Let's update our `headers` object variable to include an `Authorization` key.
 (To retrieve an authorization token, see [this guide](/apis/getting-started).)
-<pre class="line-numbers" data-line='2,9'>
+<pre class="line-numbers" data-line='2,9' id="headers_token">
 <code class="language-python" data-section="headers_token" data-prismjs-copy="Copy">headers = {
     "Authorization": "Bearer COPIED_TOKEN_HERE",
     "Content-Type": "application/json"
@@ -2080,13 +2080,13 @@ You must pass a token in with your request for restricted endpoints. To retrieve
 </div>
 
 ## Registering Entities
-Registration of entities all require an authorization token in the API request and are sent as `POST` requests. In the next examples, we will make use of the helper method `api_post_request` to handle our registrations.
+Registration of entities all require an authorization token in the API request and are sent as `POST` requests. In the next examples, we will make use of the helper method [`api_post_request`](/apis/entity-api/#api_post_request) to handle our registrations.
 <div class="alert alert-sn c-info c-info--tip" markdown="1">
 <strong class="p3">Did you know? <i class='fa fa-lightbulb-o'></i></strong>  
-The [SenNet Data Portal](https://data.sennetconsortium.org/search) provides an intuitive user interface (UI) for registering Sources and Samples. For more information, see the [Entitiy Registration](/registration/) docs.
+The [SenNet Data Portal](https://data.sennetconsortium.org/search) provides an intuitive user interface (UI) for registering Sources and Samples. For more information, see the [Entitiy Registration](/registration/#registration-interfaces) docs.
 </div>
 ### Registering a Source:
-First prepare a payload with information about the Source to be registered. Then, send a `POST`request to `/entities/{entity_type}` endpoint to register the new Source. Please note, the `headers` object sent with the request should include Authorization with your token.
+First, prepare a payload with information about the Source to be registered. Then, send a `POST`request to `/entities/{entity_type}` endpoint to register the new Source. Please note, the [`headers`](/apis/entity-api/#headers_token) object sent with the request should include Authorization with your token.
 <pre class="line-numbers">
 <code class="language-python" data-section='register_source' data-prismjs-copy="Copy">source_info = {
     "group_uuid":"57192604-18e0-11ed-b79b-972795fc9504",
@@ -2105,7 +2105,7 @@ All properties but `description` are required. See the API docs for more informa
 [Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/entities/post_entities__entity_type_){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary data-js-jupyter="req,headers_token,api_request,api_post_request,register_source"} [Source](#){:.btn.btn-outline-primary data-js-copy="req,headers_token,api_request,api_post_request,register_source"}
 </div>
 ### Registering a Sample:
-First prepare a payload with information about the Sample to be registered. Then, send a `POST`request to `/entities/{entity_type}` endpoint to register the new Sample. Please note, the `headers` object sent with the request should include Authorization with your token.
+First prepare a payload with information about the Sample to be registered. Then, send a `POST`request to `/entities/{entity_type}` endpoint to register the new Sample. Please note, the `headers` object sent with the request should include `Authorization` with your valid token.
 <pre class="line-numbers">
 <code class="language-python" data-section='register_sample' data-prismjs-copy="Copy">sample_info = {
     "group_uuid":"57192604-18e0-11ed-b79b-972795fc9504",
@@ -2125,4 +2125,4 @@ All properties but `description` are required. The `organ` property is required 
 #### Downloads & Tools
 [Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/entities/post_entities__entity_type_){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary data-js-jupyter="req,headers_token,api_request,api_post_request,register_sample"} [Sample](#){:.btn.btn-outline-primary data-js-copy="req,headers_token,api_request,api_post_request,register_sample"}
 </div>
-The process is similar for registering other single entity types. Via a `POST` request, simply issue a payload to `/entities/{entity_type}` where `entity_type` is the singular case insensitive name of the entity you are trying to register and using that entity's associated properties. Please [view the API documentation](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812/#/entities/post_entities__entity_type_) for information about these schemas. 
+The process is similar for registering other single entity types. Via a `POST` request, simply issue a payload to `/entities/{entity_type}` where `entity_type` is the singular case insensitive name of the entity you are trying to register. Send a payload with the request using that entity's associated properties. Please [view the API documentation](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812/#/entities/post_entities__entity_type_) for information about these schemas. 

@@ -126,7 +126,7 @@ class App {
         let css = ''
         $('img').each(function( i ) {
             let width = $(this).attr('width')
-            if (width && parseInt(width) > 0) {
+            if (width && parseInt(width) > 0 && !$(this).hasClass('w-fixed')) {
                 let cls = `imgw--${i}`
                 $(this).addClass(`${cls}`)
                 width = parseInt(width).toString() === width ? width + 'px' : width
