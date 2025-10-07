@@ -2086,7 +2086,7 @@ Registration of entities all require an authorization token in the API request a
 The [SenNet Data Portal](https://data.sennetconsortium.org/search) provides an intuitive user interface (UI) for registering Sources and Samples. For more information, see the [Entitiy Registration](/registration/#registration-interfaces) docs.
 </div>
 ### Registering a Source:
-First, prepare a payload with information about the Source to be registered. Then, send a `POST`request to `/entities/{entity_type}` endpoint to register the new Source. Please note, the [`headers`](/apis/entity-api/#headers_token) object sent with the request should include Authorization with your token.
+First, prepare a payload with information about the Source to be registered. Then, send a `POST`request to `/entities/{entity_type}` endpoint to register the new Source. Please note, the [`headers`](/apis/entity-api/#headers_token) object sent with the request should include `Authorization` with your token.
 <pre class="line-numbers">
 <code class="language-python" data-section='register_source' data-prismjs-copy="Copy">source_info = {
     "group_uuid":"57192604-18e0-11ed-b79b-972795fc9504",
@@ -2105,7 +2105,7 @@ All properties but `description` are required. See the API docs for more informa
 [Smart API's Try It Out](https://smart-api.info/ui/7d838c9dee0caa2f8fe57173282c5812#/entities/post_entities__entity_type_){:.btn.btn-outline-primary target="_blank"}  [Jupyter Notebook](/#){:.btn.btn-outline-primary data-js-jupyter="req,headers_token,api_request,api_post_request,register_source"} [Source](#){:.btn.btn-outline-primary data-js-copy="req,headers_token,api_request,api_post_request,register_source"}
 </div>
 ### Registering a Sample:
-First prepare a payload with information about the Sample to be registered. Then, send a `POST`request to `/entities/{entity_type}` endpoint to register the new Sample. Please note, the `headers` object sent with the request should include `Authorization` with your valid token.
+First prepare a payload with information about the Sample to be registered. Then, send a `POST` request to `/entities/{entity_type}` endpoint to register the new Sample. Please note, the `headers` object sent with the request should include `Authorization` with your token.
 <pre class="line-numbers">
 <code class="language-python" data-section='register_sample' data-prismjs-copy="Copy">sample_info = {
     "group_uuid":"57192604-18e0-11ed-b79b-972795fc9504",
