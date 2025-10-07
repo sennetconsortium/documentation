@@ -2,7 +2,7 @@
  * sennetdocs - 
  * @version v0.1.0
  * @link https://docs.sennetconsortium.org/
- * @date Thu Aug 28 2025 11:42:58 GMT-0400 (Eastern Daylight Time)
+ * @date Mon Oct 06 2025 13:04:02 GMT-0400 (Eastern Daylight Time)
  */
 var _this17 = this;
 function _wrapNativeSuper(Class) { var _cache = typeof Map === "function" ? new Map() : undefined; _wrapNativeSuper = function _wrapNativeSuper(Class) { if (Class === null || !_isNativeFunction(Class)) return Class; if (typeof Class !== "function") { throw new TypeError("Super expression must either be null or a function"); } if (typeof _cache !== "undefined") { if (_cache.has(Class)) return _cache.get(Class); _cache.set(Class, Wrapper); } function Wrapper() { return _construct(Class, arguments, _getPrototypeOf(this).constructor); } Wrapper.prototype = Object.create(Class.prototype, { constructor: { value: Wrapper, enumerable: false, writable: true, configurable: true } }); return _setPrototypeOf(Wrapper, Class); }; return _wrapNativeSuper(Class); }
@@ -9378,7 +9378,7 @@ var App = /*#__PURE__*/function () {
       var css = '';
       $('img').each(function (i) {
         var width = $(this).attr('width');
-        if (width && parseInt(width) > 0) {
+        if (width && parseInt(width) > 0 && !$(this).hasClass('w-fixed')) {
           var cls = "imgw--".concat(i);
           $(this).addClass("".concat(cls));
           width = parseInt(width).toString() === width ? width + 'px' : width;
@@ -10136,6 +10136,10 @@ var Sidebar = /*#__PURE__*/function (_App8) {
         _this15.sizeSideBar();
         _this15.togglePositioning();
       }.bind(this));
+      $('body').on('click', '.has-collapser', function (e) {
+        e.stopPropagation();
+        $(e.currentTarget).toggleClass('is-open').find('> ul').toggleClass('is-visible');
+      });
     }
   }, {
     key: "togglePositioning",
@@ -10237,7 +10241,8 @@ var Sidebar = /*#__PURE__*/function (_App8) {
   }, {
     key: "hasChildren",
     value: function hasChildren(n) {
-      return n.c && n.c.length > 0 || n.items && n.items.length > 0;
+      var min = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+      return n.c && n.c.length > min || n.items && n.items.length > min;
     }
   }, {
     key: "getList",
@@ -10247,6 +10252,9 @@ var Sidebar = /*#__PURE__*/function (_App8) {
       var levelClass = "c-sidebar__level--".concat(level);
       var classes = "".concat(levelClass, " ");
       classes += "".concat(this.hasChildren(n) ? 'has-children' : '', " ").concat(n.className || '');
+      if (level > 1) {
+        classes += "".concat(this.hasChildren(n, 2) ? 'has-collapser' : '');
+      }
       var name = n.label || n.name;
       var hrefDefault = n.id ? "#".concat(n.id) : "".concat(this.pathBase).concat(name);
       html += "<li class=\"".concat(classes, "\" title=\"").concat(name, "\"><a href=\"").concat(n.href ? n.href : hrefDefault, "\">").concat(name, "</a>");
