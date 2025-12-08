@@ -2,7 +2,7 @@
  * sennetdocs - 
  * @version v0.1.0
  * @link https://docs.sennetconsortium.org/
- * @date Mon Dec 08 2025 17:44:40 GMT-0500 (Eastern Standard Time)
+ * @date Mon Dec 08 2025 17:50:00 GMT-0500 (Eastern Standard Time)
  */
 var _this19 = this;
 function _wrapNativeSuper(Class) { var _cache = typeof Map === "function" ? new Map() : undefined; _wrapNativeSuper = function _wrapNativeSuper(Class) { if (Class === null || !_isNativeFunction(Class)) return Class; if (typeof Class !== "function") { throw new TypeError("Super expression must either be null or a function"); } if (typeof _cache !== "undefined") { if (_cache.has(Class)) return _cache.get(Class); _cache.set(Class, Wrapper); } function Wrapper() { return _construct(Class, arguments, _getPrototypeOf(this).constructor); } Wrapper.prototype = Object.create(Class.prototype, { constructor: { value: Wrapper, enumerable: false, writable: true, configurable: true } }); return _setPrototypeOf(Wrapper, Class); }; return _wrapNativeSuper(Class); }
@@ -9622,6 +9622,7 @@ var FileMeta = /*#__PURE__*/function (_App3) {
                 }
                 return _context3.abrupt("return");
               case 6:
+                // Find file stat from search indicies
                 p = path;
                 if (path.indexOf('.html') == -1) {
                   p += '.html';
@@ -9657,6 +9658,7 @@ var FileMeta = /*#__PURE__*/function (_App3) {
                 _iterator3.f();
                 return _context3.finish(24);
               case 27:
+                // If not found, use the meta from the server
                 paths = [];
                 if (path.split('.').pop() === path) {
                   paths = ["".concat(path, ".html"), "".concat(path, ".md")];

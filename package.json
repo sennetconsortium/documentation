@@ -26,7 +26,7 @@
     "css": "gulp css && cp docs/css/main.css docs/_site/css/main.css",
     "start": "concurrently \"serve -l 3005 ./docs\" \"gulp\"",
     "search": "gulp search && gulp searchEnd",
-    "build": "concurrently \"npm:js\" \"npm:css\" \"npm:html\""
+    "build": "concurrently \"npm:js\" \"npm:css\" \"npm:html\" \"npm:search\""
   },
   "prettier": {
     "singleQuote": true,

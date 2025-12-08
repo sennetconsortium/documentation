@@ -110,7 +110,6 @@ exports.default = function () {
 const fs = require('fs');
 const path = require('path');
 const { DOMParser } = require('xmldom')
-const crypto = require('crypto')
 let searchDict = {}
 
 function writeToFile(content, method = 'appendFile') {
@@ -145,8 +144,7 @@ function createIndex(path, statsSync) {
                                 "mod": "${statsSync.mtime}",
                                 "tag": "${tag}",
                                 "tagId": "${h.getAttribute('id')}",
-                                "path": "/${urlPath}",
-                                "id": "${crypto.randomUUID()}"
+                                "path": "/${urlPath}"
                             },`
                             searchDict[title+urlPath] = true
                         }
