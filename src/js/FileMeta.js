@@ -8,6 +8,14 @@ class FileMeta extends App {
         this.addDate()
     }
 
+    toDate(lastMod) {
+        let date = new Date(lastMod)
+        let formattedDate = date.toLocaleDateString('en-US')
+        let formattedTime = date.toLocaleTimeString('en-US')
+
+        this.$.date.html(formattedDate + ' @ ' + formattedTime)
+    }
+
     async addDate() {
         let lastMod = null
         try {
@@ -16,21 +24,32 @@ class FileMeta extends App {
                 path += 'index'
             }
             if (!path) return
+
+            // Find file stat from search indicies
+            let p = path
+            if (path.indexOf('.html') == -1) {
+                p += '.html'
+            }
+            for (let d of window.apps.searchData) {
+                
+                if (p.toLowerCase() == d.path.toLowerCase()) {
+                    this.toDate(d.mod)
+                    this.$.label.addClass(this.classNames.active)
+                    return
+                }
+            }
+
+            // If not found, use the meta from the server
             let paths = []
             if (path.split('.').pop() === path) {
                 paths = [`${path}.html`, `${path}.md`]
             }
             for (let p of paths) {
                 if (this.$.date.html() && this.$.date.html().length) return
-
                 let r = await Rest.get(p, 'text/plain')
                 if (r.ok) {
                     lastMod = r.headers.get('last-modified')
-                    let date = new Date(lastMod)
-                    let formattedDate = date.toLocaleDateString('en-US')
-                    let formattedTime = date.toLocaleTimeString('en-US')
-
-                    this.$.date.html(formattedDate + ' @ ' + formattedTime)
+                    this.toDate(lastMod)
                     this.$.label.addClass(this.classNames.active)
                 } else {
                     this.$.label.removeClass(this.classNames.active)

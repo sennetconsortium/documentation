@@ -122,7 +122,7 @@ function writeToFile(content, method = 'appendFile') {
     })
 }
 
-function createIndex(path) {
+function createIndex(path, statsSync) {
     const urlPath = path.replace('docs/_site/', '')
     fetch(`http://localhost:4000/${urlPath}`) 
     .then(response => response.text()) 
@@ -142,6 +142,7 @@ function createIndex(path) {
                         if (h.textContent != 'Table of Contents' && !searchDict[title+urlPath]) {
                             content += `{
                                 "title": "${title}",
+                                "mod": "${statsSync.mtime}",
                                 "tag": "${tag}",
                                 "tagId": "${h.getAttribute('id')}",
                                 "path": "/${urlPath}",
@@ -176,7 +177,18 @@ function getAllFilesRecursively(directoryPath) {
     
     for (let f of filePaths) {
         if ( f.indexOf('.html') > -1) {
-            createIndex(f)
+            let statsSync = {}
+            let md = f.replace('_site/', '')
+            try {
+                statsSync = fs.statSync(md.replace('.html', '.md'))
+            } 
+            catch (err) {
+                statsSync = fs.statSync(md)
+                console.error('Error getting file stats synchronously:', err);
+            }
+
+            createIndex(f, statsSync)
+            
         }
     }
 

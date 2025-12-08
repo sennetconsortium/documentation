@@ -12,13 +12,8 @@ class Search extends App {
         this.events()
     }
 
-    async getData()  {
-      let resp = await fetch('/js/site-search-data.json')
-      if (resp.ok) {
-        this.data = await resp.json()
-        this.data.pop()
-      }
-      
+    getData()  {
+      this.data = window.apps.searchData
     }
 
     searchSite(val) {

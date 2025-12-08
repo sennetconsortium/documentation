@@ -2,7 +2,7 @@
  * sennetdocs - 
  * @version v0.1.0
  * @link https://docs.sennetconsortium.org/
- * @date Mon Dec 08 2025 17:03:00 GMT-0500 (Eastern Standard Time)
+ * @date Mon Dec 08 2025 17:44:40 GMT-0500 (Eastern Standard Time)
  */
 var _this19 = this;
 function _wrapNativeSuper(Class) { var _cache = typeof Map === "function" ? new Map() : undefined; _wrapNativeSuper = function _wrapNativeSuper(Class) { if (Class === null || !_isNativeFunction(Class)) return Class; if (typeof Class !== "function") { throw new TypeError("Super expression must either be null or a function"); } if (typeof _cache !== "undefined") { if (_cache.has(Class)) return _cache.get(Class); _cache.set(Class, Wrapper); } function Wrapper() { return _construct(Class, arguments, _getPrototypeOf(this).constructor); } Wrapper.prototype = Object.create(Class.prototype, { constructor: { value: Wrapper, enumerable: false, writable: true, configurable: true } }); return _setPrototypeOf(Wrapper, Class); }; return _wrapNativeSuper(Class); }
@@ -9312,18 +9312,32 @@ var App = /*#__PURE__*/function () {
                 return res.json();
               case 8:
                 window.apps.locale = _context.sent;
-                _context.next = 14;
-                break;
+                _context.next = 11;
+                return Rest.get('/js/site-search-data.json');
               case 11:
-                _context.prev = 11;
+                res = _context.sent;
+                if (!res.ok) {
+                  _context.next = 17;
+                  break;
+                }
+                _context.next = 15;
+                return res.json();
+              case 15:
+                window.apps.searchData = _context.sent;
+                window.apps.searchData.pop();
+              case 17:
+                _context.next = 22;
+                break;
+              case 19:
+                _context.prev = 19;
                 _context.t0 = _context["catch"](0);
                 console.error(_context.t0);
-              case 14:
+              case 22:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[0, 11]]);
+        }, _callee, null, [[0, 19]]);
       }));
       function loadLanguageFile() {
         return _loadLanguageFile.apply(this, arguments);
@@ -9580,10 +9594,18 @@ var FileMeta = /*#__PURE__*/function (_App3) {
     return _this5;
   }
   _createClass(FileMeta, [{
+    key: "toDate",
+    value: function toDate(lastMod) {
+      var date = new Date(lastMod);
+      var formattedDate = date.toLocaleDateString('en-US');
+      var formattedTime = date.toLocaleTimeString('en-US');
+      this.$.date.html(formattedDate + ' @ ' + formattedTime);
+    }
+  }, {
     key: "addDate",
     value: function () {
       var _addDate = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
-        var lastMod, path, paths, _i, _paths, p, r, date, formattedDate, formattedTime;
+        var lastMod, path, p, _iterator3, _step3, d, paths, _i, _paths, _p, r;
         return _regeneratorRuntime().wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
@@ -9600,33 +9622,65 @@ var FileMeta = /*#__PURE__*/function (_App3) {
                 }
                 return _context3.abrupt("return");
               case 6:
+                p = path;
+                if (path.indexOf('.html') == -1) {
+                  p += '.html';
+                }
+                _iterator3 = _createForOfIteratorHelper(window.apps.searchData);
+                _context3.prev = 9;
+                _iterator3.s();
+              case 11:
+                if ((_step3 = _iterator3.n()).done) {
+                  _context3.next = 19;
+                  break;
+                }
+                d = _step3.value;
+                if (!(p.toLowerCase() == d.path.toLowerCase())) {
+                  _context3.next = 17;
+                  break;
+                }
+                this.toDate(d.mod);
+                this.$.label.addClass(this.classNames.active);
+                return _context3.abrupt("return");
+              case 17:
+                _context3.next = 11;
+                break;
+              case 19:
+                _context3.next = 24;
+                break;
+              case 21:
+                _context3.prev = 21;
+                _context3.t0 = _context3["catch"](9);
+                _iterator3.e(_context3.t0);
+              case 24:
+                _context3.prev = 24;
+                _iterator3.f();
+                return _context3.finish(24);
+              case 27:
                 paths = [];
                 if (path.split('.').pop() === path) {
                   paths = ["".concat(path, ".html"), "".concat(path, ".md")];
                 }
                 _i = 0, _paths = paths;
-              case 9:
+              case 30:
                 if (!(_i < _paths.length)) {
-                  _context3.next = 20;
+                  _context3.next = 41;
                   break;
                 }
-                p = _paths[_i];
+                _p = _paths[_i];
                 if (!(this.$.date.html() && this.$.date.html().length)) {
-                  _context3.next = 13;
+                  _context3.next = 34;
                   break;
                 }
                 return _context3.abrupt("return");
-              case 13:
-                _context3.next = 15;
-                return Rest.get(p, 'text/plain');
-              case 15:
+              case 34:
+                _context3.next = 36;
+                return Rest.get(_p, 'text/plain');
+              case 36:
                 r = _context3.sent;
                 if (r.ok) {
                   lastMod = r.headers.get('last-modified');
-                  date = new Date(lastMod);
-                  formattedDate = date.toLocaleDateString('en-US');
-                  formattedTime = date.toLocaleTimeString('en-US');
-                  this.$.date.html(formattedDate + ' @ ' + formattedTime);
+                  this.toDate(lastMod);
                   this.$.label.addClass(this.classNames.active);
                 } else {
                   this.$.label.removeClass(this.classNames.active);
@@ -9634,25 +9688,25 @@ var FileMeta = /*#__PURE__*/function (_App3) {
                     error: true
                   });
                 }
-              case 17:
+              case 38:
                 _i++;
-                _context3.next = 9;
+                _context3.next = 30;
                 break;
-              case 20:
-                _context3.next = 25;
+              case 41:
+                _context3.next = 46;
                 break;
-              case 22:
-                _context3.prev = 22;
-                _context3.t0 = _context3["catch"](1);
-                App.log(this.app, _context3.t0, {
+              case 43:
+                _context3.prev = 43;
+                _context3.t1 = _context3["catch"](1);
+                App.log(this.app, _context3.t1, {
                   error: true
                 });
-              case 25:
+              case 46:
               case "end":
                 return _context3.stop();
             }
           }
-        }, _callee3, this, [[1, 22]]);
+        }, _callee3, this, [[1, 43], [9, 21, 24, 27]]);
       }));
       function addDate() {
         return _addDate.apply(this, arguments);
@@ -9753,7 +9807,7 @@ var Header = /*#__PURE__*/function (_App6) {
     key: "syncHeader",
     value: function () {
       var _syncHeader = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4() {
-        var x, _iterator3, _step3, li, $li, $nLi;
+        var x, _iterator4, _step4, li, $li, $nLi;
         return _regeneratorRuntime().wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
@@ -9766,10 +9820,10 @@ var Header = /*#__PURE__*/function (_App6) {
               case 2:
                 x = 1;
                 try {
-                  _iterator3 = _createForOfIteratorHelper(this.msgs.menu);
+                  _iterator4 = _createForOfIteratorHelper(this.msgs.menu);
                   try {
-                    for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
-                      li = _step3.value;
+                    for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
+                      li = _step4.value;
                       this.log("Menu ".concat(x), li);
                       $li = this.$.li.eq(x);
                       if ($li.length) {
@@ -9784,9 +9838,9 @@ var Header = /*#__PURE__*/function (_App6) {
                       x++;
                     }
                   } catch (err) {
-                    _iterator3.e(err);
+                    _iterator4.e(err);
                   } finally {
-                    _iterator3.f();
+                    _iterator4.f();
                   }
                 } catch (e) {
                   App.log('Error Building Menu: ', e, {
@@ -10084,57 +10138,28 @@ var Search = /*#__PURE__*/function (_App8) {
   }
   _createClass(Search, [{
     key: "getData",
-    value: function () {
-      var _getData = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee8() {
-        var resp;
-        return _regeneratorRuntime().wrap(function _callee8$(_context8) {
-          while (1) {
-            switch (_context8.prev = _context8.next) {
-              case 0:
-                _context8.next = 2;
-                return fetch('/js/site-search-data.json');
-              case 2:
-                resp = _context8.sent;
-                if (!resp.ok) {
-                  _context8.next = 8;
-                  break;
-                }
-                _context8.next = 6;
-                return resp.json();
-              case 6:
-                this.data = _context8.sent;
-                this.data.pop();
-              case 8:
-              case "end":
-                return _context8.stop();
-            }
-          }
-        }, _callee8, this);
-      }));
-      function getData() {
-        return _getData.apply(this, arguments);
-      }
-      return getData;
-    }()
+    value: function getData() {
+      this.data = window.apps.searchData;
+    }
   }, {
     key: "searchSite",
     value: function searchSite(val) {
       var found = [];
       var dict = {};
-      var _iterator4 = _createForOfIteratorHelper(this.data),
-        _step4;
+      var _iterator5 = _createForOfIteratorHelper(this.data),
+        _step5;
       try {
-        for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
-          var _d = _step4.value;
+        for (_iterator5.s(); !(_step5 = _iterator5.n()).done;) {
+          var _d = _step5.value;
           if ((_d === null || _d === void 0 ? void 0 : _d.title.toLowerCase().indexOf(val.toLowerCase())) > -1 && !dict[_d.path]) {
             found.push(_d);
             dict[_d.path] = true;
           }
         }
       } catch (err) {
-        _iterator4.e(err);
+        _iterator5.e(err);
       } finally {
-        _iterator4.f();
+        _iterator5.f();
       }
       var html = '';
       for (var _i2 = 0, _found = found; _i2 < _found.length; _i2++) {
@@ -10373,17 +10398,17 @@ var Sidebar = /*#__PURE__*/function (_App9) {
       html += "<li class=\"".concat(classes, "\" title=\"").concat(name, "\"><a href=\"").concat(n.href ? n.href : hrefDefault, "\">").concat(name, "</a>");
       if (this.hasChildren(n)) {
         html += "<ul class='".concat(levelClass, " has-parent'>");
-        var _iterator5 = _createForOfIteratorHelper(this.getChildren(n)),
-          _step5;
+        var _iterator6 = _createForOfIteratorHelper(this.getChildren(n)),
+          _step6;
         try {
-          for (_iterator5.s(); !(_step5 = _iterator5.n()).done;) {
-            var c = _step5.value;
+          for (_iterator6.s(); !(_step6 = _iterator6.n()).done;) {
+            var c = _step6.value;
             html = this.getList(c, html, level + 1);
           }
         } catch (err) {
-          _iterator5.e(err);
+          _iterator6.e(err);
         } finally {
-          _iterator5.f();
+          _iterator6.f();
         }
         html += "</ul>";
       }
