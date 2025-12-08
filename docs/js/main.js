@@ -2,9 +2,9 @@
  * sennetdocs - 
  * @version v0.1.0
  * @link https://docs.sennetconsortium.org/
- * @date Mon Dec 08 2025 10:58:26 GMT-0500 (Eastern Standard Time)
+ * @date Mon Dec 08 2025 17:03:00 GMT-0500 (Eastern Standard Time)
  */
-var _this17 = this;
+var _this19 = this;
 function _wrapNativeSuper(Class) { var _cache = typeof Map === "function" ? new Map() : undefined; _wrapNativeSuper = function _wrapNativeSuper(Class) { if (Class === null || !_isNativeFunction(Class)) return Class; if (typeof Class !== "function") { throw new TypeError("Super expression must either be null or a function"); } if (typeof _cache !== "undefined") { if (_cache.has(Class)) return _cache.get(Class); _cache.set(Class, Wrapper); } function Wrapper() { return _construct(Class, arguments, _getPrototypeOf(this).constructor); } Wrapper.prototype = Object.create(Class.prototype, { constructor: { value: Wrapper, enumerable: false, writable: true, configurable: true } }); return _setPrototypeOf(Wrapper, Class); }; return _wrapNativeSuper(Class); }
 function _construct(Parent, args, Class) { if (_isNativeReflectConstruct()) { _construct = Reflect.construct.bind(); } else { _construct = function _construct(Parent, args, Class) { var a = [null]; a.push.apply(a, args); var Constructor = Function.bind.apply(Parent, a); var instance = new Constructor(); if (Class) _setPrototypeOf(instance, Class.prototype); return instance; }; } return _construct.apply(null, arguments); }
 function _isNativeFunction(fn) { return Function.toString.call(fn).indexOf("[native code]") !== -1; }
@@ -10065,30 +10065,143 @@ var Rest = /*#__PURE__*/function () {
   }]);
   return Rest;
 }();
-var Sidebar = /*#__PURE__*/function (_App8) {
-  _inherits(Sidebar, _App8);
-  var _super10 = _createSuper(Sidebar);
-  function Sidebar(el, args) {
+var Search = /*#__PURE__*/function (_App8) {
+  _inherits(Search, _App8);
+  var _super10 = _createSuper(Search);
+  function Search(el, args) {
     var _this14;
-    _classCallCheck(this, Sidebar);
+    _classCallCheck(this, Search);
     _this14 = _super10.call(this, el, args);
+    _this14.data = [];
     _this14.$ = {
-      wrap: _this14.el.find('.js-sidebar__wrap'),
-      main: _this14.el.find('.js-sidebar__main'),
-      list: _this14.el.find('.js-sidebar__list'),
+      btn: _this14.el.find('button'),
+      io: _this14.el.find('input'),
+      list: _this14.el.find('.list-group')
+    };
+    _this14.getData();
+    _this14.events();
+    return _this14;
+  }
+  _createClass(Search, [{
+    key: "getData",
+    value: function () {
+      var _getData = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee8() {
+        var resp;
+        return _regeneratorRuntime().wrap(function _callee8$(_context8) {
+          while (1) {
+            switch (_context8.prev = _context8.next) {
+              case 0:
+                _context8.next = 2;
+                return fetch('/js/site-search-data.json');
+              case 2:
+                resp = _context8.sent;
+                if (!resp.ok) {
+                  _context8.next = 8;
+                  break;
+                }
+                _context8.next = 6;
+                return resp.json();
+              case 6:
+                this.data = _context8.sent;
+                this.data.pop();
+              case 8:
+              case "end":
+                return _context8.stop();
+            }
+          }
+        }, _callee8, this);
+      }));
+      function getData() {
+        return _getData.apply(this, arguments);
+      }
+      return getData;
+    }()
+  }, {
+    key: "searchSite",
+    value: function searchSite(val) {
+      var found = [];
+      var dict = {};
+      var _iterator4 = _createForOfIteratorHelper(this.data),
+        _step4;
+      try {
+        for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
+          var _d = _step4.value;
+          if ((_d === null || _d === void 0 ? void 0 : _d.title.toLowerCase().indexOf(val.toLowerCase())) > -1 && !dict[_d.path]) {
+            found.push(_d);
+            dict[_d.path] = true;
+          }
+        }
+      } catch (err) {
+        _iterator4.e(err);
+      } finally {
+        _iterator4.f();
+      }
+      var html = '';
+      for (var _i2 = 0, _found = found; _i2 < _found.length; _i2++) {
+        var d = _found[_i2];
+        html += "<li><a href=\"".concat(d.path, "\" title=\"").concat(d.title, " ").concat(d.path, "\">").concat(d.title, " <small>").concat(d.path, "</small></a></li>");
+      }
+      this.$.list.addClass('is-active');
+      if (!found.length) {
+        html = '<li><span>No results</span></li>';
+      }
+      this.$.list.html(html);
+    }
+  }, {
+    key: "clearResults",
+    value: function clearResults() {
+      this.$.list.removeClass('is-active');
+      this.$.list.html('');
+    }
+  }, {
+    key: "events",
+    value: function events() {
+      var _this15 = this;
+      this.$.btn.on('click', function (e) {
+        e.preventDefault();
+        _this15.clearResults();
+        if (_this15.$.io.val().length && !_this15.$.io.hasClass('is-hidden')) {
+          _this15.searchSite(_this15.$.io.val());
+        } else {
+          _this15.$.io.val('');
+          _this15.$.io.toggleClass('is-hidden');
+        }
+      }.bind(this));
+      $(window).on('keydown', function (e) {
+        if (_this15.isEsc(e)) {
+          _this15.$.io.val('');
+          _this15.clearResults();
+          _this15.$.io.addClass('is-hidden');
+        }
+      }.bind(this));
+    }
+  }]);
+  return Search;
+}(App);
+var Sidebar = /*#__PURE__*/function (_App9) {
+  _inherits(Sidebar, _App9);
+  var _super11 = _createSuper(Sidebar);
+  function Sidebar(el, args) {
+    var _this16;
+    _classCallCheck(this, Sidebar);
+    _this16 = _super11.call(this, el, args);
+    _this16.$ = {
+      wrap: _this16.el.find('.js-sidebar__wrap'),
+      main: _this16.el.find('.js-sidebar__main'),
+      list: _this16.el.find('.js-sidebar__list'),
       hs: $('.c-documentation').find('h1, h2, h3, h4, h5, h6')
     };
-    _this14.sizeSideBar();
-    _this14.pathBase = '/';
-    _this14.classNames.root = 'is-root';
-    _this14.classNames["static"] = 'is-static';
-    _this14.headerHeight = 90;
-    _this14.events();
-    _this14.determineContentBuilder();
-    _this14.sizeSideBarHeight();
-    _this14.togglePositioning();
-    _this14.addPageId();
-    return _this14;
+    _this16.sizeSideBar();
+    _this16.pathBase = '/';
+    _this16.classNames.root = 'is-root';
+    _this16.classNames["static"] = 'is-static';
+    _this16.headerHeight = 90;
+    _this16.events();
+    _this16.determineContentBuilder();
+    _this16.sizeSideBarHeight();
+    _this16.togglePositioning();
+    _this16.addPageId();
+    return _this16;
   }
   _createClass(Sidebar, [{
     key: "addPageId",
@@ -10123,18 +10236,18 @@ var Sidebar = /*#__PURE__*/function (_App8) {
   }, {
     key: "events",
     value: function events() {
-      var _this15 = this;
+      var _this17 = this;
       $(document).on('scroll', function (e) {
         var st = $(document).scrollTop();
-        if (st > _this15.headerHeight && !_this15.isMobile()) {
-          _this15.el.addClass(_this15.classNames.active);
+        if (st > _this17.headerHeight && !_this17.isMobile()) {
+          _this17.el.addClass(_this17.classNames.active);
         } else {
-          _this15.el.removeClass(_this15.classNames.active);
+          _this17.el.removeClass(_this17.classNames.active);
         }
       }.bind(this));
       $(window).on('resize', function (e) {
-        _this15.sizeSideBar();
-        _this15.togglePositioning();
+        _this17.sizeSideBar();
+        _this17.togglePositioning();
       }.bind(this));
       $('body').on('click', '.has-collapser', function (e) {
         e.stopPropagation();
@@ -10167,7 +10280,7 @@ var Sidebar = /*#__PURE__*/function (_App8) {
   }, {
     key: "buildTableOfContents",
     value: function buildTableOfContents() {
-      var _this16 = this;
+      var _this18 = this;
       var rootChildren = [];
       var root = {
         tag: 'h0',
@@ -10182,7 +10295,7 @@ var Sidebar = /*#__PURE__*/function (_App8) {
         var n1 = Number(node[1]);
         var n2 = Number(top.tag[1]);
         var label = $(el).text();
-        var id = $(el).attr('id') || _this16.toId(label);
+        var id = $(el).attr('id') || _this18.toId(label);
         var pack = {
           tag: node,
           id: id,
@@ -10260,17 +10373,17 @@ var Sidebar = /*#__PURE__*/function (_App8) {
       html += "<li class=\"".concat(classes, "\" title=\"").concat(name, "\"><a href=\"").concat(n.href ? n.href : hrefDefault, "\">").concat(name, "</a>");
       if (this.hasChildren(n)) {
         html += "<ul class='".concat(levelClass, " has-parent'>");
-        var _iterator4 = _createForOfIteratorHelper(this.getChildren(n)),
-          _step4;
+        var _iterator5 = _createForOfIteratorHelper(this.getChildren(n)),
+          _step5;
         try {
-          for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
-            var c = _step4.value;
+          for (_iterator5.s(); !(_step5 = _iterator5.n()).done;) {
+            var c = _step5.value;
             html = this.getList(c, html, level + 1);
           }
         } catch (err) {
-          _iterator4.e(err);
+          _iterator5.e(err);
         } finally {
-          _iterator4.f();
+          _iterator5.f();
         }
         html += "</ul>";
       }
@@ -10300,7 +10413,8 @@ function ZIndex(source) {
     footer: Footer,
     fileMeta: FileMeta,
     header: Header,
-    gtm: GTM
+    gtm: GTM,
+    search: Search
   };
   args = args || window.apps.init;
   try {
@@ -10328,5 +10442,5 @@ window.addEventListener('load', function (event) {
     App.loadThemeConfig().then(function () {
       ZIndex('init');
     });
-  }.bind(_this17));
+  }.bind(_this19));
 });

@@ -1,0 +1,2845 @@
+[{
+                                "title": "WGS",
+                                "tag": "h1",
+                                "tagId": "wgs",
+                                "path": "/assays/metadata/WGS.html",
+                                "id": "dbc4fc5c-181d-4b33-862e-c997c82c339d"
+                            },{
+                                "title": "Get Entity by ID:",
+                                "tag": "h3",
+                                "tagId": "get-entity-by-id",
+                                "path": "/apis/entity-api/index.html",
+                                "id": "ad99bc95-4695-4d4a-bbf8-ee363ef3d6e4"
+                            },{
+                                "title": "Get Entity’s Descendants:",
+                                "tag": "h3",
+                                "tagId": "get-entitys-descendants",
+                                "path": "/apis/entity-api/index.html",
+                                "id": "d7907710-4c7d-4675-8723-2fe738a48e0b"
+                            },{
+                                "title": "Filtering the results",
+                                "tag": "h3",
+                                "tagId": "filtering-the-results",
+                                "path": "/apis/entity-api/index.html",
+                                "id": "223198b6-2b6e-479d-8db8-47481f4f9366"
+                            },{
+                                "title": "Get Entity’s Sources",
+                                "tag": "h3",
+                                "tagId": "get-entitys-sources",
+                                "path": "/apis/entity-api/index.html",
+                                "id": "f327466d-2b9d-4ed5-a20b-c0a2913da194"
+                            },{
+                                "title": "Get Entity’s Organs",
+                                "tag": "h3",
+                                "tagId": "get-entitys-organs",
+                                "path": "/apis/entity-api/index.html",
+                                "id": "c5bb752b-fa05-47d8-a02c-0ba73f1847f7"
+                            },{
+                                "title": "Get Entity’s Samples",
+                                "tag": "h3",
+                                "tagId": "get-entitys-samples",
+                                "path": "/apis/entity-api/index.html",
+                                "id": "d33014b7-fe3e-4d5f-b70d-45f06a0bd7ba"
+                            },{
+                                "title": "Get Entity’s Ancestors",
+                                "tag": "h3",
+                                "tagId": "get-entitys-ancestors",
+                                "path": "/apis/entity-api/index.html",
+                                "id": "21763daa-c4e0-4e64-82ba-02e8bea9087d"
+                            },{
+                                "title": "Get Entity’s Parents",
+                                "tag": "h3",
+                                "tagId": "get-entitys-parents",
+                                "path": "/apis/entity-api/index.html",
+                                "id": "7591ac27-8110-4641-bee3-b0439eb47c31"
+                            },{
+                                "title": "Get Entity’s Children:",
+                                "tag": "h3",
+                                "tagId": "get-entitys-children",
+                                "path": "/apis/entity-api/index.html",
+                                "id": "8fd55c22-8502-4b0b-af99-37b8c1de9034"
+                            },{
+                                "title": "Registering a Source:",
+                                "tag": "h3",
+                                "tagId": "registering-a-source",
+                                "path": "/apis/entity-api/index.html",
+                                "id": "00695a87-5480-4648-a9ea-6e9e64df0733"
+                            },{
+                                "title": "Registering a Sample:",
+                                "tag": "h3",
+                                "tagId": "registering-a-sample",
+                                "path": "/apis/entity-api/index.html",
+                                "id": "bdb7e411-0cf3-48ed-85d5-29cdd999bde1"
+                            },{
+                                "title": "Downloads & Tools",
+                                "tag": "h4",
+                                "tagId": "downloads--tools",
+                                "path": "/apis/entity-api/index.html",
+                                "id": "e4e1eddc-4eac-4561-a310-5027b6ab4b5a"
+                            },{
+                                "title": "Returning only basic entity properties",
+                                "tag": "h4",
+                                "tagId": "returning-only-basic-entity-properties",
+                                "path": "/apis/entity-api/index.html",
+                                "id": "bbae8075-2e8b-457d-a8e5-3b5c26aad245"
+                            },{
+                                "title": "Returning only a list of UUIDs",
+                                "tag": "h4",
+                                "tagId": "returning-only-a-list-of-uuids",
+                                "path": "/apis/entity-api/index.html",
+                                "id": "7377a4b7-c119-4df0-9cea-8e1e0fa74b9f"
+                            },{
+                                "title": "Returning custom properties",
+                                "tag": "h4",
+                                "tagId": "returning-custom-properties",
+                                "path": "/apis/entity-api/index.html",
+                                "id": "3d816146-41bf-4cf7-ad17-e7e7f996d0a7"
+                            },{
+                                "title": "Exclude certain properties",
+                                "tag": "h4",
+                                "tagId": "exclude-certain-properties",
+                                "path": "/apis/entity-api/index.html",
+                                "id": "62f8b517-3345-4697-9373-712f9239db76"
+                            },{
+                                "title": "Auto-fluorescence",
+                                "tag": "h1",
+                                "tagId": "auto-fluorescence",
+                                "path": "/assays/metadata/AutoFluorescence.html",
+                                "id": "aca7dafa-77d3-4bb1-90e3-88ca2405ca88"
+                            },{
+                                "title": "Version 2 (Latest)",
+                                "tag": "h2",
+                                "tagId": "version-2-latest",
+                                "path": "/assays/metadata/AutoFluorescence.html",
+                                "id": "1a3c4758-777e-4101-a96d-a3bc73d2821d"
+                            },{
+                                "title": "Version 1",
+                                "tag": "h2",
+                                "tagId": "version-1",
+                                "path": "/assays/metadata/AutoFluorescence.html",
+                                "id": "797ad024-07e4-4eaa-a5aa-13d279aa7a9a"
+                            },{
+                                "title": "Version 0",
+                                "tag": "h2",
+                                "tagId": "version-0",
+                                "path": "/assays/metadata/AutoFluorescence.html",
+                                "id": "d946c755-900c-420b-8c11-f94816b4c81f"
+                            },{
+                                "title": "MALDI",
+                                "tag": "h1",
+                                "tagId": "maldi",
+                                "path": "/assays/metadata/MALDI.html",
+                                "id": "1d0c20dd-2bee-4af8-931a-d2bf1557106f"
+                            },{
+                                "title": "Version 1 (no longer accepting data)",
+                                "tag": "h2",
+                                "tagId": "version-1-no-longer-accepting-data",
+                                "path": "/assays/metadata/WGS.html",
+                                "id": "b6149fea-d62a-47d5-8749-8d62d4ee1af7"
+                            },{
+                                "title": "Version 0",
+                                "tag": "h2",
+                                "tagId": "version-0",
+                                "path": "/assays/metadata/WGS.html",
+                                "id": "aced6260-6243-4728-9944-60ffca038e3d"
+                            },{
+                                "title": "SIMS",
+                                "tag": "h1",
+                                "tagId": "sims",
+                                "path": "/assays/metadata/SIMS.html",
+                                "id": "735001aa-9ed4-4553-84ed-8e72708fff72"
+                            },{
+                                "title": "Version 2 (latest)",
+                                "tag": "h2",
+                                "tagId": "version-2-latest",
+                                "path": "/assays/metadata/SIMS.html",
+                                "id": "d7141eba-d3cf-4c16-a2ff-6626216975e3"
+                            },{
+                                "title": "SnareSeq2",
+                                "tag": "h1",
+                                "tagId": "snareseq2",
+                                "path": "/assays/metadata/Slide-seq.html",
+                                "id": "8564f755-04b1-4692-be05-69a2cedb8e09"
+                            },{
+                                "title": "Version 1 (no longer accepting data)",
+                                "tag": "h2",
+                                "tagId": "version-1-no-longer-accepting-data",
+                                "path": "/assays/metadata/Slide-seq.html",
+                                "id": "dc5edb35-c650-4c15-a8ac-a2c0ecacb193"
+                            },{
+                                "title": "Version 0",
+                                "tag": "h2",
+                                "tagId": "version-0",
+                                "path": "/assays/metadata/Slide-seq.html",
+                                "id": "81df1f80-8dc9-40d9-b25f-dbaf3bce204f"
+                            },{
+                                "title": "Version 2 (current)",
+                                "tag": "h2",
+                                "tagId": "version-2-current",
+                                "path": "/assays/metadata/SnareSeq2.html",
+                                "id": "a40ca85c-816d-4754-848e-3ef95007a92d"
+                            },{
+                                "title": "SnareSeq2",
+                                "tag": "h1",
+                                "tagId": "snareseq2",
+                                "path": "/assays/metadata/SnareSeq2.html",
+                                "id": "6deba920-e3f6-4bd8-a578-fbd8a9a8b005"
+                            },{
+                                "title": "Entity API Usage",
+                                "tag": "h1",
+                                "tagId": "entity-api-usage",
+                                "path": "/apis/entity-api/index.html",
+                                "id": "4261f590-e9d3-4251-8f1b-2714ea092041"
+                            },{
+                                "title": "Defining a reusable api_request function",
+                                "tag": "h2",
+                                "tagId": "defining-a-reusable-api_request-function",
+                                "path": "/apis/entity-api/index.html",
+                                "id": "52188d01-6eca-4193-ac62-61fe55c0187b"
+                            },{
+                                "title": "Given a Source with SenNet ID SNT722.BGFJ.623",
+                                "tag": "h2",
+                                "tagId": "given-a-source-with-sennet-id-snt722bgfj623",
+                                "path": "/apis/entity-api/index.html",
+                                "id": "3ffd40b4-60f2-45d4-a650-199d8ec7fc92"
+                            },{
+                                "title": "Given a Dataset with SenNet ID SNT379.SJFD.828",
+                                "tag": "h2",
+                                "tagId": "given-a-dataset-with-sennet-id-snt379sjfd828",
+                                "path": "/apis/entity-api/index.html",
+                                "id": "79b2a9ee-4cd4-4160-a61e-37ff5fff60f6"
+                            },{
+                                "title": "Accessing restricted endpoints and data",
+                                "tag": "h2",
+                                "tagId": "accessing-restricted-endpoints-and-data",
+                                "path": "/apis/entity-api/index.html",
+                                "id": "d9619103-f3aa-4804-958a-7e3ccafc3994"
+                            },{
+                                "title": "Registering Entities",
+                                "tag": "h2",
+                                "tagId": "registering-entities",
+                                "path": "/apis/entity-api/index.html",
+                                "id": "aba75026-3c4d-4657-8f3e-18ad24d3c55e"
+                            },{
+                                "title": "Maldi Version 2 (latest)",
+                                "tag": "h2",
+                                "tagId": "maldi-version-2-latest",
+                                "path": "/assays/metadata/MALDI.html",
+                                "id": "f04a389e-1675-406a-b3c6-4b0da1b0cb75"
+                            },{
+                                "title": "IMS Version 2",
+                                "tag": "h2",
+                                "tagId": "ims-version-2",
+                                "path": "/assays/metadata/MALDI.html",
+                                "id": "07f4d76a-098d-4dbc-8baf-00aab76cfed7"
+                            },{
+                                "title": "IMS Version 1",
+                                "tag": "h2",
+                                "tagId": "ims-version-1",
+                                "path": "/assays/metadata/MALDI.html",
+                                "id": "8d165e67-172c-47e6-b496-517fe47675ee"
+                            },{
+                                "title": "IMS Version 0",
+                                "tag": "h2",
+                                "tagId": "ims-version-0",
+                                "path": "/assays/metadata/MALDI.html",
+                                "id": "5bef9cc7-633b-4daf-8b6a-b7dfd5f80781"
+                            },{
+                                "title": "Version 2 (current)",
+                                "tag": "h2",
+                                "tagId": "version-2-current",
+                                "path": "/assays/metadata/PhenoCycler.html",
+                                "id": "bb580f64-2a69-4dcf-af7d-03ffcecf9bc9"
+                            },{
+                                "title": "PhenoCycler",
+                                "tag": "h1",
+                                "tagId": "phenocycler",
+                                "path": "/assays/metadata/PhenoCycler.html",
+                                "id": "6f8baed0-47c4-40f6-be2e-4a50b4754171"
+                            },{
+                                "title": "RNAseq-(with-probes)",
+                                "tag": "h1",
+                                "tagId": "rnaseq-with-probes",
+                                "path": "/assays/metadata/RNAseqWithProbes.html",
+                                "id": "342d764f-1d66-42fa-ba4c-8ed94d3e60a8"
+                            },{
+                                "title": "Version 2 (current)",
+                                "tag": "h2",
+                                "tagId": "version-2-current",
+                                "path": "/assays/metadata/RNAseqWithProbes.html",
+                                "id": "75ad20fb-7a98-4c99-9683-fe895531d960"
+                            },{
+                                "title": "MIBI",
+                                "tag": "h1",
+                                "tagId": "mibi",
+                                "path": "/assays/metadata/MIBI.html",
+                                "id": "4d27779d-bc96-46cc-953a-f0e24948a20f"
+                            },{
+                                "title": "Version 2 (latest)",
+                                "tag": "h2",
+                                "tagId": "version-2-latest",
+                                "path": "/assays/metadata/MIBI.html",
+                                "id": "88cb24f3-0e6a-4131-82e9-a81ac7f92568"
+                            },{
+                                "title": "Version 1",
+                                "tag": "h2",
+                                "tagId": "version-1",
+                                "path": "/assays/metadata/MIBI.html",
+                                "id": "c3c03cf5-2f89-49b9-86b6-18e068bc946d"
+                            },{
+                                "title": "Second-Harmonic-Generation",
+                                "tag": "h1",
+                                "tagId": "second-harmonic-generation",
+                                "path": "/assays/metadata/SecondHarmonicGeneration.html",
+                                "id": "0bccfe45-6770-436d-ae0a-791e51b53ac3"
+                            },{
+                                "title": "Version 2 (current)",
+                                "tag": "h2",
+                                "tagId": "version-2-current",
+                                "path": "/assays/metadata/SecondHarmonicGeneration.html",
+                                "id": "048d0db2-4820-46fe-b464-a9b18379e578"
+                            },{
+                                "title": "Thick-Section-Multiphoton-MxIF",
+                                "tag": "h1",
+                                "tagId": "thick-section-multiphoton-mxif",
+                                "path": "/assays/metadata/ThickSectionMultiphotonMxIF.html",
+                                "id": "46d300b9-1eeb-437a-b015-9cb8562c2c97"
+                            },{
+                                "title": "Version 2 (current)",
+                                "tag": "h2",
+                                "tagId": "version-2-current",
+                                "path": "/assays/metadata/ThickSectionMultiphotonMxIF.html",
+                                "id": "c22e6eba-fa85-423c-8704-58e25033d09e"
+                            },{
+                                "title": "Visium-(with-probes)",
+                                "tag": "h1",
+                                "tagId": "visium-with-probes",
+                                "path": "/assays/metadata/VisiumWithProbes.html",
+                                "id": "d7998724-9dbb-4748-8cc0-d40b4891db2d"
+                            },{
+                                "title": "Version 2 (current)",
+                                "tag": "h2",
+                                "tagId": "version-2-current",
+                                "path": "/assays/metadata/VisiumWithProbes.html",
+                                "id": "fd5d9684-4155-41e7-bc0b-25075a430dba"
+                            },{
+                                "title": "SenNet Metadata Attributes by Dataset Type",
+                                "tag": "h2",
+                                "tagId": "sennet-metadata-attributes-by-dataset-type",
+                                "path": "/assays/metadata/index.html",
+                                "id": "64de91c1-42cd-4390-b6fb-634679c0c0d4"
+                            },{
+                                "title": "SenNet APIs",
+                                "tag": "h2",
+                                "tagId": "sennet-apis",
+                                "path": "/libraries/provenance-ui/foo/index.html",
+                                "id": "70cee723-4abb-4bfb-9d5b-f40f989726ba"
+                            },{
+                                "title": "Ingest API",
+                                "tag": "h2",
+                                "tagId": "ingest-api",
+                                "path": "/libraries/provenance-ui/foo/index.html",
+                                "id": "d0490114-45d7-4666-92b8-d24d4db3f4a6"
+                            },{
+                                "title": "Assay for Transposase-Accessible Chromatin (ATACseq)",
+                                "tag": "h2",
+                                "tagId": "assay-for-transposase-accessible-chromatin-atacseq",
+                                "path": "/libraries/provenance-ui/foo/index.html",
+                                "id": "eccbc7c2-ba43-4116-b0b5-ab6373253114"
+                            },{
+                                "title": "Co-detection by indexing (CODEX)",
+                                "tag": "h2",
+                                "tagId": "co-detection-by-indexing-codex",
+                                "path": "/libraries/provenance-ui/foo/index.html",
+                                "id": "61f32152-0b25-4a27-9b31-347b60271c2a"
+                            },{
+                                "title": "Image Mass Cytometry (IMC)",
+                                "tag": "h2",
+                                "tagId": "image-mass-cytometry-imc",
+                                "path": "/libraries/provenance-ui/foo/index.html",
+                                "id": "7ee887a3-54d1-4cfb-b363-8d34280437ef"
+                            },{
+                                "title": "Lightsheet",
+                                "tag": "h2",
+                                "tagId": "lightsheet",
+                                "path": "/libraries/provenance-ui/foo/index.html",
+                                "id": "8411da3b-7133-40ef-8f97-435f4ddf5a36"
+                            },{
+                                "title": "Liquid Chromatography Mass Spectrometry (LC-MS)",
+                                "tag": "h2",
+                                "tagId": "liquid-chromatography-mass-spectrometry-lc-ms",
+                                "path": "/libraries/provenance-ui/foo/index.html",
+                                "id": "cb229f25-d5f7-45a5-9367-52b832483f00"
+                            },{
+                                "title": "Matrix Assisted Laser Desorption/Ionization Imaging Mass Spectrometry (MALDI-IMS)",
+                                "tag": "h2",
+                                "tagId": "matrix-assisted-laser-desorptionionization-imaging-mass-spectrometry-maldi-ims",
+                                "path": "/libraries/provenance-ui/foo/index.html",
+                                "id": "868c2ea7-80a5-4432-921b-486075bb5a0f"
+                            },{
+                                "title": "Multiplexed Immunofluorescence (MxIF)",
+                                "tag": "h2",
+                                "tagId": "multiplexed-immunofluorescence-mxif",
+                                "path": "/libraries/provenance-ui/foo/index.html",
+                                "id": "61bf53a8-720b-47d3-a0da-7bff9497ca7b"
+                            },{
+                                "title": "RNA Sequencing (RNAseq)",
+                                "tag": "h2",
+                                "tagId": "rna-sequencing-rnaseq",
+                                "path": "/libraries/provenance-ui/foo/index.html",
+                                "id": "626791a9-4f16-44c0-b477-a810546c015e"
+                            },{
+                                "title": "Sequencing by Fluorescence In-Situ Hybridization (seqFISH)",
+                                "tag": "h2",
+                                "tagId": "sequencing-by-fluorescence-in-situ-hybridization-seqfish",
+                                "path": "/libraries/provenance-ui/foo/index.html",
+                                "id": "d3ca4099-2256-403e-8c52-23d074f56ba7"
+                            },{
+                                "title": "Stained Microscopy",
+                                "tag": "h2",
+                                "tagId": "stained-microscopy",
+                                "path": "/libraries/provenance-ui/foo/index.html",
+                                "id": "7b32f96f-eefc-40f7-bd51-e300718ad56c"
+                            },{
+                                "title": "Whole Genome Sequencing (WGS)",
+                                "tag": "h2",
+                                "tagId": "whole-genome-sequencing-wgs",
+                                "path": "/libraries/provenance-ui/foo/index.html",
+                                "id": "0a700782-7d58-4a58-b587-058269ce98e6"
+                            },{
+                                "title": "Getting Started With SenNet APIs",
+                                "tag": "h1",
+                                "tagId": "getting-started-with-sennet-apis",
+                                "path": "/apis/getting-started.html",
+                                "id": "cf573919-ad32-4d89-9b5b-8ae0af55004b"
+                            },{
+                                "title": "Making your first API request",
+                                "tag": "h2",
+                                "tagId": "making-your-first-api-request",
+                                "path": "/apis/getting-started.html",
+                                "id": "a259f500-eadc-4157-b341-e2dba579f342"
+                            },{
+                                "title": "Using Smart API to test the APIs",
+                                "tag": "h2",
+                                "tagId": "using-smart-api-to-test-the-apis",
+                                "path": "/apis/getting-started.html",
+                                "id": "71c2333f-6222-41eb-a895-bf20753e519c"
+                            },{
+                                "title": "Downloads & Tools",
+                                "tag": "h4",
+                                "tagId": "downloads--tools",
+                                "path": "/apis/getting-started.html",
+                                "id": "90346e44-c82a-48fe-97d1-c37f5dec9f78"
+                            },{
+                                "title": "Source Registration Fields",
+                                "tag": "h3",
+                                "tagId": "source-registration-fields",
+                                "path": "/registration/bulk-registration/source.html",
+                                "id": "24816629-e350-4075-a06f-b482354da200"
+                            },{
+                                "title": "Source metadata submission",
+                                "tag": "h3",
+                                "tagId": "source-metadata-submission",
+                                "path": "/registration/bulk-registration/source.html",
+                                "id": "93e81ce9-6b9d-4126-9805-5f3555628a72"
+                            },{
+                                "title": "Source Bulk Registration",
+                                "tag": "h1",
+                                "tagId": "source-bulk-registration",
+                                "path": "/registration/bulk-registration/source.html",
+                                "id": "add48d15-1161-4e03-932b-addbe1b0df54"
+                            },{
+                                "title": "MUSIC",
+                                "tag": "h1",
+                                "tagId": "music",
+                                "path": "/assays/metadata/MUSIC.html",
+                                "id": "566bc29b-1299-4965-9489-1c2a714c62c7"
+                            },{
+                                "title": "Overview",
+                                "tag": "h2",
+                                "tagId": "overview",
+                                "path": "/assays/seqfish.html",
+                                "id": "ee61dbfb-fe86-47c0-b60e-fe317e4f223f"
+                            },{
+                                "title": "Description",
+                                "tag": "h2",
+                                "tagId": "description",
+                                "path": "/assays/seqfish.html",
+                                "id": "9d3be238-85f4-4dc7-a56f-e274c0a24e8b"
+                            },{
+                                "title": "Definitions",
+                                "tag": "h2",
+                                "tagId": "definitions",
+                                "path": "/assays/seqfish.html",
+                                "id": "a8328fae-7c9c-4fbe-9d8b-a85dafb3c818"
+                            },{
+                                "title": "SenNet seqFISH Data States (Levels)",
+                                "tag": "h2",
+                                "tagId": "sennet-seqfish-data-states-levels",
+                                "path": "/assays/seqfish.html",
+                                "id": "d8606f9f-7c33-4911-8d5a-fbad1577beb2"
+                            },{
+                                "title": "SenNet Metadata",
+                                "tag": "h2",
+                                "tagId": "sennet-metadata",
+                                "path": "/assays/seqfish.html",
+                                "id": "88571b8b-e2d5-4f7e-9d62-9c196645a5d7"
+                            },{
+                                "title": "Associated JSON Files",
+                                "tag": "h2",
+                                "tagId": "associated-json-files",
+                                "path": "/assays/seqfish.html",
+                                "id": "d991e239-db34-4fef-be4d-dfb89e518f8f"
+                            },{
+                                "title": "SenNet seqFISH Raw File Structure",
+                                "tag": "h2",
+                                "tagId": "sennet-seqfish-raw-file-structure",
+                                "path": "/assays/seqfish.html",
+                                "id": "3a020a8e-7682-466b-b72e-fb99f10b3d5f"
+                            },{
+                                "title": "SenNet QA/QC of raw (state0) data files",
+                                "tag": "h2",
+                                "tagId": "sennet-qaqc-of-raw-state0-data-files",
+                                "path": "/assays/seqfish.html",
+                                "id": "715c318f-5b70-40f2-94eb-5689c9c4c181"
+                            },{
+                                "title": "seqFISH Data Processing by the HIVE",
+                                "tag": "h2",
+                                "tagId": "seqfish-data-processing-by-the-hive",
+                                "path": "/assays/seqfish.html",
+                                "id": "638a0f2c-12a7-4c76-b350-7ee5526e1793"
+                            },{
+                                "title": "Terms defined in this document",
+                                "tag": "h2",
+                                "tagId": "terms-defined-in-this-document",
+                                "path": "/assays/seqfish.html",
+                                "id": "8825ff17-32e7-49aa-8dfa-58c5c2836b6e"
+                            },{
+                                "title": "For Additional Help",
+                                "tag": "h2",
+                                "tagId": "for-additional-help",
+                                "path": "/assays/seqfish.html",
+                                "id": "3bba82ac-e3da-4b15-9c75-c3c42b27a4a1"
+                            },{
+                                "title": "Last Updated 6/16/2020",
+                                "tag": "h3",
+                                "tagId": "last-updated-6162020",
+                                "path": "/assays/seqfish.html",
+                                "id": "674d0e54-3e53-4ebe-80c8-68d50d400d24"
+                            },{
+                                "title": "Section 4 - RUI Tissue Blocks",
+                                "tag": "h2",
+                                "tagId": "section-4---rui-tissue-blocks",
+                                "path": "/data-submission/Section4.html",
+                                "id": "0affa356-9b98-4acf-a6d1-520599a15ad1"
+                            },{
+                                "title": "Tissue Placement",
+                                "tag": "h3",
+                                "tagId": "tissue-placement",
+                                "path": "/data-submission/Section4.html",
+                                "id": "72d7d5b1-941a-4a55-bf8c-f2e0deb94ff7"
+                            },{
+                                "title": "Tissue Registration Issues",
+                                "tag": "h3",
+                                "tagId": "tissue-registration-issues",
+                                "path": "/data-submission/Section4.html",
+                                "id": "34f7c470-64de-4a9e-9b15-5a345383403d"
+                            },{
+                                "title": "Best Practices",
+                                "tag": "h3",
+                                "tagId": "best-practices",
+                                "path": "/data-submission/Section4.html",
+                                "id": "d1caa182-259d-4d23-b71f-389ca896ba03"
+                            },{
+                                "title": "SenNet Cell DIVE Data (GE Research)",
+                                "tag": "h1",
+                                "tagId": "sennet-cell-dive-data-ge-research",
+                                "path": "/assays/celldive.html",
+                                "id": "da941937-af2c-4c3c-89b5-dbcc04b9cd5b"
+                            },{
+                                "title": "Last Updated: 12/18/2020",
+                                "tag": "h2",
+                                "tagId": "last-updated-12182020",
+                                "path": "/assays/celldive.html",
+                                "id": "43a0eb03-d0d7-4163-82ba-f4fa97f067f2"
+                            },{
+                                "title": "Description:",
+                                "tag": "h2",
+                                "tagId": "description",
+                                "path": "/assays/celldive.html",
+                                "id": "6d6f6d0a-1b80-4c1f-b130-dfe26c745e96"
+                            },{
+                                "title": "Definitions:",
+                                "tag": "h2",
+                                "tagId": "definitions",
+                                "path": "/assays/celldive.html",
+                                "id": "03e6e460-8ff1-4c5f-9e1a-9c1c37750f57"
+                            },{
+                                "title": "Terms defined in this document:",
+                                "tag": "h2",
+                                "tagId": "terms-defined-in-this-document",
+                                "path": "/assays/celldive.html",
+                                "id": "2d1e884c-8ef6-4c4a-b408-1deadb9f8fb2"
+                            },{
+                                "title": "SenNet Cell DIVE Data States (Levels):",
+                                "tag": "h2",
+                                "tagId": "sennet-cell-dive-data-states-levels",
+                                "path": "/assays/celldive.html",
+                                "id": "94873786-c0e6-4819-9f27-e67bb3892929"
+                            },{
+                                "title": "SenNet Metadata",
+                                "tag": "h2",
+                                "tagId": "sennet-metadata",
+                                "path": "/assays/celldive.html",
+                                "id": "cd85e1b1-f07a-4ce9-997c-f80c41d67e73"
+                            },{
+                                "title": "Associated Metadata Content:",
+                                "tag": "h2",
+                                "tagId": "associated-metadata-content",
+                                "path": "/assays/celldive.html",
+                                "id": "391f4fab-1958-4cf4-b638-0897af637b5b"
+                            },{
+                                "title": "SenNet Cell DIVE Raw File Structure:",
+                                "tag": "h2",
+                                "tagId": "sennet-cell-dive-raw-file-structure",
+                                "path": "/assays/celldive.html",
+                                "id": "f3c15548-1a61-4e5b-b2b2-83fe3ee8aa5b"
+                            },{
+                                "title": "Cell DIVE Processing by the HIVE:",
+                                "tag": "h2",
+                                "tagId": "cell-dive-processing-by-the-hive",
+                                "path": "/assays/celldive.html",
+                                "id": "ed4eb6c2-80b4-4d88-9ee5-67905c98e283"
+                            },{
+                                "title": "QA/QC of processed microscopy data (state 1):",
+                                "tag": "h2",
+                                "tagId": "qaqc-of-processed-microscopy-data-state-1",
+                                "path": "/assays/celldive.html",
+                                "id": "9fc7e749-c2d3-4083-80c9-a90ccdf91655"
+                            },{
+                                "title": "For Additional Help:",
+                                "tag": "h2",
+                                "tagId": "for-additional-help",
+                                "path": "/assays/celldive.html",
+                                "id": "014b06ff-e130-430d-bffd-9a03e17ca295"
+                            },{
+                                "title": "SenNet PAS Stained Microscopy",
+                                "tag": "h1",
+                                "tagId": "sennet-pas-stained-microscopy",
+                                "path": "/assays/pas.html",
+                                "id": "5b9148a1-e079-4429-812d-36abc2dc1289"
+                            },{
+                                "title": "Overview",
+                                "tag": "h2",
+                                "tagId": "overview",
+                                "path": "/assays/pas.html",
+                                "id": "3cf92e62-1f46-4048-9608-498aab549733"
+                            },{
+                                "title": "Description",
+                                "tag": "h2",
+                                "tagId": "description",
+                                "path": "/assays/pas.html",
+                                "id": "7a0451c1-f071-40a2-ac57-a4793de1fff7"
+                            },{
+                                "title": "Definitions",
+                                "tag": "h2",
+                                "tagId": "definitions",
+                                "path": "/assays/pas.html",
+                                "id": "7cd334e1-9288-4943-80d5-a44646b92654"
+                            },{
+                                "title": "SenNet Stained Microscopy Data States (Levels)",
+                                "tag": "h2",
+                                "tagId": "sennet-stained-microscopy-data-states-levels",
+                                "path": "/assays/pas.html",
+                                "id": "773aef7a-cebc-47b5-b2a7-0b70cc22a546"
+                            },{
+                                "title": "SenNet Metadata",
+                                "tag": "h2",
+                                "tagId": "sennet-metadata",
+                                "path": "/assays/pas.html",
+                                "id": "0ba1bba3-5810-40ab-86b6-1f4dce9ac989"
+                            },{
+                                "title": "Associated Metadata files",
+                                "tag": "h2",
+                                "tagId": "associated-metadata-files",
+                                "path": "/assays/pas.html",
+                                "id": "50f02d8b-1f02-4260-984e-4a163626d467"
+                            },{
+                                "title": "Terms defined in this document",
+                                "tag": "h2",
+                                "tagId": "terms-defined-in-this-document",
+                                "path": "/assays/pas.html",
+                                "id": "1569feab-96c4-4120-95f0-c9310c02ff1f"
+                            },{
+                                "title": "For Additional Help",
+                                "tag": "h2",
+                                "tagId": "for-additional-help",
+                                "path": "/assays/pas.html",
+                                "id": "4ce89cc1-ce74-4a84-ab28-7876af41bcf3"
+                            },{
+                                "title": "Last Updated 6/15/2020",
+                                "tag": "h3",
+                                "tagId": "last-updated-6152020",
+                                "path": "/assays/pas.html",
+                                "id": "d01ae91d-6c68-4d59-9de1-94c63abf4bcd"
+                            },{
+                                "title": "SenNet seqFISH",
+                                "tag": "h1",
+                                "tagId": "sennet-seqfish",
+                                "path": "/assays/seqfish.html",
+                                "id": "d689a76a-30e7-4cce-ab85-a079af40c1fd"
+                            },{
+                                "title": "Version 2 (current)",
+                                "tag": "h2",
+                                "tagId": "version-2-current",
+                                "path": "/assays/metadata/10XMultiome.html",
+                                "id": "74c7dd20-21c0-447f-94a0-e9ace1625e9a"
+                            },{
+                                "title": "SenNet Assays",
+                                "tag": "h1",
+                                "tagId": "sennet-assays",
+                                "path": "/assays/index.html",
+                                "id": "dc94bbbd-f60a-4655-b50d-bb1359d50498"
+                            },{
+                                "title": "Autofluorescence Microscopy",
+                                "tag": "h2",
+                                "tagId": "autofluorescence-microscopy",
+                                "path": "/assays/index.html",
+                                "id": "f3fbed76-fc42-453e-9d68-c1c0a6cf25ba"
+                            },{
+                                "title": "Assay for Transposase-Accessible Chromatin (ATACseq)",
+                                "tag": "h2",
+                                "tagId": "assay-for-transposase-accessible-chromatin-atacseq",
+                                "path": "/assays/index.html",
+                                "id": "c1c4ebf9-c929-4e87-abe2-cbf6318f54dd"
+                            },{
+                                "title": "Co-detection by indexing (CODEX)",
+                                "tag": "h2",
+                                "tagId": "co-detection-by-indexing-codex",
+                                "path": "/assays/index.html",
+                                "id": "5e12ae26-528a-48b6-86ec-57593ec7a543"
+                            },{
+                                "title": "Image Mass Cytometry (IMC)",
+                                "tag": "h2",
+                                "tagId": "image-mass-cytometry-imc",
+                                "path": "/assays/index.html",
+                                "id": "672bbe33-0ec0-439a-940a-7e71ecaaf133"
+                            },{
+                                "title": "Lightsheet",
+                                "tag": "h2",
+                                "tagId": "lightsheet",
+                                "path": "/assays/index.html",
+                                "id": "baf7dba1-269a-44a4-8561-85b172c7278b"
+                            },{
+                                "title": "Liquid Chromatography Mass Spectrometry (LC-MS)",
+                                "tag": "h2",
+                                "tagId": "liquid-chromatography-mass-spectrometry-lc-ms",
+                                "path": "/assays/index.html",
+                                "id": "62a4f924-ce37-4b65-9df5-67db987a71f0"
+                            },{
+                                "title": "Matrix Assisted Laser Desorption/Ionization Imaging Mass Spectrometry (MALDI-IMS)",
+                                "tag": "h2",
+                                "tagId": "matrix-assisted-laser-desorptionionization-imaging-mass-spectrometry-maldi-ims",
+                                "path": "/assays/index.html",
+                                "id": "64964d9c-747b-4c90-b4c3-a576939c9326"
+                            },{
+                                "title": "Multiplexed Immunofluorescence (MxIF)",
+                                "tag": "h2",
+                                "tagId": "multiplexed-immunofluorescence-mxif",
+                                "path": "/assays/index.html",
+                                "id": "da3f55fc-f0c6-4bbe-9772-254ce121dc7c"
+                            },{
+                                "title": "RNA Sequencing (RNAseq)",
+                                "tag": "h2",
+                                "tagId": "rna-sequencing-rnaseq",
+                                "path": "/assays/index.html",
+                                "id": "96c68f5a-6156-4566-8407-b365bc608eb5"
+                            },{
+                                "title": "Sequencing by Fluorescence In-Situ Hybridization (seqFISH)",
+                                "tag": "h2",
+                                "tagId": "sequencing-by-fluorescence-in-situ-hybridization-seqfish",
+                                "path": "/assays/index.html",
+                                "id": "2b4e6d76-d472-4235-aff3-2d2cbe2feb2d"
+                            },{
+                                "title": "Stained Microscopy",
+                                "tag": "h2",
+                                "tagId": "stained-microscopy",
+                                "path": "/assays/index.html",
+                                "id": "74233b24-68c8-4179-a8d0-6623d63829d3"
+                            },{
+                                "title": "Whole Genome Sequencing (WGS)",
+                                "tag": "h2",
+                                "tagId": "whole-genome-sequencing-wgs",
+                                "path": "/assays/index.html",
+                                "id": "7b82d91d-1759-4333-a9eb-520f5f0b13e8"
+                            },{
+                                "title": "Pre-alignment QC:",
+                                "tag": "h3",
+                                "tagId": "pre-alignment-qc",
+                                "path": "/libraries/provenance-ui/foo/test.html",
+                                "id": "4cae022e-9427-4ea1-95a2-d920b4fdad5b"
+                            },{
+                                "title": "SenNet RNAseq",
+                                "tag": "h1",
+                                "tagId": "sennet-rnaseq",
+                                "path": "/assays/rnaseq.html",
+                                "id": "040d9c89-7aa3-43e5-9c86-e27f72616ada"
+                            },{
+                                "title": "Overview",
+                                "tag": "h2",
+                                "tagId": "overview",
+                                "path": "/assays/rnaseq.html",
+                                "id": "8639c09c-89e7-4638-9523-d0282029092d"
+                            },{
+                                "title": "Description",
+                                "tag": "h2",
+                                "tagId": "description",
+                                "path": "/assays/rnaseq.html",
+                                "id": "21c04522-4106-41c7-883a-de2b354b7f48"
+                            },{
+                                "title": "Definitions",
+                                "tag": "h2",
+                                "tagId": "definitions",
+                                "path": "/assays/rnaseq.html",
+                                "id": "58c16232-5df4-4311-9ac8-af7ebe62d781"
+                            },{
+                                "title": "SenNet RNA-Seq Data States",
+                                "tag": "h2",
+                                "tagId": "sennet-rna-seq-data-states",
+                                "path": "/assays/rnaseq.html",
+                                "id": "d95e477f-253d-4b61-871c-026796378442"
+                            },{
+                                "title": "SenNet Metadata",
+                                "tag": "h2",
+                                "tagId": "sennet-metadata",
+                                "path": "/assays/rnaseq.html",
+                                "id": "92650230-1447-4645-8139-39e12828b43c"
+                            },{
+                                "title": "SenNet Single-cell Sequence Raw File Structure",
+                                "tag": "h2",
+                                "tagId": "sennet-single-cell-sequence-raw-file-structure",
+                                "path": "/assays/rnaseq.html",
+                                "id": "94ddc9ac-2d3b-4150-b92e-9af1b4d3a6c3"
+                            },{
+                                "title": "SenNet QA/QC of raw (state0) data files",
+                                "tag": "h2",
+                                "tagId": "sennet-qaqc-of-raw-state0-data-files",
+                                "path": "/assays/rnaseq.html",
+                                "id": "7e52ae90-f2a6-4159-a776-180e92786720"
+                            },{
+                                "title": "For Additional Help",
+                                "tag": "h2",
+                                "tagId": "for-additional-help",
+                                "path": "/assays/rnaseq.html",
+                                "id": "529d0f04-f677-4c4f-81a4-324c33519ccc"
+                            },{
+                                "title": "Processing",
+                                "tag": "h2",
+                                "tagId": "processing",
+                                "path": "/assays/rnaseq.html",
+                                "id": "5fa88ff4-de6f-4954-ad5f-87626cd2353a"
+                            },{
+                                "title": "Last Updated 6/23/2020",
+                                "tag": "h3",
+                                "tagId": "last-updated-6232020",
+                                "path": "/assays/rnaseq.html",
+                                "id": "48e830ab-6516-4811-9d09-0e6aa4cd39af"
+                            },{
+                                "title": "Bulk RNAseq",
+                                "tag": "h3",
+                                "tagId": "bulk-rnaseq",
+                                "path": "/assays/rnaseq.html",
+                                "id": "d5ea1eeb-b6b9-47c0-944f-341cbf1721f1"
+                            },{
+                                "title": "10x Genomics single cell RNASeq",
+                                "tag": "h3",
+                                "tagId": "10x-genomics-single-cell-rnaseq",
+                                "path": "/assays/rnaseq.html",
+                                "id": "1faf10ce-4235-4271-88ae-059eadc9b76b"
+                            },{
+                                "title": "SNARE-Seq",
+                                "tag": "h3",
+                                "tagId": "snare-seq",
+                                "path": "/assays/rnaseq.html",
+                                "id": "017586c0-ad90-413e-b2f9-9542f934671e"
+                            },{
+                                "title": "sci-RNASeq",
+                                "tag": "h3",
+                                "tagId": "sci-rnaseq",
+                                "path": "/assays/rnaseq.html",
+                                "id": "3815fc30-20d7-45c8-8f9b-4c98f3487dc5"
+                            },{
+                                "title": "Definition of Metadata Levels",
+                                "tag": "h3",
+                                "tagId": "definition-of-metadata-levels",
+                                "path": "/assays/rnaseq.html",
+                                "id": "3f003ec0-75f2-4173-8eb8-913112cdd8f0"
+                            },{
+                                "title": "Single Cell - specific Metadata Fields",
+                                "tag": "h3",
+                                "tagId": "single-cell---specific-metadata-fields",
+                                "path": "/assays/rnaseq.html",
+                                "id": "949fa25d-235c-450b-a20b-c81cf567a6a1"
+                            },{
+                                "title": "Bulk RNA seq - specific Metadata Fields",
+                                "tag": "h3",
+                                "tagId": "bulk-rna-seq---specific-metadata-fields",
+                                "path": "/assays/rnaseq.html",
+                                "id": "f63b633e-f738-42b1-94b0-1d56853ead60"
+                            },{
+                                "title": "Definition",
+                                "tag": "h3",
+                                "tagId": "definition",
+                                "path": "/assays/rnaseq.html",
+                                "id": "0ab17ca7-4006-4cc7-ac40-6ed8a16808a8"
+                            },{
+                                "title": "GC content: Percentage of bases that are either guanine (G) or cytosine (C)",
+                                "tag": "h3",
+                                "tagId": "gc-content-percentage-of-bases-that-are-either-guanine-g-or-cytosine-c",
+                                "path": "/assays/rnaseq.html",
+                                "id": "5c07756c-2472-4dbb-bcaf-ea9400186fff"
+                            },{
+                                "title": "K-mer overrepresentation",
+                                "tag": "h3",
+                                "tagId": "k-mer-overrepresentation",
+                                "path": "/assays/rnaseq.html",
+                                "id": "7f67c9e5-a5f0-44ba-b00c-6ae2b35361ba"
+                            },{
+                                "title": "Library-level Alignment QC",
+                                "tag": "h3",
+                                "tagId": "library-level-alignment-qc",
+                                "path": "/assays/rnaseq.html",
+                                "id": "a0404aa4-df50-4c41-b833-1e1563b3f874"
+                            },{
+                                "title": "Uniquely mapping % –",
+                                "tag": "h3",
+                                "tagId": "uniquely-mapping--",
+                                "path": "/assays/rnaseq.html",
+                                "id": "eb6cd2c1-0c3a-4075-bdeb-3dcf1cb0049d"
+                            },{
+                                "title": "Duplicated reads % -",
+                                "tag": "h3",
+                                "tagId": "duplicated-reads---",
+                                "path": "/assays/rnaseq.html",
+                                "id": "d54260d5-b79f-4e6b-bc80-7eb242f6843c"
+                            },{
+                                "title": "Post-alignment processing QC:",
+                                "tag": "h3",
+                                "tagId": "post-alignment-processing-qc",
+                                "path": "/assays/rnaseq.html",
+                                "id": "65cf771b-bca1-4e24-8150-d2bac6f3cbf8"
+                            },{
+                                "title": "SenNet Light Sheet Fluorescence Microscopy (UF-TMC)",
+                                "tag": "h1",
+                                "tagId": "sennet-light-sheet-fluorescence-microscopy-uf-tmc",
+                                "path": "/assays/lightsheet.html",
+                                "id": "a507a71f-9e5d-4363-b9a5-e97dba663266"
+                            },{
+                                "title": "Overview:",
+                                "tag": "h2",
+                                "tagId": "overview",
+                                "path": "/assays/lightsheet.html",
+                                "id": "342d0f46-4d1c-4db5-a009-929418f242c2"
+                            },{
+                                "title": "Description:",
+                                "tag": "h2",
+                                "tagId": "description",
+                                "path": "/assays/lightsheet.html",
+                                "id": "bb5c2e37-86fb-4982-84c2-f235f13a1689"
+                            },{
+                                "title": "Defintions:",
+                                "tag": "h2",
+                                "tagId": "defintions",
+                                "path": "/assays/lightsheet.html",
+                                "id": "76ddf2ef-0319-4378-a21d-891b95f43361"
+                            },{
+                                "title": "SenNet Lightsheet Data States (Levels):",
+                                "tag": "h2",
+                                "tagId": "sennet-lightsheet-data-states-levels",
+                                "path": "/assays/lightsheet.html",
+                                "id": "b2df9681-466f-4acb-8048-40aa51fd76dd"
+                            },{
+                                "title": "Metadata:",
+                                "tag": "h2",
+                                "tagId": "metadata",
+                                "path": "/assays/lightsheet.html",
+                                "id": "2901eb66-4e70-4511-9f11-1cd03b65ebf2"
+                            },{
+                                "title": "LSFM General File Strcuture:",
+                                "tag": "h2",
+                                "tagId": "lsfm-general-file-strcuture",
+                                "path": "/assays/lightsheet.html",
+                                "id": "e9369e68-aa52-4987-a68d-d869ebae695f"
+                            },{
+                                "title": "LSFM Data Processing by the HIVE",
+                                "tag": "h2",
+                                "tagId": "lsfm-data-processing-by-the-hive",
+                                "path": "/assays/lightsheet.html",
+                                "id": "7dc2d62f-a5ce-49bb-8933-457c693d6c09"
+                            },{
+                                "title": "For Additional Help:",
+                                "tag": "h2",
+                                "tagId": "for-additional-help",
+                                "path": "/assays/lightsheet.html",
+                                "id": "ee11652f-82c4-4fb8-921c-0d9bf9b082b2"
+                            },{
+                                "title": "Last Updated: 1/26/2021",
+                                "tag": "h3",
+                                "tagId": "last-updated-1262021",
+                                "path": "/assays/lightsheet.html",
+                                "id": "1100baff-0221-44a2-a59f-b073edf29962"
+                            },{
+                                "title": "RNAseq",
+                                "tag": "h1",
+                                "tagId": "rnaseq",
+                                "path": "/assays/metadata/RNAseq.html",
+                                "id": "50efd9a7-d32b-40ab-956d-855d45525e61"
+                            },{
+                                "title": "RNAseq Version 5 (current)",
+                                "tag": "h2",
+                                "tagId": "rnaseq-version-5-current",
+                                "path": "/assays/metadata/RNAseq.html",
+                                "id": "bec49810-e9d5-4dac-acb9-3542ffbdecf4"
+                            },{
+                                "title": "RNAseq Version 2",
+                                "tag": "h2",
+                                "tagId": "rnaseq-version-2",
+                                "path": "/assays/metadata/RNAseq.html",
+                                "id": "4eeefea3-99b5-4c3d-8441-7bab8bdf3393"
+                            },{
+                                "title": "bulk-RNA Version 1",
+                                "tag": "h2",
+                                "tagId": "bulk-rna-version-1",
+                                "path": "/assays/metadata/RNAseq.html",
+                                "id": "d767c16a-76a9-4fc9-a064-54206bf8abca"
+                            },{
+                                "title": "bulk-RNA Version 0",
+                                "tag": "h2",
+                                "tagId": "bulk-rna-version-0",
+                                "path": "/assays/metadata/RNAseq.html",
+                                "id": "3e4f3231-c8d5-4ae9-8be1-d50d10fc66ac"
+                            },{
+                                "title": "scRNAseq Version 3",
+                                "tag": "h2",
+                                "tagId": "scrnaseq-version-3",
+                                "path": "/assays/metadata/RNAseq.html",
+                                "id": "6957ffc6-9bd2-4414-b71b-277e82f204a0"
+                            },{
+                                "title": "scRNAseq Version 2",
+                                "tag": "h2",
+                                "tagId": "scrnaseq-version-2",
+                                "path": "/assays/metadata/RNAseq.html",
+                                "id": "b89fe4e5-6487-41a5-ac6b-83a3220638f8"
+                            },{
+                                "title": "scRNAseq Version 1",
+                                "tag": "h2",
+                                "tagId": "scrnaseq-version-1",
+                                "path": "/assays/metadata/RNAseq.html",
+                                "id": "e7001b30-a2c6-4874-96a7-1887f42852f2"
+                            },{
+                                "title": "scRNAseq Version 0",
+                                "tag": "h2",
+                                "tagId": "scrnaseq-version-0",
+                                "path": "/assays/metadata/RNAseq.html",
+                                "id": "e64694c1-6f30-49c5-a3ac-feca5d392949"
+                            },{
+                                "title": "IMC-2D",
+                                "tag": "h1",
+                                "tagId": "imc-2d",
+                                "path": "/assays/metadata/IMC.html",
+                                "id": "342a95bd-4d3d-483e-a975-a8586031afef"
+                            },{
+                                "title": "2D IMC Version 2 (Latest)",
+                                "tag": "h2",
+                                "tagId": "d-imc-version-2-latest",
+                                "path": "/assays/metadata/IMC.html",
+                                "id": "add403c2-a24e-4c32-877d-41cd83bafbee"
+                            },{
+                                "title": "2D IMC Version 1",
+                                "tag": "h2",
+                                "tagId": "d-imc-version-1",
+                                "path": "/assays/metadata/IMC.html",
+                                "id": "506bc8eb-342e-46fa-a8e4-22fa4e8ac985"
+                            },{
+                                "title": "2D IMC Version 0",
+                                "tag": "h2",
+                                "tagId": "d-imc-version-0",
+                                "path": "/assays/metadata/IMC.html",
+                                "id": "f0eafad8-a5f4-42bd-9bff-235b3d44fef6"
+                            },{
+                                "title": "3D IMC Version 1 (no longer accepting data)",
+                                "tag": "h2",
+                                "tagId": "d-imc-version-1-no-longer-accepting-data",
+                                "path": "/assays/metadata/IMC.html",
+                                "id": "89fc1eee-a20c-421b-8d00-b293ecca63b1"
+                            },{
+                                "title": "3D IMC Version 0",
+                                "tag": "h2",
+                                "tagId": "d-imc-version-0-1",
+                                "path": "/assays/metadata/IMC.html",
+                                "id": "fa97687c-d581-485b-99c0-89033942efe6"
+                            },{
+                                "title": "HiFi-Slide",
+                                "tag": "h1",
+                                "tagId": "hifi-slide",
+                                "path": "/assays/metadata/HiFi-Slide.html",
+                                "id": "bc74ad38-0f73-4c7e-b5cf-441d099982d9"
+                            },{
+                                "title": "Version 2 (current)",
+                                "tag": "h2",
+                                "tagId": "version-2-current",
+                                "path": "/assays/metadata/HiFi-Slide.html",
+                                "id": "558f3f32-e9bc-4f4e-b914-22e19f9533e1"
+                            },{
+                                "title": "NGS Version 2 (current)",
+                                "tag": "h2",
+                                "tagId": "ngs-version-2-current",
+                                "path": "/assays/metadata/GeoMx.html",
+                                "id": "0bd927e3-4aa7-48b6-85e5-d70d2df13c93"
+                            },{
+                                "title": "nCounter Version 2 (current)",
+                                "tag": "h2",
+                                "tagId": "ncounter-version-2-current",
+                                "path": "/assays/metadata/GeoMx.html",
+                                "id": "9b2a3bdc-33d2-4f32-9380-147f3d527ad3"
+                            },{
+                                "title": "SenNet  Liquid Chromatography Mass Spectrometry (LCMS)",
+                                "tag": "h1",
+                                "tagId": "sennet--liquid-chromatography-mass-spectrometry-lcms",
+                                "path": "/assays/lcms.html",
+                                "id": "198aaf3b-0361-4be0-943b-6a46a4747f91"
+                            },{
+                                "title": "Overview",
+                                "tag": "h2",
+                                "tagId": "overview",
+                                "path": "/assays/lcms.html",
+                                "id": "dc4374d1-588c-43a0-b1e4-69157a54a489"
+                            },{
+                                "title": "Description",
+                                "tag": "h2",
+                                "tagId": "description",
+                                "path": "/assays/lcms.html",
+                                "id": "4bcc54dc-baea-486a-bf3e-1ce583eb96d4"
+                            },{
+                                "title": "SenNet Data States (Levels)",
+                                "tag": "h2",
+                                "tagId": "sennet-data-states-levels",
+                                "path": "/assays/lcms.html",
+                                "id": "fde6147e-adfc-4dcd-9961-cbb1f3097b6e"
+                            },{
+                                "title": "SenNet Metadata",
+                                "tag": "h2",
+                                "tagId": "sennet-metadata",
+                                "path": "/assays/lcms.html",
+                                "id": "c1f28159-f72f-44c7-8875-302340afb957"
+                            },{
+                                "title": "SenNet QA/QC of raw (state0) data files",
+                                "tag": "h2",
+                                "tagId": "sennet-qaqc-of-raw-state0-data-files",
+                                "path": "/assays/lcms.html",
+                                "id": "f6cd5837-d479-4880-85e1-80da32f3d53f"
+                            },{
+                                "title": "QC for Lipidomics & Metabolomics",
+                                "tag": "h2",
+                                "tagId": "qc-for-lipidomics--metabolomics",
+                                "path": "/assays/lcms.html",
+                                "id": "d9e134e2-c223-468b-a48d-42f3bd6a82a4"
+                            },{
+                                "title": "Terms defined in this document",
+                                "tag": "h2",
+                                "tagId": "terms-defined-in-this-document",
+                                "path": "/assays/lcms.html",
+                                "id": "c23b8633-c4c0-4e88-a298-c16d4f957fce"
+                            },{
+                                "title": "For Additional Help",
+                                "tag": "h2",
+                                "tagId": "for-additional-help",
+                                "path": "/assays/lcms.html",
+                                "id": "8ccc9de4-c4bf-47fb-854e-74ede7e3c954"
+                            },{
+                                "title": "Last Updated 6/22/2020",
+                                "tag": "h3",
+                                "tagId": "last-updated-6222020",
+                                "path": "/assays/lcms.html",
+                                "id": "107c5611-9b43-48bb-8bef-1bf77b2a6e45"
+                            },{
+                                "title": "SenNet Matrix Assisted Laser Desorption/Ionization (MALDI) Imaging Mass Spectrometry (IMS)",
+                                "tag": "h1",
+                                "tagId": "sennet-matrix-assisted-laser-desorptionionization-maldi-imaging-mass-spectrometry-ims",
+                                "path": "/assays/maldi-ims.html",
+                                "id": "02fbd2a5-d8b9-4378-ba7f-0f9a5355c16a"
+                            },{
+                                "title": "10X-Multiome",
+                                "tag": "h1",
+                                "tagId": "10x-multiome",
+                                "path": "/assays/metadata/10XMultiome.html",
+                                "id": "7ee7469d-6af5-407e-b427-71ba33bc8ab6"
+                            },{
+                                "title": "Last updated: 6/12/2020",
+                                "tag": "h3",
+                                "tagId": "last-updated-6122020",
+                                "path": "/assays/maldi-ims.html",
+                                "id": "1876943c-162c-4fb5-8b2a-577c490d16e2"
+                            },{
+                                "title": "GeoMx",
+                                "tag": "h1",
+                                "tagId": "geomx",
+                                "path": "/assays/metadata/GeoMx.html",
+                                "id": "3acf9b24-725d-4f6d-bc50-08394f991be9"
+                            },{
+                                "title": "Current Metadata Attributes",
+                                "tag": "h2",
+                                "tagId": "current-metadata-attributes",
+                                "path": "/assays/metadata/MUSIC.html",
+                                "id": "58ce0119-1ed4-4cee-ad65-b638e1625af7"
+                            },{
+                                "title": "Overview",
+                                "tag": "h2",
+                                "tagId": "overview",
+                                "path": "/assays/maldi-ims.html",
+                                "id": "7ccba766-4594-4189-97cb-772fc158b46d"
+                            },{
+                                "title": "Description",
+                                "tag": "h2",
+                                "tagId": "description",
+                                "path": "/assays/maldi-ims.html",
+                                "id": "8552ec33-6027-4c7c-a4e3-56b546a29fc0"
+                            },{
+                                "title": "Definitions",
+                                "tag": "h2",
+                                "tagId": "definitions",
+                                "path": "/assays/maldi-ims.html",
+                                "id": "b2ecafea-b695-4df4-85b9-c785572d699b"
+                            },{
+                                "title": "SenNet  Data States (Levels)",
+                                "tag": "h2",
+                                "tagId": "sennet--data-states-levels",
+                                "path": "/assays/maldi-ims.html",
+                                "id": "38904fc6-f531-4352-b726-3e84a86917fb"
+                            },{
+                                "title": "SenNet Metadata",
+                                "tag": "h2",
+                                "tagId": "sennet-metadata",
+                                "path": "/assays/maldi-ims.html",
+                                "id": "a9c3ca9f-dafc-42ae-824a-89b77c41bac3"
+                            },{
+                                "title": "Associated JSON Files",
+                                "tag": "h2",
+                                "tagId": "associated-json-files",
+                                "path": "/assays/maldi-ims.html",
+                                "id": "c6b77723-c9ab-4a24-86bb-e7c61cfa94c2"
+                            },{
+                                "title": "SenNet MALDI-IMS File Structure",
+                                "tag": "h2",
+                                "tagId": "sennet-maldi-ims-file-structure",
+                                "path": "/assays/maldi-ims.html",
+                                "id": "7a427583-00b0-4882-bbce-05b61e68043b"
+                            },{
+                                "title": "SenNet QC/QA for Level 1 MALDI IMS Data",
+                                "tag": "h2",
+                                "tagId": "sennet-qcqa-for-level-1-maldi-ims-data",
+                                "path": "/assays/maldi-ims.html",
+                                "id": "d3339ae1-1d5f-49c5-971e-0f5c0e029c1d"
+                            },{
+                                "title": "Terms defined in this document",
+                                "tag": "h2",
+                                "tagId": "terms-defined-in-this-document",
+                                "path": "/assays/maldi-ims.html",
+                                "id": "65198bcb-20dc-4111-8d46-a0bc2c663523"
+                            },{
+                                "title": "For Additional Help",
+                                "tag": "h2",
+                                "tagId": "for-additional-help",
+                                "path": "/assays/maldi-ims.html",
+                                "id": "3ef29ccd-5dc9-4243-b34f-755638ebddd4"
+                            },{
+                                "title": "SenNet APIs",
+                                "tag": "h1",
+                                "tagId": "sennet-apis",
+                                "path": "/apis/index.html",
+                                "id": "f14aa9d6-12e4-4885-a777-fb7d62385d5f"
+                            },{
+                                "title": "Identifiers used in SenNet and the APIs",
+                                "tag": "h1",
+                                "tagId": "identifiers-used-in-sennet-and-the-apis",
+                                "path": "/apis/index.html",
+                                "id": "11ffb0a9-9246-4075-bc3d-ea0ece202984"
+                            },{
+                                "title": "UUID API",
+                                "tag": "h3",
+                                "tagId": "uuid-api",
+                                "path": "/apis/index.html",
+                                "id": "658d1111-a6e7-466a-ac89-8111e0d918f5"
+                            },{
+                                "title": "Ontology/UBKG API",
+                                "tag": "h3",
+                                "tagId": "ontologyubkg-api",
+                                "path": "/apis/index.html",
+                                "id": "2f5e675d-e437-47e6-ae80-1660dbee3dc3"
+                            },{
+                                "title": "SenNet ID",
+                                "tag": "h3",
+                                "tagId": "sennet-id",
+                                "path": "/apis/index.html",
+                                "id": "89f4e78f-b597-410d-83cb-8bb38f6c94d3"
+                            },{
+                                "title": "UUID",
+                                "tag": "h3",
+                                "tagId": "uuid",
+                                "path": "/apis/index.html",
+                                "id": "45ccb0a5-eff6-4d56-abe1-6e0e7a33eb57"
+                            },{
+                                "title": "DOI",
+                                "tag": "h3",
+                                "tagId": "doi",
+                                "path": "/apis/index.html",
+                                "id": "9c45688c-140d-47b6-904d-d1e7969487cb"
+                            },{
+                                "title": "CODEX",
+                                "tag": "h1",
+                                "tagId": "codex",
+                                "path": "/assays/metadata/CODEX.html",
+                                "id": "5d87c83d-fdc3-4a78-b941-dd661c404cfb"
+                            },{
+                                "title": "Version 2",
+                                "tag": "h2",
+                                "tagId": "version-2",
+                                "path": "/assays/metadata/CODEX.html",
+                                "id": "1f8dcba1-f396-441b-bdda-3e2111a905ac"
+                            },{
+                                "title": "Version 1",
+                                "tag": "h2",
+                                "tagId": "version-1",
+                                "path": "/assays/metadata/CODEX.html",
+                                "id": "82cc91aa-8458-4df6-8e49-19896743ca9a"
+                            },{
+                                "title": "Version 0",
+                                "tag": "h2",
+                                "tagId": "version-0",
+                                "path": "/assays/metadata/CODEX.html",
+                                "id": "4116490b-7fdc-4d12-9f0d-1dcde59cbf2d"
+                            },{
+                                "title": "Enhanced-SRS",
+                                "tag": "h1",
+                                "tagId": "enhanced-srs",
+                                "path": "/assays/metadata/EnhancedSRS.html",
+                                "id": "4542940d-0971-4ab5-91c3-e58de2515289"
+                            },{
+                                "title": "Version 2 (current)",
+                                "tag": "h2",
+                                "tagId": "version-2-current",
+                                "path": "/assays/metadata/EnhancedSRS.html",
+                                "id": "a9c71d33-9111-44bf-b90d-1ddea793bc13"
+                            },{
+                                "title": "SenNet single cell & bulk ATAC Sequence Data",
+                                "tag": "h1",
+                                "tagId": "sennet-single-cell--bulk-atac-sequence-data",
+                                "path": "/assays/atacseq.html",
+                                "id": "e1e6269f-702d-483e-9656-5b3c33c10632"
+                            },{
+                                "title": "Overview",
+                                "tag": "h2",
+                                "tagId": "overview",
+                                "path": "/assays/atacseq.html",
+                                "id": "4e71fbca-8a92-40e2-b99f-19987339a8d3"
+                            },{
+                                "title": "Description",
+                                "tag": "h2",
+                                "tagId": "description",
+                                "path": "/assays/atacseq.html",
+                                "id": "701b459c-1d0b-4904-b9be-ca896fdb56bc"
+                            },{
+                                "title": "Definitions",
+                                "tag": "h2",
+                                "tagId": "definitions",
+                                "path": "/assays/atacseq.html",
+                                "id": "a79f2df2-a4ed-4d0c-b215-ef72f13958e8"
+                            },{
+                                "title": "SenNet ATAC Sequence Data States (Levels)",
+                                "tag": "h2",
+                                "tagId": "sennet-atac-sequence-data-states-levels",
+                                "path": "/assays/atacseq.html",
+                                "id": "267d8e3b-62cd-4bc6-8852-5be63073d888"
+                            },{
+                                "title": "SenNet Metadata",
+                                "tag": "h2",
+                                "tagId": "sennet-metadata",
+                                "path": "/assays/atacseq.html",
+                                "id": "995d3ceb-1417-4ae7-8cae-0b81bc42c748"
+                            },{
+                                "title": "SenNet QA/QC of raw (state0) data files",
+                                "tag": "h2",
+                                "tagId": "sennet-qaqc-of-raw-state0-data-files",
+                                "path": "/assays/atacseq.html",
+                                "id": "d2108347-87d0-4416-b306-c4bd53981630"
+                            },{
+                                "title": "Terms defined in this document",
+                                "tag": "h2",
+                                "tagId": "terms-defined-in-this-document",
+                                "path": "/assays/atacseq.html",
+                                "id": "aedee5e0-b234-4fa1-b46c-be6120bdbfb1"
+                            },{
+                                "title": "For Additional Help",
+                                "tag": "h2",
+                                "tagId": "for-additional-help",
+                                "path": "/assays/atacseq.html",
+                                "id": "1f1f8eb2-25b0-406d-b8c0-a0497bffa6e4"
+                            },{
+                                "title": "Last Updated: 6/23/2020",
+                                "tag": "h3",
+                                "tagId": "last-updated-6232020",
+                                "path": "/assays/atacseq.html",
+                                "id": "c45540dc-32a3-4121-81f3-45af1bed5bab"
+                            },{
+                                "title": "Pre-alignment QC:",
+                                "tag": "h3",
+                                "tagId": "pre-alignment-qc",
+                                "path": "/assays/atacseq.html",
+                                "id": "9c2a1377-f89b-4958-95c5-37f945763e6f"
+                            },{
+                                "title": "Library-level Alignment QC",
+                                "tag": "h3",
+                                "tagId": "library-level-alignment-qc",
+                                "path": "/assays/atacseq.html",
+                                "id": "1f4f136c-01b1-4dfe-86f3-a7364de6debc"
+                            },{
+                                "title": "Post-alignment processing QC (see Per cell QC metrics table below)",
+                                "tag": "h3",
+                                "tagId": "post-alignment-processing-qc-see-per-cell-qc-metrics-table-below",
+                                "path": "/assays/atacseq.html",
+                                "id": "9af7a9a8-2a4b-4353-a920-4c8d1b4380a5"
+                            },{
+                                "title": "Peak calling QC",
+                                "tag": "h3",
+                                "tagId": "peak-calling-qc",
+                                "path": "/assays/atacseq.html",
+                                "id": "90f3f312-8d8d-440b-af3f-7c9184f38c05"
+                            },{
+                                "title": "Final Step(s)",
+                                "tag": "h3",
+                                "tagId": "final-steps",
+                                "path": "/assays/atacseq.html",
+                                "id": "69d4cee2-3921-498d-8e4a-3392995ded46"
+                            },{
+                                "title": "Nucleosome signal",
+                                "tag": "h3",
+                                "tagId": "nucleosome-signal",
+                                "path": "/assays/atacseq.html",
+                                "id": "456d7db0-4cb5-4182-9b37-f5c933212e44"
+                            },{
+                                "title": "Blacklist region fragment ratio",
+                                "tag": "h3",
+                                "tagId": "blacklist-region-fragment-ratio",
+                                "path": "/assays/atacseq.html",
+                                "id": "6afef6b0-31f2-4259-8798-3f7811d4518c"
+                            },{
+                                "title": "Transcriptional start site (TSS) enrichment score",
+                                "tag": "h3",
+                                "tagId": "transcriptional-start-site-tss-enrichment-score",
+                                "path": "/assays/atacseq.html",
+                                "id": "682d7a1f-c6f9-4576-8f1c-e933aa1e1a41"
+                            },{
+                                "title": "Single-cell ATAC R implementation",
+                                "tag": "h3",
+                                "tagId": "single-cell-atac-r-implementation",
+                                "path": "/assays/atacseq.html",
+                                "id": "2679019a-68d8-4a54-933e-da83b2dfa112"
+                            },{
+                                "title": "Bulk ATAC python implementation",
+                                "tag": "h3",
+                                "tagId": "bulk-atac-python-implementation",
+                                "path": "/assays/atacseq.html",
+                                "id": "19ac5f96-d07d-4c40-9634-79e605bc6e7a"
+                            },{
+                                "title": "Fraction of fragments in peaks",
+                                "tag": "h3",
+                                "tagId": "fraction-of-fragments-in-peaks",
+                                "path": "/assays/atacseq.html",
+                                "id": "378f68a1-b391-4684-a18d-ef5f7dc80997"
+                            },{
+                                "title": "Total number of fragments",
+                                "tag": "h3",
+                                "tagId": "total-number-of-fragments",
+                                "path": "/assays/atacseq.html",
+                                "id": "73e2775c-3ccb-4bd4-a4b2-48e6af1ed991"
+                            },{
+                                "title": "Total number of fragments in peaks",
+                                "tag": "h3",
+                                "tagId": "total-number-of-fragments-in-peaks",
+                                "path": "/assays/atacseq.html",
+                                "id": "4f4d74a8-e42a-48a0-8144-f00c0f019afa"
+                            },{
+                                "title": "Mitochondrial fragment ratio",
+                                "tag": "h3",
+                                "tagId": "mitochondrial-fragment-ratio",
+                                "path": "/assays/atacseq.html",
+                                "id": "dafafef1-1cc6-4172-ac78-4a39ad59daa2"
+                            },{
+                                "title": "Software & Documentation",
+                                "tag": "h3",
+                                "tagId": "software--documentation",
+                                "path": "/assays/atacseq.html",
+                                "id": "08dfaedd-9da0-409e-a442-154521b98b62"
+                            },{
+                                "title": "Cellranger-atac",
+                                "tag": "h4",
+                                "tagId": "cellranger-atac",
+                                "path": "/assays/atacseq.html",
+                                "id": "2eb923cc-970d-4b1b-a75e-1e88f6c21da6"
+                            },{
+                                "title": "Signac package",
+                                "tag": "h4",
+                                "tagId": "signac-package",
+                                "path": "/assays/atacseq.html",
+                                "id": "78a3f0f1-ff1f-474b-b9ee-64893d1bab7a"
+                            },{
+                                "title": "CRAN",
+                                "tag": "h4",
+                                "tagId": "cran",
+                                "path": "/assays/atacseq.html",
+                                "id": "92d5d28e-1c03-48c9-b936-9815da7903c6"
+                            },{
+                                "title": "Sinto package",
+                                "tag": "h4",
+                                "tagId": "sinto-package",
+                                "path": "/assays/atacseq.html",
+                                "id": "dccadcb8-e603-4540-86c6-8e915dd18c21"
+                            },{
+                                "title": "PyPI",
+                                "tag": "h4",
+                                "tagId": "pypi",
+                                "path": "/assays/atacseq.html",
+                                "id": "05d8cad2-1d4f-45fb-8c3d-015f58b65d41"
+                            },{
+                                "title": "Snap",
+                                "tag": "h4",
+                                "tagId": "snap",
+                                "path": "/assays/atacseq.html",
+                                "id": "971b351e-dc3e-4fc5-b895-1b80ceb6fd34"
+                            },{
+                                "title": "DESI",
+                                "tag": "h1",
+                                "tagId": "desi",
+                                "path": "/assays/metadata/DESI.html",
+                                "id": "450fe414-22db-4d17-980c-fc8c25924c18"
+                            },{
+                                "title": "Version 2 (Latest)",
+                                "tag": "h2",
+                                "tagId": "version-2-latest",
+                                "path": "/assays/metadata/DESI.html",
+                                "id": "6b268ee7-2bee-4448-9e3f-ab1dfde19200"
+                            },{
+                                "title": "LC-MS",
+                                "tag": "h1",
+                                "tagId": "lc-ms",
+                                "path": "/assays/metadata/LC-MS.html",
+                                "id": "9afed32c-4bd6-4e5e-800d-bb062e5ec3d4"
+                            },{
+                                "title": "Version 4 (Latest)",
+                                "tag": "h2",
+                                "tagId": "version-4-latest",
+                                "path": "/assays/metadata/LC-MS.html",
+                                "id": "cc0abd4a-0535-4bbd-b6c2-6d8729660cda"
+                            },{
+                                "title": "Version 3",
+                                "tag": "h2",
+                                "tagId": "version-3",
+                                "path": "/assays/metadata/LC-MS.html",
+                                "id": "919491ef-7712-4ce1-812a-0147e9122d15"
+                            },{
+                                "title": "Version 2",
+                                "tag": "h2",
+                                "tagId": "version-2",
+                                "path": "/assays/metadata/LC-MS.html",
+                                "id": "ceb3a58b-9fd9-405c-99e5-96195833cb5c"
+                            },{
+                                "title": "Version 1",
+                                "tag": "h2",
+                                "tagId": "version-1",
+                                "path": "/assays/metadata/LC-MS.html",
+                                "id": "00ca6366-5949-4576-9402-280eb33304cd"
+                            },{
+                                "title": "Version 0",
+                                "tag": "h2",
+                                "tagId": "version-0",
+                                "path": "/assays/metadata/LC-MS.html",
+                                "id": "3c154f6f-1f9f-46f2-b003-78a50b1e736a"
+                            },{
+                                "title": "Entity API",
+                                "tag": "h2",
+                                "tagId": "entity-api",
+                                "path": "/apis/index.html",
+                                "id": "5ddf09e0-457f-4e3e-af78-d170917d271b"
+                            },{
+                                "title": "Ingest API",
+                                "tag": "h2",
+                                "tagId": "ingest-api",
+                                "path": "/apis/index.html",
+                                "id": "b9eaad2f-b042-4632-aba2-d5ebf3915d4f"
+                            },{
+                                "title": "Search API",
+                                "tag": "h2",
+                                "tagId": "search-api",
+                                "path": "/apis/index.html",
+                                "id": "2a36dbc6-b47f-488b-bfa9-2aec03c0cc0b"
+                            },{
+                                "title": "Light-Sheet",
+                                "tag": "h1",
+                                "tagId": "light-sheet",
+                                "path": "/assays/metadata/LightSheet.html",
+                                "id": "46b7341b-2ca5-4f1c-8f14-323ed27a51c2"
+                            },{
+                                "title": "Version 3 (latest)",
+                                "tag": "h2",
+                                "tagId": "version-3-latest",
+                                "path": "/assays/metadata/LightSheet.html",
+                                "id": "e5c22aae-4c4e-4813-b0a0-344ae5d62ff9"
+                            },{
+                                "title": "Version 2",
+                                "tag": "h2",
+                                "tagId": "version-2",
+                                "path": "/assays/metadata/LightSheet.html",
+                                "id": "9a598f6c-dd80-4c6f-85e4-5beb885697ff"
+                            },{
+                                "title": "Version 1",
+                                "tag": "h2",
+                                "tagId": "version-1",
+                                "path": "/assays/metadata/LightSheet.html",
+                                "id": "21576d2f-e71c-45f2-b26c-9fdc2e13e4a7"
+                            },{
+                                "title": "Version 0",
+                                "tag": "h2",
+                                "tagId": "version-0",
+                                "path": "/assays/metadata/LightSheet.html",
+                                "id": "12a7ff8b-1a91-40e2-8d3c-804b415d45bf"
+                            },{
+                                "title": "Biomarkers",
+                                "tag": "h1",
+                                "tagId": "biomarkers",
+                                "path": "/biomarkers/index.html",
+                                "id": "06554e59-2fba-4a58-8816-b08a8eea7ba4"
+                            },{
+                                "title": "MERFISH",
+                                "tag": "h1",
+                                "tagId": "merfish",
+                                "path": "/assays/metadata/MERFISH.html",
+                                "id": "4c4200fa-6da2-4570-9aa9-29028e49b6a2"
+                            },{
+                                "title": "seqFISH",
+                                "tag": "h1",
+                                "tagId": "seqfish",
+                                "path": "/assays/metadata/seqFISH.html",
+                                "id": "f3958916-f40a-4d43-96c1-521e5a29e1d5"
+                            },{
+                                "title": "Version 1 (no longer accepting data)",
+                                "tag": "h2",
+                                "tagId": "version-1-no-longer-accepting-data",
+                                "path": "/assays/metadata/seqFISH.html",
+                                "id": "74f50627-6e5f-4ab0-bffb-aecff94eeafe"
+                            },{
+                                "title": "Version 0",
+                                "tag": "h2",
+                                "tagId": "version-0",
+                                "path": "/assays/metadata/seqFISH.html",
+                                "id": "601dc177-9bf3-4ea9-88ae-b96f8056bedf"
+                            },{
+                                "title": "SenNet CODEX Data",
+                                "tag": "h1",
+                                "tagId": "sennet-codex-data",
+                                "path": "/assays/codex.html",
+                                "id": "e4c3fae3-88c8-4422-81e0-402718a8935f"
+                            },{
+                                "title": "Overview",
+                                "tag": "h2",
+                                "tagId": "overview",
+                                "path": "/assays/codex.html",
+                                "id": "5e7ca333-cd01-4c0e-a032-f0d9fad35204"
+                            },{
+                                "title": "Description",
+                                "tag": "h2",
+                                "tagId": "description",
+                                "path": "/assays/codex.html",
+                                "id": "2b1c8739-8ea8-4c13-bee9-75429a3a5786"
+                            },{
+                                "title": "Definitions",
+                                "tag": "h2",
+                                "tagId": "definitions",
+                                "path": "/assays/codex.html",
+                                "id": "74fac5b2-7c95-4c27-a45f-2a7a2f4ea50c"
+                            },{
+                                "title": "SenNet CODEX Data States (Levels)",
+                                "tag": "h2",
+                                "tagId": "sennet-codex-data-states-levels",
+                                "path": "/assays/codex.html",
+                                "id": "54abae3b-ce87-4bab-af08-5aa23f912a3b"
+                            },{
+                                "title": "SenNet Metadata",
+                                "tag": "h2",
+                                "tagId": "sennet-metadata",
+                                "path": "/assays/codex.html",
+                                "id": "acaa9213-3902-4c9e-9e57-0467b86dd548"
+                            },{
+                                "title": "Associated JSON Files",
+                                "tag": "h2",
+                                "tagId": "associated-json-files",
+                                "path": "/assays/codex.html",
+                                "id": "1113d085-34e9-4b2b-82ce-52be252373f9"
+                            },{
+                                "title": "SenNet CODEX Raw File Structure",
+                                "tag": "h2",
+                                "tagId": "sennet-codex-raw-file-structure",
+                                "path": "/assays/codex.html",
+                                "id": "df69896a-dc1a-43fa-b092-ad71a86968b4"
+                            },{
+                                "title": "SenNet QA/QC of raw (state0) data files",
+                                "tag": "h2",
+                                "tagId": "sennet-qaqc-of-raw-state0-data-files",
+                                "path": "/assays/codex.html",
+                                "id": "11a09f88-7149-4deb-a4aa-f26d2f2c91e6"
+                            },{
+                                "title": "Terms defined in this document",
+                                "tag": "h2",
+                                "tagId": "terms-defined-in-this-document",
+                                "path": "/assays/codex.html",
+                                "id": "199564fa-2634-4541-8f48-4d2294234b8c"
+                            },{
+                                "title": "For Additional Help",
+                                "tag": "h2",
+                                "tagId": "for-additional-help",
+                                "path": "/assays/codex.html",
+                                "id": "830a8e00-1a1c-49e4-a806-177a31f9680b"
+                            },{
+                                "title": "Last Updated: 6/1/2020",
+                                "tag": "h3",
+                                "tagId": "last-updated-612020",
+                                "path": "/assays/codex.html",
+                                "id": "dc1d0878-16ce-410e-be6d-c3771cd51458"
+                            },{
+                                "title": "Antibody Metadata",
+                                "tag": "h3",
+                                "tagId": "antibody-metadata",
+                                "path": "/assays/codex.html",
+                                "id": "d72b5f2c-bde8-46be-b51c-5b625ae702d5"
+                            },{
+                                "title": "How to read channelnames",
+                                "tag": "h3",
+                                "tagId": "how-to-read-channelnames",
+                                "path": "/assays/codex.html",
+                                "id": "ff24c02e-696f-447f-ba84-b3b2edcc634d"
+                            },{
+                                "title": "How to read channelnames_report",
+                                "tag": "h3",
+                                "tagId": "how-to-read-channelnames_report",
+                                "path": "/assays/codex.html",
+                                "id": "4237ed04-3ac3-48cc-a640-c02cebfce506"
+                            },{
+                                "title": "How to evaluate the channels to create the QA/QC channelnames_report.cvs file",
+                                "tag": "h3",
+                                "tagId": "how-to-evaluate-the-channels-to-create-the-qaqc-channelnames_reportcvs-file",
+                                "path": "/assays/codex.html",
+                                "id": "498f2c95-5cdb-4002-84a9-a277e614af99"
+                            },{
+                                "title": "Visium-(no-probes)",
+                                "tag": "h1",
+                                "tagId": "visium-no-probes",
+                                "path": "/assays/metadata/VisiumNoProbes.html",
+                                "id": "71fd0c03-25a6-4c2a-8fcc-19cdef3c5837"
+                            },{
+                                "title": "Version 3",
+                                "tag": "h2",
+                                "tagId": "version-3",
+                                "path": "/assays/metadata/VisiumNoProbes.html",
+                                "id": "377f79f7-3e2b-4b46-9e69-2e18806d0cc6"
+                            },{
+                                "title": "Version 2",
+                                "tag": "h2",
+                                "tagId": "version-2",
+                                "path": "/assays/metadata/VisiumNoProbes.html",
+                                "id": "6fd21458-fd2b-44d1-a9d1-bad69f123740"
+                            },{
+                                "title": "SenNet Multiplexed Immunofluorescence (MxIF)",
+                                "tag": "h1",
+                                "tagId": "sennet-multiplexed-immunofluorescence-mxif",
+                                "path": "/assays/mxif.html",
+                                "id": "cdec824f-ba72-4d6c-90f6-1836a8b65d2d"
+                            },{
+                                "title": "Overview",
+                                "tag": "h2",
+                                "tagId": "overview",
+                                "path": "/assays/mxif.html",
+                                "id": "c1640af4-698a-43eb-b83e-b154d4b319cc"
+                            },{
+                                "title": "Description",
+                                "tag": "h2",
+                                "tagId": "description",
+                                "path": "/assays/mxif.html",
+                                "id": "a7337883-1ea3-40b9-95c3-a9ff88f8b245"
+                            },{
+                                "title": "Definitions",
+                                "tag": "h2",
+                                "tagId": "definitions",
+                                "path": "/assays/mxif.html",
+                                "id": "2433da90-9a14-4020-a7e5-6a9dd344ef72"
+                            },{
+                                "title": "SenNet CODEX Data States (Levels)",
+                                "tag": "h2",
+                                "tagId": "sennet-codex-data-states-levels",
+                                "path": "/assays/mxif.html",
+                                "id": "b37f0e70-ef96-4342-91f6-fa8f3baef8c1"
+                            },{
+                                "title": "SenNet Metadata",
+                                "tag": "h2",
+                                "tagId": "sennet-metadata",
+                                "path": "/assays/mxif.html",
+                                "id": "7e66bb8c-b232-4b23-81fe-4de8354ce90b"
+                            },{
+                                "title": "Associated Metadata Files",
+                                "tag": "h2",
+                                "tagId": "associated-metadata-files",
+                                "path": "/assays/mxif.html",
+                                "id": "9d9c701a-4150-4739-b007-e57fa61b75df"
+                            },{
+                                "title": "Terms defined in this document",
+                                "tag": "h2",
+                                "tagId": "terms-defined-in-this-document",
+                                "path": "/assays/mxif.html",
+                                "id": "a604c5a4-0af8-4afc-922a-36ec2b083768"
+                            },{
+                                "title": "For Additional Help",
+                                "tag": "h2",
+                                "tagId": "for-additional-help",
+                                "path": "/assays/mxif.html",
+                                "id": "8ab3f107-e08d-42c1-bace-975fe48c923e"
+                            },{
+                                "title": "Version 2 (current)",
+                                "tag": "h2",
+                                "tagId": "version-2-current",
+                                "path": "/assays/metadata/MERFISH.html",
+                                "id": "067c6363-4d99-4159-98e6-77e2f67962d0"
+                            },{
+                                "title": "Ingest Validation Tools & Upload Guidelines",
+                                "tag": "h1",
+                                "tagId": "ingest-validation-tools--upload-guidelines",
+                                "path": "/libraries/ingest-validation-tools/index.html",
+                                "id": "5fa657eb-8365-422b-94ec-2645a098980e"
+                            },{
+                                "title": "New to the Data Submission Process?",
+                                "tag": "h2",
+                                "tagId": "new-to-the-data-submission-process",
+                                "path": "/libraries/ingest-validation-tools/index.html",
+                                "id": "4ea31ed6-27cc-44f5-9fce-c3c15173c8ce"
+                            },{
+                                "title": "Section 2 - Register Data Sources",
+                                "tag": "h2",
+                                "tagId": "section-2---register-data-sources",
+                                "path": "/data-submission/Section2.html",
+                                "id": "65c8f727-bb2a-4764-a77a-62f9a3943c9e"
+                            },{
+                                "title": "Register a donor or source",
+                                "tag": "h3",
+                                "tagId": "register-a-donor-or-source",
+                                "path": "/data-submission/Section2.html",
+                                "id": "7be7f824-38a7-4c43-8b72-e061abb8c963"
+                            },{
+                                "title": "Register an organ or sample",
+                                "tag": "h3",
+                                "tagId": "register-an-organ-or-sample",
+                                "path": "/data-submission/Section2.html",
+                                "id": "b48fef85-19eb-43be-b044-38522a2b1a4f"
+                            },{
+                                "title": "Last Updated 6/15/2020",
+                                "tag": "h3",
+                                "tagId": "last-updated-6152020",
+                                "path": "/assays/mxif.html",
+                                "id": "4b7c3b99-33fa-4239-890b-d56ccb9075fa"
+                            },{
+                                "title": "Last Updated: 12/18/2020",
+                                "tag": "h3",
+                                "tagId": "last-updated-12182020",
+                                "path": "/assays/nano.html",
+                                "id": "8c151c65-2559-4508-bf3a-c41704281602"
+                            },{
+                                "title": "SenNet nano-DESI & nano-POTS File Structure:",
+                                "tag": "h3",
+                                "tagId": "sennet-nano-desi--nano-pots-file-structure",
+                                "path": "/assays/nano.html",
+                                "id": "e6bab21a-cf0f-4262-a43b-b0e42c5d1cf0"
+                            },{
+                                "title": "SenNet Whole Genome Sequencing (WGS)",
+                                "tag": "h1",
+                                "tagId": "sennet-whole-genome-sequencing-wgs",
+                                "path": "/assays/wgs.html",
+                                "id": "6152ecbb-7b11-4bbd-b793-a21d01f56d02"
+                            },{
+                                "title": "Overview",
+                                "tag": "h2",
+                                "tagId": "overview",
+                                "path": "/assays/wgs.html",
+                                "id": "e4c9bf9c-246c-4193-9920-adcdb5f8e7f1"
+                            },{
+                                "title": "Description",
+                                "tag": "h2",
+                                "tagId": "description",
+                                "path": "/assays/wgs.html",
+                                "id": "86cdbd31-b4a9-4fa1-86c4-8b414ff161d1"
+                            },{
+                                "title": "SenNet Whole Genome Sequencing Data States (Levels)",
+                                "tag": "h2",
+                                "tagId": "sennet-whole-genome-sequencing-data-states-levels",
+                                "path": "/assays/wgs.html",
+                                "id": "23cf9210-02da-479b-b5d9-545e3491caef"
+                            },{
+                                "title": "SenNet Metadata:",
+                                "tag": "h2",
+                                "tagId": "sennet-metadata",
+                                "path": "/assays/wgs.html",
+                                "id": "938cfc40-089e-42ff-80a3-0200f4a39e77"
+                            },{
+                                "title": "Values to be produced by HIVE Pipeline",
+                                "tag": "h2",
+                                "tagId": "values-to-be-produced-by-hive-pipeline",
+                                "path": "/assays/wgs.html",
+                                "id": "424c892e-e988-43fb-923b-d5c2d1d9cc9d"
+                            },{
+                                "title": "SenNet WGS Sequence Raw File Structure",
+                                "tag": "h2",
+                                "tagId": "sennet-wgs-sequence-raw-file-structure",
+                                "path": "/assays/wgs.html",
+                                "id": "adc96729-ec03-41c4-a925-72e68498dbd8"
+                            },{
+                                "title": "SenNet QA/QC of raw (state0) data files",
+                                "tag": "h2",
+                                "tagId": "sennet-qaqc-of-raw-state0-data-files",
+                                "path": "/assays/wgs.html",
+                                "id": "e0110cb4-2b36-4b42-ac1c-43bf88318cbd"
+                            },{
+                                "title": "Terms defined in this document",
+                                "tag": "h2",
+                                "tagId": "terms-defined-in-this-document",
+                                "path": "/assays/wgs.html",
+                                "id": "ee23508f-c905-4490-833c-32637e1192a0"
+                            },{
+                                "title": "For Additional Help",
+                                "tag": "h2",
+                                "tagId": "for-additional-help",
+                                "path": "/assays/wgs.html",
+                                "id": "647ee100-3741-4ebc-b572-8c60e75e6294"
+                            },{
+                                "title": "Last Updated 6/23/2020",
+                                "tag": "h3",
+                                "tagId": "last-updated-6232020",
+                                "path": "/assays/wgs.html",
+                                "id": "e6c6b906-f0a2-4306-8cce-fdc6d0c9d93e"
+                            },{
+                                "title": "Pre-alignment QC with FastQC",
+                                "tag": "h3",
+                                "tagId": "pre-alignment-qc-with-fastqc",
+                                "path": "/assays/wgs.html",
+                                "id": "e631abb0-81e8-4898-9d6d-db5cdb6bbd9c"
+                            },{
+                                "title": "Metadata schema",
+                                "tag": "h2",
+                                "tagId": "metadata-schema",
+                                "path": "/registration/schemas/source-murine/index.html",
+                                "id": "8aed5beb-1b32-4f3a-8a04-03cc4e27a759"
+                            },{
+                                "title": "Setting Up Globus Connect Personal on Windows",
+                                "tag": "h1",
+                                "tagId": "setting-up-globus-connect-personal-on-windows",
+                                "path": "/libraries/clt/gcp-windows.html",
+                                "id": "562521af-ec01-42a9-af7b-74735cd2c0b0"
+                            },{
+                                "title": "Instructions",
+                                "tag": "h2",
+                                "tagId": "instructions",
+                                "path": "/libraries/clt/gcp-windows.html",
+                                "id": "30663cbc-5911-4f3f-a4ec-fcec53cec829"
+                            },{
+                                "title": "SenNet Source schema",
+                                "tag": "h1",
+                                "tagId": "sennet-source-schema",
+                                "path": "/param-search/schema-source.html",
+                                "id": "371b1db1-9462-47ea-8607-ed0ed8fe7efe"
+                            },{
+                                "title": "Source Murine",
+                                "tag": "h1",
+                                "tagId": "source-murine",
+                                "path": "/registration/schemas/source-murine/index.html",
+                                "id": "b43fcbf8-f61a-40d4-8066-1a78e3eaa0be"
+                            },{
+                                "title": "Dataset Attributes",
+                                "tag": "h3",
+                                "tagId": "dataset-attributes",
+                                "path": "/param-search/schema-source.html",
+                                "id": "7ffce0d6-e3b7-4165-b269-dfbb9274d729"
+                            },{
+                                "title": "Source Metadata Schema",
+                                "tag": "h3",
+                                "tagId": "source-metadata-schema",
+                                "path": "/param-search/schema-source.html",
+                                "id": "8f495b7c-1a9a-44b5-9709-7531de34bdc7"
+                            },{
+                                "title": "data_access_level attribute values",
+                                "tag": "h3",
+                                "tagId": "data_access_level-attribute-values",
+                                "path": "/param-search/schema-source.html",
+                                "id": "baa2f18f-8831-4af3-aa0e-dcf3ebeda741"
+                            },{
+                                "title": "Getting Started with Data Submission",
+                                "tag": "h1",
+                                "tagId": "getting-started-with-data-submission",
+                                "path": "/libraries/ingest-validation-tools/upload-guidelines/getting-started/index.html",
+                                "id": "d3c8c0db-826e-4144-b680-d1e6b401faed"
+                            },{
+                                "title": "SenNet Nano-DESI (Desorption Electrospray Ionization) & nanoPOTS (Processing in One Pot for Trace Samples )",
+                                "tag": "h1",
+                                "tagId": "sennet-nano-desi-desorption-electrospray-ionization--nanopots-processing-in-one-pot-for-trace-samples-",
+                                "path": "/assays/nano.html",
+                                "id": "26481cdc-c0f4-443b-ae6a-da1733f632f3"
+                            },{
+                                "title": "Overview:",
+                                "tag": "h2",
+                                "tagId": "overview",
+                                "path": "/param-search/schema-source.html",
+                                "id": "ebcb3f35-b451-49c4-84cf-99c8d12f0b55"
+                            },{
+                                "title": "Description:",
+                                "tag": "h2",
+                                "tagId": "description",
+                                "path": "/param-search/schema-source.html",
+                                "id": "f1353f37-eeda-43ce-aa11-18be7d5d7c0d"
+                            },{
+                                "title": "Section 1 - Prerequisites",
+                                "tag": "h2",
+                                "tagId": "section-1---prerequisites",
+                                "path": "/data-submission/Section1.html",
+                                "id": "358772e7-d97b-4c70-8cbc-08ca4ffdb2bf"
+                            },{
+                                "title": "Different ways to create a New Protocol",
+                                "tag": "h3",
+                                "tagId": "different-ways-to-create-a-new-protocol",
+                                "path": "/data-submission/Section1.html",
+                                "id": "129369c6-169b-4d5c-a1ce-930858c52bd6"
+                            },{
+                                "title": "Creating an entirely new protocol (from 'scratch'):",
+                                "tag": "h3",
+                                "tagId": "Create-New-Protocol",
+                                "path": "/data-submission/Section1.html",
+                                "id": "a25c6b9f-4abf-40d8-8a1d-cf4aceb98125"
+                            },{
+                                "title": "Description:",
+                                "tag": "h2",
+                                "tagId": "description",
+                                "path": "/assays/nano.html",
+                                "id": "ed530c36-6416-41dc-91c7-ca48b655a42a"
+                            },{
+                                "title": "Definitions:",
+                                "tag": "h2",
+                                "tagId": "definitions",
+                                "path": "/assays/nano.html",
+                                "id": "710ee061-7585-4d6d-97d4-5e3d08534b88"
+                            },{
+                                "title": "SenNet nano/micro-DESI Data States (Levels):",
+                                "tag": "h2",
+                                "tagId": "sennet-nanomicro-desi-data-states-levels",
+                                "path": "/assays/nano.html",
+                                "id": "cf079dc9-0a9d-4e09-a6ae-ce2f33b4fa4d"
+                            },{
+                                "title": "SenNet Metadata:",
+                                "tag": "h2",
+                                "tagId": "sennet-metadata",
+                                "path": "/assays/nano.html",
+                                "id": "af6727d0-638c-4531-9b67-2d92d3dd75af"
+                            },{
+                                "title": "Associated Metadata Files:",
+                                "tag": "h2",
+                                "tagId": "associated-metadata-files",
+                                "path": "/assays/nano.html",
+                                "id": "76793f35-2f84-447b-9732-d3b14693a13b"
+                            },{
+                                "title": "Additional Tags and Definitions:",
+                                "tag": "h2",
+                                "tagId": "additional-tags-and-definitions",
+                                "path": "/assays/nano.html",
+                                "id": "bb620f83-be81-4d99-b38c-c33d718d1aa7"
+                            },{
+                                "title": "QC/QA for Level 1 nano-DESI SenNet Data",
+                                "tag": "h2",
+                                "tagId": "qcqa-for-level-1-nano-desi-sennet-data",
+                                "path": "/assays/nano.html",
+                                "id": "cf57d06e-a21c-4b1e-b6d2-7b169803fb3c"
+                            },{
+                                "title": "For Additional Help:",
+                                "tag": "h2",
+                                "tagId": "for-additional-help",
+                                "path": "/assays/nano.html",
+                                "id": "242c0a7f-4597-48ac-adc3-f71d2e891047"
+                            },{
+                                "title": "Section 11 - Data Review",
+                                "tag": "h2",
+                                "tagId": "section-11---data-review",
+                                "path": "/data-submission/Section11.html",
+                                "id": "06ec4ec2-8908-4d07-be31-7db3f3b9e97e"
+                            },{
+                                "title": "ATACseq",
+                                "tag": "h1",
+                                "tagId": "atacseq",
+                                "path": "/assays/metadata/ATACseq.html",
+                                "id": "ba2028aa-d772-4258-92ee-38643c9ac824"
+                            },{
+                                "title": "Section 5 - Submissions Directory Preparation",
+                                "tag": "h2",
+                                "tagId": "section-5---submissions-directory-preparation",
+                                "path": "/data-submission/Section5.html",
+                                "id": "59bc264b-8bab-466c-894c-c9f6fe6211a6"
+                            },{
+                                "title": "Upload Guidelines",
+                                "tag": "h1",
+                                "tagId": "upload-guidelines",
+                                "path": "/libraries/ingest-validation-tools/upload-guidelines/index.html",
+                                "id": "a2c9aff6-e266-4ce6-ac55-3b414e346e03"
+                            },{
+                                "title": "Sample Section",
+                                "tag": "h1",
+                                "tagId": "sample-section",
+                                "path": "/registration/schemas/sample-section/index.html",
+                                "id": "4c940dc3-3ba5-4971-838a-da465e448ab4"
+                            },{
+                                "title": "Metadata schema",
+                                "tag": "h2",
+                                "tagId": "metadata-schema",
+                                "path": "/registration/schemas/sample-section/index.html",
+                                "id": "727868af-1d7d-49e1-99ff-0a60b2486f47"
+                            },{
+                                "title": "Atlas Consortia Sankey (XAC Sankey)",
+                                "tag": "h1",
+                                "tagId": "atlas-consortia-sankey-xac-sankey",
+                                "path": "/libraries/xac-sankey/index.html",
+                                "id": "d42a64f9-5f87-4d8e-9709-588865f81d4a"
+                            },{
+                                "title": "Sample Block",
+                                "tag": "h1",
+                                "tagId": "sample-block",
+                                "path": "/registration/schemas/sample-block/index.html",
+                                "id": "d9e256c5-5f46-42ff-8dc6-3cbec088b858"
+                            },{
+                                "title": "Metadata schema",
+                                "tag": "h2",
+                                "tagId": "metadata-schema",
+                                "path": "/registration/schemas/sample-block/index.html",
+                                "id": "831cd760-8ba3-43ef-917b-7cf47b293f45"
+                            },{
+                                "title": "Section 12 - dbGap Submission",
+                                "tag": "h2",
+                                "tagId": "section-12---dbgap-submission",
+                                "path": "/data-submission/Section12.html",
+                                "id": "a57e2ac7-4c0f-4b3b-b9a1-813b84352e2b"
+                            },{
+                                "title": "Histology",
+                                "tag": "h1",
+                                "tagId": "histology",
+                                "path": "/assays/metadata/Histology.html",
+                                "id": "377621f5-bc4c-4caa-9b0e-1c7f0a3fcbdf"
+                            },{
+                                "title": "Version 2 (Latest)",
+                                "tag": "h2",
+                                "tagId": "version-2-latest",
+                                "path": "/assays/metadata/Histology.html",
+                                "id": "9d890d87-621e-45e6-82f6-4b159dafbed1"
+                            },{
+                                "title": "Data Submission Guide",
+                                "tag": "h1",
+                                "tagId": "data-submission-guide",
+                                "path": "/data-submission/index.html",
+                                "id": "2c7518c6-b3f9-45b9-be7d-35d9fd4e960c"
+                            },{
+                                "title": "Image Mass Cytometry (IMC)",
+                                "tag": "h1",
+                                "tagId": "image-mass-cytometry-imc",
+                                "path": "/assays/imc.html",
+                                "id": "bb67451e-7669-40ff-9648-0fa86ecc6ea2"
+                            },{
+                                "title": "Section 7 - Local Validation",
+                                "tag": "h2",
+                                "tagId": "section-7---local-validation",
+                                "path": "/data-submission/Section7.html",
+                                "id": "f8f223d7-9543-4973-a3d5-a3fb8897b2c3"
+                            },{
+                                "title": "Overview",
+                                "tag": "h2",
+                                "tagId": "overview",
+                                "path": "/assays/imc.html",
+                                "id": "27a01c70-ddd4-4942-a8bc-98a82b78bce5"
+                            },{
+                                "title": "Description",
+                                "tag": "h2",
+                                "tagId": "description",
+                                "path": "/assays/imc.html",
+                                "id": "7025d5cf-1527-4698-b07f-48d83986b880"
+                            },{
+                                "title": "Definitions",
+                                "tag": "h2",
+                                "tagId": "definitions",
+                                "path": "/assays/imc.html",
+                                "id": "c897212b-650c-44bd-8039-b398932f6296"
+                            },{
+                                "title": "SenNet IMC Data States (Levels)",
+                                "tag": "h2",
+                                "tagId": "sennet-imc-data-states-levels",
+                                "path": "/assays/imc.html",
+                                "id": "40442e0d-ca62-42c7-b6c6-db8912cd9017"
+                            },{
+                                "title": "SenNet Metadata:",
+                                "tag": "h2",
+                                "tagId": "sennet-metadata",
+                                "path": "/assays/imc.html",
+                                "id": "e5a31936-1b7d-4e79-be4e-3e1448626315"
+                            },{
+                                "title": "SenNet IMC Raw File Structure",
+                                "tag": "h2",
+                                "tagId": "sennet-imc-raw-file-structure",
+                                "path": "/assays/imc.html",
+                                "id": "6756c410-befc-489d-b14f-c8fc3c3795d9"
+                            },{
+                                "title": "SenNet QA/QC of raw (state0) data files",
+                                "tag": "h2",
+                                "tagId": "sennet-qaqc-of-raw-state0-data-files",
+                                "path": "/assays/imc.html",
+                                "id": "b6f9f7ab-edb5-4c77-9a36-5fe40e5d7023"
+                            },{
+                                "title": "IMC Data Processing by the Bodenmiller IMC Lab",
+                                "tag": "h2",
+                                "tagId": "imc-data-processing-by-the-bodenmiller-imc-lab",
+                                "path": "/assays/imc.html",
+                                "id": "7d7d7d3b-9ba2-45a7-aee8-c336ed5c9a86"
+                            },{
+                                "title": "For Additional Help",
+                                "tag": "h2",
+                                "tagId": "for-additional-help",
+                                "path": "/assays/imc.html",
+                                "id": "95fd2eb6-f6ec-4f70-923b-d4d2932368b9"
+                            },{
+                                "title": "Section 10 - Data Processing",
+                                "tag": "h2",
+                                "tagId": "section-10---data-processing",
+                                "path": "/data-submission/Section10.html",
+                                "id": "ef7e2a71-9b8d-440f-abe1-f0f75f5fd82f"
+                            },{
+                                "title": "Last Updated 6/22/2020",
+                                "tag": "h3",
+                                "tagId": "last-updated-6222020",
+                                "path": "/assays/imc.html",
+                                "id": "461eea7e-719d-4579-8290-59fa5d94ad0b"
+                            },{
+                                "title": "SenNet Command-Line Transfer (CLT)",
+                                "tag": "h1",
+                                "tagId": "sennet-command-line-transfer-clt",
+                                "path": "/libraries/clt/index.html",
+                                "id": "37c01ce5-cda4-4a93-a230-6004ebeca7fb"
+                            },{
+                                "title": "Installation",
+                                "tag": "h2",
+                                "tagId": "installation",
+                                "path": "/libraries/clt/index.html",
+                                "id": "ade5de95-f70a-4af6-8842-cc221136f570"
+                            },{
+                                "title": "Manifest File",
+                                "tag": "h2",
+                                "tagId": "manifest-file",
+                                "path": "/libraries/clt/index.html",
+                                "id": "4a4343e8-b818-42c7-b5ac-a81d09a41e7c"
+                            },{
+                                "title": "Usage",
+                                "tag": "h2",
+                                "tagId": "usage",
+                                "path": "/libraries/clt/index.html",
+                                "id": "72b8572d-5901-4cac-9dd2-a9c54f6071ed"
+                            },{
+                                "title": "Example",
+                                "tag": "h3",
+                                "tagId": "example",
+                                "path": "/libraries/clt/index.html",
+                                "id": "b0ed2981-04d9-47d1-8a7b-5ba072cdcc1a"
+                            },{
+                                "title": "Creating from Data Sharing Portal",
+                                "tag": "h3",
+                                "tagId": "creating-from-data-sharing-portal",
+                                "path": "/libraries/clt/index.html",
+                                "id": "e1361e67-1d66-4cc1-988e-bdce4a3b37c9"
+                            },{
+                                "title": "Login",
+                                "tag": "h3",
+                                "tagId": "login",
+                                "path": "/libraries/clt/index.html",
+                                "id": "9cb2fbb2-7d1f-423e-8f07-ff3a037b4d9d"
+                            },{
+                                "title": "Logout",
+                                "tag": "h3",
+                                "tagId": "logout",
+                                "path": "/libraries/clt/index.html",
+                                "id": "53170901-f119-435f-956c-8694679c165f"
+                            },{
+                                "title": "Transfer",
+                                "tag": "h3",
+                                "tagId": "transfer",
+                                "path": "/libraries/clt/index.html",
+                                "id": "58b9b735-ae71-4465-b43c-5acf78202ba2"
+                            },{
+                                "title": "Whoami",
+                                "tag": "h3",
+                                "tagId": "whoami",
+                                "path": "/libraries/clt/index.html",
+                                "id": "c75fe50b-91b3-41dc-a125-7b85f9c85d26"
+                            },{
+                                "title": "Inputs",
+                                "tag": "h3",
+                                "tagId": "inputs",
+                                "path": "/param-search/index.html",
+                                "id": "0d2aea6b-36f2-4b74-97fd-a183f2171317"
+                            },{
+                                "title": "Response",
+                                "tag": "h3",
+                                "tagId": "response",
+                                "path": "/param-search/index.html",
+                                "id": "1dff8001-dfe9-46c5-89eb-dca532d998c2"
+                            },{
+                                "title": "Overview:",
+                                "tag": "h2",
+                                "tagId": "overview",
+                                "path": "/param-search/index.html",
+                                "id": "097c7534-4050-4bf0-b19e-258b442692cd"
+                            },{
+                                "title": "Description:",
+                                "tag": "h2",
+                                "tagId": "description",
+                                "path": "/param-search/index.html",
+                                "id": "d5834871-4a73-4e92-a057-853579e556c4"
+                            },{
+                                "title": "Examples:",
+                                "tag": "h2",
+                                "tagId": "examples",
+                                "path": "/param-search/index.html",
+                                "id": "8a04bc2a-1fea-42c7-beb6-6fb7fceb3d9f"
+                            },{
+                                "title": "SenNet Parameterized Search",
+                                "tag": "h1",
+                                "tagId": "sennet-parameterized-search",
+                                "path": "/param-search/index.html",
+                                "id": "7510d570-c76c-4c7a-9512-71b38dfaa55c"
+                            },{
+                                "title": "SenNet Sample schema",
+                                "tag": "h1",
+                                "tagId": "sennet-sample-schema",
+                                "path": "/param-search/schema-sample.html",
+                                "id": "60b0c5f2-314b-4f93-a6d6-b875e8dc23a0"
+                            },{
+                                "title": "Overview:",
+                                "tag": "h2",
+                                "tagId": "overview",
+                                "path": "/param-search/schema-sample.html",
+                                "id": "41a386d4-8ff9-4c6b-b681-f305f843596a"
+                            },{
+                                "title": "Description:",
+                                "tag": "h2",
+                                "tagId": "description",
+                                "path": "/param-search/schema-sample.html",
+                                "id": "e521604f-4d84-405b-969b-ea05046f2d5b"
+                            },{
+                                "title": "Section 9 - Data Upload",
+                                "tag": "h2",
+                                "tagId": "section-9---data-upload",
+                                "path": "/data-submission/Section9.html",
+                                "id": "e61f79e3-db11-46aa-adac-b951cba8cbd4"
+                            },{
+                                "title": "data_access_level attribute values",
+                                "tag": "h3",
+                                "tagId": "data_access_level-attribute-values",
+                                "path": "/param-search/schema-sample.html",
+                                "id": "e0037508-8c06-4e9e-9123-3d179c889463"
+                            },{
+                                "title": "sample_category attribute values",
+                                "tag": "h3",
+                                "tagId": "sample_category-attribute-values",
+                                "path": "/param-search/schema-sample.html",
+                                "id": "faecbf43-3484-448f-b21c-d30138ac5a66"
+                            },{
+                                "title": "organ attribute values",
+                                "tag": "h3",
+                                "tagId": "organ-attribute-values",
+                                "path": "/param-search/schema-sample.html",
+                                "id": "87b64e45-e3bb-4d39-939b-82feb4f8a60c"
+                            },{
+                                "title": "vital_state attribute values",
+                                "tag": "h3",
+                                "tagId": "vital_state-attribute-values",
+                                "path": "/param-search/schema-sample.html",
+                                "id": "324a7090-f69a-4b99-b141-f57f82359cdc"
+                            },{
+                                "title": "health_status attribute values",
+                                "tag": "h3",
+                                "tagId": "health_status-attribute-values",
+                                "path": "/param-search/schema-sample.html",
+                                "id": "55b0e63f-d894-40ec-a57b-6f9c4c226617"
+                            },{
+                                "title": "organ_condition attribute values",
+                                "tag": "h3",
+                                "tagId": "organ_condition-attribute-values",
+                                "path": "/param-search/schema-sample.html",
+                                "id": "5a937101-3233-4483-a36d-326fb3e5a34f"
+                            },{
+                                "title": "perfusion_solution attribute values",
+                                "tag": "h3",
+                                "tagId": "perfusion_solution-attribute-values",
+                                "path": "/param-search/schema-sample.html",
+                                "id": "d3ee1beb-6928-45c1-b797-65e2da0bc240"
+                            },{
+                                "title": "File Schema",
+                                "tag": "h3",
+                                "tagId": "file-schema",
+                                "path": "/param-search/schema-sample.html",
+                                "id": "e7a25425-d048-493b-9604-c2b7f0bfdd3e"
+                            },{
+                                "title": "Sample Bulk Registration",
+                                "tag": "h1",
+                                "tagId": "sample-bulk-registration",
+                                "path": "/registration/bulk-registration/sample.html",
+                                "id": "8ed7e32c-e68f-4674-b6f4-573a163024f1"
+                            },{
+                                "title": "Sample Bulk Registration TSV Fields",
+                                "tag": "h2",
+                                "tagId": "sample-bulk-registration-tsv-fields",
+                                "path": "/registration/bulk-registration/sample.html",
+                                "id": "c3b0b624-8432-4106-b407-c581de8d90fe"
+                            },{
+                                "title": "Sample Metadata Submission",
+                                "tag": "h2",
+                                "tagId": "sample-metadata-submission",
+                                "path": "/registration/bulk-registration/sample.html",
+                                "id": "24db8eef-87a0-4c2b-97d2-79ab1e50b8dc"
+                            },{
+                                "title": "Libraries",
+                                "tag": "h1",
+                                "tagId": "libraries",
+                                "path": "/libraries/index.html",
+                                "id": "ad3bcabf-8198-48c7-8b15-baa9255d9d6a"
+                            },{
+                                "title": "Provenance UI",
+                                "tag": "h3",
+                                "tagId": "provenance-ui",
+                                "path": "/libraries/index.html",
+                                "id": "84bcb8dc-23fd-40f2-b99f-a79d33e8d5c6"
+                            },{
+                                "title": "X Atlas Consortia Sankey",
+                                "tag": "h3",
+                                "tagId": "x-atlas-consortia-sankey",
+                                "path": "/libraries/index.html",
+                                "id": "5aa48a38-4e08-4c7c-b080-ec011a7a61c4"
+                            },{
+                                "title": "Ingest Validation Tools",
+                                "tag": "h3",
+                                "tagId": "ingest-validation-tools",
+                                "path": "/libraries/index.html",
+                                "id": "a2571df9-ee13-476f-aa13-02042556c29a"
+                            },{
+                                "title": "Command-Line Transfer",
+                                "tag": "h3",
+                                "tagId": "command-line-transfer",
+                                "path": "/libraries/index.html",
+                                "id": "62d0723f-1d27-4a54-aaac-46fcab0402ae"
+                            },{
+                                "title": "SenNet Autofluorescence Microscopy (AF)",
+                                "tag": "h1",
+                                "tagId": "sennet-autofluorescence-microscopy-af",
+                                "path": "/assays/af.html",
+                                "id": "900e2eeb-e211-4ebe-98ec-75b9d5c7eecd"
+                            },{
+                                "title": "Overview:",
+                                "tag": "h2",
+                                "tagId": "overview",
+                                "path": "/assays/af.html",
+                                "id": "e87c3006-1060-43ab-9857-d5271d50e07b"
+                            },{
+                                "title": "Description:",
+                                "tag": "h2",
+                                "tagId": "description",
+                                "path": "/assays/af.html",
+                                "id": "79db30e0-7f85-4265-a9b5-44868ad88195"
+                            },{
+                                "title": "Definitions:",
+                                "tag": "h2",
+                                "tagId": "definitions",
+                                "path": "/assays/af.html",
+                                "id": "49823d42-da01-4298-a50b-091a7cb64c2c"
+                            },{
+                                "title": "SenNet AF Data States (Levels):",
+                                "tag": "h2",
+                                "tagId": "sennet-af-data-states-levels",
+                                "path": "/assays/af.html",
+                                "id": "f0c94eb7-bed7-48a9-ba20-7c276c7c736a"
+                            },{
+                                "title": "SenNet Metadata:",
+                                "tag": "h2",
+                                "tagId": "sennet-metadata",
+                                "path": "/assays/af.html",
+                                "id": "116bd7ae-902b-4ce6-b7e2-e64d36bc2f3e"
+                            },{
+                                "title": "Associated Metadata files:",
+                                "tag": "h2",
+                                "tagId": "associated-metadata-files",
+                                "path": "/assays/af.html",
+                                "id": "ae80f247-cf2b-44b2-9c9f-de319e03fb91"
+                            },{
+                                "title": "Terms defined in this document:",
+                                "tag": "h2",
+                                "tagId": "terms-defined-in-this-document",
+                                "path": "/assays/af.html",
+                                "id": "8fb28d8a-aa39-4e85-8c21-d444d4877bbd"
+                            },{
+                                "title": "For Additional Help:",
+                                "tag": "h2",
+                                "tagId": "for-additional-help",
+                                "path": "/assays/af.html",
+                                "id": "3ff86f87-3aa8-4b8e-9396-cdb3ea1bb293"
+                            },{
+                                "title": "Last Updated: 6/15/2020",
+                                "tag": "h3",
+                                "tagId": "last-updated-6152020",
+                                "path": "/assays/af.html",
+                                "id": "7b75d3db-c21f-40dc-903a-6e6b1ed4628d"
+                            },{
+                                "title": "Provenance UI",
+                                "tag": "h1",
+                                "tagId": "provenance-ui",
+                                "path": "/libraries/provenance-ui/index.html",
+                                "id": "56edcce3-d67b-455c-80ee-1e20e792c6b4"
+                            },{
+                                "title": "Section 8 - Creating an Upload Directory",
+                                "tag": "h2",
+                                "tagId": "section-8---creating-an-upload-directory",
+                                "path": "/data-submission/Section8.html",
+                                "id": "08e8e8a8-aeef-452e-a9d0-cc41ae06b0de"
+                            },{
+                                "title": "Example Data Query and Download",
+                                "tag": "h1",
+                                "tagId": "example-data-query-and-download",
+                                "path": "/param-search/data-query-download-example.html",
+                                "id": "0e3b4dd1-d0af-4f73-af4a-9424820b6ea5"
+                            },{
+                                "title": "Overview",
+                                "tag": "h2",
+                                "tagId": "overview",
+                                "path": "/param-search/data-query-download-example.html",
+                                "id": "51e10487-40f3-4043-8d32-9c886cf722b4"
+                            },{
+                                "title": "Description",
+                                "tag": "h2",
+                                "tagId": "description",
+                                "path": "/param-search/data-query-download-example.html",
+                                "id": "ab381be5-03bd-4dfe-83af-abf38116d5b1"
+                            },{
+                                "title": "Example Query and Download",
+                                "tag": "h3",
+                                "tagId": "example-query-and-download",
+                                "path": "/param-search/data-query-download-example.html",
+                                "id": "49998049-a2b2-4eea-9830-2e234a6fd1c4"
+                            },{
+                                "title": "SenNet Provenance Graph",
+                                "tag": "h1",
+                                "tagId": "sennet-provenance-graph",
+                                "path": "/provenance/index.html",
+                                "id": "a5f37fe3-c1b5-400b-bf70-22c7c237dbb6"
+                            },{
+                                "title": "Overview",
+                                "tag": "h2",
+                                "tagId": "overview",
+                                "path": "/provenance/index.html",
+                                "id": "52371633-f493-4854-9c1e-33b95edd86b3"
+                            },{
+                                "title": "Description",
+                                "tag": "h2",
+                                "tagId": "description",
+                                "path": "/provenance/index.html",
+                                "id": "66901a33-fb80-4652-a848-335317a575a0"
+                            },{
+                                "title": "Overview:",
+                                "tag": "h2",
+                                "tagId": "overview",
+                                "path": "/param-search/schema-dataset.html",
+                                "id": "6ed14022-5dde-4df1-9ea0-ed6794711822"
+                            },{
+                                "title": "Description:",
+                                "tag": "h2",
+                                "tagId": "description",
+                                "path": "/param-search/schema-dataset.html",
+                                "id": "63bed668-9704-48f2-a97a-104339f1f04d"
+                            },{
+                                "title": "Dataset Attributes",
+                                "tag": "h3",
+                                "tagId": "dataset-attributes",
+                                "path": "/param-search/schema-dataset.html",
+                                "id": "5bedb028-056c-420e-a434-c7ec5a7a0a72"
+                            },{
+                                "title": "data_access_level attribute values",
+                                "tag": "h3",
+                                "tagId": "data_access_level-attribute-values",
+                                "path": "/param-search/schema-dataset.html",
+                                "id": "b6176f5c-f3d6-41f1-950d-0623f77422e8"
+                            },{
+                                "title": "status attribute values",
+                                "tag": "h3",
+                                "tagId": "status-attribute-values",
+                                "path": "/param-search/schema-dataset.html",
+                                "id": "a6086626-3389-474e-8193-fbcbdafa2737"
+                            },{
+                                "title": "dataset_type allowable values",
+                                "tag": "h3",
+                                "tagId": "dataset_type-allowable-values",
+                                "path": "/param-search/schema-dataset.html",
+                                "id": "eed77024-337a-4c9f-abf7-1da7981246b3"
+                            },{
+                                "title": "SenNet Dataset schema",
+                                "tag": "h1",
+                                "tagId": "sennet-dataset-schema",
+                                "path": "/param-search/schema-dataset.html",
+                                "id": "1858f3ad-840a-4322-95ca-6c34f3bc51b0"
+                            },{
+                                "title": "SenNet Data Provider Groups",
+                                "tag": "h2",
+                                "tagId": "sennet-data-provider-groups",
+                                "path": "/param-search/data-provider-groups.html",
+                                "id": "34d77dec-e421-4d4d-b19b-e49d9031e593"
+                            },{
+                                "title": "Section 6 - Preparing Metadata",
+                                "tag": "h2",
+                                "tagId": "section-6---preparing-metadata",
+                                "path": "/data-submission/Section6.html",
+                                "id": "39cb2f3f-e1c6-4774-86a7-5bbced3e027f"
+                            },{
+                                "title": "Available bulk registration schemas",
+                                "tag": "h1",
+                                "tagId": "available-bulk-registration-schemas",
+                                "path": "/registration/bulk-registration/index.html",
+                                "id": "ebf4444c-ad58-4558-a289-946b6a5ea838"
+                            },{
+                                "title": "Sample Suspension",
+                                "tag": "h1",
+                                "tagId": "sample-suspension",
+                                "path": "/registration/schemas/sample-suspension/index.html",
+                                "id": "3815b414-a807-4520-a962-8164e4d181ef"
+                            },{
+                                "title": "Metadata schema",
+                                "tag": "h2",
+                                "tagId": "metadata-schema",
+                                "path": "/registration/schemas/sample-suspension/index.html",
+                                "id": "17fb6e7c-1350-42c0-90e4-850c20d9b585"
+                            },{
+                                "title": "Not Found",
+                                "tag": "h1",
+                                "tagId": "",
+                                "path": "/404.html",
+                                "id": "ea441ead-f358-4160-89ac-78e16668d1b4"
+                            },{
+                                "title": "New to the Data Submission process?",
+                                "tag": "h2",
+                                "tagId": "new-to-the-data-submission-process",
+                                "path": "/registration/index.html",
+                                "id": "9dc38834-3aa0-4058-931c-a979464a1192"
+                            },{
+                                "title": "Available bulk registration schemas",
+                                "tag": "h2",
+                                "tagId": "available-bulk-registration-schemas",
+                                "path": "/registration/index.html",
+                                "id": "1784dd88-052c-40a1-9f51-c89f5e8f8c44"
+                            },{
+                                "title": "Available Metadata and Directory Schemas",
+                                "tag": "h2",
+                                "tagId": "available-metadata-and-directory-schemas",
+                                "path": "/registration/index.html",
+                                "id": "9d45f3b5-589b-4635-8319-33c1aea71397"
+                            },{
+                                "title": "Registration Interfaces",
+                                "tag": "h2",
+                                "tagId": "registration-interfaces",
+                                "path": "/registration/index.html",
+                                "id": "a5884735-ca98-4bbb-afc1-8ef073333552"
+                            },{
+                                "title": "Services",
+                                "tag": "h1",
+                                "tagId": "",
+                                "path": "/status/index.html",
+                                "id": "f351df98-3565-44d4-b6b7-e9ea9e09db92"
+                            },{
+                                "title": "Source",
+                                "tag": "h3",
+                                "tagId": "source",
+                                "path": "/registration/index.html",
+                                "id": "968f41d7-e192-4e0c-80ea-21bbc161731f"
+                            },{
+                                "title": "Sample",
+                                "tag": "h3",
+                                "tagId": "sample",
+                                "path": "/registration/index.html",
+                                "id": "336f766b-96fb-4bf0-8435-a8ae9100a89f"
+                            },{
+                                "title": "Data Sharing Portal",
+                                "tag": "h3",
+                                "tagId": "data-sharing-portal",
+                                "path": "/registration/index.html",
+                                "id": "c2e56605-6962-4219-81ab-1c00e8d10707"
+                            },{
+                                "title": "API",
+                                "tag": "h3",
+                                "tagId": "api",
+                                "path": "/registration/index.html",
+                                "id": "bd4be262-b502-43ce-b9b4-11212aa73245"
+                            },{
+                                "title": "Entity Registration Schemas & Guidelines",
+                                "tag": "h1",
+                                "tagId": "entity-registration-schemas--guidelines",
+                                "path": "/registration/index.html",
+                                "id": "63ede47b-5b98-42e6-897b-522d1274bda5"
+                            },{
+                                "title": "Section 3 - Validating Metadata",
+                                "tag": "h2",
+                                "tagId": "section-3---validating-metadata",
+                                "path": "/data-submission/Section3.html",
+                                "id": "88e2f40c-b3f8-498e-bf83-0057b0000ddb"
+                            },{
+                                "title": "Validation procedure",
+                                "tag": "h3",
+                                "tagId": "validation-procedure",
+                                "path": "/data-submission/Section3.html",
+                                "id": "6c2c6622-a9fd-4cda-abc0-1240f69f50c6"
+                            },{
+                                "title": "Available Metadata and Directory Schemas",
+                                "tag": "h2",
+                                "tagId": "available-metadata-and-directory-schemas",
+                                "path": "/registration/schemas/index.html",
+                                "id": "e492474c-c902-4aa0-a487-547b22c452f2"
+                            },{
+                                "title": "Source",
+                                "tag": "h3",
+                                "tagId": "source",
+                                "path": "/registration/schemas/index.html",
+                                "id": "672c65dc-1320-44ab-9a4f-8c9441685874"
+                            },{
+                                "title": "Sample",
+                                "tag": "h3",
+                                "tagId": "sample",
+                                "path": "/registration/schemas/index.html",
+                                "id": "897b1605-9a80-4f67-adc6-cb54a79b6e25"
+                            },{
+                                "title": "How to request access to the Dell Innovation “Moonshot” Hub",
+                                "tag": "h1",
+                                "tagId": "how-to-request-access-to-the-dell-innovation-moonshot-hub",
+                                "path": "/request-hub-access/index.html",
+                                "id": "2b7ce9e3-4f52-4738-962f-4d338ba12e11"
+                            },{
+                                "title": "SenNet Software Documentation",
+                                "tag": "h1",
+                                "tagId": "sennet-software-documentation",
+                                "path": "/index.html",
+                                "id": "9b68522f-6e54-4842-997a-580504394f93"
+                            },{
+                                "title": "Data Submission Guide",
+                                "tag": "h2",
+                                "tagId": "data-submission-guide",
+                                "path": "/index.html",
+                                "id": "dd7022bc-dfff-47f3-8fc6-6a48440df2ae"
+                            },{
+                                "title": "Entity Registration",
+                                "tag": "h2",
+                                "tagId": "entity-registration",
+                                "path": "/index.html",
+                                "id": "8ed3674f-685e-4882-9f0b-b3e77e63db4d"
+                            },{
+                                "title": "APIs",
+                                "tag": "h2",
+                                "tagId": "apis",
+                                "path": "/index.html",
+                                "id": "d3099e4a-f192-430c-ae26-c519a6e3556b"
+                            },{
+                                "title": "Libraries",
+                                "tag": "h2",
+                                "tagId": "libraries",
+                                "path": "/index.html",
+                                "id": "e7254df0-31a3-481c-a665-01d59a35e853"
+                            },{
+                                "title": "Biomarkers",
+                                "tag": "h2",
+                                "tagId": "biomarkers",
+                                "path": "/index.html",
+                                "id": "d6112c7c-5ab1-4d4f-ab30-f405adbd38e6"
+                            },{
+                                "title": "Installing GlobalProtect to use with Pitt sponsored accounts",
+                                "tag": "h2",
+                                "tagId": "installing-global-protect-to-use-with-pitt-sponsored-accounts",
+                                "path": "/gp-instructions.html",
+                                "id": "350d9842-0487-4187-af64-9ddc5efc8356"
+                            },{
+                                "title": "Virtual Desktop Access",
+                                "tag": "h2",
+                                "tagId": "virt-desktop",
+                                "path": "/gp-instructions.html",
+                                "id": "53a1982c-d237-45e8-bf68-a3883d822c3a"
+                            },{
+                                "title": "Dell Innovation “Moonshot” Hub Access",
+                                "tag": "h1",
+                                "tagId": "dell-innovation-moonshot-hub-access",
+                                "path": "/gp-instructions.html",
+                                "id": "4825d2a8-3b99-4569-9741-99bc6515eefe"
+                            },{
+                                "title": "Introduction",
+                                "tag": "h3",
+                                "tagId": "introduction",
+                                "path": "/gp-instructions.html",
+                                "id": "7f3b5c0a-3e6e-4b1f-9d29-cc9f87662510"
+                            },{
+                                "title": "Requirements",
+                                "tag": "h3",
+                                "tagId": "requirements",
+                                "path": "/gp-instructions.html",
+                                "id": "ffc8872f-570c-4ac8-b75a-cc2123c9a1fc"
+                            },{
+                                "title": "GlobalProtect Health Check Requirements:",
+                                "tag": "h3",
+                                "tagId": "GP-HIPCheck-Requirements",
+                                "path": "/gp-instructions.html",
+                                "id": "2cc80d19-7448-44b1-8c96-37a699a9a398"
+                            },{
+                                "title": "Installing GlobalProtect",
+                                "tag": "h3",
+                                "tagId": "installing-globalprotect",
+                                "path": "/gp-instructions.html",
+                                "id": "92c11b38-0614-4d5e-a7f7-177981cde6d2"
+                            },{
+                                "title": "Enabling and Testing GlobalProtect",
+                                "tag": "h3",
+                                "tagId": "enabling-and-testing-globalprotect",
+                                "path": "/gp-instructions.html",
+                                "id": "d62daef7-74ad-408d-8ed9-910486342c8e"
+                            },{
+                                "title": "Install Microsoft “Windows App”",
+                                "tag": "h3",
+                                "tagId": "install-microsoft-windows-app",
+                                "path": "/gp-instructions.html",
+                                "id": "27c29d02-7f63-4fcd-b264-a6d6b765b617"
+                            },{
+                                "title": "Launching the Virtual Desktop and connecting to the login node",
+                                "tag": "h3",
+                                "tagId": "launching-the-virtual-desktop-and-connecting-to-the-login-node",
+                                "path": "/gp-instructions.html",
+                                "id": "49472023-9113-4466-8585-4377a57cf442"
+                            },{
+                                "title": "Testing GlobalProtect",
+                                "tag": "h4",
+                                "tagId": "testing-globalprotect",
+                                "path": "/gp-instructions.html",
+                                "id": "d8e9b0bb-8a88-4256-b1cb-e1959af89d66"
+                            },{
+                                "title": "Install and Configure Windows App for macOS:",
+                                "tag": "h4",
+                                "tagId": "windows-app-mac",
+                                "path": "/gp-instructions.html",
+                                "id": "0789fc15-0ed3-4775-a02b-5209e1534d68"
+                            },{}]

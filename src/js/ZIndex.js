@@ -21,7 +21,8 @@ function ZIndex(source, args = null) {
         footer: Footer,
         fileMeta: FileMeta,
         header: Header,
-        gtm: GTM
+        gtm: GTM,
+        search: Search
     }
 
     args = args || window.apps.init

@@ -25,6 +25,7 @@
     "html": "concurrently \"gulp html-layouts\" \"gulp html-pages\" ",
     "css": "gulp css && cp docs/css/main.css docs/_site/css/main.css",
     "start": "concurrently \"serve -l 3005 ./docs\" \"gulp\"",
+    "search": "gulp search && gulp searchEnd",
     "build": "concurrently \"npm:js\" \"npm:css\" \"npm:html\""
   },
   "prettier": {
@@ -36,6 +37,7 @@
   },
   "dependencies": {
     "gulp-header": "^2.0.9",
-    "gulp-stylus": "^3.0.0"
+    "gulp-stylus": "^3.0.0",
+    "xmldom": "^0.6.0"
   }
 }

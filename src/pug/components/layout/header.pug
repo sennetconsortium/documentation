@@ -18,3 +18,10 @@ header.c-header.navbar.navbar-expand-lg(role='navigation')
                 each item in _m.menu
                     li(class=`nav-item${item.class ? ' '+item.class : ''}`)
                         a.nav-link(href=item.href)=item.name
+
+            .c-header__search.js-app--search
+                form
+                    input.is-hidden#js-searchInput(type='search' placeholder='Search' aria-label='Search')
+                    button.btn.btn-outline-success.my-2.my-sm-0(type='submit' aria-label="Search" aria-controls='js-searchInput') 
+                        i.fa.fa-search(aria-hidden='true')
+                .list-group
