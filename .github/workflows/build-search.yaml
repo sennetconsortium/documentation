@@ -28,6 +28,9 @@ jobs:
         with:
           token: ${{ secrets.GH_SUBMODULE_SECRET }}
 
+      - name: Pull latest changes
+        run: git pull origin main
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -38,6 +41,18 @@ jobs:
 
       - name: Build search
         run: npm run search
+
+      # Check if there are any changes before attempting to commit and push changes
+      - name: Check for changes
+        id: check_changes
+        run: |
+          git diff --exit-code
+          if [ $? -eq 0 ]; then
+            echo "No changes to commit."
+            echo "::set-output name=changes::false"
+          else
+            echo "::set-output name=changes::true"
+          fi
 
       - name: Commit & push changes
         run: |
