@@ -1,4 +1,4 @@
-name: Build and Test
+name: Build Search Indicies
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - libpitt/143-ui-tweaks
 
 jobs:
-  build:
+  buildSearch:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
