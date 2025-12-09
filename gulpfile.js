@@ -110,6 +110,7 @@ exports.default = function () {
 const fs = require('fs');
 const path = require('path');
 const { DOMParser } = require('xmldom')
+let marked = {}
 let searchDict = {}
 
 function writeToFile(content, method = 'appendFile') {
@@ -122,10 +123,14 @@ function writeToFile(content, method = 'appendFile') {
 }
 
 function createIndex(path, statsSync) {
-    const urlPath = path.replace('docs/_site/', '')
-    fetch(`http://localhost:4000/${urlPath}`) 
-    .then(response => response.text()) 
-        .then(htmlString => {
+    const urlPath = path.replace('docs/', '')
+    console.log(path)
+    fs.readFile(path, 'utf8', (err, data) => {
+        try {
+            let htmlString = data
+            if (path.indexOf('.md') > -1) {
+                htmlString = marked.parse(data)
+            }
         
             const parser = new DOMParser();
             const doc = parser.parseFromString(htmlString, 'text/html');
@@ -144,7 +149,7 @@ function createIndex(path, statsSync) {
                                 "mod": "${statsSync.mtime}",
                                 "tag": "${tag}",
                                 "tagId": "${h.getAttribute('id')}",
-                                "path": "/${urlPath}"
+                                "path": "/${urlPath.replace('.md', '.html')}"
                             },`
                             searchDict[title+urlPath] = true
                         }
@@ -153,16 +158,19 @@ function createIndex(path, statsSync) {
                     writeToFile(content)
                 }
             }
-            
-        })
-        .catch(error => console.error('Error during AJAX request:', error));
+        } catch(e) {
+            console.error('Index error: ', path, e)
+        }    
+    });
 }
 
 function getAllFilesRecursively(directoryPath) {
     let filePaths = [];
     const filesAndFolders = fs.readdirSync(directoryPath);
+    const excludedNames = ['_site', '_layouts', '.sass-cache', 'js', ];
+    const filteredContents = filesAndFolders.filter(item => !excludedNames.includes(item));
 
-    for (const item of filesAndFolders) {
+    for (const item of filteredContents) {
         const fullPath = path.join(directoryPath, item);
         const stats = fs.statSync(fullPath);
 
@@ -174,14 +182,12 @@ function getAllFilesRecursively(directoryPath) {
     }
     
     for (let f of filePaths) {
-        if ( f.indexOf('.html') > -1) {
+        if ( f.indexOf('.html') > -1 || f.indexOf('.md') > -1 ) {
             let statsSync = {}
-            let md = f.replace('_site/', '')
             try {
-                statsSync = fs.statSync(md.replace('.html', '.md'))
+                statsSync = fs.statSync(f)
             } 
             catch (err) {
-                statsSync = fs.statSync(md)
                 console.error('Error getting file stats synchronously:', err);
             }
 
@@ -194,9 +200,17 @@ function getAllFilesRecursively(directoryPath) {
 }
 
 function buildSearchIndicies(done) {
-    writeToFile('[', 'writeFile')
-    getAllFilesRecursively('./docs/_site')
-    done()
+    
+    import('marked')
+      .then(module => {
+        marked = module
+        writeToFile('[', 'writeFile')
+        getAllFilesRecursively('./docs')
+        done()
+      })
+      .catch(error => {
+        console.error('Failed to load module:', error);
+      })
 }
 
 function endBuildSearchIndicies(done) {
