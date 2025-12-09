@@ -7,7 +7,7 @@ on:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
-  contents: read
+  contents: write
   pages: write
   pull-requests: write
   id-token: write
@@ -23,8 +23,7 @@ jobs:
   buildSearch:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v2
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -41,13 +40,7 @@ jobs:
         run: |
           git config --global user.email "actions@github.com"
           git config --global user.name "GitHub Actions - build search index"
-          git commit -am "Update site-search-data.json" || echo "No changes to commit"
-          git push
-
-      - uses: actions/checkout@v3
-      - name: Merge feature branch to dev-integrate
-        uses: devmasx/merge-branch@master 
-        with:
-          type: now
-          target_branch: dev-integrate
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          git status
+          git add .
+          git commit -m "Update site-search-data.json"
+          git push origin libpitt/143-ui-tweaks
