@@ -105,8 +105,14 @@ class App {
     static async loadLanguageFile() {
         try {
             if (window.apps.locale) return true
-            const res = await Rest.get(`/lang/${LocalStore.getLanguage()}.json`)
+            let res = await Rest.get(`/lang/${LocalStore.getLanguage()}.json`)
             window.apps.locale = await res.json()
+
+            res = await Rest.get('/js/site-search-data.json')
+            if (res.ok) {
+                window.apps.searchData = await res.json()
+                window.apps.searchData.pop()
+            }
         } catch (e) {
             console.error(e)
         }

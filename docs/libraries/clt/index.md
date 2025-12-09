@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-# SenNet Command-Line Transfer
+# SenNet Command-Line Transfer (CLT)
 
 The [SenNet Command-Line Transfer (CLT)](https://pypi.org/project/atlas-consortia-clt/) tool streamlines the download of individual files and directories from multiple datasets and uploads. Files and directories are specified in a manifest file and given to the CLT.
 
@@ -33,7 +33,7 @@ Manifest files can be created from the home page of
 the [Data Sharing Portal](https://data.sennetconsortium.org/search?size=n_10000_n&filters%5B0%5D%5Bfield%5D=entity_type&filters%5B0%5D%5Bvalues%5D%5B0%5D=Dataset&filters%5B0%5D%5Btype%5D=any&sort%5B0%5D%5Bfield%5D=last_modified_timestamp&sort%5B0%5D%5Bdirection%5D=desc)
 when `Dataset` is selected as a filter. Select the checkboxes next to the datasets of interest and click the download icon
 at the top left of the table.<br>
-![Creating manifest](../../imgs/manifest-create.png){: .clt-img }
+![Creating manifest](../../imgs/manifest-create.png){: .clt-img.w-fixed }
 
 ## Usage
 

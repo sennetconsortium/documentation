@@ -49,6 +49,56 @@
       top 0
       +md-max()
         top 10px
+  
+  &__search 
+    +lg()
+      pos-abs()
+      right -50px
+    input 
+      padding 7px 10px
+      width auto
+      transition all .5s ease 
+      opacity 1
+      &.is-hidden 
+        width 0
+        opacity 0
+        border 0 
+        padding 0
+    .list-group 
+      pos-abs()
+      z-index 1000
+      background-color white
+      display flex
+      flex-direction column
+      padding-left 0
+      margin-bottom 0
+      width 300px
+      max-height 400px 
+      overflow-y auto
+      overflow-x hidden
+      border-radius 3px 
+      width 0
+      opacity 0
+      transition .5s ease opacity 
+      &.is-active 
+        border solid 1px $col-lgt-grey
+        width 300px
+        opacity 1
+      li 
+        margin 0
+        border-bottom solid 1px $col-lgt-grey
+      a,span
+        max-width 280px
+        white-space nowrap
+        overflow hidden
+        text-overflow ellipsis
+        font-size 14px
+        color $col-dk-grey
+        padding 5px 10px
+        display block
+        &:hover
+          color $col-primary-blue
+      
 
   li
     p1()

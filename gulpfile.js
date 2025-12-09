@@ -105,3 +105,104 @@ exports.default = function () {
     gulp.watch('src/js/*.js', js)
     gulp.watch('src/styles/**/*.styl', touch)
 }
+
+// Site search 
+const fs = require('fs');
+const path = require('path');
+const { DOMParser } = require('xmldom')
+let searchDict = {}
+
+function writeToFile(content, method = 'appendFile') {
+    fs[method]('./docs/js/site-search-data.json', content, (err) => {
+        if (err) {
+            console.error('Error writing file:', err);
+            return;
+        }
+    })
+}
+
+function createIndex(path, statsSync) {
+    const urlPath = path.replace('docs/_site/', '')
+    fetch(`http://localhost:4000/${urlPath}`) 
+    .then(response => response.text()) 
+        .then(htmlString => {
+        
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(htmlString, 'text/html');
+            
+            const headerTags = ['h1', 'h2', 'h3', 'h4']
+            for (let tag of headerTags) {
+                const headerCollection = doc.getElementsByTagName(tag)
+                const headers = Array.from(headerCollection);
+                if (headers.length) {
+                    let content = ''
+                    for (let h of headers) {
+                        let title = h.textContent.replaceAll('"', "'").trim()
+                        if (h.textContent != 'Table of Contents' && !searchDict[title+urlPath]) {
+                            content += `{
+                                "title": "${title}",
+                                "mod": "${statsSync.mtime}",
+                                "tag": "${tag}",
+                                "tagId": "${h.getAttribute('id')}",
+                                "path": "/${urlPath}"
+                            },`
+                            searchDict[title+urlPath] = true
+                        }
+                        
+                    }
+                    writeToFile(content)
+                }
+            }
+            
+        })
+        .catch(error => console.error('Error during AJAX request:', error));
+}
+
+function getAllFilesRecursively(directoryPath) {
+    let filePaths = [];
+    const filesAndFolders = fs.readdirSync(directoryPath);
+
+    for (const item of filesAndFolders) {
+        const fullPath = path.join(directoryPath, item);
+        const stats = fs.statSync(fullPath);
+
+        if (stats.isFile()) {
+            filePaths.push(fullPath);
+        } else if (stats.isDirectory()) {
+            filePaths = filePaths.concat(getAllFilesRecursively(fullPath));
+        }
+    }
+    
+    for (let f of filePaths) {
+        if ( f.indexOf('.html') > -1) {
+            let statsSync = {}
+            let md = f.replace('_site/', '')
+            try {
+                statsSync = fs.statSync(md.replace('.html', '.md'))
+            } 
+            catch (err) {
+                statsSync = fs.statSync(md)
+                console.error('Error getting file stats synchronously:', err);
+            }
+
+            createIndex(f, statsSync)
+            
+        }
+    }
+
+    return filePaths;
+}
+
+function buildSearchIndicies(done) {
+    writeToFile('[', 'writeFile')
+    getAllFilesRecursively('./docs/_site')
+    done()
+}
+
+function endBuildSearchIndicies(done) {
+    writeToFile('{}]')
+    done()
+}
+
+gulp.task('search', buildSearchIndicies)
+gulp.task('searchEnd', endBuildSearchIndicies)
