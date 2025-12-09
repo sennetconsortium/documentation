@@ -3,7 +3,7 @@ name: Build Search Indicies
 on:
   push:
     branches:
-      - libpitt/143-ui-tweaks
+      - main
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
@@ -43,4 +43,4 @@ jobs:
           git status
           git add .
           git commit -m "Update site-search-data.json"
-          git push origin libpitt/143-ui-tweaks
+          git push origin main
