@@ -2,7 +2,7 @@
  * sennetdocs - 
  * @version v0.1.0
  * @link https://docs.sennetconsortium.org/
- * @date Mon Dec 08 2025 17:53:03 GMT-0500 (Eastern Standard Time)
+ * @date Tue Dec 09 2025 10:23:50 GMT-0500 (Eastern Standard Time)
  */
 var _this19 = this;
 function _wrapNativeSuper(Class) { var _cache = typeof Map === "function" ? new Map() : undefined; _wrapNativeSuper = function _wrapNativeSuper(Class) { if (Class === null || !_isNativeFunction(Class)) return Class; if (typeof Class !== "function") { throw new TypeError("Super expression must either be null or a function"); } if (typeof _cache !== "undefined") { if (_cache.has(Class)) return _cache.get(Class); _cache.set(Class, Wrapper); } function Wrapper() { return _construct(Class, arguments, _getPrototypeOf(this).constructor); } Wrapper.prototype = Object.create(Class.prototype, { constructor: { value: Wrapper, enumerable: false, writable: true, configurable: true } }); return _setPrototypeOf(Wrapper, Class); }; return _wrapNativeSuper(Class); }
@@ -10181,6 +10181,13 @@ var Search = /*#__PURE__*/function (_App8) {
       this.$.list.html('');
     }
   }, {
+    key: "closeSearch",
+    value: function closeSearch() {
+      this.$.io.val('');
+      this.clearResults();
+      this.$.io.addClass('is-hidden');
+    }
+  }, {
     key: "events",
     value: function events() {
       var _this15 = this;
@@ -10192,14 +10199,19 @@ var Search = /*#__PURE__*/function (_App8) {
         } else {
           _this15.$.io.val('');
           _this15.$.io.toggleClass('is-hidden');
+          if (!_this15.$.io.hasClass('is-hidden')) {
+            _this15.$.io.focus();
+          }
         }
       }.bind(this));
       $(window).on('keydown', function (e) {
         if (_this15.isEsc(e)) {
-          _this15.$.io.val('');
-          _this15.clearResults();
-          _this15.$.io.addClass('is-hidden');
+          _this15.closeSearch();
         }
+      }.bind(this));
+      $('[role="main"]').on('click', function (e) {
+        e.stopPropagation();
+        _this15.closeSearch();
       }.bind(this));
     }
   }]);

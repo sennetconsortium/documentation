@@ -43,6 +43,12 @@ class Search extends App {
       this.$.list.html('')
     }
 
+    closeSearch() {
+      this.$.io.val('')
+      this.clearResults()
+      this.$.io.addClass('is-hidden')
+    }
+
     events() {
         this.$.btn.on('click', ((e)=> {
             e.preventDefault()
@@ -52,17 +58,25 @@ class Search extends App {
             } else {
               this.$.io.val('')
               this.$.io.toggleClass('is-hidden')
+              if (!this.$.io.hasClass('is-hidden')) {
+                this.$.io.focus()
+              }
             }
+
+            
             
         }).bind(this))
 
         $(window).on('keydown', ((e) => {
             if (this.isEsc(e)) {
-                this.$.io.val('')
-                this.clearResults()
-                this.$.io.addClass('is-hidden')
+                this.closeSearch()
             }
         }).bind(this));
+
+        $('[role="main"]').on('click', ((e) => {
+            e.stopPropagation()
+            this.closeSearch()
+        }).bind(this)); 
     }
 
 

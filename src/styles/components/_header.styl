@@ -77,10 +77,12 @@
       overflow-y auto
       overflow-x hidden
       border-radius 3px 
-      border solid 1px $col-lgt-grey
+      width 0
       opacity 0
       transition .5s ease opacity 
       &.is-active 
+        border solid 1px $col-lgt-grey
+        width 300px
         opacity 1
       li 
         margin 0

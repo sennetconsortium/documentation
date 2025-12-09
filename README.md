@@ -23,11 +23,22 @@ you already have cloned this repository and switched to the target branch, to lo
 git submodule update --init --remote
 ```
 
+## Static Site Search
+This site has static site search capabilities that relies on a generated json file as search index xzdata. To add new or updated documentation to the search index, you will need to regenerate the json file. To do so, first install the dependencies:
+
+```bash
+npm i .
+```
+
+To rebuild the search index:
+```bash
+npm run search
+```
+
 ## Development
-Only need to set this up if there is a need to add new functionality, features, styles to the templates. To view `/docs` as they'd appear on GitHub pages, see [mimicking GitHub pages](#mimicking-github-pages-locally).
+If there is a need to add new JS functionality, features, styles and layouts to the templates, complete the steps below. To view `/docs` as they'd appear on GitHub pages, see [mimicking GitHub pages](#mimicking-github-pages-locally).
 ### Install 
 ```bash
-cd documentation
 npm i .
 ```
 
