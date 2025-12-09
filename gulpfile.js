@@ -123,9 +123,7 @@ function writeToFile(content, method = 'appendFile') {
 
 function createIndex(path, statsSync) {
     const urlPath = path.replace('docs/_site/', '')
-    fetch(`http://localhost:4000/${urlPath}`) 
-    .then(response => response.text()) 
-        .then(htmlString => {
+    fs.readFile(path, 'utf8', (err, htmlString) => {
         
             const parser = new DOMParser();
             const doc = parser.parseFromString(htmlString, 'text/html');
@@ -154,8 +152,7 @@ function createIndex(path, statsSync) {
                 }
             }
             
-        })
-        .catch(error => console.error('Error during AJAX request:', error));
+        });
 }
 
 function getAllFilesRecursively(directoryPath) {
