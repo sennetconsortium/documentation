@@ -25,6 +25,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+        # Uses the private access token from above link
+        with:
+          token: ${{ secrets.GH_SUBMODULE_SECRET }}
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
