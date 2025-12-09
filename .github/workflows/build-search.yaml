@@ -1,9 +1,8 @@
-name: Build Search Indicies
+name: build-search-indices
 
 on:
-  push:
-    branches:
-      - main
+  repository_dispatch:
+    types: [build-search-indices]
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
