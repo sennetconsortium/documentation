@@ -30,9 +30,6 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.GH_SUBMODULE_SECRET }}
 
-      - name: Print the actors name
-        run: echo "The workflow was initiated by ${{ github.actor }}"
-
       - name: Restore timestamps
         uses: chetan/git-restore-mtime-action@v1
 
