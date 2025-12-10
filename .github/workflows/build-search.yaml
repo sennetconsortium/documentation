@@ -33,6 +33,9 @@ jobs:
       - name: Restore timestamps
         uses: chetan/git-restore-mtime-action@v1
 
+      - name: Pull latest changes
+        run: git pull origin main -X theirs
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
