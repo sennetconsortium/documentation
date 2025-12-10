@@ -1,4 +1,4 @@
-name: Build Search Indicies
+name: build-search-indices
 
 on:
   pull_request:
