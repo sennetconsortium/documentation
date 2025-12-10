@@ -1,4 +1,4 @@
-name: build-search-indices
+name: Build Search Indicies
 
 on:
   pull_request:
@@ -19,41 +19,33 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
-
 jobs:
   buildSearch:
     runs-on: ubuntu-latest
+    if: ${{ ! contains(github.event.head_commit.message, 'Automate update') }}
     steps:
-      - uses: actions/checkout@v2
-
+      - uses: actions/checkout@v4
         # Uses the private access token from above link
         with:
+          fetch-depth: 0
           token: ${{ secrets.GH_SUBMODULE_SECRET }}
 
-      - name: Pull latest changes
-        run: git pull origin main
+      - name: Print the actors name
+        run: echo "The workflow was initiated by ${{ github.actor }}"
+
+      - name: Restore timestamps
+        uses: chetan/git-restore-mtime-action@v1
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '20' 
 
       - name: Install dependencies
-        run: npm ci
+        run: npm ci 
 
       - name: Build search
         run: npm run search
-
-      # Check if there are any changes before attempting to commit and push changes
-      - name: Check for changes
-        id: check_changes
-        run: |
-          if git diff --exit-code; then
-            echo "No changes to commit."
-            echo "::set-output name=changes::false"
-          else
-            echo "::set-output name=changes::true"
-          fi
 
       - name: Commit & push changes
         run: |
@@ -61,5 +53,5 @@ jobs:
           git config --global user.name "GitHub Actions - build search index"
           git status
           git add .
-          git commit -m "Update site-search-data.json"
+          git commit -m "Automate update site-search-data.json"
           git push origin main
