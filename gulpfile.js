@@ -146,7 +146,7 @@ function createIndex(path, statsSync) {
                         if (h.textContent != 'Table of Contents' && !searchDict[title+urlPath]) {
                             content += `{
                                 "title": "${title}",
-                                "mod": "${statsSync.mtime}",
+                                "mod": "${statsSync.trim()}",
                                 "tag": "${tag}",
                                 "tagId": "${h.getAttribute('id')}",
                                 "path": "/${urlPath.replace('.md', '.html')}"
@@ -161,7 +161,7 @@ function createIndex(path, statsSync) {
         } catch(e) {
             console.error('Index error: ', path, e)
         }    
-    });
+    }); 
 }
 
 function getAllFilesRecursively(directoryPath) {
@@ -183,16 +183,14 @@ function getAllFilesRecursively(directoryPath) {
     
     for (let f of filePaths) {
         if ( f.indexOf('.html') > -1 || f.indexOf('.md') > -1 ) {
-            let statsSync = {}
             try {
-                statsSync = fs.statSync(f)
+                exec('git log -1 --format="%ad" -- '+f, (error, stdout, stderr) => {
+                    createIndex(f, stdout)
+                })
             } 
             catch (err) {
                 console.error('Error getting file stats synchronously:', err);
-            }
-
-            createIndex(f, statsSync)
-            
+            }   
         }
     }
 
