@@ -149,7 +149,7 @@ function createIndex(path, statsSync) {
                                 "mod": "${statsSync.trim()}",
                                 "tag": "${tag}",
                                 "tagId": "${h.getAttribute('id')}",
-                                "path": "/${urlPath.replace('.md', '.html')}"
+                                "path": "/${urlPath.replace(new RegExp(/(index\.(html|md)|\.(html|md))/), '')}"
                             },`
                             searchDict[title+urlPath] = true
                         }
