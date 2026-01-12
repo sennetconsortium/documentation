@@ -27,6 +27,7 @@ function ZIndex(source, args = null) {
 
     args = args || window.apps.init
     try {
+        App.applyStyles(args)
         for (let app in apps) {
             document
                 .querySelectorAll(`[class*='js-app--${app}'], [data-js-${app}]`)
@@ -34,7 +35,6 @@ function ZIndex(source, args = null) {
                     new apps[app](el, { app, ...args })
                 })
         }
-        App.applyStyles(args)
     } catch (e) {
         console.error(e)
     }

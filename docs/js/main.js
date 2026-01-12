@@ -2,7 +2,7 @@
  * sennetdocs - 
  * @version v0.1.0
  * @link https://docs.sennetconsortium.org/
- * @date Tue Dec 09 2025 10:23:50 GMT-0500 (Eastern Standard Time)
+ * @date Mon Jan 12 2026 10:37:01 GMT-0500 (Eastern Standard Time)
  */
 var _this19 = this;
 function _wrapNativeSuper(Class) { var _cache = typeof Map === "function" ? new Map() : undefined; _wrapNativeSuper = function _wrapNativeSuper(Class) { if (Class === null || !_isNativeFunction(Class)) return Class; if (typeof Class !== "function") { throw new TypeError("Super expression must either be null or a function"); } if (typeof _cache !== "undefined") { if (_cache.has(Class)) return _cache.get(Class); _cache.set(Class, Wrapper); } function Wrapper() { return _construct(Class, arguments, _getPrototypeOf(this).constructor); } Wrapper.prototype = Object.create(Class.prototype, { constructor: { value: Wrapper, enumerable: false, writable: true, configurable: true } }); return _setPrototypeOf(Wrapper, Class); }; return _wrapNativeSuper(Class); }
@@ -9410,6 +9410,11 @@ var App = /*#__PURE__*/function () {
           app: '<pre>'
         }, args));
       });
+      $('table').each(function (i) {
+        if (!$(this).parent().hasClass('c-table--scrollable')) {
+          $(this).wrap('<div class="c-table c-table--scrollable"></div>');
+        }
+      });
     }
   }, {
     key: "applyTheme",
@@ -10457,6 +10462,7 @@ function ZIndex(source) {
   };
   args = args || window.apps.init;
   try {
+    App.applyStyles(args);
     var _loop = function _loop(app) {
       document.querySelectorAll("[class*='js-app--".concat(app, "'], [data-js-").concat(app, "]")).forEach(function (el) {
         new apps[app](el, _objectSpread({
@@ -10467,7 +10473,6 @@ function ZIndex(source) {
     for (var app in apps) {
       _loop(app);
     }
-    App.applyStyles(args);
   } catch (e) {
     console.error(e);
   }

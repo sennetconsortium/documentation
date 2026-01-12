@@ -149,6 +149,11 @@ class App {
             new Pre(this, {app: '<pre>', ...args})
         })
 
+        $('table').each(function( i ) {
+            if (!$(this).parent().hasClass('c-table--scrollable')) {
+                $(this).wrap('<div class="c-table c-table--scrollable"></div>')
+            }
+        })
 
     }
 
