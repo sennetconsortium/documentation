@@ -2,7 +2,7 @@
  * sennetdocs - 
  * @version v0.1.0
  * @link https://docs.sennetconsortium.org/
- * @date Mon Jan 12 2026 10:37:01 GMT-0500 (Eastern Standard Time)
+ * @date Fri Jan 16 2026 11:29:34 GMT-0500 (Eastern Standard Time)
  */
 var _this19 = this;
 function _wrapNativeSuper(Class) { var _cache = typeof Map === "function" ? new Map() : undefined; _wrapNativeSuper = function _wrapNativeSuper(Class) { if (Class === null || !_isNativeFunction(Class)) return Class; if (typeof Class !== "function") { throw new TypeError("Super expression must either be null or a function"); } if (typeof _cache !== "undefined") { if (_cache.has(Class)) return _cache.get(Class); _cache.set(Class, Wrapper); } function Wrapper() { return _construct(Class, arguments, _getPrototypeOf(this).constructor); } Wrapper.prototype = Object.create(Class.prototype, { constructor: { value: Wrapper, enumerable: false, writable: true, configurable: true } }); return _setPrototypeOf(Wrapper, Class); }; return _wrapNativeSuper(Class); }
@@ -9629,61 +9629,58 @@ var FileMeta = /*#__PURE__*/function (_App3) {
               case 6:
                 // Find file stat from search indicies
                 p = path;
-                if (path.indexOf('.html') == -1) {
-                  p += '.html';
-                }
                 _iterator3 = _createForOfIteratorHelper(window.apps.searchData);
-                _context3.prev = 9;
+                _context3.prev = 8;
                 _iterator3.s();
-              case 11:
+              case 10:
                 if ((_step3 = _iterator3.n()).done) {
-                  _context3.next = 19;
+                  _context3.next = 18;
                   break;
                 }
                 d = _step3.value;
-                if (!(p.toLowerCase() == d.path.toLowerCase())) {
-                  _context3.next = 17;
+                if (!(p.toLowerCase() == d.path.toLowerCase() && d.mod.length)) {
+                  _context3.next = 16;
                   break;
                 }
                 this.toDate(d.mod);
                 this.$.label.addClass(this.classNames.active);
                 return _context3.abrupt("return");
-              case 17:
-                _context3.next = 11;
+              case 16:
+                _context3.next = 10;
                 break;
-              case 19:
-                _context3.next = 24;
+              case 18:
+                _context3.next = 23;
                 break;
-              case 21:
-                _context3.prev = 21;
-                _context3.t0 = _context3["catch"](9);
+              case 20:
+                _context3.prev = 20;
+                _context3.t0 = _context3["catch"](8);
                 _iterator3.e(_context3.t0);
-              case 24:
-                _context3.prev = 24;
+              case 23:
+                _context3.prev = 23;
                 _iterator3.f();
-                return _context3.finish(24);
-              case 27:
+                return _context3.finish(23);
+              case 26:
                 // If not found, use the meta from the server
                 paths = [];
                 if (path.split('.').pop() === path) {
                   paths = ["".concat(path, ".html"), "".concat(path, ".md")];
                 }
                 _i = 0, _paths = paths;
-              case 30:
+              case 29:
                 if (!(_i < _paths.length)) {
-                  _context3.next = 41;
+                  _context3.next = 40;
                   break;
                 }
                 _p = _paths[_i];
                 if (!(this.$.date.html() && this.$.date.html().length)) {
-                  _context3.next = 34;
+                  _context3.next = 33;
                   break;
                 }
                 return _context3.abrupt("return");
-              case 34:
-                _context3.next = 36;
+              case 33:
+                _context3.next = 35;
                 return Rest.get(_p, 'text/plain');
-              case 36:
+              case 35:
                 r = _context3.sent;
                 if (r.ok) {
                   lastMod = r.headers.get('last-modified');
@@ -9695,25 +9692,25 @@ var FileMeta = /*#__PURE__*/function (_App3) {
                     error: true
                   });
                 }
-              case 38:
+              case 37:
                 _i++;
-                _context3.next = 30;
+                _context3.next = 29;
                 break;
-              case 41:
-                _context3.next = 46;
+              case 40:
+                _context3.next = 45;
                 break;
-              case 43:
-                _context3.prev = 43;
+              case 42:
+                _context3.prev = 42;
                 _context3.t1 = _context3["catch"](1);
                 App.log(this.app, _context3.t1, {
                   error: true
                 });
-              case 46:
+              case 45:
               case "end":
                 return _context3.stop();
             }
           }
-        }, _callee3, this, [[1, 43], [9, 21, 24, 27]]);
+        }, _callee3, this, [[1, 42], [8, 20, 23, 26]]);
       }));
       function addDate() {
         return _addDate.apply(this, arguments);
