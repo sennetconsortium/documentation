@@ -27,12 +27,8 @@ class FileMeta extends App {
 
             // Find file stat from search indicies
             let p = path
-            if (path.indexOf('.html') == -1) {
-                p += '.html'
-            }
             for (let d of window.apps.searchData) {
-                
-                if (p.toLowerCase() == d.path.toLowerCase()) {
+                if ((p.toLowerCase() == d.path.toLowerCase()) && d.mod.length) {
                     this.toDate(d.mod)
                     this.$.label.addClass(this.classNames.active)
                     return
