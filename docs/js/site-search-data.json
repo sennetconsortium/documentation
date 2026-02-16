@@ -89,6 +89,54 @@
                                 "tagId": "",
                                 "path": "/registration/schemas/"
                             },{
+                                "title": "Source Bulk Registration",
+                                "mod": "Mon Sep 29 16:40:22 2025 -0400",
+                                "tag": "h1",
+                                "tagId": "",
+                                "path": "/registration/bulk-registration/source"
+                            },{
+                                "title": "layout: default",
+                                "mod": "Mon Sep 29 16:40:22 2025 -0400",
+                                "tag": "h2",
+                                "tagId": "",
+                                "path": "/registration/bulk-registration/source"
+                            },{
+                                "title": "Source Registration Fields",
+                                "mod": "Mon Sep 29 16:40:22 2025 -0400",
+                                "tag": "h3",
+                                "tagId": "",
+                                "path": "/registration/bulk-registration/source"
+                            },{
+                                "title": "Source metadata submission",
+                                "mod": "Mon Sep 29 16:40:22 2025 -0400",
+                                "tag": "h3",
+                                "tagId": "",
+                                "path": "/registration/bulk-registration/source"
+                            },{
+                                "title": "Sample Bulk Registration",
+                                "mod": "Mon Sep 29 16:40:22 2025 -0400",
+                                "tag": "h1",
+                                "tagId": "",
+                                "path": "/registration/bulk-registration/sample"
+                            },{
+                                "title": "layout: default",
+                                "mod": "Mon Sep 29 16:40:22 2025 -0400",
+                                "tag": "h2",
+                                "tagId": "",
+                                "path": "/registration/bulk-registration/sample"
+                            },{
+                                "title": "Sample Bulk Registration TSV Fields",
+                                "mod": "Mon Sep 29 16:40:22 2025 -0400",
+                                "tag": "h2",
+                                "tagId": "",
+                                "path": "/registration/bulk-registration/sample"
+                            },{
+                                "title": "Sample Metadata Submission",
+                                "mod": "Mon Sep 29 16:40:22 2025 -0400",
+                                "tag": "h2",
+                                "tagId": "",
+                                "path": "/registration/bulk-registration/sample"
+                            },{
                                 "title": "Entity Registration Schemas & Guidelines",
                                 "mod": "Mon Oct 6 13:32:53 2025 -0400",
                                 "tag": "h1",
@@ -148,54 +196,6 @@
                                 "tag": "h3",
                                 "tagId": "",
                                 "path": "/registration/"
-                            },{
-                                "title": "Source Bulk Registration",
-                                "mod": "Mon Sep 29 16:40:22 2025 -0400",
-                                "tag": "h1",
-                                "tagId": "",
-                                "path": "/registration/bulk-registration/source"
-                            },{
-                                "title": "layout: default",
-                                "mod": "Mon Sep 29 16:40:22 2025 -0400",
-                                "tag": "h2",
-                                "tagId": "",
-                                "path": "/registration/bulk-registration/source"
-                            },{
-                                "title": "Source Registration Fields",
-                                "mod": "Mon Sep 29 16:40:22 2025 -0400",
-                                "tag": "h3",
-                                "tagId": "",
-                                "path": "/registration/bulk-registration/source"
-                            },{
-                                "title": "Source metadata submission",
-                                "mod": "Mon Sep 29 16:40:22 2025 -0400",
-                                "tag": "h3",
-                                "tagId": "",
-                                "path": "/registration/bulk-registration/source"
-                            },{
-                                "title": "Sample Bulk Registration",
-                                "mod": "Mon Sep 29 16:40:22 2025 -0400",
-                                "tag": "h1",
-                                "tagId": "",
-                                "path": "/registration/bulk-registration/sample"
-                            },{
-                                "title": "layout: default",
-                                "mod": "Mon Sep 29 16:40:22 2025 -0400",
-                                "tag": "h2",
-                                "tagId": "",
-                                "path": "/registration/bulk-registration/sample"
-                            },{
-                                "title": "Sample Bulk Registration TSV Fields",
-                                "mod": "Mon Sep 29 16:40:22 2025 -0400",
-                                "tag": "h2",
-                                "tagId": "",
-                                "path": "/registration/bulk-registration/sample"
-                            },{
-                                "title": "Sample Metadata Submission",
-                                "mod": "Mon Sep 29 16:40:22 2025 -0400",
-                                "tag": "h2",
-                                "tagId": "",
-                                "path": "/registration/bulk-registration/sample"
                             },{
                                 "title": "Available bulk registration schemas",
                                 "mod": "Fri Sep 20 16:29:30 2024 -0400",
@@ -491,18 +491,6 @@
                                 "tagId": "",
                                 "path": "/libraries/xac-sankey/"
                             },{
-                                "title": "Provenance UI",
-                                "mod": "Mon Apr 21 10:10:34 2025 -0400",
-                                "tag": "h1",
-                                "tagId": "",
-                                "path": "/libraries/provenance-ui/"
-                            },{
-                                "title": "layout: default",
-                                "mod": "Mon Apr 21 10:10:34 2025 -0400",
-                                "tag": "h2",
-                                "tagId": "",
-                                "path": "/libraries/provenance-ui/"
-                            },{
                                 "title": "layout: default",
                                 "mod": "Thu Jan 12 11:59:04 2023 -0500",
                                 "tag": "h2",
@@ -586,6 +574,18 @@
                                 "tag": "h2",
                                 "tagId": "",
                                 "path": "/libraries/provenance-ui/foo/"
+                            },{
+                                "title": "Provenance UI",
+                                "mod": "Mon Apr 21 10:10:34 2025 -0400",
+                                "tag": "h1",
+                                "tagId": "",
+                                "path": "/libraries/provenance-ui/"
+                            },{
+                                "title": "layout: default",
+                                "mod": "Mon Apr 21 10:10:34 2025 -0400",
+                                "tag": "h2",
+                                "tagId": "",
+                                "path": "/libraries/provenance-ui/"
                             },{
                                 "title": "Upload Guidelines",
                                 "mod": "Fri Jun 23 14:47:46 2023 -0400",
@@ -791,6 +791,12 @@
                                 "tagId": "",
                                 "path": "/"
                             },{
+                                "title": "Dell Innovation 'Moonshot' Hub Access",
+                                "mod": "Tue Apr 8 07:10:39 2025 -0400",
+                                "tag": "h1",
+                                "tagId": "",
+                                "path": "/gp-instructions"
+                            },{
                                 "title": "layout: default",
                                 "mod": "Tue Apr 8 07:10:39 2025 -0400",
                                 "tag": "h2",
@@ -807,12 +813,6 @@
                                 "mod": "Tue Apr 8 07:10:39 2025 -0400",
                                 "tag": "h2",
                                 "tagId": "virt-desktop",
-                                "path": "/gp-instructions"
-                            },{
-                                "title": "Dell Innovation 'Moonshot' Hub Access",
-                                "mod": "Tue Apr 8 07:10:39 2025 -0400",
-                                "tag": "h1",
-                                "tagId": "",
                                 "path": "/gp-instructions"
                             },{
                                 "title": "Requirements",
@@ -1487,6 +1487,18 @@
                                 "tagId": "",
                                 "path": "/assays/mxif"
                             },{
+                                "title": "layout: default",
+                                "mod": "Tue Sep 10 11:28:16 2024 -0400",
+                                "tag": "h2",
+                                "tagId": "",
+                                "path": "/assays/metadata/"
+                            },{
+                                "title": "SenNet Metadata Attributes by Dataset Type",
+                                "mod": "Tue Sep 10 11:28:16 2024 -0400",
+                                "tag": "h2",
+                                "tagId": "",
+                                "path": "/assays/metadata/"
+                            },{
                                 "title": "seqFISH",
                                 "mod": "Tue Sep 10 11:31:57 2024 -0400",
                                 "tag": "h1",
@@ -1512,24 +1524,6 @@
                                 "path": "/assays/metadata/seqFISH"
                             },{
                                 "title": "layout: default",
-                                "mod": "Tue Sep 10 11:28:16 2024 -0400",
-                                "tag": "h2",
-                                "tagId": "",
-                                "path": "/assays/metadata/"
-                            },{
-                                "title": "SenNet Metadata Attributes by Dataset Type",
-                                "mod": "Tue Sep 10 11:28:16 2024 -0400",
-                                "tag": "h2",
-                                "tagId": "",
-                                "path": "/assays/metadata/"
-                            },{
-                                "title": "WGS",
-                                "mod": "Tue Sep 10 11:31:57 2024 -0400",
-                                "tag": "h1",
-                                "tagId": "",
-                                "path": "/assays/metadata/WGS"
-                            },{
-                                "title": "layout: default",
                                 "mod": "Tue Sep 10 11:31:57 2024 -0400",
                                 "tag": "h2",
                                 "tagId": "",
@@ -1544,6 +1538,12 @@
                                 "title": "Version 0",
                                 "mod": "Tue Sep 10 11:31:57 2024 -0400",
                                 "tag": "h2",
+                                "tagId": "",
+                                "path": "/assays/metadata/WGS"
+                            },{
+                                "title": "WGS",
+                                "mod": "Tue Sep 10 11:31:57 2024 -0400",
+                                "tag": "h1",
                                 "tagId": "",
                                 "path": "/assays/metadata/WGS"
                             },{
@@ -1625,6 +1625,24 @@
                                 "tagId": "",
                                 "path": "/assays/metadata/SnareSeq2"
                             },{
+                                "title": "Second-Harmonic-Generation",
+                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
+                                "tag": "h1",
+                                "tagId": "",
+                                "path": "/assays/metadata/SecondHarmonicGeneration"
+                            },{
+                                "title": "layout: default",
+                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
+                                "tag": "h2",
+                                "tagId": "",
+                                "path": "/assays/metadata/SecondHarmonicGeneration"
+                            },{
+                                "title": "Version 2 (current)",
+                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
+                                "tag": "h2",
+                                "tagId": "",
+                                "path": "/assays/metadata/SecondHarmonicGeneration"
+                            },{
                                 "title": "SnareSeq2",
                                 "mod": "Tue Sep 10 11:31:57 2024 -0400",
                                 "tag": "h1",
@@ -1648,24 +1666,6 @@
                                 "tag": "h2",
                                 "tagId": "",
                                 "path": "/assays/metadata/Slide-seq"
-                            },{
-                                "title": "Second-Harmonic-Generation",
-                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
-                                "tag": "h1",
-                                "tagId": "",
-                                "path": "/assays/metadata/SecondHarmonicGeneration"
-                            },{
-                                "title": "layout: default",
-                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
-                                "tag": "h2",
-                                "tagId": "",
-                                "path": "/assays/metadata/SecondHarmonicGeneration"
-                            },{
-                                "title": "Version 2 (current)",
-                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
-                                "tag": "h2",
-                                "tagId": "",
-                                "path": "/assays/metadata/SecondHarmonicGeneration"
                             },{
                                 "title": "SIMS",
                                 "mod": "Mon Sep 9 15:19:49 2024 -0400",
@@ -1702,6 +1702,84 @@
                                 "tag": "h2",
                                 "tagId": "",
                                 "path": "/assays/metadata/RNAseqWithProbes"
+                            },{
+                                "title": "MUSIC",
+                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
+                                "tag": "h1",
+                                "tagId": "",
+                                "path": "/assays/metadata/MUSIC"
+                            },{
+                                "title": "layout: default",
+                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
+                                "tag": "h2",
+                                "tagId": "",
+                                "path": "/assays/metadata/MUSIC"
+                            },{
+                                "title": "Current Metadata Attributes",
+                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
+                                "tag": "h2",
+                                "tagId": "",
+                                "path": "/assays/metadata/MUSIC"
+                            },{
+                                "title": "PhenoCycler",
+                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
+                                "tag": "h1",
+                                "tagId": "",
+                                "path": "/assays/metadata/PhenoCycler"
+                            },{
+                                "title": "layout: default",
+                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
+                                "tag": "h2",
+                                "tagId": "",
+                                "path": "/assays/metadata/PhenoCycler"
+                            },{
+                                "title": "Version 2 (current)",
+                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
+                                "tag": "h2",
+                                "tagId": "",
+                                "path": "/assays/metadata/PhenoCycler"
+                            },{
+                                "title": "MERFISH",
+                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
+                                "tag": "h1",
+                                "tagId": "",
+                                "path": "/assays/metadata/MERFISH"
+                            },{
+                                "title": "layout: default",
+                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
+                                "tag": "h2",
+                                "tagId": "",
+                                "path": "/assays/metadata/MERFISH"
+                            },{
+                                "title": "Version 2 (current)",
+                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
+                                "tag": "h2",
+                                "tagId": "",
+                                "path": "/assays/metadata/MERFISH"
+                            },{
+                                "title": "MIBI",
+                                "mod": "Tue Sep 10 11:31:57 2024 -0400",
+                                "tag": "h1",
+                                "tagId": "",
+                                "path": "/assays/metadata/MIBI"
+                            },{
+                                "title": "layout: default",
+                                "mod": "Tue Sep 10 11:31:57 2024 -0400",
+                                "tag": "h2",
+                                "tagId": "",
+                                "path": "/assays/metadata/MIBI"
+                            },{
+                                "title": "Version 2 (latest)",
+                                "mod": "Tue Sep 10 11:31:57 2024 -0400",
+                                "tag": "h2",
+                                "tagId": "",
+                                "path": "/assays/metadata/MIBI"
+                            },{
+                                "title": "Version 1",
+                                "mod": "Tue Sep 10 11:31:57 2024 -0400",
+                                "tag": "h2",
+                                "tagId": "",
+                                "path": "/assays/metadata/MIBI"
                             },{
                                 "title": "RNAseq",
                                 "mod": "Tue Sep 10 11:31:57 2024 -0400",
@@ -1763,120 +1841,6 @@
                                 "tagId": "",
                                 "path": "/assays/metadata/RNAseq"
                             },{
-                                "title": "PhenoCycler",
-                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
-                                "tag": "h1",
-                                "tagId": "",
-                                "path": "/assays/metadata/PhenoCycler"
-                            },{
-                                "title": "layout: default",
-                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
-                                "tag": "h2",
-                                "tagId": "",
-                                "path": "/assays/metadata/PhenoCycler"
-                            },{
-                                "title": "Version 2 (current)",
-                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
-                                "tag": "h2",
-                                "tagId": "",
-                                "path": "/assays/metadata/PhenoCycler"
-                            },{
-                                "title": "MUSIC",
-                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
-                                "tag": "h1",
-                                "tagId": "",
-                                "path": "/assays/metadata/MUSIC"
-                            },{
-                                "title": "layout: default",
-                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
-                                "tag": "h2",
-                                "tagId": "",
-                                "path": "/assays/metadata/MUSIC"
-                            },{
-                                "title": "Current Metadata Attributes",
-                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
-                                "tag": "h2",
-                                "tagId": "",
-                                "path": "/assays/metadata/MUSIC"
-                            },{
-                                "title": "MIBI",
-                                "mod": "Tue Sep 10 11:31:57 2024 -0400",
-                                "tag": "h1",
-                                "tagId": "",
-                                "path": "/assays/metadata/MIBI"
-                            },{
-                                "title": "layout: default",
-                                "mod": "Tue Sep 10 11:31:57 2024 -0400",
-                                "tag": "h2",
-                                "tagId": "",
-                                "path": "/assays/metadata/MIBI"
-                            },{
-                                "title": "Version 2 (latest)",
-                                "mod": "Tue Sep 10 11:31:57 2024 -0400",
-                                "tag": "h2",
-                                "tagId": "",
-                                "path": "/assays/metadata/MIBI"
-                            },{
-                                "title": "Version 1",
-                                "mod": "Tue Sep 10 11:31:57 2024 -0400",
-                                "tag": "h2",
-                                "tagId": "",
-                                "path": "/assays/metadata/MIBI"
-                            },{
-                                "title": "MERFISH",
-                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
-                                "tag": "h1",
-                                "tagId": "",
-                                "path": "/assays/metadata/MERFISH"
-                            },{
-                                "title": "layout: default",
-                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
-                                "tag": "h2",
-                                "tagId": "",
-                                "path": "/assays/metadata/MERFISH"
-                            },{
-                                "title": "Version 2 (current)",
-                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
-                                "tag": "h2",
-                                "tagId": "",
-                                "path": "/assays/metadata/MERFISH"
-                            },{
-                                "title": "Light-Sheet",
-                                "mod": "Tue Sep 10 11:31:57 2024 -0400",
-                                "tag": "h1",
-                                "tagId": "",
-                                "path": "/assays/metadata/LightSheet"
-                            },{
-                                "title": "layout: default",
-                                "mod": "Tue Sep 10 11:31:57 2024 -0400",
-                                "tag": "h2",
-                                "tagId": "",
-                                "path": "/assays/metadata/LightSheet"
-                            },{
-                                "title": "Version 3 (latest)",
-                                "mod": "Tue Sep 10 11:31:57 2024 -0400",
-                                "tag": "h2",
-                                "tagId": "",
-                                "path": "/assays/metadata/LightSheet"
-                            },{
-                                "title": "Version 2",
-                                "mod": "Tue Sep 10 11:31:57 2024 -0400",
-                                "tag": "h2",
-                                "tagId": "",
-                                "path": "/assays/metadata/LightSheet"
-                            },{
-                                "title": "Version 1",
-                                "mod": "Tue Sep 10 11:31:57 2024 -0400",
-                                "tag": "h2",
-                                "tagId": "",
-                                "path": "/assays/metadata/LightSheet"
-                            },{
-                                "title": "Version 0",
-                                "mod": "Tue Sep 10 11:31:57 2024 -0400",
-                                "tag": "h2",
-                                "tagId": "",
-                                "path": "/assays/metadata/LightSheet"
-                            },{
                                 "title": "MALDI",
                                 "mod": "Tue Sep 10 11:31:57 2024 -0400",
                                 "tag": "h1",
@@ -1912,24 +1876,6 @@
                                 "tag": "h2",
                                 "tagId": "",
                                 "path": "/assays/metadata/MALDI"
-                            },{
-                                "title": "Histology",
-                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
-                                "tag": "h1",
-                                "tagId": "",
-                                "path": "/assays/metadata/Histology"
-                            },{
-                                "title": "layout: default",
-                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
-                                "tag": "h2",
-                                "tagId": "",
-                                "path": "/assays/metadata/Histology"
-                            },{
-                                "title": "Version 2 (Latest)",
-                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
-                                "tag": "h2",
-                                "tagId": "",
-                                "path": "/assays/metadata/Histology"
                             },{
                                 "title": "LC-MS",
                                 "mod": "Tue Sep 10 11:31:57 2024 -0400",
@@ -1973,23 +1919,41 @@
                                 "tagId": "",
                                 "path": "/assays/metadata/LC-MS"
                             },{
-                                "title": "HiFi-Slide",
-                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
+                                "title": "Light-Sheet",
+                                "mod": "Tue Sep 10 11:31:57 2024 -0400",
                                 "tag": "h1",
                                 "tagId": "",
-                                "path": "/assays/metadata/HiFi-Slide"
+                                "path": "/assays/metadata/LightSheet"
                             },{
                                 "title": "layout: default",
-                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
+                                "mod": "Tue Sep 10 11:31:57 2024 -0400",
                                 "tag": "h2",
                                 "tagId": "",
-                                "path": "/assays/metadata/HiFi-Slide"
+                                "path": "/assays/metadata/LightSheet"
                             },{
-                                "title": "Version 2 (current)",
-                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
+                                "title": "Version 3 (latest)",
+                                "mod": "Tue Sep 10 11:31:57 2024 -0400",
                                 "tag": "h2",
                                 "tagId": "",
-                                "path": "/assays/metadata/HiFi-Slide"
+                                "path": "/assays/metadata/LightSheet"
+                            },{
+                                "title": "Version 2",
+                                "mod": "Tue Sep 10 11:31:57 2024 -0400",
+                                "tag": "h2",
+                                "tagId": "",
+                                "path": "/assays/metadata/LightSheet"
+                            },{
+                                "title": "Version 1",
+                                "mod": "Tue Sep 10 11:31:57 2024 -0400",
+                                "tag": "h2",
+                                "tagId": "",
+                                "path": "/assays/metadata/LightSheet"
+                            },{
+                                "title": "Version 0",
+                                "mod": "Tue Sep 10 11:31:57 2024 -0400",
+                                "tag": "h2",
+                                "tagId": "",
+                                "path": "/assays/metadata/LightSheet"
                             },{
                                 "title": "IMC-2D",
                                 "mod": "Tue Sep 10 11:31:57 2024 -0400",
@@ -2033,6 +1997,60 @@
                                 "tagId": "",
                                 "path": "/assays/metadata/IMC"
                             },{
+                                "title": "Histology",
+                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
+                                "tag": "h1",
+                                "tagId": "",
+                                "path": "/assays/metadata/Histology"
+                            },{
+                                "title": "layout: default",
+                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
+                                "tag": "h2",
+                                "tagId": "",
+                                "path": "/assays/metadata/Histology"
+                            },{
+                                "title": "Version 2 (Latest)",
+                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
+                                "tag": "h2",
+                                "tagId": "",
+                                "path": "/assays/metadata/Histology"
+                            },{
+                                "title": "HiFi-Slide",
+                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
+                                "tag": "h1",
+                                "tagId": "",
+                                "path": "/assays/metadata/HiFi-Slide"
+                            },{
+                                "title": "layout: default",
+                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
+                                "tag": "h2",
+                                "tagId": "",
+                                "path": "/assays/metadata/HiFi-Slide"
+                            },{
+                                "title": "Version 2 (current)",
+                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
+                                "tag": "h2",
+                                "tagId": "",
+                                "path": "/assays/metadata/HiFi-Slide"
+                            },{
+                                "title": "Enhanced-SRS",
+                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
+                                "tag": "h1",
+                                "tagId": "",
+                                "path": "/assays/metadata/EnhancedSRS"
+                            },{
+                                "title": "layout: default",
+                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
+                                "tag": "h2",
+                                "tagId": "",
+                                "path": "/assays/metadata/EnhancedSRS"
+                            },{
+                                "title": "Version 2 (current)",
+                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
+                                "tag": "h2",
+                                "tagId": "",
+                                "path": "/assays/metadata/EnhancedSRS"
+                            },{
                                 "title": "GeoMx",
                                 "mod": "Mon Sep 9 15:19:49 2024 -0400",
                                 "tag": "h1",
@@ -2075,23 +2093,35 @@
                                 "tagId": "",
                                 "path": "/assays/metadata/DESI"
                             },{
-                                "title": "Enhanced-SRS",
-                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
+                                "title": "Auto-fluorescence",
+                                "mod": "Tue Sep 10 11:31:57 2024 -0400",
                                 "tag": "h1",
                                 "tagId": "",
-                                "path": "/assays/metadata/EnhancedSRS"
+                                "path": "/assays/metadata/AutoFluorescence"
                             },{
                                 "title": "layout: default",
-                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
+                                "mod": "Tue Sep 10 11:31:57 2024 -0400",
                                 "tag": "h2",
                                 "tagId": "",
-                                "path": "/assays/metadata/EnhancedSRS"
+                                "path": "/assays/metadata/AutoFluorescence"
                             },{
-                                "title": "Version 2 (current)",
-                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
+                                "title": "Version 2 (Latest)",
+                                "mod": "Tue Sep 10 11:31:57 2024 -0400",
                                 "tag": "h2",
                                 "tagId": "",
-                                "path": "/assays/metadata/EnhancedSRS"
+                                "path": "/assays/metadata/AutoFluorescence"
+                            },{
+                                "title": "Version 1",
+                                "mod": "Tue Sep 10 11:31:57 2024 -0400",
+                                "tag": "h2",
+                                "tagId": "",
+                                "path": "/assays/metadata/AutoFluorescence"
+                            },{
+                                "title": "Version 0",
+                                "mod": "Tue Sep 10 11:31:57 2024 -0400",
+                                "tag": "h2",
+                                "tagId": "",
+                                "path": "/assays/metadata/AutoFluorescence"
                             },{
                                 "title": "CODEX",
                                 "mod": "Tue Sep 10 11:31:57 2024 -0400",
@@ -2123,36 +2153,6 @@
                                 "tagId": "",
                                 "path": "/assays/metadata/CODEX"
                             },{
-                                "title": "Auto-fluorescence",
-                                "mod": "Tue Sep 10 11:31:57 2024 -0400",
-                                "tag": "h1",
-                                "tagId": "",
-                                "path": "/assays/metadata/AutoFluorescence"
-                            },{
-                                "title": "layout: default",
-                                "mod": "Tue Sep 10 11:31:57 2024 -0400",
-                                "tag": "h2",
-                                "tagId": "",
-                                "path": "/assays/metadata/AutoFluorescence"
-                            },{
-                                "title": "Version 2 (Latest)",
-                                "mod": "Tue Sep 10 11:31:57 2024 -0400",
-                                "tag": "h2",
-                                "tagId": "",
-                                "path": "/assays/metadata/AutoFluorescence"
-                            },{
-                                "title": "Version 1",
-                                "mod": "Tue Sep 10 11:31:57 2024 -0400",
-                                "tag": "h2",
-                                "tagId": "",
-                                "path": "/assays/metadata/AutoFluorescence"
-                            },{
-                                "title": "Version 0",
-                                "mod": "Tue Sep 10 11:31:57 2024 -0400",
-                                "tag": "h2",
-                                "tagId": "",
-                                "path": "/assays/metadata/AutoFluorescence"
-                            },{
                                 "title": "10X-Multiome",
                                 "mod": "Mon Sep 9 15:19:49 2024 -0400",
                                 "tag": "h1",
@@ -2170,6 +2170,18 @@
                                 "tag": "h2",
                                 "tagId": "",
                                 "path": "/assays/metadata/10XMultiome"
+                            },{
+                                "title": "ATACseq",
+                                "mod": "Tue Sep 10 11:31:57 2024 -0400",
+                                "tag": "h1",
+                                "tagId": "",
+                                "path": "/assays/metadata/ATACseq"
+                            },{
+                                "title": "layout: default",
+                                "mod": "Tue Sep 10 11:31:57 2024 -0400",
+                                "tag": "h2",
+                                "tagId": "",
+                                "path": "/assays/metadata/ATACseq"
                             },{
                                 "title": "SenNet Matrix Assisted Laser Desorption/Ionization (MALDI) Imaging Mass Spectrometry (IMS)",
                                 "mod": "Mon Sep 9 15:19:49 2024 -0400",
@@ -2248,18 +2260,6 @@
                                 "tag": "h3",
                                 "tagId": "",
                                 "path": "/assays/maldi-ims"
-                            },{
-                                "title": "ATACseq",
-                                "mod": "Tue Sep 10 11:31:57 2024 -0400",
-                                "tag": "h1",
-                                "tagId": "",
-                                "path": "/assays/metadata/ATACseq"
-                            },{
-                                "title": "layout: default",
-                                "mod": "Tue Sep 10 11:31:57 2024 -0400",
-                                "tag": "h2",
-                                "tagId": "",
-                                "path": "/assays/metadata/ATACseq"
                             },{
                                 "title": "SenNet Light Sheet Fluorescence Microscopy (UF-TMC)",
                                 "mod": "Mon Sep 9 15:19:49 2024 -0400",
@@ -3017,6 +3017,72 @@
                                 "tagId": "",
                                 "path": "/assays/atacseq"
                             },{
+                                "title": "SenNet Autofluorescence Microscopy (AF)",
+                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
+                                "tag": "h1",
+                                "tagId": "",
+                                "path": "/assays/af"
+                            },{
+                                "title": "layout: default",
+                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
+                                "tag": "h2",
+                                "tagId": "",
+                                "path": "/assays/af"
+                            },{
+                                "title": "Overview:",
+                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
+                                "tag": "h2",
+                                "tagId": "",
+                                "path": "/assays/af"
+                            },{
+                                "title": "Description:",
+                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
+                                "tag": "h2",
+                                "tagId": "",
+                                "path": "/assays/af"
+                            },{
+                                "title": "Definitions:",
+                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
+                                "tag": "h2",
+                                "tagId": "",
+                                "path": "/assays/af"
+                            },{
+                                "title": "SenNet AF Data States (Levels):",
+                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
+                                "tag": "h2",
+                                "tagId": "",
+                                "path": "/assays/af"
+                            },{
+                                "title": "SenNet Metadata:",
+                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
+                                "tag": "h2",
+                                "tagId": "",
+                                "path": "/assays/af"
+                            },{
+                                "title": "Associated Metadata files:",
+                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
+                                "tag": "h2",
+                                "tagId": "",
+                                "path": "/assays/af"
+                            },{
+                                "title": "Terms defined in this document:",
+                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
+                                "tag": "h2",
+                                "tagId": "",
+                                "path": "/assays/af"
+                            },{
+                                "title": "For Additional Help:",
+                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
+                                "tag": "h2",
+                                "tagId": "",
+                                "path": "/assays/af"
+                            },{
+                                "title": "Last Updated: 6/15/2020",
+                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
+                                "tag": "h3",
+                                "tagId": "",
+                                "path": "/assays/af"
+                            },{
                                 "title": "SenNet APIs",
                                 "mod": "Tue Aug 26 09:33:16 2025 -0400",
                                 "tag": "h1",
@@ -3106,72 +3172,6 @@
                                 "tag": "h2",
                                 "tagId": "",
                                 "path": "/apis/getting-started"
-                            },{
-                                "title": "SenNet Autofluorescence Microscopy (AF)",
-                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
-                                "tag": "h1",
-                                "tagId": "",
-                                "path": "/assays/af"
-                            },{
-                                "title": "layout: default",
-                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
-                                "tag": "h2",
-                                "tagId": "",
-                                "path": "/assays/af"
-                            },{
-                                "title": "Overview:",
-                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
-                                "tag": "h2",
-                                "tagId": "",
-                                "path": "/assays/af"
-                            },{
-                                "title": "Description:",
-                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
-                                "tag": "h2",
-                                "tagId": "",
-                                "path": "/assays/af"
-                            },{
-                                "title": "Definitions:",
-                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
-                                "tag": "h2",
-                                "tagId": "",
-                                "path": "/assays/af"
-                            },{
-                                "title": "SenNet AF Data States (Levels):",
-                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
-                                "tag": "h2",
-                                "tagId": "",
-                                "path": "/assays/af"
-                            },{
-                                "title": "SenNet Metadata:",
-                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
-                                "tag": "h2",
-                                "tagId": "",
-                                "path": "/assays/af"
-                            },{
-                                "title": "Associated Metadata files:",
-                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
-                                "tag": "h2",
-                                "tagId": "",
-                                "path": "/assays/af"
-                            },{
-                                "title": "Terms defined in this document:",
-                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
-                                "tag": "h2",
-                                "tagId": "",
-                                "path": "/assays/af"
-                            },{
-                                "title": "For Additional Help:",
-                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
-                                "tag": "h2",
-                                "tagId": "",
-                                "path": "/assays/af"
-                            },{
-                                "title": "Last Updated: 6/15/2020",
-                                "mod": "Mon Sep 9 15:19:49 2024 -0400",
-                                "tag": "h3",
-                                "tagId": "",
-                                "path": "/assays/af"
                             },{
                                 "title": "Not Found",
                                 "mod": "Mon Dec 8 17:07:12 2025 -0500",
