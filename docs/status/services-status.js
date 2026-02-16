@@ -131,6 +131,14 @@ class ServicesStatus extends HTMLElement {
     }
 
     formatServicesColumn(d, row) {
+        if (d?.mysql_connection !== undefined) {
+            d.services = [
+                {
+                    name: 'mysql',
+                    status: d.mysql_connection
+                }
+            ]
+        }
 
         if (d?.services && Array.isArray(d?.services)) {
             row.Note = '<ul class="c-status c-status__servicesList">'
