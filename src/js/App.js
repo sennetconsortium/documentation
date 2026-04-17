@@ -183,6 +183,17 @@ class App {
         document.querySelectorAll('body mdit').forEach((el) => {
             format(el)
         })
+
+        document.querySelectorAll('.c-documentation li').forEach((el) => {
+            for (const className of ['hm-only', 'sn-only']) {
+                let md = `{.${className}}`
+                if (el.firstChild.textContent.trim().includes(md)) {
+                    $(el.firstChild).parent().addClass(className)
+                    el.firstChild.textContent =
+                        el.firstChild.textContent.replace(md, '')
+                }
+            }
+        })
     }
 
     static log(title, msg, ops = {}) {
