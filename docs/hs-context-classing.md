@@ -1,6 +1,6 @@
 <meta name="robots" content="noindex">
 
-# Content Editor
+# Project specific content
 To make certain content show up in either SenNet or HuBMAP documentation site, use `sn-only` or `hm-only` css classes respectively.
 
 ## Simple Examples:
