@@ -7,7 +7,7 @@ layout: default
 
 <b>Example of how to include/exclude document page sections for based on the project (HuBMAP/SenNet) context.</b>
 
-The css styling classes `sn-only` and `hm-only` are now available in GitHub Pages the [SenNet Documentation](https://docs.sennetconsortium.org) [(Sennet Docs GitHub Repo)](https://github.com/sennetconsortium/documentation) and [HuBMAP Documentation](https://docs.hubmapconsortium.org) [(HuBMAP Docs GitHubRepo)](https://github.com/hubmapconsortium/documentation).  These classes, when specified as the styling class for an element (via HTML or markdown), will optionally display the element only in HuBMAP (`hm-only` class) or SenNet (`sn-only class).
+The css styling classes `sn-only` and `hm-only` are now available in GitHub Pages the [SenNet Documentation](https://docs.sennetconsortium.org) [(Sennet Docs GitHub Repo)](https://github.com/sennetconsortium/documentation) and [HuBMAP Documentation](https://docs.hubmapconsortium.org) [(HuBMAP Docs GitHubRepo)](https://github.com/hubmapconsortium/documentation).  These classes, when specified as the styling class for an element (via HTML or markdown), will optionally display the element only in HuBMAP (`hm-only` class) or SenNet (`sn-only class`).
 
 #### Example:
 
