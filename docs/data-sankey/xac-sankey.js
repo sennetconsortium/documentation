@@ -5,10 +5,15 @@ const initSankey = async () => {
             useShadow: true,
             isProd: true,
             styleSheetPath: '/data-sankey/xac-sankey.css',
+            propertyPluralizedDisplayNames: {
+                dataset_type_hierarchy: 'modalities',
+                dataset_type_analyte_class: 'analyte classes'
+            },
             validFilterMap: {
                 dataset_type: 'dataset_type_hierarchy',
                 status: null,
                 source_type: 'dataset_source_type',
+                analyte_class: 'dataset_type_analyte_class'
             }
         })
     )
