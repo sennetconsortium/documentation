@@ -2,7 +2,7 @@
  * sennetdocs - 
  * @version v0.1.0
  * @link https://docs.sennetconsortium.org/
- * @date Fri Jan 16 2026 11:29:34 GMT-0500 (Eastern Standard Time)
+ * @date Fri Apr 17 2026 13:42:56 GMT-0400 (Eastern Daylight Time)
  */
 var _this19 = this;
 function _wrapNativeSuper(Class) { var _cache = typeof Map === "function" ? new Map() : undefined; _wrapNativeSuper = function _wrapNativeSuper(Class) { if (Class === null || !_isNativeFunction(Class)) return Class; if (typeof Class !== "function") { throw new TypeError("Super expression must either be null or a function"); } if (typeof _cache !== "undefined") { if (_cache.has(Class)) return _cache.get(Class); _cache.set(Class, Wrapper); } function Wrapper() { return _construct(Class, arguments, _getPrototypeOf(this).constructor); } Wrapper.prototype = Object.create(Class.prototype, { constructor: { value: Wrapper, enumerable: false, writable: true, configurable: true } }); return _setPrototypeOf(Wrapper, Class); }; return _wrapNativeSuper(Class); }
@@ -9442,6 +9442,16 @@ var App = /*#__PURE__*/function () {
       document.querySelectorAll('body mdit').forEach(function (el) {
         format(el);
       });
+      document.querySelectorAll('.c-documentation li').forEach(function (el) {
+        for (var _i = 0, _arr = ['hm-only', 'sn-only']; _i < _arr.length; _i++) {
+          var className = _arr[_i];
+          var md = "{.".concat(className, "}");
+          if (el.firstChild.textContent.trim().includes(md)) {
+            $(el.firstChild).parent().addClass(className);
+            el.firstChild.textContent = el.firstChild.textContent.replace(md, '');
+          }
+        }
+      });
     }
   }, {
     key: "log",
@@ -9610,7 +9620,7 @@ var FileMeta = /*#__PURE__*/function (_App3) {
     key: "addDate",
     value: function () {
       var _addDate = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
-        var lastMod, path, p, _iterator3, _step3, d, paths, _i, _paths, _p, r;
+        var lastMod, path, p, _iterator3, _step3, d, paths, _i2, _paths, _p, r;
         return _regeneratorRuntime().wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
@@ -9665,13 +9675,13 @@ var FileMeta = /*#__PURE__*/function (_App3) {
                 if (path.split('.').pop() === path) {
                   paths = ["".concat(path, ".html"), "".concat(path, ".md")];
                 }
-                _i = 0, _paths = paths;
+                _i2 = 0, _paths = paths;
               case 29:
-                if (!(_i < _paths.length)) {
+                if (!(_i2 < _paths.length)) {
                   _context3.next = 40;
                   break;
                 }
-                _p = _paths[_i];
+                _p = _paths[_i2];
                 if (!(this.$.date.html() && this.$.date.html().length)) {
                   _context3.next = 33;
                   break;
@@ -9693,7 +9703,7 @@ var FileMeta = /*#__PURE__*/function (_App3) {
                   });
                 }
               case 37:
-                _i++;
+                _i2++;
                 _context3.next = 29;
                 break;
               case 40:
@@ -10166,8 +10176,8 @@ var Search = /*#__PURE__*/function (_App8) {
         _iterator5.f();
       }
       var html = '';
-      for (var _i2 = 0, _found = found; _i2 < _found.length; _i2++) {
-        var d = _found[_i2];
+      for (var _i3 = 0, _found = found; _i3 < _found.length; _i3++) {
+        var d = _found[_i3];
         html += "<li><a href=\"".concat(d.path, "\" title=\"").concat(d.title, " ").concat(d.path, "\">").concat(d.title, " <small>").concat(d.path, "</small></a></li>");
       }
       this.$.list.addClass('is-active');
