@@ -4,7 +4,7 @@ layout: page-triary
 
 # Tissue Sample Block Metadata Attributes
 
-The attributes shown here have been colleced for tissue Block data, available from the [HuBMAP Search and Entity APIs](/apis) at ```Sample.metadata.<attribute>```.<br />
+The attributes shown here have been colleced for tissue Block data, available from the [SenNet Search and Entity APIs](/apis) at ```Sample.metadata.<attribute>```.<br />
 These attributes are harmonized across all versions of the tissue Block metadata specifications. See the latest version of the [tissue Block Metadata Specifications](https://hubmapconsortium.github.io/ingest-validation-tools/sample-block/current/) for the schema and directory structure needed when ingesting Segmentation Mask metadata.
 &nbsp;
 

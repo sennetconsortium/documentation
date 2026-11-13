@@ -4,7 +4,7 @@ layout: page-triary
 
 # Tissue Sample Section Metadata Attributes
 
-The attributes shown here have been colleced for tissue Section data, available from the [HuBMAP Search and Entity APIs](/apis) at ```Sample.metadata.<attribute>```.<br />
+The attributes shown here have been colleced for tissue Section data, available from the [SenNet Search and Entity APIs](/apis) at ```Sample.metadata.<attribute>```.<br />
 These attributes are harmonized across all versions of the tissue Section metadata specifications. See the latest version of the [sample-section Metadata Specifications](https://hubmapconsortium.github.io/ingest-validation-tools/sample-suspension/current/) for the schema and directory structure needed when ingesting Segmentation Mask metadata.
 &nbsp;
 

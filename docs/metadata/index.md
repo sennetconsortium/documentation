@@ -1,11 +1,11 @@
 ---
 layout: page
 ---
-# HuBMAP / SenNet Metadata
+# SenNet Metadata
 The metadata specifications provided here are harmonized across all versions of each specification. When uploading and ingesting data and metadata please refer to the [HuBMAP/SenNet Data Upload Guidelines](https://hubmapconsortium.github.io/ingest-validation-tools/) for the latest assay metadata options and specifications and the [Data Submission Guide](https://docs.hubmapconsortium.org/data-submission/) for detailed directions on the data registraion and ingest process.  See section 10 of the Guide for details on transferring metadata to the HIVE.
 
 ## Source and Sample Metadata
- - [Donor](/donor)
+ - [Donor](https://docs.hubmapconsortium.org/donor)
  - [Murine](https://openview.metadatacenter.org/templates/https:%2F%2Frepo.metadatacenter.org%2Ftemplates%2F44662059-aa73-4756-a4a7-990489ca2f43)
  - **Sample Type Metadata**  There are three types of tissue samples, Block, Secition and Suspension. For more details of Sample metadata please review this [document](https://docs.google.com/document/d/1KEo-34Rjf6gS3ZM3DEenIejtb35txPLsbpdjBmbKauo/).  A DOI representing an instance of the specific metadata is available via the <img src="doi-logo-bw.png" width="14"> icon.
    - [Block](sample/sample-block) [<img src="doi-logo-bw.png" width="14">](https://docs.hubmapconsortium.org/doi-pages/sample-block "click to go to the DOI landing page")
