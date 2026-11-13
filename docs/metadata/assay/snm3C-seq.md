@@ -5,7 +5,7 @@ layout: page-triary
 # Single-nucleus methyl-3C sequencing Metadata Attributes
 
 
-The attributes shown here have been colleced for Single-nucleus methyl-3C sequencing data, available from the [HuBMAP Search and Entity APIs](/apis) at ```Dataset.metadata.<attribute>```.<br />
+The attributes shown here have been colleced for Single-nucleus methyl-3C sequencing data, available from the [SenNet Search and Entity APIs](/apis) at ```Dataset.metadata.<attribute>```.<br />
 These attributes are harmonized across all versions of the Single-nucleus methyl-3C sequencing metadata specifications. See the latest version of the [Single-nucleus methyl-3C sequencing Metadata Specifications](https://hubmapconsortium.github.io/ingest-validation-tools/snm3C-seq/current/) for the schema and directory structure needed when ingesting Segmentation Mask metadata.
 
 <span style="color:red" title="Required">*</span><span class="requiredNote"> indicates a required field</span>

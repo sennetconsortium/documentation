@@ -4,7 +4,7 @@ layout: page-triary
 
 # Visium (with probes) Metadata Attributes
 
-The attributes shown here have been colleced for Visium (with probes) data, available from the [HuBMAP Search and Entity APIs](/apis) at ```Dataset.metadata.<attribute>```.<br />
+The attributes shown here have been colleced for Visium (with probes) data, available from the [SenNet Search and Entity APIs](/apis) at ```Dataset.metadata.<attribute>```.<br />
 These attributes are harmonized across all versions of the Visium (with probes) metadata specifications. See the latest version of the [Visium (with probes) Metadata Specifications](https://hubmapconsortium.github.io/ingest-validation-tools/visium-with-probes/current/) for the schema and directory structure needed when ingesting Segmentation Mask metadata.
 &nbsp;
 

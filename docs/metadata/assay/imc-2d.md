@@ -4,7 +4,7 @@ layout: page-triary
 
 # IMC-2D Metadata Attributes
 
-The attributes shown here have been colleced for IMC-2D data, available from the [HuBMAP Search and Entity APIs](/apis) at ```Dataset.metadata.<attribute>```.<br />
+The attributes shown here have been colleced for IMC-2D data, available from the [SenNet Search and Entity APIs](/apis) at ```Dataset.metadata.<attribute>```.<br />
 These attributes are harmonized across all versions of the IMC-2D metadata specifications. See the latest version of the [IMC-2D Metadata Specifications](https://hubmapconsortium.github.io/ingest-validation-tools/imc-2d/current/) for the schema and directory structure needed when ingesting Segmentation Mask metadata.
 &nbsp;
 

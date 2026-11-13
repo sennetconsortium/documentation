@@ -4,7 +4,7 @@ layout: page-triary
 
 # FACS Metadata Attributes
 
-The attributes shown here have been colleced for FACS data, available from the [HuBMAP Search and Entity APIs](/apis) at ```Dataset.metadata.<attribute>```.<br />
+The attributes shown here have been colleced for FACS data, available from the [SenNet Search and Entity APIs](/apis) at ```Dataset.metadata.<attribute>```.<br />
 These attributes are harmonized across all versions of the FACS metadata specifications. See the latest version of the [FACS Metadata Specifications](https://hubmapconsortium.github.io/ingest-validation-tools/facs/current/) for the schema and directory structure needed when ingesting Segmentation Mask metadata.
 &nbsp;
 

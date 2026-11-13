@@ -4,7 +4,7 @@ layout: page-triary
 
 # Second Harmonic Generation Metadata Attributes
 
-The attributes shown here have been colleced for Second Harmonic Generation data, available from the [HuBMAP Search and Entity APIs](/apis) at ```Dataset.metadata.<attribute>```.<br />
+The attributes shown here have been colleced for Second Harmonic Generation data, available from the [SenNet Search and Entity APIs](/apis) at ```Dataset.metadata.<attribute>```.<br />
 These attributes are harmonized across all versions of the Second Harmonic Generation metadata specifications. See the latest version of the [Second Harmonic Generation Metadata Specifications](https://hubmapconsortium.github.io/ingest-validation-tools/second-harmonic-generation/current/) for the schema and directory structure needed when ingesting Segmentation Mask metadata.
 &nbsp;
 

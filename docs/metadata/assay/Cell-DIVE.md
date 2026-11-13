@@ -4,7 +4,7 @@ layout: page-triary
 
 # Cell DIVE Metadata Attributes
 
-The attributes shown here have been colleced for STARmap data, available from the [HuBMAP Search and Entity APIs](/apis) at ```Dataset.metadata.<attribute>```.<br />
+The attributes shown here have been colleced for STARmap data, available from the [SenNet Search and Entity APIs](/apis) at ```Dataset.metadata.<attribute>```.<br />
 These attributes are harmonized across all versions of the Cell DIVE metadata specifications. See the latest version of the [Cell DIVE Metadata Specifications](https://hubmapconsortium.github.io/ingest-validation-tools/celldive/current/) for the schema and directory structure needed when ingesting Segmentation Mask metadata.
 &nbsp;
 

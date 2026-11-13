@@ -4,7 +4,7 @@ layout: page-triary
 
 # WGS Metadata Attributes
 
-The attributes shown here have been colleced for WGS data, available from the [HuBMAP Search and Entity APIs](/apis) at ```Dataset.metadata.<attribute>```.<br />
+The attributes shown here have been colleced for WGS data, available from the [SenNet Search and Entity APIs](/apis) at ```Dataset.metadata.<attribute>```.<br />
 
 &nbsp;
 

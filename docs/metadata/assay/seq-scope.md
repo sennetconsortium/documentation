@@ -4,7 +4,7 @@ layout: page-triary
 
 # Seq-Scope Metadata Attributes
 
-The attributes shown here have been colleced for Seq-Scope data, available from the [HuBMAP Search and Entity APIs](/apis) at ```Dataset.metadata.<attribute>```.<br />
+The attributes shown here have been colleced for Seq-Scope data, available from the [SenNet Search and Entity APIs](/apis) at ```Dataset.metadata.<attribute>```.<br />
 These attributes are harmonized across all versions of the Seq-Scope metadata specifications. See the latest version of the [Seq-Scope Metadata Specifications](https://hubmapconsortium.github.io/ingest-validation-tools/seq-scope/current/) for the schema and directory structure needed when ingesting Segmentation Mask metadata.
 &nbsp;
 
