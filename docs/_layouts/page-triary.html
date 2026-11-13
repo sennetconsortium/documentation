@@ -1,0 +1,10 @@
+{% capture bodyScripts %}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="/js/alt-collapse.js"></script>
+{% endcapture %}
+
+{% capture headerTags %}
+  <link rel="stylesheet" href="/css/hm-code.css" />
+{% endcapture %}
+
+{% include page.html page_header="headers/standard.html" page_sidebar="empty.html" headEnd=headerTags  bodyClassName="altStyle" bodyEnd=bodyScripts %}

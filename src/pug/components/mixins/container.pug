@@ -1,4 +1,4 @@
 mixin container(cls='')
-    .c-container(role='main', class=cls)
+    div(class='c-container{{ include.containerClassName }}' role='main')
         if block
             block

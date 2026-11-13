@@ -1,0 +1,310 @@
+pre,
+code {
+	color: #222;
+	background-color: rgb(252, 252, 252);
+	font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
+	font-size: 14px;
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px
+}
+
+pre {
+	padding: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	overflow: auto
+}
+
+code {
+	padding: 5px 7px;
+	margin: 0 3px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	border-radius: 15px;
+	font-family: monospace;
+	color: red;
+	background: #fffceb;
+}
+
+pre code {
+	display: block;
+	box-shadow: none
+}
+
+.altStyle div.c-container {
+	max-width: 95% !important;
+}
+
+/* Keep assay names comfortably readable on the metadata index. */
+.assay-metadata-index th:first-child,
+.assay-metadata-index td:first-child {
+	width: 24%;
+	min-width: 13rem;
+}
+
+/* inline code badges inside table cells */
+.altStyle .requiredNote {
+	font-size: 0.75rem;
+	line-height: 1.36;
+	letter-spacing: 0.03333em;
+	color: #00000071;
+}
+
+.altStyle p:has(.requiredNote) {
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+.schema-type-legend {
+	width: fit-content;
+	margin: 0 0 0.65rem auto;
+	font-size: 0.75rem;
+	color: #444a65;
+}
+
+.schema-type-legend summary {
+	cursor: pointer;
+	font-weight: 600;
+	margin: 0;
+	padding: 0;
+	background: transparent;
+	color: #2a6fb8;
+}
+
+.schema-type-legend ul {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.4rem 1rem;
+	margin: 0.45rem 0 0;
+	padding: 0.55rem 0.7rem;
+	list-style: none;
+	border: 1px solid #c4c8dc;
+	border-radius: 4px;
+	background: #f7f8fc;
+}
+
+.schema-type-legend li {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.35rem;
+}
+
+.schema-type-legend .fa-solid {
+	width: 1rem;
+	text-align: center;
+}
+
+.altStyle table thead th {
+	background: linear-gradient(rgb(88, 94, 122), rgb(68, 74, 101)) !important;
+	color: #fff;
+}
+
+.altStyle table th {
+	background: linear-gradient(rgb(88, 94, 122), rgb(68, 74, 101)) !important;
+	color: #fff;
+}
+
+.altStyle .c-table {
+	border: 1px solid #444a65;
+}
+
+table.hmTable {
+	/* border: 0px 5px 5px 5px solid #fff; */
+}
+
+.hmTable td {
+	padding: 0px;
+}
+
+.altStyle table code {
+	padding: 1px 3px;
+	margin: 3px 0;
+	display: inline-block;
+	box-shadow: 0 0 2px #A5A9BE;
+	border: 1px solid #444A65;
+	border-radius: 10px;
+	font-size: 0.65rem;
+	background: linear-gradient(180deg, #c4c8dc 0%, #b9bfda 100%) !important;
+	color: #444A65;
+	text-shadow: 0 0 2px #818597A7;
+}
+
+.altStyle table code:hover {
+	border-color: #444A65;
+	background: linear-gradient(180deg, #c4c8dc 0%, #C4CAE5 100%) !important;
+	cursor: default;
+}
+
+.altStyle table span.requiredMark {
+	color: #ff0000;
+}
+
+.altStyle table.deprecated span.requiredMark {
+	color: #00000061;
+}
+
+/* Description column styling (3rd column) */
+.altStyle table td:nth-child(3) {
+	font-weight: 400;
+	font-size: 0.75rem;
+	line-height: 1.36;
+	letter-spacing: 0.03333em;
+	max-height: 150px;
+	overflow-y: auto;
+	border: 0;
+}
+
+.fa-circle-nodes {
+	transform: rotate(80deg);
+}
+
+/* codebox helpers */
+.codebox {
+	border: 1px solid black;
+	background-color: #EEEEFF;
+	width: 100%;
+	overflow: auto;
+	padding: 10px;
+	background-clip: content-box, padding-box;
+}
+
+.codebox br {
+	display: block;
+	margin: 0;
+	line-height: 0;
+}
+
+.innercodebox {
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.altDocs p {
+	margin-top: 0%;
+}
+
+
+/* Assay Metadata page Code & Table Styles  */
+/* Allowable Values measured collapse/expand */
+.av-wrapper {
+	overflow: hidden;
+	transition: max-height 420ms cubic-bezier(0.2, 0, 0, 1), opacity 220ms ease;
+}
+
+.av-wrapper.collapsed {
+	opacity: 1;
+}
+
+.av-content {
+	word-break: break-word;
+}
+
+.av-content pre {
+	white-space: pre;
+	overflow: auto;
+}
+
+.av-toggle {
+	display: inline-block;
+	margin-top: 0.35rem;
+	background: transparent;
+	border: none;
+	color: #0b62d1;
+	cursor: pointer;
+	font-size: 0.65rem;
+	text-decoration: underline;
+	padding: 0;
+	font-weight: 600;
+	font-family: 'Inter Variable', Helvetica, Arial, sans-serif;
+	margin-right: 3px;
+}
+
+.av-toggle:focus {
+	outline: 2px solid #cfe;
+}
+
+.av-inline-toggle {
+	color: #0b62d1;
+	cursor: pointer;
+	text-decoration: underline;
+	font-weight: 600;
+	font-family: 'Inter Variable', Helvetica, Arial, sans-serif;
+	font-size: inherit;
+	white-space: nowrap;
+	display: inline;
+}
+
+.av-inline-toggle:focus {
+	outline: 2px solid #cfe;
+}
+
+/* Force ...more toggles as far right as possible in their cells */
+.altStyle table td:nth-child(3) .av-inline-toggle {
+	float: right;
+	text-align: right;
+	margin-left: 10px;
+}
+
+.altStyle table td:nth-child(4) .av-toggle {
+	float: right;
+	text-align: right;
+	margin-left: 10px;
+}
+
+.altStyle table td:nth-child(4) {
+	padding-left: 8px;
+}
+
+/* Allowable Values icon toggle styles removed; text ...more/...less is active. */
+
+/* Row Specific  */
+.altStyle table th {
+	text-align: left;
+}
+
+.altStyle table td:nth-child(1) {
+	font-family: monospace;
+	font-size: 0.75em;
+	color: #444A65;
+	padding-left: 0.2rem;
+	vertical-align: middle;
+}
+
+.altStyle table td:nth-child(2) {
+	text-align: center;
+	color: #00000061;
+}
+
+.altStyle table td:nth-child(2) i:hover {
+	color: #00000091;
+}
+
+/* Ensure table cells allow the wrapper to control overflow for Description and Allowable Values */
+.altStyle table td:nth-child(3),
+.altStyle table td:nth-child(4) {
+	max-height: none;
+	overflow: visible;
+}
+
+/* Bias natural table sizing toward Description over Allowable Values */
+.altStyle table th:nth-child(3),
+.altStyle table td:nth-child(3) {
+	width: 45%;
+	min-width: 24rem;
+}
+
+.altStyle table th:nth-child(4),
+.altStyle table td:nth-child(4) {
+	width: 30%;
+	max-width: 34%;
+	min-width: 200px;
+	overflow-wrap: anywhere;
+	word-break: break-word;
+	padding-right: 0.5rem;
+}
+
+
+@media (min-width: 1131px) {
+	.c-header__main {
+		max-width: 87% !important;
+	}
+}

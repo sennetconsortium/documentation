@@ -15,9 +15,11 @@ header.c-header.navbar.navbar-expand-lg(role='navigation')
             span.navbar-toggler-icon
         .c-header__menu#js-header__menu.collapse.navbar-collapse
             ul.navbar-nav.mr-auto
-                each item in _m.menu
-                    li(class=`nav-item${item.class ? ' '+item.class : ''}`)
-                        a.nav-link(href=item.href)=item.name
+                | {% include {{ include.content_to_render }} %}
+
+                //- each item in _m.menu
+                //-     li(class=`nav-item${item.class ? ' '+item.class : ''}`)
+                //-         a.nav-link(href=item.href)=item.name
 
             .c-header__search.js-app--search
                 form

@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="/css/prism.css"/>
     <script src="/js/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="/js/prism.js"></script>
+    <script type="text/javascript" src="/js/prism.js"></script>{{ include.headEnd }}
     <!-- This html file was auto generated and should not be edited.-->
     <title>SenNet Services Status</title>
     <link rel="stylesheet" href="https://cdn.datatables.net/2.3.1/css/dataTables.dataTables.min.css">
@@ -47,13 +47,7 @@
       <div class="c-header__main"><a class="c-header__logo navbar-brand" href="/"><img src="/logo192.png" alt="SenNet Documentation"><span class="c-header__sm">SenNet</span></a>
         <button class="navbar-toggler" aria-label="Toggle navigation" aria-expanded="false" aria-controls="js-header__menu" data-target="#js-header__menu" data-toggle="collapse" type="button"><span class="navbar-toggler-icon"></span></button>
         <div class="c-header__menu collapse navbar-collapse" id="js-header__menu">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item h2 lg"><a class="nav-link" href="/">SenNet</a></li>
-            <li class="nav-item"><a class="nav-link" href="/registration">Entity Registration</a></li>
-            <li class="nav-item"><a class="nav-link" href="/apis">APIs</a></li>
-            <li class="nav-item"><a class="nav-link" href="/libraries">Libraries</a></li>
-            <li class="nav-item"><a class="nav-link" href="/data-submission">Data Submission Guide</a></li>
-          </ul>
+          <ul class="navbar-nav mr-auto">{% include {{ include.content_to_render }} %}</ul>
           <div class="c-header__search js-app--search">
             <form>
               <input class="is-hidden" id="js-searchInput" type="search" placeholder="Search" aria-label="Search">
@@ -64,7 +58,7 @@
         </div>
       </div>
     </header>
-    <div class="c-container c-container--noSideBar" role="main">
+    <div class="c-container{{ include.containerClassName }}" role="main">
       <h1>Services</h1>
       <p>SenNet is powered by a number of APIs. The SenNet Portal software also has a number of dependencies.</p>
       <services-status></services-status>

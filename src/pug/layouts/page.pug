@@ -3,6 +3,7 @@ include ../components/mixins/gtmNoScript
 doctype html
 html(lang="{{ site.lang | default: 'en-US' }}")
     +head(true)
-    body(data-js-gtm)
+    body(data-js-gtm class="{{ include.bodyClassName }}")
         +gtmNoScript
         include ../components/layout/template/default
+        | {{ include.bodyEnd}}

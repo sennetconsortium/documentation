@@ -52,14 +52,14 @@ const locals = {
 
 function html() {
     return gulp
-        .src(['./src/pug/layouts/*.pug'])
+        .src(['./src/pug/layouts/**/*.pug'])
         .pipe(
             pug({
                 pretty: true,
                 locals
             })
         )
-        .pipe(gulp.dest('docs/_layouts/'))
+        .pipe(gulp.dest('docs/_includes/'))
 }
 
 gulp.task('html-layouts', html)
