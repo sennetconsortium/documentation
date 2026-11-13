@@ -1,5 +1,13 @@
-.altStyle div.c-container {
+.altStyle .c-container, .altStyle .c-header__main {
 	max-width: 95% !important;
+}
+
+.altStyle .c-header__main {
+	width: 100%;
+}
+
+.altStyle .c-header__search {
+	right: 0;
 }
 
 /* Keep assay names comfortably readable on the metadata index. */
