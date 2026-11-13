@@ -103,25 +103,28 @@ class Sidebar extends App {
             let n1 = Number(node[1])
             let n2 = Number(top.tag[1])
             const label = $(el).text()
-            let id = $(el).attr('id') || this.toId(label)
-            let pack = {tag: node, id, label, c: [], idx }
-            if (n1 > n2) {
-                pack.p = top
-                top.c.push(pack)
-                stack.push(pack)
-            }
-            else if (n1 === n2) {
-                pack.p = top.p
-                top.p.c.push(pack)
-                stack.push(pack)
-            } else {
-                while (n1 < n2) {
-                    stack.pop()
-                    top = stack[stack.length - 1]
-                    n2 = Number(top.tag[1])
+            if (label) {
+                let id = $(el).attr('id') || this.toId(label)
+                let pack = {tag: node, id, label, c: [], idx }
+                if (n1 > n2) {
+                    pack.p = top
+                    top.c.push(pack)
+                    stack.push(pack)
                 }
-                traverse(node, el, idx)
+                else if (n1 === n2) {
+                    pack.p = top.p
+                    top.p.c.push(pack)
+                    stack.push(pack)
+                } else {
+                    while (n1 < n2) {
+                        stack.pop()
+                        top = stack[stack.length - 1]
+                        n2 = Number(top.tag[1])
+                    }
+                    traverse(node, el, idx)
+                }
             }
+            
         }
 
         this.$.hs.each((i, el)=> {

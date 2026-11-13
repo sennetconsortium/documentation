@@ -2,7 +2,7 @@
  * sennetdocs - 
  * @version v0.1.0
  * @link https://docs.sennetconsortium.org/
- * @date Fri Apr 17 2026 13:42:56 GMT-0400 (Eastern Daylight Time)
+ * @date Fri Nov 13 2026 13:37:31 GMT-0500 (Eastern Standard Time)
  */
 var _this19 = this;
 function _wrapNativeSuper(Class) { var _cache = typeof Map === "function" ? new Map() : undefined; _wrapNativeSuper = function _wrapNativeSuper(Class) { if (Class === null || !_isNativeFunction(Class)) return Class; if (typeof Class !== "function") { throw new TypeError("Super expression must either be null or a function"); } if (typeof _cache !== "undefined") { if (_cache.has(Class)) return _cache.get(Class); _cache.set(Class, Wrapper); } function Wrapper() { return _construct(Class, arguments, _getPrototypeOf(this).constructor); } Wrapper.prototype = Object.create(Class.prototype, { constructor: { value: Wrapper, enumerable: false, writable: true, configurable: true } }); return _setPrototypeOf(Wrapper, Class); }; return _wrapNativeSuper(Class); }
@@ -10346,29 +10346,31 @@ var Sidebar = /*#__PURE__*/function (_App9) {
         var n1 = Number(node[1]);
         var n2 = Number(top.tag[1]);
         var label = $(el).text();
-        var id = $(el).attr('id') || _this18.toId(label);
-        var pack = {
-          tag: node,
-          id: id,
-          label: label,
-          c: [],
-          idx: idx
-        };
-        if (n1 > n2) {
-          pack.p = top;
-          top.c.push(pack);
-          stack.push(pack);
-        } else if (n1 === n2) {
-          pack.p = top.p;
-          top.p.c.push(pack);
-          stack.push(pack);
-        } else {
-          while (n1 < n2) {
-            stack.pop();
-            top = stack[stack.length - 1];
-            n2 = Number(top.tag[1]);
+        if (label) {
+          var id = $(el).attr('id') || _this18.toId(label);
+          var pack = {
+            tag: node,
+            id: id,
+            label: label,
+            c: [],
+            idx: idx
+          };
+          if (n1 > n2) {
+            pack.p = top;
+            top.c.push(pack);
+            stack.push(pack);
+          } else if (n1 === n2) {
+            pack.p = top.p;
+            top.p.c.push(pack);
+            stack.push(pack);
+          } else {
+            while (n1 < n2) {
+              stack.pop();
+              top = stack[stack.length - 1];
+              n2 = Number(top.tag[1]);
+            }
+            traverse(node, el, idx);
           }
-          traverse(node, el, idx);
         }
       };
       this.$.hs.each(function (i, el) {
