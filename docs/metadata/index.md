@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 ---
 # SenNet Metadata
 The metadata specifications provided here are harmonized across all versions of each specification. When uploading and ingesting data and metadata please refer to the [HuBMAP/SenNet Data Upload Guidelines](https://hubmapconsortium.github.io/ingest-validation-tools/) for the latest assay metadata options and specifications and the [Data Submission Guide](https://docs.hubmapconsortium.org/data-submission/) for detailed directions on the data registraion and ingest process.  See section 10 of the Guide for details on transferring metadata to the HIVE.
