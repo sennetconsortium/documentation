@@ -4,7 +4,7 @@ layout: page-triary
 
 # DNA Methylation Metadata Attributes
 
-The attributes shown here have been colleced for DNA Methylation data, available from the [HuBMAP Search and Entity APIs](/apis) at ```Dataset.metadata.<attribute>```.<br />
+The attributes shown here have been colleced for DNA Methylation data, available from the [SenNet Search and Entity APIs](/apis) at ```Dataset.metadata.<attribute>```.<br />
 These attributes are harmonized across all versions of the DNA Methylation metadata specifications. See the latest version of the [DNA Methylation Metadata Specifications](https://hubmapconsortium.github.io/ingest-validation-tools/dna-methylation/current/) for the schema and directory structure needed when ingesting Segmentation Mask metadata.
 &nbsp;
 

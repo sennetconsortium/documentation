@@ -5,7 +5,7 @@ layout: page-triary
 # 3D Imaging Mass Cytometry Metadata Attributes
 
 These metadata fields have been collected for 3D Imaging Mass Cytometry data.<br />
-These fields are available from the [HuBMAP Search and Entity APIs](/apis) at ```Dataset.metadata.<attribute>```.<br />
+These fields are available from the [SenNet Search and Entity APIs](/apis) at ```Dataset.metadata.<attribute>```.<br />
 &nbsp;
 
 <span style="color:red" title="Required">*</span><span class="requiredNote"> indicates a required field</span>

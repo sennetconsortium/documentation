@@ -4,7 +4,7 @@ layout: page-triary
 
 # Slide-seq Metadata Attributes
 
-The attributes shown here have been colleced for Slide-seq data, available from the [HuBMAP Search and Entity APIs](/apis) at ```Dataset.metadata.<attribute>```.<br />
+The attributes shown here have been colleced for Slide-seq data, available from the [SenNet Search and Entity APIs](/apis) at ```Dataset.metadata.<attribute>```.<br />
 &nbsp;
 
 <span style="color:red" title="Required">*</span><span class="requiredNote"> indicates a required field</span>

@@ -4,7 +4,7 @@ layout: page-triary
 
 # CyCIF Metadata Attributes
 
-The attributes shown here have been colleced for CyCIF data, available from the [HuBMAP Search and Entity APIs](/apis) at ```Dataset.metadata.<attribute>```.<br />
+The attributes shown here have been colleced for CyCIF data, available from the [SenNet Search and Entity APIs](/apis) at ```Dataset.metadata.<attribute>```.<br />
 These attributes are harmonized across all versions of the CyCIF metadata specifications. See the latest version of the [CyCIF Metadata Specifications](https://hubmapconsortium.github.io/ingest-validation-tools/cycif/current/) for the schema and directory structure needed when ingesting Segmentation Mask metadata.
 &nbsp;
 

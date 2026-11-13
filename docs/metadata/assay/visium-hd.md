@@ -4,7 +4,7 @@ layout: page-triary
 
 # Visium HD Metadata Attributes
 
-The attributes shown here have been colleced for Visium HD data, available from the [HuBMAP Search and Entity APIs](/apis) at ```Dataset.metadata.<attribute>```.<br />
+The attributes shown here have been colleced for Visium HD data, available from the [SenNet Search and Entity APIs](/apis) at ```Dataset.metadata.<attribute>```.<br />
 These attributes are harmonized across all versions of the Visium HD metadata specifications. See the latest version of the [Visium HD Metadata Specifications](https://hubmapconsortium.github.io/ingest-validation-tools/visium-hd/current/) for the schema and directory structure needed when ingesting Segmentation Mask metadata.
 &nbsp;
 

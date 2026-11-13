@@ -4,7 +4,7 @@ layout: page-triary
 
 # 10X-Multiome Metadata Attributes
 
-The attributes shown here have been colleced for 10X-Multiome data, available from the [HuBMAP Search and Entity APIs](/apis) at ```Dataset.metadata.<attribute>```.<br />
+The attributes shown here have been colleced for 10X-Multiome data, available from the [SenNet Search and Entity APIs](/apis) at ```Dataset.metadata.<attribute>```.<br />
 These attributes are harmonized across all versions of the 10X-Multiome metadata specifications. See the latest version of the [10X-Multiome Metadata Specifications](https://hubmapconsortium.github.io/ingest-validation-tools/10x-multiome/current/) for the schema and directory structure needed when ingesting Segmentation Mask metadata.
 &nbsp;
 

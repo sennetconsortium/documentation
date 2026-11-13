@@ -4,7 +4,7 @@ layout: page-triary
 
 # Enhanced SRS Metadata Attributes
 
-The attributes shown here have been colleced for Enhanced SRS data, available from the [HuBMAP Search and Entity APIs](/apis) at ```Dataset.metadata.<attribute>```.<br />
+The attributes shown here have been colleced for Enhanced SRS data, available from the [SenNet Search and Entity APIs](/apis) at ```Dataset.metadata.<attribute>```.<br />
 These attributes are harmonized across all versions of the Enhanced SRS metadata specifications. See the latest version of the [Enhanced SRS Metadata Specifications](https://hubmapconsortium.github.io/ingest-validation-tools/enhanced-srs/current/) for the schema and directory structure needed when ingesting Segmentation Mask metadata.
 &nbsp;
 
