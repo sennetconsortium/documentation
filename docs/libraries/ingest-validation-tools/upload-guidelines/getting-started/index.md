@@ -20,7 +20,6 @@ For detailed instructions, see the [SenNet Data Submission Guide](/data-submissi
 8. [Respond to validation and processing results](#step-8-ingest)
 9. [Review and approve your datasets for publication](#step-9-approval)
 
-**Other sections:** [Making Your Data Findable and Reusable](#findability-and-reuse) | [Key Concepts and Definitions](#key-concepts) | [Additional Resources](#additional-resources) | [Need Help?](#need-help)
 
 ## Data Submission Checklist
 
